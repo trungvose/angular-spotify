@@ -18,12 +18,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "YWQ3NzA5OGItOGEwNS00M2VlLWI0ZjUtNDUwMDdmZmE4YjExfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -36,9 +31,7 @@
     },
     "angular-spotify-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "angular-spotify"
-      ]
+      "implicitDependencies": ["angular-spotify"]
     }
   }
 }

@@ -47,10 +47,7 @@
             "polyfills": "apps/angular-spotify/src/polyfills.ts",
             "tsConfig": "apps/angular-spotify/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/angular-spotify/src/favicon.ico",
-              "apps/angular-spotify/src/assets"
-            ],
+            "assets": ["apps/angular-spotify/src/favicon.ico", "apps/angular-spotify/src/assets"],
             "styles": ["apps/angular-spotify/src/styles.scss"],
             "scripts": []
           },
