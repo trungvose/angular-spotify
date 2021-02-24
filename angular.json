@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/angular-spotify",
       "sourceRoot": "apps/angular-spotify/src",
-      "prefix": "angular-spotify",
+      "prefix": "as",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
