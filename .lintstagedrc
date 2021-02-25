@@ -1,5 +1,5 @@
 {
-  "*.{js,css,scss,md,ts,html}": [
+  "*.{js,css,scss,ts,html}": [
     "eslint --cache",
     "npm run format"
   ]

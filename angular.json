@@ -25,7 +25,8 @@
     "@nrwl/angular:library": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     },
     "@nrwl/angular:component": {
       "style": "scss"
@@ -139,6 +140,50 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "web-shell": {
+      "projectType": "library",
+      "root": "libs/web/shell",
+      "sourceRoot": "libs/web/shell/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shell/src/**/*.ts", "libs/web/shell/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell"],
+          "options": {
+            "jestConfig": "libs/web/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-layout": {
+      "projectType": "library",
+      "root": "libs/web/layout",
+      "sourceRoot": "libs/web/layout/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/layout/src/**/*.ts", "libs/web/layout/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/layout"],
+          "options": {
+            "jestConfig": "libs/web/layout/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

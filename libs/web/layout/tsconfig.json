@@ -1,8 +1,16 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
-    "types": [],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -11,6 +19,5 @@
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictTemplates": true
-  },
-  "files": ["src/main.ts", "src/polyfills.ts"]
+  }
 }

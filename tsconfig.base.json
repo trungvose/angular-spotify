@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
+      "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
