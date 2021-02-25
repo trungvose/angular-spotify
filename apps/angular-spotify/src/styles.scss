@@ -1,1 +1,12 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  min-height: 768px;
+  min-width: 600px;
+  line-height: 20px;
+  letter-spacing: .015em;
+  @apply h-full w-full absolute overflow-hidden flex flex-col text-gray-600;
+}

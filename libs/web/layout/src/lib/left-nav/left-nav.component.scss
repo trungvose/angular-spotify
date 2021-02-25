@@ -1,0 +1,5 @@
+:host {
+  grid-area: nav-bar;
+  z-index: 3;
+  @apply w-leftNav pt-6 bg-black;
+}
