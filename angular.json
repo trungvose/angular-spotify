@@ -37,7 +37,7 @@
       "projectType": "application",
       "root": "apps/angular-spotify",
       "sourceRoot": "apps/angular-spotify/src",
-      "prefix": "as",
+      "prefix": "angular-spotify",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -186,6 +186,31 @@
           "outputs": ["coverage/libs/web/layout"],
           "options": {
             "jestConfig": "libs/web/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-nav-bar": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/nav-bar",
+      "sourceRoot": "libs/web/shared/ui/nav-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/nav-bar/src/**/*.ts",
+              "libs/web/shared/ui/nav-bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/nav-bar"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/nav-bar/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
-      "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"]
+      "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"],
+      "@angular-spotify/web/shared/ui/nav-bar": ["libs/web/shared/ui/nav-bar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
