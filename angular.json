@@ -215,6 +215,40 @@
           }
         }
       }
+    },
+    "web-shared-data-access-ui-store": {
+      "root": "libs/web/shared/data-access/ui-store",
+      "sourceRoot": "libs/web/shared/data-access/ui-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/ui-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/data-access/ui-store"],
+          "options": {
+            "jestConfig": "libs/web/shared/data-access/ui-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-data-access-models": {
+      "root": "libs/web/shared/data-access/models",
+      "sourceRoot": "libs/web/shared/data-access/models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
+          }
+        }
+      }
     }
   }
 }

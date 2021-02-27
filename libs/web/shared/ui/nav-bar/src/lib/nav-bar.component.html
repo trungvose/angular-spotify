@@ -2,6 +2,14 @@
   <ng-container [ngTemplateOutlet]="logoTmpl"></ng-container>
 </a>
 
+<ul class="nav-bar-top">
+  <li *ngFor="let item of navItems$ | async" class="px-2 nav-link-container">
+    <a [routerLink]="item.path" class="flex px-4 nav-link link-subtle">
+      {{ item.label }}
+    </a>
+  </li>
+</ul>
+
 <ng-template #logoTmpl>
   <svg viewBox="0 0 1134 340" class="h-10">
     <title>Angular Spotify</title>

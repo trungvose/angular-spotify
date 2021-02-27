@@ -25,6 +25,8 @@
     "angular-spotify-e2e": { "tags": [], "implicitDependencies": ["angular-spotify"] },
     "web-shell": { "tags": [] },
     "web-layout": { "tags": [] },
-    "web-shared-ui-nav-bar": { "tags": [] }
+    "web-shared-ui-nav-bar": { "tags": [] },
+    "web-shared-data-access-models": { "tags": [] },
+    "web-shared-data-access-ui-store": { "tags": [] }
   }
 }
