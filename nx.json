@@ -1,0 +1,32 @@
+{
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "angular-spotify",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "YWQ3NzA5OGItOGEwNS00M2VlLWI0ZjUtNDUwMDdmZmE4YjExfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "angular-spotify": { "tags": [] },
+    "angular-spotify-e2e": { "tags": [], "implicitDependencies": ["angular-spotify"] },
+    "web-shell": { "tags": [] },
+    "web-layout": { "tags": [] },
+    "web-shared-ui-nav-bar": { "tags": [] },
+    "web-shared-data-access-models": { "tags": [] },
+    "web-shared-data-access-ui-store": { "tags": [] }
+  }
+}

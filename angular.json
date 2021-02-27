@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "angular-spotify",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "angular-spotify": {
+      "projectType": "application",
+      "root": "apps/angular-spotify",
+      "sourceRoot": "apps/angular-spotify/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-spotify",
+            "index": "apps/angular-spotify/src/index.html",
+            "main": "apps/angular-spotify/src/main.ts",
+            "polyfills": "apps/angular-spotify/src/polyfills.ts",
+            "tsConfig": "apps/angular-spotify/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/angular-spotify/src/favicon.ico", "apps/angular-spotify/src/assets"],
+            "styles": ["apps/angular-spotify/src/styles.scss"],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-spotify/src/environments/environment.ts",
+                  "with": "apps/angular-spotify/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "angular-spotify:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-spotify:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-spotify:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/angular-spotify/src/**/*.ts",
+              "apps/angular-spotify/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/angular-spotify"],
+          "options": {
+            "jestConfig": "apps/angular-spotify/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-spotify-e2e": {
+      "root": "apps/angular-spotify-e2e",
+      "sourceRoot": "apps/angular-spotify-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-spotify-e2e/cypress.json",
+            "tsConfig": "apps/angular-spotify-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-spotify:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-spotify:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "web-shell": {
+      "projectType": "library",
+      "root": "libs/web/shell",
+      "sourceRoot": "libs/web/shell/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shell/src/**/*.ts", "libs/web/shell/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell"],
+          "options": {
+            "jestConfig": "libs/web/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-layout": {
+      "projectType": "library",
+      "root": "libs/web/layout",
+      "sourceRoot": "libs/web/layout/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/layout/src/**/*.ts", "libs/web/layout/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/layout"],
+          "options": {
+            "jestConfig": "libs/web/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-nav-bar": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/nav-bar",
+      "sourceRoot": "libs/web/shared/ui/nav-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/nav-bar/src/**/*.ts",
+              "libs/web/shared/ui/nav-bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/nav-bar"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/nav-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-data-access-ui-store": {
+      "root": "libs/web/shared/data-access/ui-store",
+      "sourceRoot": "libs/web/shared/data-access/ui-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/ui-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/data-access/ui-store"],
+          "options": {
+            "jestConfig": "libs/web/shared/data-access/ui-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-data-access-models": {
+      "root": "libs/web/shared/data-access/models",
+      "sourceRoot": "libs/web/shared/data-access/models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
+          }
+        }
+      }
+    }
+  }
+}

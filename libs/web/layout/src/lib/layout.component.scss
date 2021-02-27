@@ -1,0 +1,12 @@
+:host {
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'nav-bar         main-view      '
+    'now-playing-bar now-playing-bar';
+}

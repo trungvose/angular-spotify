@@ -1,0 +1,6 @@
+:host {
+  @apply w-full h-full;
+  z-index: 0;
+  position: relative;
+  isolation: isolate;
+}
