@@ -8,5 +8,10 @@
   .nav-link {
     border-radius: 4px;
     height: 40px;
+    &.active {
+      @apply text-white;
+      background-color: #282828;
+      font-weight: 600;
+    }
   }
 }
