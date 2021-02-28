@@ -8,4 +8,4 @@ import { RouterModule } from '@angular/router';
   declarations: [NavBarComponent],
   exports: [NavBarComponent]
 })
-export class WebSharedUiNavBarModule {}
+export class NavBarModule {}

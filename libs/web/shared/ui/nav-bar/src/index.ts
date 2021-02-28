@@ -1,1 +1,1 @@
-export * from './lib/web-shared-ui-nav-bar.module';
+export * from './lib/nav-bar.module';

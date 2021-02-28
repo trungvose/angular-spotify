@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
-import { WebSharedUiNavBarModule } from '@angular-spotify/web/shared/ui/nav-bar';
+import { NavBarModule } from '@angular-spotify/web/shared/ui/nav-bar';
 @NgModule({
-  imports: [CommonModule, RouterModule, WebSharedUiNavBarModule],
+  imports: [CommonModule, RouterModule, NavBarModule],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]
 })
