@@ -254,7 +254,7 @@
       "projectType": "library",
       "root": "libs/web/shared/ui/nav-bar-playlist",
       "sourceRoot": "libs/web/shared/ui/nav-bar-playlist/src",
-      "prefix": "angular-spotify",
+      "prefix": "as",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -270,6 +270,31 @@
           "outputs": ["coverage/libs/web/shared/ui/nav-bar-playlist"],
           "options": {
             "jestConfig": "libs/web/shared/ui/nav-bar-playlist/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-top-bar": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/top-bar",
+      "sourceRoot": "libs/web/shared/ui/top-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/top-bar/src/**/*.ts",
+              "libs/web/shared/ui/top-bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/top-bar"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/top-bar/jest.config.js",
             "passWithNoTests": true
           }
         }
