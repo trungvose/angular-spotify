@@ -4,9 +4,9 @@ import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
 import { NavBarModule } from '@angular-spotify/web/shared/ui/nav-bar';
 import { TopBarModule } from '@angular-spotify/web/shared/ui/top-bar';
-
+import { MainViewModule } from '@angular-spotify/web/shared/ui/main-view';
 @NgModule({
-  imports: [CommonModule, RouterModule, NavBarModule, TopBarModule],
+  imports: [CommonModule, RouterModule, NavBarModule, TopBarModule, MainViewModule],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]
 })

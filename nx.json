@@ -29,6 +29,7 @@
     "web-shared-data-access-models": { "tags": [] },
     "web-shared-data-access-ui-store": { "tags": [] },
     "web-shared-ui-nav-bar-playlist": { "tags": [] },
-    "web-shared-ui-top-bar": { "tags": [] }
+    "web-shared-ui-top-bar": { "tags": [] },
+    "web-shared-ui-main-view": { "tags": [] }
   }
 }

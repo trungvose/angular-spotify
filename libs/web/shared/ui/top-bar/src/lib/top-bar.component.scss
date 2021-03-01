@@ -3,7 +3,7 @@ $size: 32px;
 
 :host {
   grid-area: main-view;
-  @apply px-8 py-4 flex justify-between;
+  @apply px-8 py-4 flex justify-between items-center h-topBar;
 }
 
 .arrow-button {

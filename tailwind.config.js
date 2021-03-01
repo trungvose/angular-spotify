@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       width: {
         navBar: '232px',
+      },
+      height: {
         topBar: '60px'
       }
     }
