@@ -4,6 +4,7 @@ module.exports = {
     '<rootDir>/libs/web/shell',
     '<rootDir>/libs/web/layout',
     '<rootDir>/libs/web/shared/ui/nav-bar',
-    '<rootDir>/libs/web/shared/data-access/ui-store'
+    '<rootDir>/libs/web/shared/data-access/ui-store',
+    '<rootDir>/libs/web/shared/ui/nav-bar-playlist'
   ]
 };

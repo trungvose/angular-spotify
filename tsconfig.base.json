@@ -23,6 +23,9 @@
       ],
       "@angular-spotify/web/shared/data-access/ui-store": [
         "libs/web/shared/data-access/ui-store/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/nav-bar-playlist": [
+        "libs/web/shared/ui/nav-bar-playlist/src/index.ts"
       ]
     }
   },
