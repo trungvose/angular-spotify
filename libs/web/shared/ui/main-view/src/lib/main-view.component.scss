@@ -10,9 +10,8 @@
     to(#121212)
   );
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), #121212);
-  //background-color: rgb(19, 19, 19);
-  -webkit-transition: background 1s ease;
   transition: background 1s ease;
+  @apply flex flex-col;
 }
 
 .sticky-top-scroll {
@@ -23,4 +22,5 @@
 
 .main-view {
   scroll-behavior: smooth;
+  @apply flex flex-col flex-1;
 }
