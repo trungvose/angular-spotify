@@ -7,6 +7,7 @@ module.exports = {
     '<rootDir>/libs/web/shared/data-access/ui-store',
     '<rootDir>/libs/web/shared/ui/nav-bar-playlist',
     '<rootDir>/libs/web/shared/ui/top-bar',
-    '<rootDir>/libs/web/shared/ui/main-view'
+    '<rootDir>/libs/web/shared/ui/main-view',
+    '<rootDir>/libs/web/auth//data-access'
   ]
 };

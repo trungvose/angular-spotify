@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AuthService } from '@angular-spotify/web/auth/data-access';
 
 @Component({
   selector: 'as-layout',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  constructor(private authService: AuthService) {}
+}

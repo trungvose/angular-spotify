@@ -28,7 +28,8 @@
         "libs/web/shared/ui/nav-bar-playlist/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/top-bar": ["libs/web/shared/ui/top-bar/src/index.ts"],
-      "@angular-spotify/web/shared/ui/main-view": ["libs/web/shared/ui/main-view/src/index.ts"]
+      "@angular-spotify/web/shared/ui/main-view": ["libs/web/shared/ui/main-view/src/index.ts"],
+      "@angular-spotify/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

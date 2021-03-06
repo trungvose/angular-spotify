@@ -324,6 +324,27 @@
           }
         }
       }
+    },
+    "web-auth--data-access": {
+      "root": "libs/web/auth//data-access",
+      "sourceRoot": "libs/web/auth/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/auth//data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/auth/data-access"],
+          "options": {
+            "jestConfig": "libs/web/auth/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
