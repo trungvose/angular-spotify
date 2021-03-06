@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { filter, map, tap } from 'rxjs/operators';
-import { SpotifyAuthorize } from './spotifyAuthorize';
+import { SpotifyAuthorize } from '../models/spotify-authorize';
 
 export interface AuthState {
   accessToken: string | null;
