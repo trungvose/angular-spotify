@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'web-auth--data-access',
+  displayName: 'web-auth-data-access',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {

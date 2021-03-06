@@ -325,7 +325,7 @@
         }
       }
     },
-    "web-auth--data-access": {
+    "web-auth-data-access": {
       "root": "libs/web/auth//data-access",
       "sourceRoot": "libs/web/auth/data-access/src",
       "projectType": "library",

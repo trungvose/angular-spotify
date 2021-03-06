@@ -8,6 +8,7 @@ module.exports = {
     '<rootDir>/libs/web/shared/ui/nav-bar-playlist',
     '<rootDir>/libs/web/shared/ui/top-bar',
     '<rootDir>/libs/web/shared/ui/main-view',
-    '<rootDir>/libs/web/auth//data-access'
+    '<rootDir>/libs/web/auth//data-access',
+    '<rootDir>/libs/shared/data-access/spotify-api'
   ]
 };
