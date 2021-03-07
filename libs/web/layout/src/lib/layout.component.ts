@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AuthService } from '@angular-spotify/web/auth/data-access';
+import { AuthService } from '@angular-spotify/web/shared/data-access/auth';
 
 @Component({
   selector: 'as-layout',

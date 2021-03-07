@@ -29,7 +29,7 @@ export class SpotifyAuthorize {
       client_id: this.CLIENT_ID,
       redirect_uri: `${window.location.origin}/`,
       scope: encodeURIComponent(this.SCOPES.join(' ')),
-      response_type: 'token',
+      response_type: 'token'
     });
     return `${this.SPOTIFY_AUTHORIZE_URL}?${params.toString()}`;
   }

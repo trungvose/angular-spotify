@@ -29,7 +29,10 @@
       ],
       "@angular-spotify/web/shared/ui/top-bar": ["libs/web/shared/ui/top-bar/src/index.ts"],
       "@angular-spotify/web/shared/ui/main-view": ["libs/web/shared/ui/main-view/src/index.ts"],
-      "@angular-spotify/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"]
+      "@angular-spotify/web/shared/data-access/spotify-api": [
+        "libs/web/shared/data-access/spotify-api/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/data-access/auth": ["libs/web/shared/data-access/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

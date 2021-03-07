@@ -13,6 +13,8 @@ export interface AuthState {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends ComponentStore<AuthState> {
+  readonly token$ = this.select((s) => s.accessToken).pipe(filter((token) => !!token));
+
   constructor(private router: Router, private route: ActivatedRoute) {
     super({
       accessToken: '',
@@ -25,21 +27,23 @@ export class AuthService extends ComponentStore<AuthState> {
       this.redirectToAuthorize();
     }
 
-    this.route.fragment.pipe(
-      filter((fragment) => !!fragment),
-      map((fragment) => new URLSearchParams(fragment)),
-      map((params) => ({
-        accessToken: params.get('access_token'),
-        tokenType: params.get('token_type'),
-        expiresIn: Number(params.get('expires_in')),
-        state: params.get('state')
-      })),
-      tap((state) => {
-        this.setState(state);
-        console.info('spotify authenticated')
-        this.router.navigate([]);
-      }),
-    ).subscribe();
+    this.route.fragment
+      .pipe(
+        filter((fragment) => !!fragment),
+        map((fragment) => new URLSearchParams(fragment)),
+        map((params) => ({
+          accessToken: params.get('access_token'),
+          tokenType: params.get('token_type'),
+          expiresIn: Number(params.get('expires_in')),
+          state: params.get('state')
+        })),
+        tap((state) => {
+          this.setState(state);
+          console.info('spotify authenticated');
+          this.router.navigate([]);
+        })
+      )
+      .subscribe();
   }
 
   redirectToAuthorize() {

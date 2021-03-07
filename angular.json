@@ -325,15 +325,36 @@
         }
       }
     },
-    "web-auth-data-access": {
-      "root": "libs/web/auth//data-access",
+    "web-shared-data-access-spotify-api": {
+      "root": "libs/web/shared/data-access/spotify-api",
+      "sourceRoot": "libs/web/shared/data-access/spotify-api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+          "options": {
+            "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-data-access-auth": {
+      "root": "libs/web/shared/data-access/auth",
       "sourceRoot": "libs/web/auth/data-access/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/auth//data-access/**/*.ts"]
+            "lintFilePatterns": ["libs/web/shared/data-access/auth/**/*.ts"]
           }
         },
         "test": {
