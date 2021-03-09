@@ -1,10 +1,8 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import { AppConfig } from '@angular-spotify/web/shared/app-config';
 
-export const environment = {
+export const environment: AppConfig = {
   production: false,
-  baseURL: 'https://api.spotify.com/v1',
+  baseURL: 'https://api.spotify.com/v1'
 };
 
 /*

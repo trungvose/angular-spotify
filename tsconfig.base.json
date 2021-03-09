@@ -33,7 +33,8 @@
         "libs/web/shared/data-access/spotify-api/src/index.ts"
       ],
       "@angular-spotify/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"],
-      "@angular-spotify/web/auth/util": ["libs/web/auth/util/src/index.ts"]
+      "@angular-spotify/web/auth/util": ["libs/web/auth/util/src/index.ts"],
+      "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

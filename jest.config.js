@@ -11,6 +11,7 @@ module.exports = {
     '<rootDir>/libs/web/auth//data-access',
     '<rootDir>/libs/shared/data-access/spotify-api',
     '<rootDir>/libs/web/shared/data-access/spotify-api',
-    '<rootDir>/libs/web/auth/util'
+    '<rootDir>/libs/web/auth/util',
+    '<rootDir>/libs/shared/app-config'
   ]
 };
