@@ -1,21 +1,12 @@
-import SpotifyWebApi from 'spotify-web-api-js';
-
+import {} from 'spotify-web-api-js';
 import { Injectable } from '@angular/core';
-import { AuthService } from '@angular-spotify/web/shared/data-access/auth';
-import { tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class SpotifyApiService {
-  public readonly api: SpotifyWebApi.SpotifyWebApiJs;
+  constructor(private http: HttpClient) {}
 
-  constructor(private authService: AuthService) {
-    this.api = new SpotifyWebApi();
-    this.authService.token$
-      .pipe(
-        tap((accessToken) => {
-          this.api.setAccessToken(accessToken);
-        })
-      )
-      .subscribe();
+  getMe() {
+    return this.http.get<SpotifyApi.CurrentUsersProfileResponse>('/me');
   }
 }

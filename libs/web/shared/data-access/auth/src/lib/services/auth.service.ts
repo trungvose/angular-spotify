@@ -1,28 +1,17 @@
+import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComponentStore } from '@ngrx/component-store';
 import { filter, map, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
-
-export interface AuthState {
-  accessToken: string | null;
-  tokenType: string | null;
-  expiresIn: number;
-  state: string | null;
-}
-
+import { AuthStoreService } from '../store/auth.store';
 @Injectable({ providedIn: 'root' })
-export class AuthService extends ComponentStore<AuthState> {
-  readonly token$ = this.select((s) => s.accessToken).pipe(filter((token) => !!token));
-
-  constructor(private router: Router, private route: ActivatedRoute) {
-    super({
-      accessToken: '',
-      expiresIn: 0,
-      state: '',
-      tokenType: ''
-    });
-
+export class AuthService {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authStore: AuthStoreService,
+    private spotify: SpotifyApiService
+  ) {
     if (!window.location.hash) {
       this.redirectToAuthorize();
     }
@@ -37,9 +26,12 @@ export class AuthService extends ComponentStore<AuthState> {
           expiresIn: Number(params.get('expires_in')),
           state: params.get('state')
         })),
-        tap((state) => {
-          this.setState(state);
+        tap((params) => {
+          this.authStore.patchState(params);
           console.info('spotify authenticated');
+        }),
+        tap(() => {
+          this.authStore.setCurrentUser(this.spotify.getMe());
           this.router.navigate([]);
         })
       )
