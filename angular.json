@@ -346,15 +346,15 @@
         }
       }
     },
-    "web-shared-data-access-auth": {
-      "root": "libs/web/shared/data-access/auth",
+    "web-auth-data-access": {
+      "root": "libs/web/auth/data-access",
       "sourceRoot": "libs/web/auth/data-access/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/auth/**/*.ts"]
+            "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts"]
           }
         },
         "test": {
@@ -362,6 +362,27 @@
           "outputs": ["coverage/libs/web/auth/data-access"],
           "options": {
             "jestConfig": "libs/web/auth/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-auth-util": {
+      "root": "libs/web/auth/util",
+      "sourceRoot": "libs/web/auth/util/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/auth/util/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/auth/util"],
+          "options": {
+            "jestConfig": "libs/web/auth/util/jest.config.js",
             "passWithNoTests": true
           }
         }

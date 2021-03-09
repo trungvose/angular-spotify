@@ -1,5 +1,3 @@
-///  <reference types="@types/spotify-api"/>
-
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { filter } from 'rxjs/operators';
@@ -12,9 +10,8 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AuthStoreService extends ComponentStore<AuthState> {
+export class AuthStore extends ComponentStore<AuthState> {
   readonly token$ = this.select((s) => s.accessToken).pipe(filter((token) => !!token));
-
   readonly getUserId = () => this.get().id;
 
   constructor() {

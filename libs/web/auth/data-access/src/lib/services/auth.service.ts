@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
-import { AuthStoreService } from '../store/auth.store';
+import { AuthStore } from '../store/auth.store';
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private authStore: AuthStoreService,
+    private authStore: AuthStore,
     private spotify: SpotifyApiService
   ) {
     if (!window.location.hash) {
