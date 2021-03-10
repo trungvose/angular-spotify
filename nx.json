@@ -27,7 +27,6 @@
     "web-layout": { "tags": [] },
     "web-shared-ui-nav-bar": { "tags": [] },
     "web-shared-data-access-models": { "tags": [] },
-    "web-shared-data-access-ui-store": { "tags": [] },
     "web-shared-ui-nav-bar-playlist": { "tags": [] },
     "web-shared-ui-top-bar": { "tags": [] },
     "web-shared-ui-main-view": { "tags": [] },
@@ -35,6 +34,6 @@
     "web-auth-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-auth-util": { "tags": ["type:data-access", "scope:web"] },
     "web-shared-app-config": { "tags": [] },
-    "web-shared-data-access-playlist-store": { "tags": [] }
+    "web-shared-data-access-store": { "tags": ["type:data-access", "scope:web"] }
   }
 }

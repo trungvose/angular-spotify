@@ -22,12 +22,6 @@
       "@angular-spotify/web/shared/data-access/models": [
         "libs/web/shared/data-access/models/src/index.ts"
       ],
-      "@angular-spotify/web/shared/data-access/ui-store": [
-        "libs/web/shared/data-access/ui-store/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/data-access/playlist-store": [
-        "libs/web/shared/data-access/playlist-store/src/index.ts"
-      ],
       "@angular-spotify/web/shared/ui/nav-bar-playlist": [
         "libs/web/shared/ui/nav-bar-playlist/src/index.ts"
       ],
@@ -38,7 +32,10 @@
       ],
       "@angular-spotify/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"],
       "@angular-spotify/web/auth/util": ["libs/web/auth/util/src/index.ts"],
-      "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"]
+      "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"],
+      "@angular-spotify/web/shared/data-access/store": [
+        "libs/web/shared/data-access/store/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

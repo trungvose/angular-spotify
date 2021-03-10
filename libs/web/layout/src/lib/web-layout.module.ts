@@ -5,8 +5,16 @@ import { RouterModule } from '@angular/router';
 import { NavBarModule } from '@angular-spotify/web/shared/ui/nav-bar';
 import { TopBarModule } from '@angular-spotify/web/shared/ui/top-bar';
 import { MainViewModule } from '@angular-spotify/web/shared/ui/main-view';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
-  imports: [CommonModule, RouterModule, NavBarModule, TopBarModule, MainViewModule],
+  imports: [
+    CommonModule, 
+    StoreModule, 
+    RouterModule, 
+    NavBarModule, 
+    TopBarModule, 
+    MainViewModule
+  ],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]
 })
