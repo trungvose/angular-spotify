@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { PlaylistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { loadPlaylists, loadPlaylistsSuccess } from './playlists.action';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { RootState } from '../rootState';
+import { getPlaylistsState } from '../rootSelector';
 
 @Injectable({ providedIn: 'root' })
 export class PlaylistsEffect {
   loadPlaylists$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadPlaylists),
+      withLatestFrom(this.store.pipe(select(getPlaylistsState))),
+      filter(([_, playlistState]) => !playlistState.data),
       mergeMap(() =>
         this.playlistsApi.getAll().pipe(
           map((playlists) =>
@@ -23,5 +28,9 @@ export class PlaylistsEffect {
     )
   );
 
-  constructor(private actions$: Actions, private playlistsApi: PlaylistApiService) {}
+  constructor(
+    private actions$: Actions,
+    private playlistsApi: PlaylistApiService,
+    private store: Store<RootState>
+  ) {}
 }

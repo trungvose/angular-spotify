@@ -1,0 +1,25 @@
+$bg: #181818;
+$bg-hover: #282828;
+
+:host {
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  background-color: $bg;
+  @apply block p-4;
+
+  &:hover {
+    background-color: #282828;
+  }
+}
+
+.title {
+  text-overflow: ellipsis;
+  @apply overflow-hidden whitespace-nowrap font-bold text-lg;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  @apply overflow-hidden whitespace-normal mt-1;
+}

@@ -35,7 +35,9 @@
       "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"],
       "@angular-spotify/web/shared/data-access/store": [
         "libs/web/shared/data-access/store/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/collection/playlists": ["libs/web/collection/playlists/src/index.ts"],
+      "@angular-spotify/web/shared/ui/album": ["libs/web/shared/ui/album/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
