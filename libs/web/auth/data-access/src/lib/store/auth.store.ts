@@ -1,7 +1,9 @@
+// MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
+/// <reference types="spotify-api" />
+
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { filter } from 'rxjs/operators';
-
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
   tokenType: string | null;

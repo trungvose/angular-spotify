@@ -408,6 +408,27 @@
           }
         }
       }
+    },
+    "web-shared-data-access-playlist-store": {
+      "root": "libs/web/shared/data-access/playlist-store",
+      "sourceRoot": "libs/web/shared/data-access/playlist-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/data-access/playlist-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/data-access/playlist-store"],
+          "options": {
+            "jestConfig": "libs/web/shared/data-access/playlist-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

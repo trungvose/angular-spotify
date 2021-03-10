@@ -5,7 +5,11 @@ import { webShellRoutes } from './web-shell.routes';
 import { WebLayoutModule } from '@angular-spotify/web/layout';
 
 @NgModule({
-  imports: [CommonModule, WebLayoutModule, RouterModule.forRoot(webShellRoutes)],
+  imports: [
+    CommonModule, 
+    WebLayoutModule, 
+    RouterModule.forRoot(webShellRoutes)
+  ],
   exports: [RouterModule],
   declarations: []
 })

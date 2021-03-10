@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "types": ["spotify-api"],
     "paths": {
       "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
       "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"],
@@ -23,6 +24,9 @@
       ],
       "@angular-spotify/web/shared/data-access/ui-store": [
         "libs/web/shared/data-access/ui-store/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/data-access/playlist-store": [
+        "libs/web/shared/data-access/playlist-store/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/nav-bar-playlist": [
         "libs/web/shared/ui/nav-bar-playlist/src/index.ts"
