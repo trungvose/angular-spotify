@@ -6,7 +6,7 @@ import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operator
 import { EMPTY } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { RootState } from '../rootState';
-import { getPlaylistsState } from '../rootSelector';
+import { getPlaylistsState } from './playlists.selector';
 
 @Injectable({ providedIn: 'root' })
 export class PlaylistsEffect {
@@ -14,7 +14,7 @@ export class PlaylistsEffect {
     this.actions$.pipe(
       ofType(loadPlaylists),
       withLatestFrom(this.store.pipe(select(getPlaylistsState))),
-      filter(([_, playlistState]) => !playlistState.data),
+      filter(([, playlistState]) => !playlistState.data),
       mergeMap(() =>
         this.playlistsApi.getAll().pipe(
           map((playlists) =>

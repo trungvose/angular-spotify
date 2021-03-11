@@ -70,10 +70,13 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-collection-playlists": {
-      "tags": ["type:features", "scope:web"]
+      "tags": ["type:feature", "scope:web"]
     },
     "web-shared-ui-album": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-playlist": {
+      "tags": ["type:feature", "scope: web"]
     }
   }
 }

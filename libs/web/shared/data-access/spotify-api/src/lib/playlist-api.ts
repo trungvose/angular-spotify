@@ -17,7 +17,16 @@ export class PlaylistApiService {
       throw new Error('Playlist Id is required');
     }
     return this.http.get<SpotifyApi.PlaylistObjectFull>(
-      `${this.appConfig.baseURL}/me/playlist/${playlistId}`
+      `${this.appConfig.baseURL}/playlists/${playlistId}`
     );
+  }
+
+  getTracks(playlistId: string) {
+    if (!playlistId) {
+      throw new Error('Playlist Id is required');
+    }
+    return this.http.get<SpotifyApi.PlaylistTrackResponse>(
+      `${this.appConfig.baseURL}/playlists/${playlistId}/tracks`
+    )
   }
 }

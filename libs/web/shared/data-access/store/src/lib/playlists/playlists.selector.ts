@@ -1,5 +1,6 @@
 import { createSelector } from '@ngrx/store';
-import { RootState } from './rootState';
+import { RootState } from '../rootState';
 
+//Playlists
 export const getPlaylistsState = (state: RootState) => state.playlists;
 export const getPlaylists = createSelector(getPlaylistsState, (state) => state.data);

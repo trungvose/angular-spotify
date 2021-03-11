@@ -15,6 +15,10 @@ export const webShellRoutes: Route[] = [
         path: 'collection',
         redirectTo: 'collection/playlists',
         pathMatch: 'full'
+      },
+      {
+        path: 'playlist/:playlistId',
+        loadChildren: async () => (await import('@angular-spotify/web/playlist')).PlaylistModule
       }
     ]
   },

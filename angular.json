@@ -442,6 +442,20 @@
           }
         }
       }
+    },
+    "web-playlist": {
+      "projectType": "library",
+      "root": "libs/web/playlist",
+      "sourceRoot": "libs/web/playlist/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/playlist/src/**/*.ts", "libs/web/playlist/src/**/*.html"]
+          }
+        }
+      }
     }
   }
 }

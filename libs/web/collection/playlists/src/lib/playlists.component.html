@@ -4,7 +4,8 @@
     <as-album *ngFor="let playlist of playlists.items"
               [title]="playlist.name"
               [description]="playlist.description"
-              [imageUrl]="playlist.images[0].url">
+              [imageUrl]="playlist.images[0].url"
+              [routerUrl]="getPlaylistRouterUrl(playlist)">
     </as-album>
   </div>
 </div>

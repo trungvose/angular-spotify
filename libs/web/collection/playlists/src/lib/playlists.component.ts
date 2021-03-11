@@ -23,4 +23,8 @@ export class PlaylistsComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadPlaylists());
   }
+
+  getPlaylistRouterUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
+    return `/playlist/${playlist.id}`;
+  }
 }
