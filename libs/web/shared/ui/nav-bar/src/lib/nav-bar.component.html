@@ -8,6 +8,7 @@
       class="px-2 nav-link-container">
     <a [routerLink]="item.path"
        routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
        class="flex items-center px-4 nav-link link-subtle">
       {{ item.label }}
     </a>

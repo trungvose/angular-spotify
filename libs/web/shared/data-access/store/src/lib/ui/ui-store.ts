@@ -13,7 +13,7 @@ export class UIStore extends ComponentStore<UIState> {
       navItems: [
         { label: 'Home', path: '' },
         { label: 'Search', path: '/search' },
-        { label: 'Your Library', path: '/collection' }
+        { label: 'Your Library', path: '/collection/playlists' }
       ]
     });
   }
