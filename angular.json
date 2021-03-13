@@ -456,6 +456,40 @@
           }
         }
       }
+    },
+    "web-shared-ui-album-summary": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/album-summary",
+      "sourceRoot": "libs/web/shared/ui/album-summary/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/album-summary/src/**/*.ts",
+              "libs/web/shared/ui/album-summary/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-album-cover": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/album-cover",
+      "sourceRoot": "libs/web/shared/ui/album-cover/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/album-cover/src/**/*.ts",
+              "libs/web/shared/ui/album-cover/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

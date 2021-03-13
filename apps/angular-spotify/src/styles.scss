@@ -1,23 +1,7 @@
 @import 'tailwindcss/base';
-@layer base {
-  a {
-    @apply text-white;
-  }
-}
-
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* You can add global styles to this file, and also import other style files */
-
-@layer utilities {
-  .link-subtle {
-    color: #b3b3b4;
-
-    &:hover {
-      @apply text-white;
-    }
-  }
-}
+@import './tailwind';
 
 body {
   min-width: 600px;

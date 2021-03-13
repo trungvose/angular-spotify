@@ -11,8 +11,4 @@ export class AlbumComponent {
   @Input() title = '';
   @Input() description: string | null = '';
   @Input() routerUrl = '';
-
-  get backgroundUrl(){
-    return `url(${this.imageUrl})`
-  }
 }

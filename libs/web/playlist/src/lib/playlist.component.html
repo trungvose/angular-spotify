@@ -1,3 +1,8 @@
-<p>playlist works!</p>
-
-{{ playlist$ | async | json}}
+<as-album-summary *ngIf="playlist$ | async as playlist"
+                  type="Playlist"
+                  [title]="playlist.name"
+                  [imageUrl]="playlist.images[0].url"
+                  [description]="playlist.description"
+                  [artist]="playlist.owner.display_name"
+                  [trackCount]="playlist.tracks.total">
+</as-album-summary>

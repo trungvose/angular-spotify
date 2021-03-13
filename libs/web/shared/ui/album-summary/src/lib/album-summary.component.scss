@@ -1,0 +1,13 @@
+:host {
+  min-height: 300px;
+  max-height: 450px;
+  gap: 24px;
+  grid-template-columns: minmax(120px, 192px) 1fr;
+  align-items: center;
+  @apply grid px-8 pb-6;
+}
+
+.album-title {
+  line-height: 4.5rem;
+  @apply font-black text-7xl text-white;
+}

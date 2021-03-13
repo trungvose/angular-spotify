@@ -1,12 +1,13 @@
-<a class="flex flex-col flex-1" [routerLink]="routerUrl">
-  <div class="mb-4">
-    <div class="cover" [style.background-image]="backgroundUrl"></div>
-  </div>
+<a class="flex flex-col flex-1"
+   [routerLink]="routerUrl">
+  <as-album-cover class="mb-4"
+                  [imageUrl]="imageUrl">
+  </as-album-cover>
   <div>
     <div class="title">
       {{ title }}
     </div>
-    <div class="description">
+    <div class="album-description">
       {{ description }}
     </div>
   </div>
