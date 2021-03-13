@@ -9,10 +9,15 @@
   </li>
 </ul>
 <div class="mx-6 separator"></div>
-<ul class="playlists">
-  <li class="px-2">
-    <a class="px-4 text-sm link-subtle">
-      Piano for Meditation
+<ul class="playlists"
+    *ngIf="playlists$ | async as playlists">
+  <li class="p-2"
+      *ngFor="let playlist of playlists.items">
+    <a [routerLink]="getPlaylistRouteUrl(playlist)"
+       routerLinkActive="active"
+       [title]="playlist.name"
+       class="playlist-link link-subtle ellipsis-one-line">
+      {{ playlist.name }}
     </a>
   </li>
 </ul>

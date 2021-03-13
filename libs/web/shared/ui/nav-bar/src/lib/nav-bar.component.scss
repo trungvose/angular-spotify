@@ -1,14 +1,15 @@
 :host {
   grid-area: nav-bar;
   z-index: 3;
-  @apply w-navBar pt-6 bg-black;
+  min-height: 0;
+  @apply w-navBar flex flex-col pt-6 bg-black;
 }
 
 .nav-link-container {
   .nav-link {
     border-radius: 4px;
     height: 40px;
-    
+
     &.active {
       @apply text-white;
       background-color: #282828;

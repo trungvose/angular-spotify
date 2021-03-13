@@ -1,6 +1,5 @@
 @layer components {
-
-  .album-description {
+  .text-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -14,5 +13,6 @@
     -webkit-box-orient: vertical;
     white-space: unset;
     word-break: break-all;
+    overflow: hidden;
   }
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { RouterUtil } from '@angular-spotify/web/util';
+import { RouteUtil } from '@angular-spotify/web/util';
 
 @Component({
   selector: 'as-track-main-info',
@@ -10,7 +10,7 @@ import { RouterUtil } from '@angular-spotify/web/util';
 export class TrackMainInfoComponent {
   @Input() track: SpotifyApi.TrackObjectFull | undefined;
 
-  getArtistUrl(artist: SpotifyApi.ArtistObjectSimplified) {
-    return `/${RouterUtil.Configuration.Artist}/${artist.id}`;
+  getArtistRouteUrl(artist: SpotifyApi.ArtistObjectSimplified) {
+    return RouteUtil.getArtistRouteUrl(artist);
   }
 }

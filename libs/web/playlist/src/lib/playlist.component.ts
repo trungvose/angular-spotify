@@ -33,7 +33,6 @@ export class PlaylistComponent implements OnInit {
 
     this.tracks$ = playlistParams$.pipe(
       tap((playlistId) => {
-        console.log(playlistId);
         this.store.dispatch(
           loadPlaylistTracks({
             playlistId

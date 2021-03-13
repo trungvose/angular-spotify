@@ -6,7 +6,7 @@ import {
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
 import { Observable } from 'rxjs';
-
+import { RouteUtil } from '@angular-spotify/web/util';
 @Component({
   selector: 'as-playlists',
   templateUrl: './playlists.component.html',
@@ -24,7 +24,7 @@ export class PlaylistsComponent implements OnInit {
     this.store.dispatch(loadPlaylists());
   }
 
-  getPlaylistRouterUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
-    return `/playlist/${playlist.id}`;
+  getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
+    return RouteUtil.getPlaylistRouteUrl(playlist);
   }
 }

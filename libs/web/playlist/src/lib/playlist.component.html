@@ -7,21 +7,32 @@
                   [trackCount]="playlist.tracks.total">
 </as-album-summary>
 
-<div class="px-8">
+<div class="px-8 pb-8">
   <div class="playlist-tracks-header">
     <div class="playlist-tracks-grid">
       <div>#</div>
       <div class="text-xs uppercase ellipsis-one-line">Title</div>
       <div class="text-xs uppercase ellipsis-one-line">Album</div>
+      <div class="text-xs uppercase ellipsis-one-line">Date added</div>
     </div>
   </div>
   <div class="playlist-tracks-body"
        *ngIf="tracks$ | async as tracks">
-    <div class="playlist-tracks-grid h-14"
+    <div class="cursor-pointer playlist-tracks-grid h-14 hover:bg-white hover:bg-opacity-10"
          *ngFor="let item of tracks.items; let idx = index">
       <div>{{ idx + 1 }}</div>
       <as-track-main-info [track]="item.track">
       </as-track-main-info>
+      <a class="text-description link-subtle hover:underline">
+        {{ item.track.album.name }}
+      </a>
+      <div class="text-description"
+           [title]="item.added_at  |date:'medium'">
+        {{ item.added_at | date }}
+      </div>
+      <div class="text-description">
+        {{ item.track.duration_ms | date:'mm:ss' }}
+      </div>
     </div>
   </div>
 </div>
