@@ -41,6 +41,7 @@
     "web-shared-ui-album-summary": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-album-cover": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-track-main-info": { "tags": ["type:ui", "scope:web"] },
-    "web-util": { "tags": ["type:util", "scope:web"] }
+    "web-util": { "tags": ["type:util", "scope:web"] },
+    "web-shared-pipes-duration-pipe": { "tags": ["type:pipe", "scope:web"] }
   }
 }

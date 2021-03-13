@@ -46,7 +46,10 @@
       "@angular-spotify/web/shared/ui/track-main-info": [
         "libs/web/shared/ui/track-main-info/src/index.ts"
       ],
-      "@angular-spotify/web/util": ["libs/web/util/src/index.ts"]
+      "@angular-spotify/web/util": ["libs/web/util/src/index.ts"],
+      "@angular-spotify/web/shared/pipes/duration-pipe": [
+        "libs/web/shared/pipes/duration-pipe/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

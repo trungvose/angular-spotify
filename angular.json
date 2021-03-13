@@ -528,6 +528,31 @@
           }
         }
       }
+    },
+    "web-shared-pipes-duration-pipe": {
+      "projectType": "library",
+      "root": "libs/web/shared/pipes/duration-pipe",
+      "sourceRoot": "libs/web/shared/pipes/duration-pipe/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/pipes/duration-pipe/src/**/*.ts",
+              "libs/web/shared/pipes/duration-pipe/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
+          "options": {
+            "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

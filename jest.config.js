@@ -15,6 +15,7 @@ module.exports = {
     '<rootDir>/libs/shared/app-config',
     '<rootDir>/libs/web/shared/data-access/playlist-store',
     '<rootDir>/libs/web/shared/data-access/store',
-    '<rootDir>/libs/web/util'
+    '<rootDir>/libs/web/util',
+    '<rootDir>/libs/web/shared/pipes/duration-pipe'
   ]
 };
