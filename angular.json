@@ -490,6 +490,44 @@
           }
         }
       }
+    },
+    "web-shared-ui-track-main-info": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/track-main-info",
+      "sourceRoot": "libs/web/shared/ui/track-main-info/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/track-main-info/src/**/*.ts",
+              "libs/web/shared/ui/track-main-info/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-util": {
+      "root": "libs/web/util",
+      "sourceRoot": "libs/web/util/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/util/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/util"],
+          "options": {
+            "jestConfig": "libs/web/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

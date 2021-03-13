@@ -7,5 +7,6 @@ body {
   min-width: 600px;
   line-height: 20px;
   letter-spacing: 0.015em;
-  @apply h-full w-full absolute overflow-hidden flex flex-col text-gray-600;
+  color: #b3b3b3;
+  @apply h-full w-full absolute overflow-hidden flex flex-col;
 }

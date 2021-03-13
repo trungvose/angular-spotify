@@ -1,3 +1,17 @@
 :host {
   display: block;
 }
+
+.playlist-tracks-header {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  z-index: 2;
+  @apply border-white border-opacity-10 pb-4 mb-4;
+}
+
+.playlist-tracks-grid {
+  display: grid;
+  grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px, 1fr);
+  gap: 16px;
+  @apply px-4 items-center;
+}

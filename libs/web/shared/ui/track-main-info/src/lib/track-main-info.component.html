@@ -1,0 +1,21 @@
+<ng-container *ngIf="track">
+  <img [src]="track.album.images[0].url"
+       class="track-cover"
+       [alt]="track.name" />
+  <div class="flex flex-col">
+    <div class="text-white ellipsis-one-line">
+      {{ track.name }}
+    </div>
+    <div class="ellipsis-one-line">
+      <ng-container *ngFor="let artist of track.artists; let idx = index">
+        <a class="text-sm text-white text-opacity-50"
+           [routerLink]="getArtistUrl(artist)">
+          {{ artist.name }}
+          <span class="mr-1"
+                *ngIf="idx !== 0">,</span>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+
+</ng-container>

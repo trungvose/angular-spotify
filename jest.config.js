@@ -14,6 +14,7 @@ module.exports = {
     '<rootDir>/libs/web/auth/util',
     '<rootDir>/libs/shared/app-config',
     '<rootDir>/libs/web/shared/data-access/playlist-store',
-    '<rootDir>/libs/web/shared/data-access/store'
+    '<rootDir>/libs/web/shared/data-access/store',
+    '<rootDir>/libs/web/util'
   ]
 };

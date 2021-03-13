@@ -1,14 +1,18 @@
 @layer components {
-  .album-cover {
 
-  }
-  
   .album-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    color: rgb(179, 179, 179);
-    @apply overflow-hidden whitespace-normal mt-1 text-sm;
+    @apply overflow-hidden whitespace-normal mt-1 text-sm text-white text-opacity-50;
+  }
+
+  .ellipsis-one-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: unset;
+    word-break: break-all;
   }
 }

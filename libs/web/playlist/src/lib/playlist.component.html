@@ -6,3 +6,22 @@
                   [artist]="playlist.owner.display_name"
                   [trackCount]="playlist.tracks.total">
 </as-album-summary>
+
+<div class="px-8">
+  <div class="playlist-tracks-header">
+    <div class="playlist-tracks-grid">
+      <div>#</div>
+      <div class="text-xs uppercase ellipsis-one-line">Title</div>
+      <div class="text-xs uppercase ellipsis-one-line">Album</div>
+    </div>
+  </div>
+  <div class="playlist-tracks-body"
+       *ngIf="tracks$ | async as tracks">
+    <div class="playlist-tracks-grid h-14"
+         *ngFor="let item of tracks.items; let idx = index">
+      <div>{{ idx + 1 }}</div>
+      <as-track-main-info [track]="item.track">
+      </as-track-main-info>
+    </div>
+  </div>
+</div>
