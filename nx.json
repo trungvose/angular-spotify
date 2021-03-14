@@ -95,6 +95,12 @@
     },
     "web-shared-ui-now-playing-bar": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-icon": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-now-playing-bar-center": {
+      "tags": ["type:ui", "scope:web"]
     }
   }
 }

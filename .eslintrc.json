@@ -13,7 +13,8 @@
             "allow": [],
             "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
           }
-        ]
+        ],
+        "max-len": ["error", { "ignoreStrings": true }]
       }
     },
     {

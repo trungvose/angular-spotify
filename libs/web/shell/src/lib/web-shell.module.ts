@@ -7,10 +7,12 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { rootReducers, rootEffects } from '@angular-spotify/web/shared/data-access/store';
+import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 @NgModule({
   imports: [
     CommonModule,
     WebLayoutModule,
+    IconModule,
     RouterModule.forRoot(webShellRoutes),
     StoreModule.forRoot(rootReducers),
     StoreDevtoolsModule.instrument({

@@ -15,4 +15,10 @@
     word-break: break-all;
     overflow: hidden;
   }
+
+  .control-button {
+    color: #b3b3b3;
+    position: relative;
+    @apply w-8 h-8 flex items-center justify-center cursor-pointer;
+  }
 }
