@@ -19,7 +19,7 @@
   <div class="playlist-tracks-body"
        *ngIf="tracks$ | async as tracks">
     <div class="cursor-pointer playlist-tracks-grid h-14 hover:bg-white hover:bg-opacity-10"
-         *ngFor="let item of tracks.items; let idx = index">
+         *ngFor="let item of tracks.items; let idx = index" (click)="playTrack(item)">
       <div>{{ idx + 1 }}</div>
       <as-track-main-info [track]="item.track">
       </as-track-main-info>

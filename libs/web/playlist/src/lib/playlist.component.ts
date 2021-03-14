@@ -9,6 +9,7 @@ import {
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 @Component({
   selector: 'as-playlist',
   templateUrl: './playlist.component.html',
@@ -19,7 +20,11 @@ export class PlaylistComponent implements OnInit {
   playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
   tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
 
-  constructor(private route: ActivatedRoute, private store: Store<RootState>) {}
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<RootState>,
+    private playerApi: PlayerApiService
+  ) {}
 
   ngOnInit(): void {
     const playlistParams$ = this.route.params.pipe(
@@ -28,8 +33,8 @@ export class PlaylistComponent implements OnInit {
     );
 
     this.playlist$ = playlistParams$.pipe(
-      switchMap(playlistId => this.store.pipe(select(getPlaylist(playlistId))))
-    )
+      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+    );
 
     this.tracks$ = playlistParams$.pipe(
       tap((playlistId) => {
@@ -41,5 +46,13 @@ export class PlaylistComponent implements OnInit {
       }),
       switchMap((playlistId) => this.store.pipe(select(getPlaylistTracksById(playlistId))))
     );
+  }
+
+  playTrack(item: SpotifyApi.PlaylistTrackObject) {
+    this.playerApi
+      .play({
+        uris: [item.track.uri]
+      })
+      .subscribe();
   }
 }

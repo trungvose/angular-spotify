@@ -12,4 +12,8 @@ export class PlayerApiService {
       play: true
     });
   }
+
+  play(request: { context_uri?: string; uris?: string[]; offset?: any }) {
+    return this.http.put(`${this.appConfig.baseURL}/me/player/play`, request);
+  }
 }
