@@ -10,7 +10,8 @@ module.exports = {
         navBar: '232px',
       },
       height: {
-        topBar: '60px'
+        topBar: '60px',
+        nowPlayingBar: '90px'
       }
     }
   },

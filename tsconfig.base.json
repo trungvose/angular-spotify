@@ -49,6 +49,9 @@
       "@angular-spotify/web/util": ["libs/web/util/src/index.ts"],
       "@angular-spotify/web/shared/pipes/duration-pipe": [
         "libs/web/shared/pipes/duration-pipe/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/now-playing-bar": [
+        "libs/web/shared/ui/now-playing-bar/src/index.ts"
       ]
     }
   },

@@ -1,13 +1,18 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "angular-spotify",
   "tasksRunnerOptions": {
     "default": {
@@ -21,27 +26,75 @@
     }
   },
   "projects": {
-    "angular-spotify": { "tags": [] },
-    "angular-spotify-e2e": { "tags": [], "implicitDependencies": ["angular-spotify"] },
-    "web-shell": { "tags": [] },
-    "web-layout": { "tags": [] },
-    "web-shared-ui-nav-bar": { "tags": [] },
-    "web-shared-data-access-models": { "tags": [] },
-    "web-shared-ui-nav-bar-playlist": { "tags": [] },
-    "web-shared-ui-top-bar": { "tags": [] },
-    "web-shared-ui-main-view": { "tags": [] },
-    "web-shared-data-access-spotify-api": { "tags": ["type:data-access", "scope:web"] },
-    "web-auth-data-access": { "tags": ["type:data-access", "scope:web"] },
-    "web-auth-util": { "tags": ["type:data-access", "scope:web"] },
-    "web-shared-app-config": { "tags": [] },
-    "web-shared-data-access-store": { "tags": ["type:data-access", "scope:web"] },
-    "web-collection-playlists": { "tags": ["type:feature", "scope:web"] },
-    "web-shared-ui-album": { "tags": ["type:ui", "scope:web"] },
-    "web-playlist": { "tags": ["type:feature", "scope: web"] },
-    "web-shared-ui-album-summary": { "tags": ["type:ui", "scope:web"] },
-    "web-shared-ui-album-cover": { "tags": ["type:ui", "scope:web"] },
-    "web-shared-ui-track-main-info": { "tags": ["type:ui", "scope:web"] },
-    "web-util": { "tags": ["type:util", "scope:web"] },
-    "web-shared-pipes-duration-pipe": { "tags": ["type:pipe", "scope:web"] }
+    "angular-spotify": {
+      "tags": []
+    },
+    "angular-spotify-e2e": {
+      "tags": [],
+      "implicitDependencies": ["angular-spotify"]
+    },
+    "web-shell": {
+      "tags": []
+    },
+    "web-layout": {
+      "tags": []
+    },
+    "web-shared-ui-nav-bar": {
+      "tags": []
+    },
+    "web-shared-data-access-models": {
+      "tags": []
+    },
+    "web-shared-ui-nav-bar-playlist": {
+      "tags": []
+    },
+    "web-shared-ui-top-bar": {
+      "tags": []
+    },
+    "web-shared-ui-main-view": {
+      "tags": []
+    },
+    "web-shared-data-access-spotify-api": {
+      "tags": ["type:data-access", "scope:web"]
+    },
+    "web-auth-data-access": {
+      "tags": ["type:data-access", "scope:web"]
+    },
+    "web-auth-util": {
+      "tags": ["type:data-access", "scope:web"]
+    },
+    "web-shared-app-config": {
+      "tags": []
+    },
+    "web-shared-data-access-store": {
+      "tags": ["type:data-access", "scope:web"]
+    },
+    "web-collection-playlists": {
+      "tags": ["type:feature", "scope:web"]
+    },
+    "web-shared-ui-album": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-playlist": {
+      "tags": ["type:feature", "scope: web"]
+    },
+    "web-shared-ui-album-summary": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-album-cover": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-track-main-info": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-util": {
+      "tags": ["type:util", "scope:web"]
+    },
+    "web-shared-pipes-duration-pipe": {
+      "tags": ["type:pipe", "scope:web"]
+    },
+    "web-shared-ui-now-playing-bar": {
+      "tags": ["type:ui", "scope:web"]
+    }
   }
 }
