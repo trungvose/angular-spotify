@@ -612,6 +612,23 @@
           }
         }
       }
+    },
+    "web-shared-ui-track-current-info": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/track-current-info",
+      "sourceRoot": "libs/web/shared/ui/track-current-info/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/track-current-info/src/**/*.ts",
+              "libs/web/shared/ui/track-current-info/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
     </svg-icon>
   </div>
   <div class="play-icon control-button">
-    <svg-icon key="play"
+    <svg-icon [key]="(isPause$ | async) ? 'play': 'pause'"
               class="text-xl">
     </svg-icon>
   </div>

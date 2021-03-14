@@ -56,6 +56,9 @@
       "@angular-spotify/web/shared/ui/icon": ["libs/web/shared/ui/icon/src/index.ts"],
       "@angular-spotify/web/shared/ui/now-playing-bar-center": [
         "libs/web/shared/ui/now-playing-bar-center/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/track-current-info": [
+        "libs/web/shared/ui/track-current-info/src/index.ts"
       ]
     }
   },

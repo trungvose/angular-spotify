@@ -12,7 +12,9 @@ export class AuthService {
     private route: ActivatedRoute,
     private authStore: AuthStore,
     private spotify: SpotifyApiService
-  ) {
+  ) {}
+
+  init() {
     if (!window.location.hash) {
       this.redirectToAuthorize();
     }

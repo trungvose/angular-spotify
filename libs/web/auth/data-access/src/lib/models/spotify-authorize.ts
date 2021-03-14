@@ -10,7 +10,7 @@ export class SpotifyAuthorize {
     'user-read-playback-state',
     'user-modify-playback-state',
     'user-read-currently-playing',
-    //Playback
+    //Playback - For SDK Playback //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
     'streaming',
     //Playlists
     'playlist-modify-public',
@@ -20,7 +20,8 @@ export class SpotifyAuthorize {
     //Library
     'user-library-modify',
     'user-library-read',
-    //Users
+    //Users - For SDK Playback //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
+    'user-read-email',
     'user-read-private'
   ];
 

@@ -11,6 +11,6 @@ export class TrackMainInfoComponent {
   @Input() track: SpotifyApi.TrackObjectFull | undefined;
 
   getArtistRouteUrl(artist: SpotifyApi.ArtistObjectSimplified) {
-    return RouteUtil.getArtistRouteUrl(artist);
+    return RouteUtil.getArtistRouteUrl(artist.id);
   }
 }

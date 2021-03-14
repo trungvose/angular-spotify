@@ -101,6 +101,9 @@
     },
     "web-shared-ui-now-playing-bar-center": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-track-current-info": {
+      "tags": ["type:io", "scope:web"]
     }
   }
 }

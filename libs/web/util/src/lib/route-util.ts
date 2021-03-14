@@ -1,8 +1,11 @@
 import { RouterUtil } from './router-util';
 
 export class RouteUtil {
-  static getArtistRouteUrl(artist: SpotifyApi.ArtistObjectSimplified) {
-    return `/${RouterUtil.Configuration.Artist}/${artist.id}`;
+  static getAlbumRouteUrl(albumId: string) {
+    return `/${RouterUtil.Configuration.Album}/${albumId}`;
+  }
+  static getArtistRouteUrl(artistId: string) {
+    return `/${RouterUtil.Configuration.Artist}/${artistId}`;
   }
 
   static getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {

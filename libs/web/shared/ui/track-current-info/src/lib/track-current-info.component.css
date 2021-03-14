@@ -1,0 +1,9 @@
+:host {
+  @apply flex items-center;
+}
+
+.track-cover {
+  max-width: 40px;
+  object-fit: contain;
+  @apply mr-4;
+}
