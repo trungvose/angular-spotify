@@ -54,11 +54,14 @@
         "libs/web/shared/ui/now-playing-bar/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/icon": ["libs/web/shared/ui/icon/src/index.ts"],
-      "@angular-spotify/web/shared/ui/now-playing-bar-center": [
-        "libs/web/shared/ui/now-playing-bar-center/src/index.ts"
-      ],
       "@angular-spotify/web/shared/ui/track-current-info": [
         "libs/web/shared/ui/track-current-info/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/player-controls": [
+        "libs/web/shared/ui/player-controls/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/player-playback": [
+        "libs/web/shared/ui/player-playback/src/index.ts"
       ]
     }
   },

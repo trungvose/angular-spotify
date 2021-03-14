@@ -1,0 +1,11 @@
+<div class="flex justify-center">
+  <div class="control-button">
+    <svg-icon key="step-backward" class="text-base hover:text-white"> </svg-icon>
+  </div>
+  <div class="play-icon control-button">
+    <svg-icon [key]="(isPause$ | async) ? 'play' : 'pause'" class="text-xl"> </svg-icon>
+  </div>
+  <div class="control-button">
+    <svg-icon key="step-forward" class="text-xl hover:text-white"> </svg-icon>
+  </div>
+</div>

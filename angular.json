@@ -596,23 +596,6 @@
         }
       }
     },
-    "web-shared-ui-now-playing-bar-center": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/now-playing-bar-center",
-      "sourceRoot": "libs/web/shared/ui/now-playing-bar-center/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/now-playing-bar-center/src/**/*.ts",
-              "libs/web/shared/ui/now-playing-bar-center/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "web-shared-ui-track-current-info": {
       "projectType": "library",
       "root": "libs/web/shared/ui/track-current-info",
@@ -625,6 +608,40 @@
             "lintFilePatterns": [
               "libs/web/shared/ui/track-current-info/src/**/*.ts",
               "libs/web/shared/ui/track-current-info/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-player-controls": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/player-controls",
+      "sourceRoot": "libs/web/shared/ui/player-controls/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/player-controls/src/**/*.ts",
+              "libs/web/shared/ui/player-controls/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-player-playback": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/player-playback",
+      "sourceRoot": "libs/web/shared/ui/player-playback/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/player-playback/src/**/*.ts",
+              "libs/web/shared/ui/player-playback/src/**/*.html"
             ]
           }
         }
