@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DurationPipePipe } from './duration-pipe.pipe';
+import { DurationPipe } from './duration.pipe';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [DurationPipePipe],
-  exports: [DurationPipePipe]
+  declarations: [DurationPipe],
+  exports: [DurationPipe]
 })
 export class DurationPipeModule {}

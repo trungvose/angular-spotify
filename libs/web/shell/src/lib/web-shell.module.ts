@@ -8,6 +8,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { rootReducers, rootEffects } from '@angular-spotify/web/shared/data-access/store';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+
+/** config angular i18n **/
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +28,7 @@ import { IconModule } from '@angular-spotify/web/shared/ui/icon';
     EffectsModule.forRoot(rootEffects)
   ],
   exports: [RouterModule],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   declarations: []
 })
 export class WebShellModule {}

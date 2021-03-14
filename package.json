@@ -50,6 +50,7 @@
     "@ngrx/store": "^11.0.1",
     "@ngrx/store-devtools": "^11.0.1",
     "@nrwl/angular": "11.3.1",
+    "ng-zorro-antd": "^11.2.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"

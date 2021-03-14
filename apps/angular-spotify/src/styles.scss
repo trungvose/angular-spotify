@@ -1,7 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import './tailwind';
+@import './custom/tailwind';
+
+@import '~ng-zorro-antd/style/index.min.css';
+@import '~ng-zorro-antd/slider/style/index.min.css';
+@import './custom/ant';
 
 body {
   min-width: 600px;

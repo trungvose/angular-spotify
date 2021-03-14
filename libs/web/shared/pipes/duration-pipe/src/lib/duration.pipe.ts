@@ -3,8 +3,11 @@ import { TimeUtil } from '@angular-spotify/web/util';
 @Pipe({
   name: 'duration'
 })
-export class DurationPipePipe implements PipeTransform {
-  transform(durationInMs: number): string {
+export class DurationPipe implements PipeTransform {
+  transform(durationInMs: number | null): string {
+    if (!durationInMs) {
+      return '';
+    }
     return TimeUtil.formatDuration(durationInMs);
   }
 }

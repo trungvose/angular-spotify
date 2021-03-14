@@ -12,6 +12,9 @@ module.exports = {
       height: {
         topBar: '60px',
         nowPlayingBar: '90px'
+      },
+      colors: {
+        primary: '#1db954'
       }
     }
   },
