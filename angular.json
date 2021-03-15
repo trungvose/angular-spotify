@@ -646,6 +646,23 @@
           }
         }
       }
+    },
+    "web-shared-ui-player-volume": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/player-volume",
+      "sourceRoot": "libs/web/shared/ui/player-volume/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/player-volume/src/**/*.ts",
+              "libs/web/shared/ui/player-volume/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

@@ -22,6 +22,29 @@ export class PlaybackService {
       .subscribe();
   }
 
+  play() {
+    this.playbackStore.player().togglePlay();
+  }
+
+  next() {
+    this.playbackStore.player().nextTrack();
+  }
+
+  prev() {
+    this.playbackStore.player().previousTrack();
+  }
+
+  seek(pos_ms: number) {
+    this.playbackStore.player().seek(pos_ms);
+  }
+
+  setVolume(volume: number) {
+    this.playbackStore.player().setVolume(volume);
+    this.playbackStore.patchState({
+      volume
+    })
+  }
+
   private async initPlaybackSDK(token: string) {
     const { Player } = await this.waitForSpotifyWebPlaybackSDKToLoad();
     const player = new Player({
@@ -35,21 +58,25 @@ export class PlaybackService {
     player.addListener('initialization_error', ({ message }) => {
       console.error(message);
     });
+
     player.addListener('authentication_error', ({ message }) => {
       console.error(message);
     });
+
     player.addListener('account_error', ({ message }) => {
       alert(`You account has to have Spotify Premium for playing music ${message}`);
     });
+
     player.addListener('playback_error', ({ message }) => {
       console.error(message);
     });
 
     // Playback status updates
-    player.addListener('player_state_changed', (state: Spotify.PlaybackState) => {
+    player.addListener('player_state_changed', async (state: Spotify.PlaybackState) => {
       console.log(state);
       this.playbackStore.patchState({
-        data: state
+        data: state,
+        volume: await player.getVolume()
       });
     });
 
@@ -77,7 +104,7 @@ export class PlaybackService {
   private waitForSpotifyWebPlaybackSDKToLoad(): Promise<typeof Spotify> {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     window.onSpotifyWebPlaybackSDKReady = () => {};
-    
+
     return new Promise((resolve) => {
       if (window.Spotify) {
         resolve(window.Spotify);

@@ -1,5 +1,5 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
 import { BehaviorSubject, combineLatest, Observable, of, timer } from 'rxjs';
@@ -15,7 +15,7 @@ export class PlayerPlaybackComponent {
   max$: Observable<number>;
   isSliderMoving$: BehaviorSubject<boolean>;
 
-  constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {
+  constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
     this.isSliderMoving$ = new BehaviorSubject<boolean>(false);
     this.progress$ = combineLatest([this.playbackStore.playback$, this.isSliderMoving$]).pipe(
       switchMap(([{ paused, position }, isMoving]) => {
@@ -32,13 +32,13 @@ export class PlayerPlaybackComponent {
     this.max$ = this.playbackStore.playback$.pipe(map(({ duration }) => duration));
   }
 
-  seek(positions: NzSliderValue) {
+  async seek(positions: NzSliderValue) {
     if (Array.isArray(positions)) {
       const lastPosition = positions[positions.length - 1];
-      this.playerApi.seek(lastPosition).subscribe();
+      await this.playbackService.seek(lastPosition);
     }
     if (typeof positions === 'number') {
-      this.playerApi.seek(positions).subscribe();
+      await this.playbackService.seek(positions);
     }
     this.isSliderMoving$.next(false);
   }

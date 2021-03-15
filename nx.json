@@ -107,6 +107,9 @@
     },
     "web-shared-ui-player-playback": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-player-volume": {
+      "tags": ["type:ui", "scope:web"]
     }
   }
 }

@@ -1,7 +1,6 @@
+import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { Observable } from 'rxjs';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 @Component({
   selector: 'as-player-controls',
   templateUrl: './player-controls.component.html',
@@ -10,19 +9,19 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 })
 export class PlayerControlsComponent {
   isPause$: Observable<boolean | undefined>;
-  constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {
+  constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
     this.isPause$ = this.playbackStore.isPause$;
   }
 
-  togglePlay(){
-    this.playerApi.play({}).subscribe();
+  async togglePlay() {
+    await this.playbackService.play();
   }
 
-  next() {
-    this.playerApi.next().subscribe()
+  async next() {
+    await this.playbackService.next();
   }
 
-  prev(){
-    this.playerApi.prev().subscribe()
+  async prev() {
+    await this.playbackService.prev();
   }
 }

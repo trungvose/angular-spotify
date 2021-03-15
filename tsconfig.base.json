@@ -62,6 +62,9 @@
       ],
       "@angular-spotify/web/shared/ui/player-playback": [
         "libs/web/shared/ui/player-playback/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/player-volume": [
+        "libs/web/shared/ui/player-volume/src/index.ts"
       ]
     }
   },
