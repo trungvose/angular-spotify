@@ -1,5 +1,4 @@
 .ant-slider {
-  
   .ant-slider-rail {
     background-color: #535353;
   }
@@ -13,6 +12,10 @@
   }
 
   &:hover {
+    .ant-slider-rail {
+      background-color: #535353;
+    }
+    
     .ant-slider-track {
       @apply bg-primary;
     }
