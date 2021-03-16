@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { PlaylistsComponent } from './playlists.component';
-import { AlbumModule } from '@angular-spotify/web/shared/ui/album';
+import { MediaModule } from '@angular-spotify/web/shared/ui/media';
 
 export const playlistsRoutes: Route[] = [];
 
 @NgModule({
   imports: [
     CommonModule,
-    AlbumModule,
+    MediaModule,
     RouterModule.forChild([
       {
         path: '',

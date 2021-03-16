@@ -1,11 +1,11 @@
-<as-album-summary *ngIf="playlist$ | async as playlist"
+<as-media-summary *ngIf="playlist$ | async as playlist"
                   type="Playlist"
                   [title]="playlist.name"
                   [imageUrl]="playlist.images[0].url"
                   [description]="playlist.description"
                   [artist]="playlist.owner.display_name"
                   [trackCount]="playlist.tracks.total">
-</as-album-summary>
+</as-media-summary>
 
 <div class="px-8 pb-8">
   <div class="playlist-tracks-header">

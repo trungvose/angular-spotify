@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'as-album-cover',
+  selector: 'as-media-cover',
   template: '',
-  styleUrls: ['./album-cover.component.scss'],
+  styleUrls: ['./media-cover.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AlbumCoverComponent {
+export class MediaCoverComponent {
   @Input() imageUrl: string | undefined;
 
   @HostBinding('style.background-image')

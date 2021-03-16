@@ -72,17 +72,8 @@
     "web-collection-playlists": {
       "tags": ["type:feature", "scope:web"]
     },
-    "web-shared-ui-album": {
-      "tags": ["type:ui", "scope:web"]
-    },
     "web-playlist": {
       "tags": ["type:feature", "scope: web"]
-    },
-    "web-shared-ui-album-summary": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-album-cover": {
-      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-track-main-info": {
       "tags": ["type:ui", "scope:web"]
@@ -109,6 +100,15 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-player-volume": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-media": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-media-cover": {
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-media-summary": {
       "tags": ["type:ui", "scope:web"]
     }
   }

@@ -37,12 +37,7 @@
         "libs/web/shared/data-access/store/src/index.ts"
       ],
       "@angular-spotify/web/collection/playlists": ["libs/web/collection/playlists/src/index.ts"],
-      "@angular-spotify/web/shared/ui/album": ["libs/web/shared/ui/album/src/index.ts"],
       "@angular-spotify/web/playlist": ["libs/web/playlist/src/index.ts"],
-      "@angular-spotify/web/shared/ui/album-summary": [
-        "libs/web/shared/ui/album-summary/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/ui/album-cover": ["libs/web/shared/ui/album-cover/src/index.ts"],
       "@angular-spotify/web/shared/ui/track-main-info": [
         "libs/web/shared/ui/track-main-info/src/index.ts"
       ],
@@ -65,6 +60,11 @@
       ],
       "@angular-spotify/web/shared/ui/player-volume": [
         "libs/web/shared/ui/player-volume/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/media": ["libs/web/shared/ui/media/src/index.ts"],
+      "@angular-spotify/web/shared/ui/media-cover": ["libs/web/shared/ui/media-cover/src/index.ts"],
+      "@angular-spotify/web/shared/ui/media-summary": [
+        "libs/web/shared/ui/media-summary/src/index.ts"
       ]
     }
   },

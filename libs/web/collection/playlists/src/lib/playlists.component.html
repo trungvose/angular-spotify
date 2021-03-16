@@ -1,11 +1,11 @@
 <div class="px-8">
   <div class="playlist-container"
        *ngIf="playlists$ | async as playlists">
-    <as-album *ngFor="let playlist of playlists.items"
+    <as-media *ngFor="let playlist of playlists.items"
               [title]="playlist.name"
               [description]="playlist.description"
               [imageUrl]="playlist.images[0].url"
               [routerUrl]="getPlaylistRouteUrl(playlist)">
-    </as-album>
+    </as-media>
   </div>
 </div>

@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'as-album',
-  templateUrl: './album.component.html',
-  styleUrls: ['./album.component.scss'],
+  selector: 'as-media',
+  templateUrl: './media.component.html',
+  styleUrls: ['./media.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AlbumComponent {
+export class MediaComponent {
   @Input() imageUrl = '';
   @Input() title = '';
   @Input() description: string | null = '';

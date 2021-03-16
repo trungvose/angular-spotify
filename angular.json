@@ -426,23 +426,6 @@
         }
       }
     },
-    "web-shared-ui-album": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/album",
-      "sourceRoot": "libs/web/shared/ui/album/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/album/src/**/*.ts",
-              "libs/web/shared/ui/album/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "web-playlist": {
       "projectType": "library",
       "root": "libs/web/playlist",
@@ -453,40 +436,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/playlist/src/**/*.ts", "libs/web/playlist/src/**/*.html"]
-          }
-        }
-      }
-    },
-    "web-shared-ui-album-summary": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/album-summary",
-      "sourceRoot": "libs/web/shared/ui/album-summary/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/album-summary/src/**/*.ts",
-              "libs/web/shared/ui/album-summary/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "web-shared-ui-album-cover": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/album-cover",
-      "sourceRoot": "libs/web/shared/ui/album-cover/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/album-cover/src/**/*.ts",
-              "libs/web/shared/ui/album-cover/src/**/*.html"
-            ]
           }
         }
       }
@@ -659,6 +608,57 @@
             "lintFilePatterns": [
               "libs/web/shared/ui/player-volume/src/**/*.ts",
               "libs/web/shared/ui/player-volume/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-media": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/media",
+      "sourceRoot": "libs/web/shared/ui/media/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/media/src/**/*.ts",
+              "libs/web/shared/ui/media/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-media-cover": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/media-cover",
+      "sourceRoot": "libs/web/shared/ui/media-cover/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/media-cover/src/**/*.ts",
+              "libs/web/shared/ui/media-cover/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shared-ui-media-summary": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/media-summary",
+      "sourceRoot": "libs/web/shared/ui/media-summary/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/media-summary/src/**/*.ts",
+              "libs/web/shared/ui/media-summary/src/**/*.html"
             ]
           }
         }
