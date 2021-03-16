@@ -110,6 +110,9 @@
     },
     "web-shared-ui-media-summary": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-ui-play-button": {
+      "tags": ["type:ui", "scope:web"]
     }
   }
 }

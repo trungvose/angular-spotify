@@ -1,17 +1,17 @@
 <div class="flex justify-center">
-  <div class="control-button hover:text-white"
-       (click)="prev()">
-    <svg-icon key="step-backward"
-              class="text-base"> </svg-icon>
-  </div>
-  <div class="play-icon control-button"
-       (click)="togglePlay()">
-    <svg-icon [key]="(isPause$ | async) ? 'play' : 'pause'"
-              class="text-xl"> </svg-icon>
-  </div>
-  <div class="control-button hover:text-white"
-       (click)="next()">
-    <svg-icon key="step-forward"
-              class="text-xl"> </svg-icon>
-  </div>
+   <div class="control-button hover:text-white"
+        (click)="prev()">
+      <svg-icon key="step-backward"
+                class="text-base">
+      </svg-icon>
+   </div>
+   <as-play-button [isPause$]="isPause$"
+                   (togglePlay)="togglePlay()">
+   </as-play-button>
+   <div class="control-button hover:text-white"
+        (click)="next()">
+      <svg-icon key="step-forward"
+                class="text-xl">
+      </svg-icon>
+   </div>
 </div>

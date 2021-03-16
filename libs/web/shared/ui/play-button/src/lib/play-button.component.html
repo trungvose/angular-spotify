@@ -1,0 +1,6 @@
+<div class="play-icon control-button"
+     (click)="togglePlay.emit()">
+  <svg-icon [key]="(isPause$ | async) ? 'play' : 'pause'"
+            class="text-xl">
+  </svg-icon>
+</div>
