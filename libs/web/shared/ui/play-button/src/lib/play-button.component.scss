@@ -6,7 +6,6 @@
   transition: all 33ms cubic-bezier(0.3, 0, 0.7, 1);
   border: none;
   border-radius: 50%;
-  @apply text-black bg-white mx-4;
 
   &:hover {
     transform: scale(1.05);

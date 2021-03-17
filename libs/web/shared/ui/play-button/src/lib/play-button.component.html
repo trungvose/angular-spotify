@@ -1,6 +1,7 @@
-<div class="play-icon control-button"
-     (click)="togglePlay.emit()">
-  <svg-icon [key]="(isPause$ | async) ? 'play' : 'pause'"
-            class="text-xl">
+<div *ngrxLet="isPause$ as isPause"
+     [ngClass]="buttonClass"
+     (click)="togglePlay.emit(isPause)">
+  <svg-icon [key]="isPause ? 'play' : 'pause'"
+            [size]="svgSize">
   </svg-icon>
 </div>

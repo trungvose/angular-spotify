@@ -16,8 +16,12 @@ export class PlayerApiService {
     });
   }
 
-  play(request: { context_uri?: string; uris?: string[]; offset?: any }) {
+  play(request: { context_uri?: string; uris?: string[]; offset?: { position: number } }) {
     return this.http.put(`${this.playerUrl}/play`, request);
+  }
+
+  pause() {
+    return this.http.put(`${this.playerUrl}/pause`, {});
   }
 
   next() {

@@ -45,6 +45,7 @@
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
     "@ngneat/svg-icon": "^3.1.0",
+    "@ngrx/component": "^11.0.1",
     "@ngrx/component-store": "^11.0.1",
     "@ngrx/effects": "^11.0.1",
     "@ngrx/store": "^11.0.1",

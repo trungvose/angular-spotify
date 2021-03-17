@@ -1,6 +1,7 @@
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 @Component({
   selector: 'as-player-controls',
   templateUrl: './player-controls.component.html',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class PlayerControlsComponent {
   isPause$: Observable<boolean | undefined>;
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
-    this.isPause$ = this.playbackStore.isPause$;
+    this.isPause$ = this.playbackStore.isPause$.pipe(startWith(true));
   }
 
   async togglePlay() {

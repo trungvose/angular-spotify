@@ -1,14 +1,15 @@
 import { select, Store } from '@ngrx/store';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable, pipe } from 'rxjs';
 import {
   getPlaylist,
   getPlaylistTracksById,
   loadPlaylistTracks,
+  PlaybackStore,
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { filter, map, startWith, switchMap, tap } from 'rxjs/operators';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 @Component({
   selector: 'as-playlist',
@@ -19,10 +20,12 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 export class PlaylistComponent implements OnInit {
   playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
   tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
+  isPlaylistPause$!: Observable<boolean | undefined>;
 
   constructor(
     private route: ActivatedRoute,
     private store: Store<RootState>,
+    private playbackStore: PlaybackStore,
     private playerApi: PlayerApiService
   ) {}
 
@@ -34,6 +37,17 @@ export class PlaylistComponent implements OnInit {
 
     this.playlist$ = playlistParams$.pipe(
       switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+    );
+
+    this.isPlaylistPause$ = combineLatest([this.playlist$, this.playbackStore.playback$]).pipe(
+      map(([playlist, playback]) => {
+        const isCurrentPlaylistInContext = playlist?.uri === playback.context?.uri;
+        if (isCurrentPlaylistInContext) {
+          return playback.paused;
+        }
+        return true;
+      }),
+      startWith(true)
     );
 
     this.tracks$ = playlistParams$.pipe(
@@ -48,10 +62,23 @@ export class PlaylistComponent implements OnInit {
     );
   }
 
-  playTrack(item: SpotifyApi.PlaylistTrackObject) {
+  togglePlaylist(isPause: boolean, playlist: SpotifyApi.PlaylistObjectSimplified) {
+    const playbackObs$ = isPause
+      ? this.playerApi.play({
+          context_uri: playlist.uri
+        })
+      : this.playerApi.pause();
+
+    playbackObs$.subscribe();
+  }
+
+  playTrack(playlist: SpotifyApi.PlaylistObjectSimplified, position: number) {
     this.playerApi
       .play({
-        uris: [item.track.uri]
+        context_uri: playlist.uri,
+        offset: {
+          position
+        }
       })
       .subscribe();
   }

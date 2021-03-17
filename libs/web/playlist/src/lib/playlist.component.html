@@ -1,25 +1,36 @@
-<as-media-summary *ngIf="playlist$ | async as playlist"
-                  type="Playlist"
-                  [title]="playlist.name"
-                  [imageUrl]="playlist.images[0].url"
-                  [description]="playlist.description"
-                  [artist]="playlist.owner.display_name"
-                  [trackCount]="playlist.tracks.total">
-</as-media-summary>
+<ng-container *ngIf="playlist$ | async as playlist">
+  <as-media-summary type="Playlist"
+                    [title]="playlist.name"
+                    [imageUrl]="playlist.images[0].url"
+                    [description]="playlist.description"
+                    [artist]="playlist.owner.display_name"
+                    [trackCount]="playlist.tracks.total">
+  </as-media-summary>
 
-<div class="px-8 pb-8">
-  <div class="playlist-tracks-header">
-    <div class="playlist-tracks-grid">
-      <div>#</div>
-      <div class="text-xs uppercase ellipsis-one-line">Title</div>
-      <div class="text-xs uppercase ellipsis-one-line">Album</div>
-      <div class="text-xs uppercase ellipsis-one-line">Date added</div>
+  <div class="px-8 pt-0 pb-6 playlist-action">
+    <as-play-button [large]='true'
+                    [primary]="true"
+                    [isPause$]="isPlaylistPause$"
+                    (togglePlay)="togglePlaylist($event, playlist)">
+    </as-play-button>
+  </div>
+
+  <div class="px-8 pb-4">
+    <div class="playlist-tracks-header">
+      <div class="playlist-tracks-grid">
+        <div>#</div>
+        <div class="text-xs uppercase ellipsis-one-line">Title</div>
+        <div class="text-xs uppercase ellipsis-one-line">Album</div>
+        <div class="text-xs uppercase ellipsis-one-line">Date added</div>
+      </div>
     </div>
   </div>
+
   <div class="playlist-tracks-body"
        *ngIf="tracks$ | async as tracks">
     <div class="cursor-pointer playlist-tracks-grid h-14 hover:bg-white hover:bg-opacity-10"
-         *ngFor="let item of tracks.items; let idx = index" (click)="playTrack(item)">
+         *ngFor="let item of tracks.items; let idx = index"
+         (click)="playTrack(playlist, idx)">
       <div>{{ idx + 1 }}</div>
       <as-track-main-info [track]="item.track">
       </as-track-main-info>
@@ -35,4 +46,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-container>

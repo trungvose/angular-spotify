@@ -9,5 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class PlayButtonComponent {
   @Input() isPause$!: Observable<boolean | undefined>;
+  @Input() primary = false;
+  @Input() large = false;
   @Output() togglePlay = new EventEmitter<boolean>();
+
+  get buttonClass() {
+    const baseClass = 'play-icon control-button';
+    const sizeClass = this.large ? 'large' : '';
+    return [baseClass, sizeClass, this.primary ? 'text-white bg-primary' : 'text-black bg-white'];
+  }
+
+  get svgSize() {
+    return this.large ? 'lg' : 'md';
+  }
 }
