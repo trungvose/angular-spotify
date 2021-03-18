@@ -13,11 +13,6 @@
     *ngIf="playlists$ | async as playlists">
   <li class="p-2"
       *ngFor="let playlist of playlists.items">
-    <a [routerLink]="getPlaylistRouteUrl(playlist)"
-       routerLinkActive="active"
-       [title]="playlist.name"
-       class="playlist-link link-subtle ellipsis-one-line">
-      {{ playlist.name }}
-    </a>
+    <as-nav-playlist [playlist]="playlist"></as-nav-playlist>
   </li>
 </ul>

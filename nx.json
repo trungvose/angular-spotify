@@ -113,6 +113,9 @@
     },
     "web-shared-ui-play-button": {
       "tags": ["type:ui", "scope:web"]
+    },
+    "web-shared-directives-click-stop-propagation": {
+      "tags": ["type:directive", "scope:web"]
     }
   }
 }

@@ -1,0 +1,7 @@
+.playlist-link {
+  @apply pl-4 pr-2 text-sm flex justify-between items-center;
+
+  &.active {
+    @apply text-white;
+  }
+}

@@ -3,6 +3,7 @@
        *ngIf="playlists$ | async as playlists">
     <as-media *ngFor="let playlist of playlists.items"
               [title]="playlist.name"
+              [uri]="playlist.uri"
               [description]="playlist.description"
               [imageUrl]="playlist.images[0].url"
               [routerUrl]="getPlaylistRouteUrl(playlist)">

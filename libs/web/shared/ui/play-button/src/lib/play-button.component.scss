@@ -1,5 +1,28 @@
 :host {
   display: block;
+  &.is-show-volume {
+    .volume-icon {
+      display: block;
+      opacity: 1;
+    }
+
+    .play-icon {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  &:hover.is-show-volume {
+    .volume-icon {
+      opacity: 0;
+      display: none;
+    }
+
+    .play-icon {
+      opacity: 1;
+      display: block;
+    }
+  }
 }
 
 .play-icon {

@@ -23,11 +23,3 @@
 .playlists {
   @apply pt-2 pb-1 px-0 overflow-auto;
 }
-
-.playlist-link {
-  @apply px-4 text-sm;
-
-  &.active {
-    @apply text-white;
-  }
-}

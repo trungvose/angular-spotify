@@ -1,7 +1,7 @@
 import { select, Store } from '@ngrx/store';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, Observable, pipe } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import {
   getPlaylist,
   getPlaylistTracksById,
@@ -9,8 +9,9 @@ import {
   PlaybackStore,
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
-import { filter, map, startWith, switchMap, tap } from 'rxjs/operators';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { SelectorUtil } from '@angular-spotify/web/util';
 @Component({
   selector: 'as-playlist',
   templateUrl: './playlist.component.html',
@@ -20,7 +21,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 export class PlaylistComponent implements OnInit {
   playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
   tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
-  isPlaylistPause$!: Observable<boolean | undefined>;
+  isPlaylistPause$!: Observable<boolean>;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,15 +40,11 @@ export class PlaylistComponent implements OnInit {
       switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
     );
 
-    this.isPlaylistPause$ = combineLatest([this.playlist$, this.playbackStore.playback$]).pipe(
-      map(([playlist, playback]) => {
-        const isCurrentPlaylistInContext = playlist?.uri === playback.context?.uri;
-        if (isCurrentPlaylistInContext) {
-          return playback.paused;
-        }
-        return true;
-      }),
-      startWith(true)
+    this.isPlaylistPause$ = SelectorUtil.getMediaPauseState(
+      combineLatest([
+        this.playlist$.pipe(map((playlist) => playlist?.uri)),
+        this.playbackStore.playback$
+      ])
     );
 
     this.tracks$ = playlistParams$.pipe(

@@ -66,7 +66,10 @@
       "@angular-spotify/web/shared/ui/media-summary": [
         "libs/web/shared/ui/media-summary/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/play-button": ["libs/web/shared/ui/play-button/src/index.ts"]
+      "@angular-spotify/web/shared/ui/play-button": ["libs/web/shared/ui/play-button/src/index.ts"],
+      "@angular-spotify/web/shared/directives/click-stop-propagation": [
+        "libs/web/shared/directives/click-stop-propagation/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

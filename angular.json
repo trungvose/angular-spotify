@@ -680,6 +680,23 @@
           }
         }
       }
+    },
+    "web-shared-directives-click-stop-propagation": {
+      "projectType": "library",
+      "root": "libs/web/shared/directives/click-stop-propagation",
+      "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
+              "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }
