@@ -12,12 +12,12 @@ import { combineLatest, Observable, of } from 'rxjs';
 })
 export class NavPlaylistComponent implements OnInit {
   @Input() playlist!: SpotifyApi.PlaylistObjectSimplified;
-  isPlaylistPause$!: Observable<boolean>;
+  isPlaylistPlaying$!: Observable<boolean>;
 
   constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {}
 
   ngOnInit(): void {
-    this.isPlaylistPause$ = SelectorUtil.getMediaPauseState(
+    this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
       combineLatest([of(this.playlist?.uri), this.playbackStore.playback$])
     );
   }
@@ -26,13 +26,11 @@ export class NavPlaylistComponent implements OnInit {
     return RouteUtil.getPlaylistRouteUrl(playlist);
   }
 
-  togglePlaylist(isPause: boolean) {
-    const playbackObs$ = isPause
-      ? this.playerApi.play({
-          context_uri: this.playlist?.uri
-        })
-      : this.playerApi.pause();
-
-    playbackObs$.subscribe();
+  togglePlaylist(isPlaying: boolean) {
+    this.playerApi
+      .togglePlay(isPlaying, {
+        context_uri: this.playlist?.uri
+      })
+      .subscribe();
   }
 }

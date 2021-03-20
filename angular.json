@@ -722,6 +722,56 @@
           }
         }
       }
+    },
+    "web-shared-ui-playlist-track": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/playlist-track",
+      "sourceRoot": "libs/web/shared/ui/playlist-track/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/playlist-track/src/**/*.ts",
+              "libs/web/shared/ui/playlist-track/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/playlist-track"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/playlist-track/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-media-order": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/media-order",
+      "sourceRoot": "libs/web/shared/ui/media-order/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/media-order/src/**/*.ts",
+              "libs/web/shared/ui/media-order/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/media-order"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

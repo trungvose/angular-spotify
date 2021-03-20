@@ -1,0 +1,15 @@
+<div class="flex group">
+  <img *ngIf="isPlaying; else indexTmpl"
+       class="flex group-hover:hidden animated-equalizer"
+       src="/assets/images/equaliser-animated-green.gif"
+       alt="Playing" />
+
+  <as-play-button class="hidden pt-1 group-hover:block"
+                  [flatIcon]="true"
+                  [isPlaying]="isPlaying"
+                  (togglePlay)="togglePlay.emit($event)">
+  </as-play-button>
+</div>
+<ng-template #indexTmpl>
+  <span class="text-description">{{ index + 1}}</span>
+</ng-template>

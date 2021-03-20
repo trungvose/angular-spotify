@@ -18,6 +18,8 @@ module.exports = {
     '<rootDir>/libs/web/util',
     '<rootDir>/libs/web/shared/pipes/duration-pipe',
     '<rootDir>/libs/web/shared/ui/icon',
-    '<rootDir>/libs/web/shared/ui/media-table'
+    '<rootDir>/libs/web/shared/ui/media-table',
+    '<rootDir>/libs/web/shared/ui/playlist-track',
+    '<rootDir>/libs/web/shared/ui/media-order'
   ]
 };

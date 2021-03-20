@@ -3,16 +3,32 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 export class SelectorUtil {
-  static getMediaPauseState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
+  static getMediaPlayingState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
     return obs$.pipe(
       map(([uri, playback]) => {
         const isCurrentPlaylistInContext = uri === playback.context?.uri;
         if (isCurrentPlaylistInContext) {
-          return playback.paused;
+          return !playback.paused;
         }
-        return true;
+        return false;
       }),
-      startWith(true)
+      startWith(false)
+    );
+  }
+
+  static getTrackPlayingState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
+    return obs$.pipe(
+      map(([trackId, playback]) => {
+        const track = playback?.track_window?.current_track;
+        if (!trackId || !track) {
+          return false;
+        }
+        if (trackId !== track.id) {
+          return false;
+        }
+        return !playback.paused;
+      }),
+      startWith(false)
     );
   }
 }

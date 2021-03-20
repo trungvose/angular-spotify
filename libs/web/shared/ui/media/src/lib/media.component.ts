@@ -16,23 +16,21 @@ export class MediaComponent implements OnInit {
   @Input() routerUrl!: string;
   @Input() uri!: string;
 
-  isMediaPause$!: Observable<boolean>;
+  isMediaPlaying$!: Observable<boolean>;
 
   constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {}
 
   ngOnInit() {
-    this.isMediaPause$ = SelectorUtil.getMediaPauseState(
+    this.isMediaPlaying$ = SelectorUtil.getMediaPlayingState(
       combineLatest([of(this.uri), this.playbackStore.playback$])
     );
   }
 
-  togglePlaylist(isPause: boolean) {
-    const playbackObs$ = isPause
-      ? this.playerApi.play({
-          context_uri: this.uri
-        })
-      : this.playerApi.pause();
-
-    playbackObs$.subscribe();
+  togglePlaylist(isPlaying: boolean) {
+    this.playerApi
+      .togglePlay(isPlaying, {
+        context_uri: this.uri
+      })
+      .subscribe();
   }
 }

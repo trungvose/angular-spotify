@@ -70,7 +70,11 @@
       "@angular-spotify/web/shared/directives/click-stop-propagation": [
         "libs/web/shared/directives/click-stop-propagation/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/media-table": ["libs/web/shared/ui/media-table/src/index.ts"]
+      "@angular-spotify/web/shared/ui/media-table": ["libs/web/shared/ui/media-table/src/index.ts"],
+      "@angular-spotify/web/shared/ui/playlist-track": [
+        "libs/web/shared/ui/playlist-track/src/index.ts"
+      ],
+      "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PlaylistTrackComponent } from './playlist-track.component';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
+import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
+import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
+import { MediaOrderModule } from '@angular-spotify/web/shared/ui/media-order';
+@NgModule({
+  imports: [
+    CommonModule,
+    MediaTableModule,
+    DurationPipeModule,
+    TrackMainInfoModule,
+    MediaOrderModule
+  ],
+  declarations: [PlaylistTrackComponent],
+  exports: [PlaylistTrackComponent]
+})
+export class PlaylistTrackModule {}

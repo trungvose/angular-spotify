@@ -1,20 +1,18 @@
+import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
+import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
+import { PlaylistTrackModule } from '@angular-spotify/web/shared/ui/playlist-track';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { PlaylistComponent } from './playlist.component';
-import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
-import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
-import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
-import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
-import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 @NgModule({
   imports: [
     CommonModule,
     MediaSummaryModule,
-    TrackMainInfoModule,
-    DurationPipeModule,
     PlayButtonModule,
     MediaTableModule,
+    PlaylistTrackModule,
     RouterModule.forChild([
       {
         path: '',

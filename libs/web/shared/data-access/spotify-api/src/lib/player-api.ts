@@ -1,7 +1,7 @@
 import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-
+import { SpotifyPlayRequestApi } from '@angular-spotify/web/shared/data-access/models';
 @Injectable({ providedIn: 'root' })
 export class PlayerApiService {
   playerUrl: string;
@@ -16,12 +16,19 @@ export class PlayerApiService {
     });
   }
 
-  play(request: { context_uri?: string; uris?: string[]; offset?: { position: number } }) {
+  play(request: SpotifyPlayRequestApi) {
     return this.http.put(`${this.playerUrl}/play`, request);
   }
 
   pause() {
     return this.http.put(`${this.playerUrl}/pause`, {});
+  }
+
+  togglePlay(isPlaying: boolean, request: SpotifyPlayRequestApi) {
+    if (isPlaying) {
+      return this.pause();
+    }
+    return this.play(request);
   }
 
   next() {

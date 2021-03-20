@@ -6,7 +6,6 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'as-play-button',
@@ -15,7 +14,7 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayButtonComponent {
-  @Input() isPause$!: Observable<boolean | undefined>;
+  @Input() isPlaying: boolean | null | undefined;
   @Input() primary = false;
   @Input() large = false;
   @Input() flatIcon = false;
@@ -24,9 +23,9 @@ export class PlayButtonComponent {
 
   get buttonClass() {
     if (this.flatIcon) {
-      return [''];
+      return ['flex'];
     }
-    const baseClass = 'play-icon control-button';
+    const baseClass = 'flex play-icon control-button';
     const sizeClass = this.large ? 'large' : '';
     return [baseClass, sizeClass, this.primary ? 'text-white bg-primary' : 'text-black bg-white'];
   }

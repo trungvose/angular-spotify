@@ -1,9 +1,8 @@
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
 import { BehaviorSubject, combineLatest, Observable, of, timer } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'as-player-playback',
   templateUrl: './player-playback.component.html',
@@ -18,6 +17,7 @@ export class PlayerPlaybackComponent {
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
     this.isSliderMoving$ = new BehaviorSubject<boolean>(false);
     this.progress$ = combineLatest([this.playbackStore.playback$, this.isSliderMoving$]).pipe(
+      debounceTime(20),
       switchMap(([{ paused, position }, isMoving]) => {
         if (paused || isMoving) {
           return of(position);

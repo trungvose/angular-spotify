@@ -21,7 +21,7 @@ import { SelectorUtil } from '@angular-spotify/web/util';
 export class PlaylistComponent implements OnInit {
   playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
   tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
-  isPlaylistPause$!: Observable<boolean>;
+  isPlaylistPlaying$!: Observable<boolean>;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,7 +40,7 @@ export class PlaylistComponent implements OnInit {
       switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
     );
 
-    this.isPlaylistPause$ = SelectorUtil.getMediaPauseState(
+    this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
       combineLatest([
         this.playlist$.pipe(map((playlist) => playlist?.uri)),
         this.playbackStore.playback$
@@ -59,14 +59,12 @@ export class PlaylistComponent implements OnInit {
     );
   }
 
-  togglePlaylist(isPause: boolean, playlist: SpotifyApi.PlaylistObjectSimplified) {
-    const playbackObs$ = isPause
-      ? this.playerApi.play({
-          context_uri: playlist.uri
-        })
-      : this.playerApi.pause();
-
-    playbackObs$.subscribe();
+  togglePlaylist(isPlaying: boolean, playlist: SpotifyApi.PlaylistObjectSimplified) {
+    this.playerApi
+      .togglePlay(isPlaying, {
+        context_uri: playlist.uri
+      })
+      .subscribe();
   }
 
   playTrack(playlist: SpotifyApi.PlaylistObjectSimplified, position: number) {

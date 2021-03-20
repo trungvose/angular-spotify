@@ -1,14 +1,14 @@
-<div *ngrxLet="isPause$ as isPause"
-     aria-roledescription="button"
-     [title]="isPause ? 'Play' : 'Pause'"
+<div aria-roledescription="button"
+     [title]="isPlaying ? 'Pause': 'Play'"
      [ngClass]="buttonClass"
-     (click)="togglePlay.emit(isPause)">
+     (click)="togglePlay.emit(isPlaying!)">
   <svg-icon class="play-icon"
-            [key]="isPause ? 'play' : 'pause'"
+            [key]="isPlaying ? 'pause' : 'play'"
             [size]="svgSize">
   </svg-icon>
   <svg-icon class="volume-icon"
             *ngIf='isShowVolumeIcon'
             [size]="svgSize"
-            key="volume-high"></svg-icon>
+            key="volume-high">
+  </svg-icon>
 </div>

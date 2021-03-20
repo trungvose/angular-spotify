@@ -9,9 +9,9 @@ import { startWith } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerControlsComponent {
-  isPause$: Observable<boolean | undefined>;
+  isPlaying$: Observable<boolean | null>;
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
-    this.isPause$ = this.playbackStore.isPause$.pipe(startWith(true));
+    this.isPlaying$ = this.playbackStore.isPlaying$.pipe(startWith(false));
   }
 
   async togglePlay() {

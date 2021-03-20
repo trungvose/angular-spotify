@@ -6,7 +6,7 @@
       </svg-icon>
    </div>
    <as-play-button class="mx-4"
-                   [isPause$]="isPause$"
+                   [isPlaying]="isPlaying$ | async"
                    (togglePlay)="togglePlay()">
    </as-play-button>
    <div class="control-button hover:text-white"
