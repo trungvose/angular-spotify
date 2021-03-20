@@ -1,28 +1,16 @@
 @import 'tailwindcss/base';
-@layer base {
-  a {
-    @apply text-white;
-  }
-}
-
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* You can add global styles to this file, and also import other style files */
+@import './custom/tailwind';
 
-@layer utilities {
-  .link-subtle {
-    color: #b3b3b4;
-
-    &:hover {
-      @apply text-white;
-    }
-  }
-}
+@import '~ng-zorro-antd/style/index.min.css';
+@import '~ng-zorro-antd/slider/style/index.min.css';
+@import './custom/ant';
 
 body {
-  min-height: 768px;
   min-width: 600px;
   line-height: 20px;
   letter-spacing: 0.015em;
-  @apply h-full w-full absolute overflow-hidden flex flex-col text-gray-600;
+  color: #b3b3b3;
+  @apply h-full w-full absolute overflow-hidden flex flex-col;
 }

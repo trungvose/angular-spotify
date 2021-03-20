@@ -1,0 +1,39 @@
+:host {
+  &.is-show-volume {
+    .volume-icon {
+      display: block;
+      opacity: 1;
+    }
+
+    .play-icon {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  &:hover.is-show-volume {
+    .volume-icon {
+      opacity: 0;
+      display: none;
+    }
+
+    .play-icon {
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+.play-icon {
+  transition: all 33ms cubic-bezier(0.3, 0, 0.7, 1);
+  border: none;
+  border-radius: 50%;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

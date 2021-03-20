@@ -1,0 +1,11 @@
+{
+  "name": "@angular-spotify/web/shared/ui/playlist-track",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^11.2.1",
+    "@angular/core": "^11.2.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

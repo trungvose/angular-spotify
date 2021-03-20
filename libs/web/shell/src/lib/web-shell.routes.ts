@@ -4,6 +4,27 @@ import { LayoutComponent } from '@angular-spotify/web/layout';
 export const webShellRoutes: Route[] = [
   {
     path: '',
-    component: LayoutComponent
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'collection/playlists',
+        loadChildren: async () =>
+          (await import('@angular-spotify/web/collection/playlists')).PlaylistsModule
+      },
+      {
+        path: 'collection',
+        redirectTo: 'collection/playlists',
+        pathMatch: 'full'
+      },
+      {
+        path: 'playlist/:playlistId',
+        loadChildren: async () => (await import('@angular-spotify/web/playlist')).PlaylistModule
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: 'collection',
+    pathMatch: 'full'
   }
 ];

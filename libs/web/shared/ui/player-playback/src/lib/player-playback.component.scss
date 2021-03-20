@@ -1,0 +1,8 @@
+:host {
+  @apply flex items-center justify-between mx-4;
+}
+
+.timer-duration {
+  transition: all 0.2s;
+  @apply text-xs text-white text-opacity-60;
+}

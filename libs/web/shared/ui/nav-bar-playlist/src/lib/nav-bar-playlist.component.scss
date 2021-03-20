@@ -1,0 +1,25 @@
+:host {
+  min-height: 0;
+  @apply pt-6 flex flex-col;
+}
+
+.nav-link {
+  border-radius: 4px;
+  height: 40px;
+
+  &.active {
+    @apply text-white;
+    font-weight: 600;
+  }
+}
+
+.separator {
+  background-color: #282828;
+  border: none;
+  height: 1px;
+  min-height: 1px;
+}
+
+.playlists {
+  @apply pt-2 pb-1 px-0 overflow-auto;
+}

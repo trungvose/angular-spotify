@@ -1,0 +1,35 @@
+@layer components {
+  .text-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    user-select: none;
+    @apply overflow-hidden whitespace-normal mt-1 text-sm text-white text-opacity-50;
+  }
+
+  .ellipsis-one-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: unset;
+    word-break: break-all;
+    overflow: hidden;
+  }
+
+  .control-button {
+    color: #b3b3b3;
+    position: relative;
+    @apply w-8 h-8 flex items-center justify-center cursor-pointer;
+
+    &.large {
+      @apply w-12 h-12;
+    }
+  }
+
+  .playlist-tracks-grid {
+    display: grid;
+    grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px, 1fr);
+    gap: 16px;
+  }
+}

@@ -1,0 +1,25 @@
+<a class="flex flex-col flex-1"
+   [routerLink]="routerUrl">
+  <div class="media-cover"
+       [class.is-playing]="isPlaying"
+       *ngrxLet="isMediaPlaying$ as isPlaying">
+    <as-media-cover class="mb-4"
+                    [imageUrl]="imageUrl">
+    </as-media-cover>
+    <as-play-button class="play-button-overlay"
+                    [primary]="true"
+                    [large]="true"
+                    [isPlaying]="isPlaying"
+                    (togglePlay)="togglePlaylist($event)"
+                    asClickStopPropagation>
+    </as-play-button>
+  </div>
+  <div class="media-description">
+    <div class="font-bold text-white ellipsis-one-line hover:text-white">
+      {{ title }}
+    </div>
+    <div class="text-description">
+      {{ description }}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,25 @@
+:host {
+  grid-area: main-view;
+  width: 100%;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.6)),
+    to(#121212)
+  );
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), #121212);
+  transition: background 1s ease;
+  @apply flex flex-col overflow-auto;
+}
+
+.sticky-top-scroll {
+  position: sticky;
+  top: 0;
+  @apply h-topBar;
+}
+
+.main-view {
+  scroll-behavior: smooth;
+  @apply flex flex-col flex-1 overflow-auto;
+}

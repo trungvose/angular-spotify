@@ -31,7 +31,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "generate-icons": "svg-generator"
   },
   "private": true,
   "dependencies": {
@@ -43,8 +44,14 @@
     "@angular/platform-browser": "^11.2.0",
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
+    "@ngneat/svg-icon": "^3.1.0",
+    "@ngrx/component": "^11.0.1",
     "@ngrx/component-store": "^11.0.1",
+    "@ngrx/effects": "^11.0.1",
+    "@ngrx/store": "^11.0.1",
+    "@ngrx/store-devtools": "^11.0.1",
     "@nrwl/angular": "11.3.1",
+    "ng-zorro-antd": "^11.2.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
@@ -58,6 +65,7 @@
     "@angular/cli": "~11.0.0",
     "@angular/compiler-cli": "^11.2.0",
     "@angular/language-service": "^11.2.0",
+    "@ngneat/svg-generator": "^2.0.0",
     "@ngneat/tailwind": "^6.0.3",
     "@nrwl/cli": "11.3.1",
     "@nrwl/cypress": "11.3.1",
@@ -69,6 +77,8 @@
     "@nrwl/workspace": "11.3.1",
     "@types/jest": "26.0.8",
     "@types/node": "12.12.38",
+    "@types/spotify-api": "0.0.8",
+    "@types/spotify-web-playback-sdk": "^0.1.8",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "cypress": "^6.0.1",
@@ -80,11 +90,25 @@
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.2",
     "lint-staged": "^10.5.4",
+    "ng-packagr": "^11.0.0",
     "postcss-ng-tailwind-in-components": "0.0.3",
     "prettier": "2.2.1",
     "tailwindcss": "2.0.3",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
     "typescript": "~4.0.3"
+  },
+  "svgGenerator": {
+    "outputPath": "./libs/web/shared/ui/icon/src/lib/svg",
+    "prefix": "as",
+    "srcPath": "./libs/web/shared/ui/icon/src/lib/assets",
+    "svgoConfig": {
+      "plugins": [
+        {
+          "removeDimensions": true,
+          "cleanupAttrs": true
+        }
+      ]
+    }
   }
 }

@@ -1,0 +1,15 @@
+:host {
+  grid-area: now-playing-bar;
+  background-color: #181818;
+  width: 100%;
+  z-index: 4;
+}
+
+.now-playing-bar-container {
+  min-width: 620px;
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  display: grid;
+  grid-template-columns: minmax(180px, 30%) minmax(40%, 722px) minmax(180px, 30%);
+  @apply px-4 items-center h-nowPlayingBar;
+}

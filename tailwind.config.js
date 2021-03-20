@@ -7,12 +7,21 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        leftNav: '232px'
+        navBar: '232px',
+      },
+      height: {
+        topBar: '60px',
+        nowPlayingBar: '90px'
+      },
+      colors: {
+        primary: '#1db954'
       }
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      display: ['group-hover']
+    }
   },
   plugins: []
 };

@@ -1,0 +1,42 @@
+$bg: #181818;
+$bg-hover: #282828;
+
+:host {
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  background-color: $bg;
+  @apply flex flex-col p-4;
+
+  &:hover {
+    background-color: #282828;
+
+    .play-button-overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}
+
+.play-button-overlay {
+  right: 10px;
+  bottom: 25px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  transform: translateY(10px);
+  @apply absolute;
+}
+
+.media-cover {
+  display: flex;
+  position: relative;
+
+  &.is-playing {
+    .play-button-overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}

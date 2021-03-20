@@ -1,0 +1,38 @@
+<ng-container *ngIf="playlist$ | async as playlist">
+  <as-media-summary type="Playlist"
+                    [title]="playlist.name"
+                    [imageUrl]="playlist.images[0].url"
+                    [description]="playlist.description"
+                    [artist]="playlist.owner.display_name"
+                    [trackCount]="playlist.tracks.total">
+  </as-media-summary>
+
+  <div class="px-8 pt-0 pb-6 playlist-action">
+    <as-play-button [large]='true'
+                    [primary]="true"
+                    [isPlaying]="isPlaylistPlaying$ | async"
+                    (togglePlay)="togglePlaylist($event, playlist)">
+    </as-play-button>
+  </div>
+
+  <div class="px-8">
+    <as-media-table-header>
+      <div class="playlist-tracks-grid">
+        <div>#</div>
+        <div class="text-xs uppercase ellipsis-one-line">Title</div>
+        <div class="text-xs uppercase ellipsis-one-line">Album</div>
+        <div class="text-xs uppercase ellipsis-one-line">Date added</div>
+      </div>
+    </as-media-table-header>
+
+    <div class="mb-8"
+         *ngIf="tracks$ | async as tracks">
+      <as-playlist-track *ngFor="let item of tracks.items; let idx = index"
+                         [item]="item"
+                         [index]="idx"
+                         [contextUri]="playlist.uri"
+                         (dblclick)="playTrack(playlist, idx)">
+      </as-playlist-track>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,19 @@
+<as-media-table-row *ngIf="item"
+                    class="playlist-tracks-grid">
+  <as-media-order [index]="index"
+                  [isPlaying]="isTrackPlaying$ | async"
+                  (togglePlay)="togglePlayTrack($event)">
+  </as-media-order>
+  <as-track-main-info [track]="item.track">
+  </as-track-main-info>
+  <a class="text-description link-subtle hover:underline">
+    {{ item.track.album.name }}
+  </a>
+  <div class="text-description"
+       [title]="item.added_at  |date:'medium'">
+    {{ item.added_at | date }}
+  </div>
+  <div class="text-description">
+    {{ item.track.duration_ms | duration }}
+  </div>
+</as-media-table-row>

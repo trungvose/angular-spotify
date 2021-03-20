@@ -1,0 +1,41 @@
+$faded: rgba(0, 0, 0, 0.7);
+$size: 32px;
+
+:host {
+  grid-area: main-view;
+  z-index: 1;
+  @apply px-8 py-4 flex justify-between items-center h-topBar;  
+}
+
+.arrow-button {
+  border: none;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  background-color: $faded;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.user-dropdown {
+  background-color: $faded;
+  border-radius: 23px;
+  height: $size;
+  min-width: $size;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  padding: 2px;
+  @apply flex items-center justify-center;
+}
+
+.rounded-img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
