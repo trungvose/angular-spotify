@@ -5,6 +5,7 @@ import { PlaylistTrackModule } from '@angular-spotify/web/shared/ui/playlist-tra
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SvgIconsModule } from '@ngneat/svg-icon';
 import { PlaylistComponent } from './playlist.component';
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { PlaylistComponent } from './playlist.component';
     PlayButtonModule,
     MediaTableModule,
     PlaylistTrackModule,
+    SvgIconsModule,
     RouterModule.forChild([
       {
         path: '',

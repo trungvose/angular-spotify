@@ -9,6 +9,7 @@ import { asPlayIcon } from './svg/play';
 import { asVolumeHighIcon } from './svg/volume-high';
 import { asVolumeMediumIcon } from './svg/volume-medium';
 import { asVolumeMuteIcon } from './svg/volume-mute';
+import { asClockIcon } from './svg/clock';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { asVolumeMuteIcon } from './svg/volume-mute';
         asPlayIcon,
         asVolumeHighIcon,
         asVolumeMediumIcon,
-        asVolumeMuteIcon
+        asVolumeMuteIcon,
+        asClockIcon
       ]
     })
   ],
