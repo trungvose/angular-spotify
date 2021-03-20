@@ -5,13 +5,15 @@ import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
 import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
 import { MediaOrderModule } from '@angular-spotify/web/shared/ui/media-order';
+import { ReactiveComponentModule } from '@ngrx/component';
 @NgModule({
   imports: [
     CommonModule,
     MediaTableModule,
     DurationPipeModule,
     TrackMainInfoModule,
-    MediaOrderModule
+    MediaOrderModule,
+    ReactiveComponentModule
   ],
   declarations: [PlaylistTrackComponent],
   exports: [PlaylistTrackComponent]

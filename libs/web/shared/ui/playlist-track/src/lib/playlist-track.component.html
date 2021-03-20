@@ -1,11 +1,14 @@
 <as-media-table-row *ngIf="item"
                     class="playlist-tracks-grid">
-  <as-media-order [index]="index"
-                  [isPlaying]="isTrackPlaying$ | async"
-                  (togglePlay)="togglePlayTrack($event)">
-  </as-media-order>
-  <as-track-main-info [track]="item.track">
-  </as-track-main-info>
+  <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
+    <as-media-order [index]="index"
+                    [isPlaying]="isPlaying!"
+                    (togglePlay)="togglePlayTrack($event)">
+    </as-media-order>
+    <as-track-main-info [track]="item.track"
+                        [isPlaying]="isPlaying">
+    </as-track-main-info>
+  </ng-container>
   <a class="text-description link-subtle hover:underline">
     {{ item.track.album.name }}
   </a>

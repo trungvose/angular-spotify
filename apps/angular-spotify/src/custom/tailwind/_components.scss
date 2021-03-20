@@ -5,7 +5,7 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     user-select: none;
-    @apply overflow-hidden whitespace-normal mt-1 text-sm text-white text-opacity-50;
+    @apply overflow-hidden whitespace-normal text-sm text-white text-opacity-50;
   }
 
   .ellipsis-one-line {
@@ -15,6 +15,7 @@
     white-space: unset;
     word-break: break-all;
     overflow: hidden;
+    user-select: none;
   }
 
   .control-button {
@@ -29,7 +30,11 @@
 
   .playlist-tracks-grid {
     display: grid;
-    grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px, 1fr);
+    grid-template-columns: [index] 24px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px, 1fr);
     gap: 16px;
+  }
+
+  .no-select {
+    user-select: none;
   }
 }
