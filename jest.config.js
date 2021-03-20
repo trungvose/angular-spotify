@@ -17,6 +17,7 @@ module.exports = {
     '<rootDir>/libs/web/shared/data-access/store',
     '<rootDir>/libs/web/util',
     '<rootDir>/libs/web/shared/pipes/duration-pipe',
-    '<rootDir>/libs/web/shared/ui/icon'
+    '<rootDir>/libs/web/shared/ui/icon',
+    '<rootDir>/libs/web/shared/ui/media-table'
   ]
 };

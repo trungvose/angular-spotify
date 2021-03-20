@@ -6,6 +6,7 @@ import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary
 import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
 import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
 import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,7 @@ import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
     TrackMainInfoModule,
     DurationPipeModule,
     PlayButtonModule,
+    MediaTableModule,
     RouterModule.forChild([
       {
         path: '',

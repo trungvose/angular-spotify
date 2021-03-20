@@ -1,18 +1,13 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "angular-spotify",
   "tasksRunnerOptions": {
     "default": {
@@ -26,96 +21,36 @@
     }
   },
   "projects": {
-    "angular-spotify": {
-      "tags": []
-    },
-    "angular-spotify-e2e": {
-      "tags": [],
-      "implicitDependencies": ["angular-spotify"]
-    },
-    "web-shell": {
-      "tags": []
-    },
-    "web-layout": {
-      "tags": []
-    },
-    "web-shared-ui-nav-bar": {
-      "tags": []
-    },
-    "web-shared-data-access-models": {
-      "tags": []
-    },
-    "web-shared-ui-nav-bar-playlist": {
-      "tags": []
-    },
-    "web-shared-ui-top-bar": {
-      "tags": []
-    },
-    "web-shared-ui-main-view": {
-      "tags": []
-    },
-    "web-shared-data-access-spotify-api": {
-      "tags": ["type:data-access", "scope:web"]
-    },
-    "web-auth-data-access": {
-      "tags": ["type:data-access", "scope:web"]
-    },
-    "web-auth-util": {
-      "tags": ["type:data-access", "scope:web"]
-    },
-    "web-shared-app-config": {
-      "tags": []
-    },
-    "web-shared-data-access-store": {
-      "tags": ["type:data-access", "scope:web"]
-    },
-    "web-collection-playlists": {
-      "tags": ["type:feature", "scope:web"]
-    },
-    "web-playlist": {
-      "tags": ["type:feature", "scope: web"]
-    },
-    "web-shared-ui-track-main-info": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-util": {
-      "tags": ["type:util", "scope:web"]
-    },
-    "web-shared-pipes-duration-pipe": {
-      "tags": ["type:pipe", "scope:web"]
-    },
-    "web-shared-ui-now-playing-bar": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-icon": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-track-current-info": {
-      "tags": ["type:io", "scope:web"]
-    },
-    "web-shared-ui-player-controls": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-player-playback": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-player-volume": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-media": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-media-cover": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-media-summary": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-ui-play-button": {
-      "tags": ["type:ui", "scope:web"]
-    },
-    "web-shared-directives-click-stop-propagation": {
-      "tags": ["type:directive", "scope:web"]
-    }
+    "angular-spotify": { "tags": [] },
+    "angular-spotify-e2e": { "tags": [], "implicitDependencies": ["angular-spotify"] },
+    "web-shell": { "tags": [] },
+    "web-layout": { "tags": [] },
+    "web-shared-ui-nav-bar": { "tags": [] },
+    "web-shared-data-access-models": { "tags": [] },
+    "web-shared-ui-nav-bar-playlist": { "tags": [] },
+    "web-shared-ui-top-bar": { "tags": [] },
+    "web-shared-ui-main-view": { "tags": [] },
+    "web-shared-data-access-spotify-api": { "tags": ["type:data-access", "scope:web"] },
+    "web-auth-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-auth-util": { "tags": ["type:data-access", "scope:web"] },
+    "web-shared-app-config": { "tags": [] },
+    "web-shared-data-access-store": { "tags": ["type:data-access", "scope:web"] },
+    "web-collection-playlists": { "tags": ["type:feature", "scope:web"] },
+    "web-playlist": { "tags": ["type:feature", "scope: web"] },
+    "web-shared-ui-track-main-info": { "tags": ["type:ui", "scope:web"] },
+    "web-util": { "tags": ["type:util", "scope:web"] },
+    "web-shared-pipes-duration-pipe": { "tags": ["type:pipe", "scope:web"] },
+    "web-shared-ui-now-playing-bar": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-icon": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-track-current-info": { "tags": ["type:io", "scope:web"] },
+    "web-shared-ui-player-controls": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-player-playback": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-player-volume": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-media": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-media-cover": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-media-summary": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-play-button": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-directives-click-stop-propagation": { "tags": ["type:directive", "scope:web"] },
+    "web-shared-ui-media-table": { "tags": ["type:ui", "scope:web"] }
   }
 }

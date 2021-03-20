@@ -15,35 +15,34 @@
     </as-play-button>
   </div>
 
-  <div class="px-8 pb-4">
-    <div class="playlist-tracks-header">
+  <div class="px-8">
+    <as-media-table-header>
       <div class="playlist-tracks-grid">
         <div>#</div>
         <div class="text-xs uppercase ellipsis-one-line">Title</div>
         <div class="text-xs uppercase ellipsis-one-line">Album</div>
         <div class="text-xs uppercase ellipsis-one-line">Date added</div>
       </div>
-    </div>
-  </div>
+    </as-media-table-header>
 
-  <div class="playlist-tracks-body"
-       *ngIf="tracks$ | async as tracks">
-    <div class="cursor-pointer playlist-tracks-grid h-14 hover:bg-white hover:bg-opacity-10"
-         *ngFor="let item of tracks.items; let idx = index"
-         (click)="playTrack(playlist, idx)">
-      <div>{{ idx + 1 }}</div>
-      <as-track-main-info [track]="item.track">
-      </as-track-main-info>
-      <a class="text-description link-subtle hover:underline">
-        {{ item.track.album.name }}
-      </a>
-      <div class="text-description"
-           [title]="item.added_at  |date:'medium'">
-        {{ item.added_at | date }}
-      </div>
-      <div class="text-description">
-        {{ item.track.duration_ms | duration }}
-      </div>
-    </div>
+    <ng-container *ngIf="tracks$ | async as tracks">
+      <as-media-table-row class="playlist-tracks-grid"
+                          *ngFor="let item of tracks.items; let idx = index"
+                          (click)="playTrack(playlist, idx)">
+        <div>{{ idx + 1 }}</div>
+        <as-track-main-info [track]="item.track">
+        </as-track-main-info>
+        <a class="text-description link-subtle hover:underline">
+          {{ item.track.album.name }}
+        </a>
+        <div class="text-description"
+             [title]="item.added_at  |date:'medium'">
+          {{ item.added_at | date }}
+        </div>
+        <div class="text-description">
+          {{ item.track.duration_ms | duration }}
+        </div>
+      </as-media-table-row>
+    </ng-container>
   </div>
 </ng-container>

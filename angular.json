@@ -697,6 +697,31 @@
           }
         }
       }
+    },
+    "web-shared-ui-media-table": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/media-table",
+      "sourceRoot": "libs/web/shared/ui/media-table/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/media-table/src/**/*.ts",
+              "libs/web/shared/ui/media-table/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/media-table"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/media-table/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
