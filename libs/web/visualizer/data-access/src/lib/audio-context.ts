@@ -20,7 +20,7 @@ class AudioAnalyser {
 }
 
 export const initVisualizer = (container: HTMLElement) => {
-  Sketch.create({
+  const sketch = Sketch.create({
     container,
     particles: [],
     interval: 2,
@@ -63,4 +63,6 @@ export const initVisualizer = (container: HTMLElement) => {
       });
     }
   });
+
+  return sketch;
 };

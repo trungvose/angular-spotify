@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "types": ["spotify-api"],
     "paths": {
       "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
       "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"],
