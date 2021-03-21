@@ -1,4 +1,6 @@
-import Sketch from 'sketch-js';
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="../typings/sketch-js.d.ts" />
+import * as Sketch from 'sketch-js';
 import { Particle } from './particle';
 import { random } from 'lodash-es';
 import { NUM_BANDS, NUM_PARTICLES, SMOOTHING } from './const';
