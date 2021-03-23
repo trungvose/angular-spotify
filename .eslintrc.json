@@ -11,16 +11,25 @@
           {
             "enforceBuildableLibDependency": true,
             "allow": [],
-            "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
           }
         ],
-        "max-len": ["error", { "ignoreStrings": true }]
+        "max-len": [
+          "error",
+          {
+            "ignoreStrings": true
+          }
+        ]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "parserOptions": { "project": "./tsconfig.*?.json" },
       "rules": {}
     },
     {
