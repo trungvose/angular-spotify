@@ -31,6 +31,6 @@ export class MediaComponent implements OnInit {
       .togglePlay(isPlaying, {
         context_uri: this.uri
       })
-      .subscribe();
+      .subscribe();//TODO: Refactor with component store live stream
   }
 }

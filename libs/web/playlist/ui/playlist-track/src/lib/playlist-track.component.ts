@@ -31,6 +31,6 @@ export class PlaylistTrackComponent implements OnInit {
           position: this.index
         }
       })
-      .subscribe();
+      .subscribe();//TODO: Refactor with component store live stream
   }
 }
