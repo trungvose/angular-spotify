@@ -12,7 +12,7 @@ export class UIStore extends ComponentStore<UIState> {
     super({
       navItems: [
         { label: 'Home', path: '' },
-        { label: 'Search', path: '/search' },
+        { label: 'Search', path: '/visualizer' },
         { label: 'Your Library', path: '/collection/playlists' }
       ]
     });

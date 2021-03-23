@@ -53,6 +53,8 @@
     "web-shared-directives-click-stop-propagation": { "tags": ["type:directive", "scope:web"] },
     "web-shared-ui-media-table": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-playlist-track": { "tags": ["type:ui", "scope:web"] },
-    "web-shared-ui-media-order": { "tags": ["type:ui", "scope:web"] }
+    "web-shared-ui-media-order": { "tags": ["type:ui", "scope:web"] },
+    "web-visualizer-feature": { "tags": ["type:feature", "scope:web"] },
+    "web-visualizer-data-access": { "tags": ["type:data-access", "scope:web"] }
   }
 }

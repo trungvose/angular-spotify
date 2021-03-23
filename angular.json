@@ -772,6 +772,52 @@
           }
         }
       }
+    },
+    "web-visualizer-feature": {
+      "projectType": "library",
+      "root": "libs/web/visualizer/feature",
+      "sourceRoot": "libs/web/visualizer/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/visualizer/feature/src/**/*.ts",
+              "libs/web/visualizer/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/visualizer/feature"],
+          "options": {
+            "jestConfig": "libs/web/visualizer/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-visualizer-data-access": {
+      "root": "libs/web/visualizer/data-access",
+      "sourceRoot": "libs/web/visualizer/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/visualizer/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/visualizer/data-access"],
+          "options": {
+            "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

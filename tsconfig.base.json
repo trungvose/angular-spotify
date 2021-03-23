@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "types": ["spotify-api"],
     "paths": {
       "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
       "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"],
@@ -74,7 +73,11 @@
       "@angular-spotify/web/shared/ui/playlist-track": [
         "libs/web/shared/ui/playlist-track/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"]
+      "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"],
+      "@angular-spotify/web/visualizer/feature": ["libs/web/visualizer/feature/src/index.ts"],
+      "@angular-spotify/web/visualizer/data-access": [
+        "libs/web/visualizer/data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

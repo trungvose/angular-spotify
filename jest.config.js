@@ -20,6 +20,9 @@ module.exports = {
     '<rootDir>/libs/web/shared/ui/icon',
     '<rootDir>/libs/web/shared/ui/media-table',
     '<rootDir>/libs/web/shared/ui/playlist-track',
-    '<rootDir>/libs/web/shared/ui/media-order'
+    '<rootDir>/libs/web/shared/ui/media-order',
+    '<rootDir>/libs/web/visualizer/feature',
+    '<rootDir>/libs//libs/web/visualizer/data-access',
+    '<rootDir>/libs/web/visualizer/data-access'
   ]
 };

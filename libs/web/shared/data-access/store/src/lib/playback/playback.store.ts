@@ -9,6 +9,8 @@ interface PlaybackState extends GenericState<Spotify.PlaybackState> {
   player: Spotify.SpotifyPlayer;
   deviceId: string;
   volume: number;
+  analysis: SpotifyApi.AudioAnalysisResponse;
+  features: SpotifyApi.AudioFeaturesResponse;
 }
 
 @Injectable({ providedIn: 'root' })
