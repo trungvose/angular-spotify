@@ -2,6 +2,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 import {
   getPlaylist,
   getPlaylistTracksById,
+  loadPlaylist,
   loadPlaylistTracks,
   PlaybackStore,
   RootState
@@ -11,7 +12,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { select, Store } from '@ngrx/store';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 
 type TogglePlaylistParams = {
@@ -41,13 +42,13 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
   }
 
   init() {
-    const playlistParams$ = this.route.params.pipe(
+    const playlistParams$: Observable<string> = this.route.params.pipe(
       map((params) => params.playlistId),
       filter((playlistId) => !!playlistId)
     );
 
     this.playlist$ = playlistParams$.pipe(
-      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId)))),
     );
 
     this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(

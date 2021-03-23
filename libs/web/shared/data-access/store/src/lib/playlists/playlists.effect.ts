@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { PlaylistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { loadPlaylists, loadPlaylistsSuccess } from './playlists.action';
+import {
+  loadPlaylist,
+  loadPlaylists,
+  loadPlaylistsSuccess,
+  loadPlaylistSuccess
+} from './playlists.action';
 import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { select, Store } from '@ngrx/store';
@@ -20,6 +25,22 @@ export class PlaylistsEffect {
           map((playlists) =>
             loadPlaylistsSuccess({
               playlists
+            })
+          ),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
+
+  loadPlaylist$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadPlaylist),
+      mergeMap(({ playlistId }) =>
+        this.playlistsApi.getById(playlistId).pipe(
+          map((playlist) =>
+            loadPlaylistSuccess({
+              playlist
             })
           ),
           catchError(() => EMPTY)

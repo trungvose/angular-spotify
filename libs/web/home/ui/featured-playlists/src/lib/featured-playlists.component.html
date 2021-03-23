@@ -1,15 +1,12 @@
 <ng-container *ngIf="featuredPlaylists$ | async as data">
   <h2 class="mt-8 mb-4 text-2xl text-white">{{ data.message }}</h2>
-  <h3 class="mt-3 mb-5 text-white text-opacity-90">
-    Let try some Vietnamese songs 😛
-  </h3>
-
   <div class="common-grid">
     <as-media *ngFor="let playlist of data.playlists.items"
               [title]="playlist.name"
               [description]="playlist.description"
               [imageUrl]="playlist.images[0]?.url!"
               [uri]="playlist.uri"
+              [routerUrl]="getPlaylistRouteUrl(playlist)"
               (togglePlay)="togglePlay($event, playlist.uri)">
     </as-media>
   </div>

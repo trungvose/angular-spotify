@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { RootState } from '@angular-spotify/web/shared/data-access/store';
 import { getFeaturedPlaylists } from '@angular-spotify/web/home/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { RouteUtil } from '@angular-spotify/web/util';
 
 @Component({
   selector: 'as-featured-playlists',
@@ -26,5 +27,9 @@ export class FeaturedPlaylistsComponent implements OnInit {
         context_uri: playlistUri
       })
       .subscribe();
+  }
+
+  getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
+    return RouteUtil.getPlaylistRouteUrl(playlist);
   }
 }
