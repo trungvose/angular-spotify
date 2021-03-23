@@ -15,17 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-spotify/web/shell": ["libs/web/shell/src/index.ts"],
-      "@angular-spotify/web/layout": ["libs/web/layout/src/index.ts"],
-      "@angular-spotify/web/shared/ui/nav-bar": ["libs/web/shared/ui/nav-bar/src/index.ts"],
       "@angular-spotify/web/shared/data-access/models": [
         "libs/web/shared/data-access/models/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/nav-bar-playlist": [
-        "libs/web/shared/ui/nav-bar-playlist/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/ui/top-bar": ["libs/web/shared/ui/top-bar/src/index.ts"],
-      "@angular-spotify/web/shared/ui/main-view": ["libs/web/shared/ui/main-view/src/index.ts"],
       "@angular-spotify/web/shared/data-access/spotify-api": [
         "libs/web/shared/data-access/spotify-api/src/index.ts"
       ],
@@ -44,21 +36,9 @@
       "@angular-spotify/web/shared/pipes/duration-pipe": [
         "libs/web/shared/pipes/duration-pipe/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/now-playing-bar": [
-        "libs/web/shared/ui/now-playing-bar/src/index.ts"
-      ],
       "@angular-spotify/web/shared/ui/icon": ["libs/web/shared/ui/icon/src/index.ts"],
       "@angular-spotify/web/shared/ui/track-current-info": [
         "libs/web/shared/ui/track-current-info/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/ui/player-controls": [
-        "libs/web/shared/ui/player-controls/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/ui/player-playback": [
-        "libs/web/shared/ui/player-playback/src/index.ts"
-      ],
-      "@angular-spotify/web/shared/ui/player-volume": [
-        "libs/web/shared/ui/player-volume/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/media": ["libs/web/shared/ui/media/src/index.ts"],
       "@angular-spotify/web/shared/ui/media-cover": ["libs/web/shared/ui/media-cover/src/index.ts"],
@@ -77,6 +57,26 @@
       "@angular-spotify/web/visualizer/feature": ["libs/web/visualizer/feature/src/index.ts"],
       "@angular-spotify/web/visualizer/data-access": [
         "libs/web/visualizer/data-access/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
+      "@angular-spotify/web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"],
+      "@angular-spotify/web/shell/ui/nav-bar": ["libs/web/shell/ui/nav-bar/src/index.ts"],
+      "@angular-spotify/web/shell/ui/nav-bar-playlist": [
+        "libs/web/shell/ui/nav-bar-playlist/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/top-bar": ["libs/web/shell/ui/top-bar/src/index.ts"],
+      "@angular-spotify/web/shell/ui/main-view": ["libs/web/shell/ui/main-view/src/index.ts"],
+      "@angular-spotify/web/shell/ui/now-playing-bar": [
+        "libs/web/shell/ui/now-playing-bar/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/player-controls": [
+        "libs/web/shell/ui/player-controls/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/player-playback": [
+        "libs/web/shell/ui/player-playback/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/player-volume": [
+        "libs/web/shell/ui/player-volume/src/index.ts"
       ]
     }
   },

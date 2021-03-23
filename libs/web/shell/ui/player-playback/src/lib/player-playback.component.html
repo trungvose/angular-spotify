@@ -1,0 +1,13 @@
+<span class="timer-duration">{{ progress$ | async | duration }}</span>
+<nz-slider
+  class="flex-1 mx-2"
+  [ngModel]="progress$ | async"
+  [nzMax]="max$ | async"
+  [nzTooltipVisible]="'never'"
+  (nzOnAfterChange)="seek($event)"
+  (ngModelChange)="onChange()"
+>
+</nz-slider>
+<span class="timer-duration">
+  {{ max$ | async | duration }}
+</span>

@@ -1,0 +1,20 @@
+<a
+  [routerLink]="getPlaylistRouteUrl(playlist)"
+  *ngrxLet="isPlaylistPlaying$ as isPlaying"
+  routerLinkActive="active"
+  [title]="playlist.name"
+  class="playlist-link link-subtle"
+>
+  <span class="ellipsis-one-line">
+    {{ playlist.name }}
+  </span>
+  <as-play-button
+    *ngIf="isPlaying"
+    class="pl-4"
+    [flatIcon]="true"
+    [isShowVolumeIcon]="true"
+    [isPlaying]="isPlaying"
+    (togglePlay)="togglePlaylist($event)"
+  >
+  </as-play-button>
+</a>
