@@ -21,7 +21,7 @@ export class FeaturePlaylistsEffect {
       mergeMap(([_, country]) =>
         this.browseApi
           .getAllFeaturedPlaylists({
-            limit: 20,
+            limit: 50,
             country: country || 'VN'
           })
           .pipe(

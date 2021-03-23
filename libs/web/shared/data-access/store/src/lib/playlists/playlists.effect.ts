@@ -36,6 +36,9 @@ export class PlaylistsEffect {
   loadPlaylist$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadPlaylist),
+      withLatestFrom(this.store.select(getPlaylistsState)),
+      filter(([action, state]) => !state.map?.get(action.playlistId)),
+      map(([action, state]) => action),
       mergeMap(({ playlistId }) =>
         this.playlistsApi.getById(playlistId).pipe(
           map((playlist) =>

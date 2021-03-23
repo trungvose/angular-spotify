@@ -48,14 +48,14 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
     );
 
     this.playlist$ = playlistParams$.pipe(
-      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId)))),
-    );
-
-    this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
-      combineLatest([
-        this.playlist$.pipe(map((playlist) => playlist?.uri)),
-        this.playbackStore.playback$
-      ])
+      tap((playlistId) => {
+        this.store.dispatch(
+          loadPlaylist({
+            playlistId
+          })
+        );
+      }),
+      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
     );
 
     this.tracks$ = playlistParams$.pipe(
@@ -67,6 +67,13 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
         );
       }),
       switchMap((playlistId) => this.store.pipe(select(getPlaylistTracksById(playlistId))))
+    );
+
+    this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
+      combineLatest([
+        this.playlist$.pipe(map((playlist) => playlist?.uri)),
+        this.playbackStore.playback$
+      ])
     );
   }
 

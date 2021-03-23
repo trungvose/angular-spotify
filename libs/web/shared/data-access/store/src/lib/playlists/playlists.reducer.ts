@@ -42,7 +42,8 @@ export const playlistsReducer = createReducer(
   on(loadPlaylistSuccess, (state, { playlist }) => {
     state.map?.set(playlist.id, playlist);
     return {
-      ...state
+      ...state,
+      map: new Map<string, SpotifyApi.PlaylistObjectSimplified>(state.map!)
     };
   })
 );
