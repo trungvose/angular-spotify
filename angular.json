@@ -147,75 +147,6 @@
         }
       }
     },
-    "web-shell": {
-      "projectType": "library",
-      "root": "libs/web/shell",
-      "sourceRoot": "libs/web/shell/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/shell/src/**/*.ts", "libs/web/shell/src/**/*.html"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell"],
-          "options": {
-            "jestConfig": "libs/web/shell/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-layout": {
-      "projectType": "library",
-      "root": "libs/web/layout",
-      "sourceRoot": "libs/web/layout/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/layout/src/**/*.ts", "libs/web/layout/src/**/*.html"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/layout"],
-          "options": {
-            "jestConfig": "libs/web/layout/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-shared-ui-nav-bar": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/nav-bar",
-      "sourceRoot": "libs/web/shared/ui/nav-bar/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/nav-bar/src/**/*.ts",
-              "libs/web/shared/ui/nav-bar/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/nav-bar"],
-          "options": {
-            "jestConfig": "libs/web/shared/ui/nav-bar/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-shared-data-access-models": {
       "root": "libs/web/shared/data-access/models",
       "sourceRoot": "libs/web/shared/data-access/models/src",
@@ -225,81 +156,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
-          }
-        }
-      }
-    },
-    "web-shared-ui-nav-bar-playlist": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/nav-bar-playlist",
-      "sourceRoot": "libs/web/shared/ui/nav-bar-playlist/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/nav-bar-playlist/src/**/*.ts",
-              "libs/web/shared/ui/nav-bar-playlist/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/nav-bar-playlist"],
-          "options": {
-            "jestConfig": "libs/web/shared/ui/nav-bar-playlist/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-shared-ui-top-bar": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/top-bar",
-      "sourceRoot": "libs/web/shared/ui/top-bar/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/top-bar/src/**/*.ts",
-              "libs/web/shared/ui/top-bar/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/top-bar"],
-          "options": {
-            "jestConfig": "libs/web/shared/ui/top-bar/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-shared-ui-main-view": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/main-view",
-      "sourceRoot": "libs/web/shared/ui/main-view/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/main-view/src/**/*.ts",
-              "libs/web/shared/ui/main-view/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/main-view"],
-          "options": {
-            "jestConfig": "libs/web/shared/ui/main-view/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
@@ -503,23 +359,6 @@
         }
       }
     },
-    "web-shared-ui-now-playing-bar": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/now-playing-bar",
-      "sourceRoot": "libs/web/shared/ui/now-playing-bar/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/now-playing-bar/src/**/*.ts",
-              "libs/web/shared/ui/now-playing-bar/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "web-shared-ui-icon": {
       "projectType": "library",
       "root": "libs/web/shared/ui/icon",
@@ -557,57 +396,6 @@
             "lintFilePatterns": [
               "libs/web/shared/ui/track-current-info/src/**/*.ts",
               "libs/web/shared/ui/track-current-info/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "web-shared-ui-player-controls": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/player-controls",
-      "sourceRoot": "libs/web/shared/ui/player-controls/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/player-controls/src/**/*.ts",
-              "libs/web/shared/ui/player-controls/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "web-shared-ui-player-playback": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/player-playback",
-      "sourceRoot": "libs/web/shared/ui/player-playback/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/player-playback/src/**/*.ts",
-              "libs/web/shared/ui/player-playback/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "web-shared-ui-player-volume": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/player-volume",
-      "sourceRoot": "libs/web/shared/ui/player-volume/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/player-volume/src/**/*.ts",
-              "libs/web/shared/ui/player-volume/src/**/*.html"
             ]
           }
         }
@@ -815,6 +603,224 @@
           "options": {
             "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-feature": {
+      "projectType": "library",
+      "root": "libs/web/shell/feature",
+      "sourceRoot": "libs/web/shell/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/feature/src/**/*.ts",
+              "libs/web/shell/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/feature"],
+          "options": {
+            "jestConfig": "libs/web/shell/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-layout": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/layout",
+      "sourceRoot": "libs/web/shell/ui/layout/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/layout/src/**/*.ts",
+              "libs/web/shell/ui/layout/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/layout"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-nav-bar": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/nav-bar",
+      "sourceRoot": "libs/web/shell/ui/nav-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/nav-bar/src/**/*.ts",
+              "libs/web/shell/ui/nav-bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/nav-bar"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-nav-bar-playlist": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/nav-bar-playlist",
+      "sourceRoot": "libs/web/shell/ui/nav-bar-playlist/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/nav-bar-playlist/src/**/*.ts",
+              "libs/web/shell/ui/nav-bar-playlist/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-top-bar": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/top-bar",
+      "sourceRoot": "libs/web/shell/ui/top-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/top-bar/src/**/*.ts",
+              "libs/web/shell/ui/top-bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/top-bar"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/top-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-main-view": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/main-view",
+      "sourceRoot": "libs/web/shell/ui/main-view/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/main-view/src/**/*.ts",
+              "libs/web/shell/ui/main-view/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/main-view"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/main-view/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shell-ui-now-playing-bar": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/now-playing-bar",
+      "sourceRoot": "libs/web/shell/ui/now-playing-bar/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/now-playing-bar/src/**/*.ts",
+              "libs/web/shell/ui/now-playing-bar/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shell-ui-player-controls": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/player-controls",
+      "sourceRoot": "libs/web/shell/ui/player-controls/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/player-controls/src/**/*.ts",
+              "libs/web/shell/ui/player-controls/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shell-ui-player-playback": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/player-playback",
+      "sourceRoot": "libs/web/shell/ui/player-playback/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/player-playback/src/**/*.ts",
+              "libs/web/shell/ui/player-playback/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-shell-ui-player-volume": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/player-volume",
+      "sourceRoot": "libs/web/shell/ui/player-volume/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/player-volume/src/**/*.ts",
+              "libs/web/shell/ui/player-volume/src/**/*.html"
+            ]
           }
         }
       }

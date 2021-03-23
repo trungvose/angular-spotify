@@ -1,0 +1,10 @@
+<div class="flex justify-center">
+  <div class="control-button hover:text-white" (click)="prev()">
+    <svg-icon key="step-backward"> </svg-icon>
+  </div>
+  <as-play-button class="mx-4" [isPlaying]="isPlaying$ | async" (togglePlay)="togglePlay()">
+  </as-play-button>
+  <div class="control-button hover:text-white" (click)="next()">
+    <svg-icon key="step-forward"> </svg-icon>
+  </div>
+</div>
