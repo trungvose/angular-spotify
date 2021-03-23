@@ -31,6 +31,6 @@ export class NavPlaylistComponent implements OnInit {
       .togglePlay(isPlaying, {
         context_uri: this.playlist?.uri
       })
-      .subscribe();
+      .subscribe();//TODO: Refactor with component store live stream
   }
 }

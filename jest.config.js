@@ -23,6 +23,8 @@ module.exports = {
     '<rootDir>/libs/web/shared/ui/media-order',
     '<rootDir>/libs/web/visualizer/feature',
     '<rootDir>/libs//libs/web/visualizer/data-access',
-    '<rootDir>/libs/web/visualizer/data-access'
+    '<rootDir>/libs/web/visualizer/data-access',
+    '<rootDir>/libs//libs/web/playlist/data-access',
+    '<rootDir>/libs/web/playlist/data-access'
   ]
 };
