@@ -3,9 +3,17 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
-import { HomeEffect, homeFeatureKey, homeReducer } from '@angular-spotify/web/home/data-access';
+import {
+  RecentPlayedTracksEffect,
+  recentFeatureTracksFeatureKey,
+  recentPlayedTracksReducer,
+  FeaturePlaylistsEffect,
+  featuredPlaylistsFeatureKey,
+  featuredPlaylistsReducer
+} from '@angular-spotify/web/home/data-access';
 import { EffectsModule } from '@ngrx/effects';
 import { GreetingModule } from '@angular-spotify/web/home/ui/greeting';
+import { FeaturedPlaylistsModule } from '@angular-spotify/web/home/ui/featured-playlists';
 import { RecentPlayedModule } from '@angular-spotify/web/home/ui/recent-played';
 @NgModule({
   imports: [
@@ -16,10 +24,12 @@ import { RecentPlayedModule } from '@angular-spotify/web/home/ui/recent-played';
         component: HomeComponent
       }
     ]),
-    StoreModule.forFeature(homeFeatureKey, homeReducer),
-    EffectsModule.forFeature([HomeEffect]),
+    StoreModule.forFeature(recentFeatureTracksFeatureKey, recentPlayedTracksReducer),
+    StoreModule.forFeature(featuredPlaylistsFeatureKey, featuredPlaylistsReducer),
+    EffectsModule.forFeature([RecentPlayedTracksEffect, FeaturePlaylistsEffect]),
     GreetingModule,
-    RecentPlayedModule
+    RecentPlayedModule,
+    FeaturedPlaylistsModule
   ],
   declarations: [HomeComponent],
   exports: [HomeComponent]

@@ -82,7 +82,10 @@
       "@angular-spotify/web/home/feature": ["libs/web/home/feature/src/index.ts"],
       "@angular-spotify/web/home/data-access": ["libs/web/home/data-access/src/index.ts"],
       "@angular-spotify/web/home/ui/greeting": ["libs/web/home/ui/greeting/src/index.ts"],
-      "@angular-spotify/web/home/ui/recent-played": ["libs/web/home/ui/recent-played/src/index.ts"]
+      "@angular-spotify/web/home/ui/recent-played": ["libs/web/home/ui/recent-played/src/index.ts"],
+      "@angular-spotify/web/home/ui/featured-playlists": [
+        "libs/web/home/ui/featured-playlists/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

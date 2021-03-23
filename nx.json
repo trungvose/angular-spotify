@@ -60,6 +60,7 @@
     "web-home-feature": { "tags": ["type:ui", "scope:web"] },
     "web-home-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-home-ui-greeting": { "tags": ["type:ui", "scope:web"] },
-    "web-home-ui-recent-played": { "tags": ["type:ui", "scope:web"] }
+    "web-home-ui-recent-played": { "tags": ["type:ui", "scope:web"] },
+    "web-home-ui-featured-playlists": { "tags": ["type:ui", "scope:web"] }
   }
 }

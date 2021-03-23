@@ -1,7 +1,7 @@
 <h2 class="mt-8 mb-4 text-2xl text-white">Recently Played</h2>
 
 <div *ngIf="recentTracks$ | async as recentTracks"
-     class="container">
+     class="common-grid">
   <as-media *ngFor="let historyObject of recentTracks"
             [title]="historyObject.track.name"
             [description]="historyObject.track.artists[0]?.name!"

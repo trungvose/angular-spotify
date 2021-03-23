@@ -1,18 +1,18 @@
 import { GenericState, SpotifyApiRecentPlayerTracksResponse } from '@angular-spotify/web/shared/data-access/models';
 import { createReducer, on } from '@ngrx/store';
-import { loadRecentTracks, loadRecentTracksError, loadRecentTracksSuccess } from './home.action';
+import { loadRecentTracks, loadRecentTracksError, loadRecentTracksSuccess } from './recent-played-tracks.action';
 
-export type State = GenericState<SpotifyApiRecentPlayerTracksResponse>;
+export type RecentPlayedTracksState = GenericState<SpotifyApiRecentPlayerTracksResponse>;
 
-export const initialState: State = {
+const initialState: RecentPlayedTracksState = {
   data: null,
   status: 'pending',
   error: null
 };
 
-export const homeFeatureKey = 'home';
+export const recentFeatureTracksFeatureKey = 'recentTracks';
 
-export const homeReducer = createReducer(
+export const recentPlayedTracksReducer = createReducer(
   initialState,
   on(loadRecentTracks, (state) => ({ ...state, status: 'loading' })),
   on(loadRecentTracksSuccess, (state, { response }) => ({
