@@ -7,6 +7,10 @@ export const webShellRoutes: Route[] = [
     component: LayoutComponent,
     children: [
       {
+        path: '',
+        loadChildren: async () => (await import('@angular-spotify/web/home/feature')).HomeModule
+      },
+      {
         path: 'collection/playlists',
         loadChildren: async () =>
           (await import('@angular-spotify/web/collection/playlists')).PlaylistsModule

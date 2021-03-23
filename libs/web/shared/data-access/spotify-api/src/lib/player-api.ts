@@ -46,4 +46,13 @@ export class PlayerApiService {
       }
     });
   }
+
+  getRecentPlayedTracks(params: SpotifyApi.RecentlyPlayedParameterObject = {}) {
+    return this.http.get<SpotifyApi.UsersRecentlyPlayedTracksResponse>(
+      `${this.playerUrl}/recently-played`,
+      {
+        params: params as any // eslint-disable-line
+      }
+    );
+  }
 }

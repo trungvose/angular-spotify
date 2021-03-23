@@ -1,5 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { loadPlaylists, loadPlaylistsError, loadPlaylistsSuccess } from './playlists.action';
 
 export type State = GenericState<SpotifyApi.ListOfUsersPlaylistsResponse>;
@@ -10,7 +10,7 @@ const initialState: State = {
   error: null
 };
 
-const playlistsReducer = createReducer(
+export const playlistsReducer = createReducer(
   initialState,
   on(loadPlaylists, (state) => ({ ...state, status: 'loading' })),
   on(loadPlaylistsSuccess, (state, { playlists }) => ({
@@ -25,7 +25,3 @@ const playlistsReducer = createReducer(
     status: 'error'
   }))
 );
-
-export function reducer(state: State | undefined, action: Action) {
-  return playlistsReducer(state, action);
-}
