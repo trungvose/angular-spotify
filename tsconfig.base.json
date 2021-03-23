@@ -28,7 +28,6 @@
         "libs/web/shared/data-access/store/src/index.ts"
       ],
       "@angular-spotify/web/collection/playlists": ["libs/web/collection/playlists/src/index.ts"],
-      "@angular-spotify/web/playlist": ["libs/web/playlist/src/index.ts"],
       "@angular-spotify/web/shared/ui/track-main-info": [
         "libs/web/shared/ui/track-main-info/src/index.ts"
       ],
@@ -50,9 +49,6 @@
         "libs/web/shared/directives/click-stop-propagation/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/media-table": ["libs/web/shared/ui/media-table/src/index.ts"],
-      "@angular-spotify/web/shared/ui/playlist-track": [
-        "libs/web/shared/ui/playlist-track/src/index.ts"
-      ],
       "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"],
       "@angular-spotify/web/visualizer/feature": ["libs/web/visualizer/feature/src/index.ts"],
       "@angular-spotify/web/visualizer/data-access": [
@@ -77,7 +73,12 @@
       ],
       "@angular-spotify/web/shell/ui/player-volume": [
         "libs/web/shell/ui/player-volume/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/playlist/feature": ["libs/web/playlist/feature/src/index.ts"],
+      "@angular-spotify/web/playlist/ui/playlist-track": [
+        "libs/web/playlist/ui/playlist-track/src/index.ts"
+      ],
+      "@angular-spotify/web/playlist/data-access": ["libs/web/playlist/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

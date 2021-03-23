@@ -10,12 +10,14 @@ import {
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { SelectorUtil } from '@angular-spotify/web/util';
+import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
+
 @Component({
   selector: 'as-playlist',
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.scss'],
+  providers: [PlaylistStore],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistComponent implements OnInit {
@@ -27,7 +29,7 @@ export class PlaylistComponent implements OnInit {
     private route: ActivatedRoute,
     private store: Store<RootState>,
     private playbackStore: PlaybackStore,
-    private playerApi: PlayerApiService
+    private playlistStore: PlaylistStore
   ) {}
 
   ngOnInit(): void {
@@ -60,21 +62,16 @@ export class PlaylistComponent implements OnInit {
   }
 
   togglePlaylist(isPlaying: boolean, playlist: SpotifyApi.PlaylistObjectSimplified) {
-    this.playerApi
-      .togglePlay(isPlaying, {
-        context_uri: playlist.uri
-      })
-      .subscribe();
+    this.playlistStore.togglePlaylist({
+      isPlaying,
+      playlist
+    });
   }
 
   playTrack(playlist: SpotifyApi.PlaylistObjectSimplified, position: number) {
-    this.playerApi
-      .play({
-        context_uri: playlist.uri,
-        offset: {
-          position
-        }
-      })
-      .subscribe();
+    this.playlistStore.playTrack({
+      playlist,
+      position
+    });
   }
 }

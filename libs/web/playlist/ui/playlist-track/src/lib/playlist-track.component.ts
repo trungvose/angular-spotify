@@ -24,11 +24,13 @@ export class PlaylistTrackComponent implements OnInit {
   }
 
   togglePlayTrack(isPlaying: boolean) {
-    this.playerApi.togglePlay(isPlaying, {
-      context_uri: this.contextUri,
-      offset: {
-        position: this.index
-      }
-    }).subscribe();
+    this.playerApi
+      .togglePlay(isPlaying, {
+        context_uri: this.contextUri,
+        offset: {
+          position: this.index
+        }
+      })
+      .subscribe();
   }
 }

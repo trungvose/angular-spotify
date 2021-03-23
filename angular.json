@@ -282,20 +282,6 @@
         }
       }
     },
-    "web-playlist": {
-      "projectType": "library",
-      "root": "libs/web/playlist",
-      "sourceRoot": "libs/web/playlist/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/playlist/src/**/*.ts", "libs/web/playlist/src/**/*.html"]
-          }
-        }
-      }
-    },
     "web-shared-ui-track-main-info": {
       "projectType": "library",
       "root": "libs/web/shared/ui/track-main-info",
@@ -506,31 +492,6 @@
           "outputs": ["coverage/libs/web/shared/ui/media-table"],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-table/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-shared-ui-playlist-track": {
-      "projectType": "library",
-      "root": "libs/web/shared/ui/playlist-track",
-      "sourceRoot": "libs/web/shared/ui/playlist-track/src",
-      "prefix": "angular-spotify",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/shared/ui/playlist-track/src/**/*.ts",
-              "libs/web/shared/ui/playlist-track/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/playlist-track"],
-          "options": {
-            "jestConfig": "libs/web/shared/ui/playlist-track/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -821,6 +782,69 @@
               "libs/web/shell/ui/player-volume/src/**/*.ts",
               "libs/web/shell/ui/player-volume/src/**/*.html"
             ]
+          }
+        }
+      }
+    },
+    "web-playlist-feature": {
+      "projectType": "library",
+      "root": "libs/web/playlist/feature",
+      "sourceRoot": "libs/web/playlist/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/playlist/feature/src/**/*.ts",
+              "libs/web/playlist/feature/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "web-playlist-ui-playlist-track": {
+      "projectType": "library",
+      "root": "libs/web/playlist/ui/playlist-track",
+      "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/playlist/ui/playlist-track/src/**/*.ts",
+              "libs/web/playlist/ui/playlist-track/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+          "options": {
+            "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-playlist-data-access": {
+      "root": "libs/web/playlist/data-access",
+      "sourceRoot": "libs/web/playlist/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/playlist/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/playlist/data-access"],
+          "options": {
+            "jestConfig": "libs/web/playlist/data-access/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
