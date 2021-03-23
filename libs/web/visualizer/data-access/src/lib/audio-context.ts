@@ -7,7 +7,7 @@ import { NUM_BANDS, NUM_PARTICLES, SMOOTHING } from './const';
 
 type OnUpdate = (bands: Uint8Array) => void;
 
-class AudioAnalyser {
+export class AudioAnalyser {
   numBands: number;
   smoothing: number;
   bands!: Uint8Array;
@@ -20,10 +20,13 @@ class AudioAnalyser {
 }
 
 export const initVisualizer = (container: HTMLElement) => {
+  // setup the audio analyser
+  const analyser = new AudioAnalyser(NUM_BANDS, SMOOTHING);
+
   const sketch = Sketch.create({
     container,
     particles: [],
-    interval: 2,
+    autopause: false,
     setup() {
       // generate some particles
       for (let i = 0; i < NUM_PARTICLES; i++) {
@@ -32,9 +35,6 @@ export const initVisualizer = (container: HTMLElement) => {
 
         this.particles.push(particle);
       }
-
-      // setup the audio analyser
-      const analyser = new AudioAnalyser(NUM_BANDS, SMOOTHING);
 
       // update particles based on fft transformed audio frequencies
       analyser.onUpdate = (bands: Uint8Array) =>
@@ -64,5 +64,8 @@ export const initVisualizer = (container: HTMLElement) => {
     }
   });
 
-  return sketch;
+  return {
+    sketch, 
+    analyser
+  };
 };

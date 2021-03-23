@@ -1,4 +1,4 @@
-import { initVisualizer } from '@angular-spotify/web/visualizer/data-access';
+import { initVisualizer, AudioAnalyser } from '@angular-spotify/web/visualizer/data-access';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -16,10 +16,14 @@ import { Sketch } from 'sketch-js';
 })
 export class VisualizerComponent implements OnInit, OnDestroy {
   sketch!: Sketch;
+  analyser!: AudioAnalyser;
+
   @ViewChild('visualizer', { static: true }) visualizer!: ElementRef;
 
   ngOnInit(): void {
-    this.sketch = initVisualizer(this.visualizer.nativeElement);
+    const { sketch, analyser } = initVisualizer(this.visualizer.nativeElement);
+    this.sketch = sketch;
+    this.analyser = analyser;
   }
 
   ngOnDestroy() {
