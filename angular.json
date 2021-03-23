@@ -40,7 +40,7 @@
       "prefix": "angular-spotify",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/angular-spotify",
             "index": "apps/angular-spotify/src/index.html",
@@ -48,12 +48,14 @@
             "polyfills": "apps/angular-spotify/src/polyfills.ts",
             "tsConfig": "apps/angular-spotify/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/angular-spotify/src/favicon.ico", "apps/angular-spotify/src/assets"],
-            "styles": ["apps/angular-spotify/src/styles.scss"],
-            "scripts": [],
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            }
+            "assets": [
+              "apps/angular-spotify/src/favicon.ico",
+              "apps/angular-spotify/src/assets"
+            ],
+            "styles": [
+              "apps/angular-spotify/src/styles.scss"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -86,9 +88,10 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-spotify:build"
+            "browserTarget": "angular-spotify:build",
+            "hmr": true
           },
           "configurations": {
             "production": {
@@ -113,7 +116,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/angular-spotify"],
+          "outputs": [
+            "coverage/apps/angular-spotify"
+          ],
           "options": {
             "jestConfig": "apps/angular-spotify/jest.config.js",
             "passWithNoTests": true
@@ -142,7 +147,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/angular-spotify-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -155,7 +162,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/models/**/*.ts"
+            ]
           }
         }
       }
@@ -168,12 +177,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/spotify-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+          "outputs": [
+            "coverage/libs/web/shared/data-access/spotify-api"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
             "passWithNoTests": true
@@ -189,12 +202,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/auth/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/data-access"],
+          "outputs": [
+            "coverage/libs/web/auth/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/auth/data-access/jest.config.js",
             "passWithNoTests": true
@@ -210,12 +227,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/auth/util/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/auth/util/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/util"],
+          "outputs": [
+            "coverage/libs/web/auth/util"
+          ],
           "options": {
             "jestConfig": "libs/web/auth/util/jest.config.js",
             "passWithNoTests": true
@@ -231,12 +252,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/app-config/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/app-config/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-config"],
+          "outputs": [
+            "coverage/libs/web/shared/app-config"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/app-config/jest.config.js",
             "passWithNoTests": true
@@ -252,12 +277,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/store/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/store/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/store"],
+          "outputs": [
+            "coverage/libs/web/shared/data-access/store"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/data-access/store/jest.config.js",
             "passWithNoTests": true
@@ -307,12 +336,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/util/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/util/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/util"],
+          "outputs": [
+            "coverage/libs/web/util"
+          ],
           "options": {
             "jestConfig": "libs/web/util/jest.config.js",
             "passWithNoTests": true
@@ -337,7 +370,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
+          "outputs": [
+            "coverage/libs/web/shared/pipes/duration-pipe"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.js",
             "passWithNoTests": true
@@ -362,7 +397,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/icon"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/icon"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/icon/jest.config.js",
             "passWithNoTests": true
@@ -489,7 +526,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-table"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/media-table"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-table/jest.config.js",
             "passWithNoTests": true
@@ -514,7 +553,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-order"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/media-order"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
             "passWithNoTests": true
@@ -539,7 +580,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/feature"],
+          "outputs": [
+            "coverage/libs/web/visualizer/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/visualizer/feature/jest.config.js",
             "passWithNoTests": true
@@ -555,12 +598,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/visualizer/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/visualizer/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/data-access"],
+          "outputs": [
+            "coverage/libs/web/visualizer/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
             "passWithNoTests": true
@@ -585,7 +632,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/feature"],
+          "outputs": [
+            "coverage/libs/web/shell/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/feature/jest.config.js",
             "passWithNoTests": true
@@ -610,7 +659,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/layout"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/layout"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/layout/jest.config.js",
             "passWithNoTests": true
@@ -635,7 +686,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/nav-bar"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.js",
             "passWithNoTests": true
@@ -660,7 +713,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/nav-bar-playlist"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.js",
             "passWithNoTests": true
@@ -685,7 +740,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/top-bar"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/top-bar"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/top-bar/jest.config.js",
             "passWithNoTests": true
@@ -710,7 +767,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/main-view"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/main-view"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/main-view/jest.config.js",
             "passWithNoTests": true
@@ -820,7 +879,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+          "outputs": [
+            "coverage/libs/web/playlist/ui/playlist-track"
+          ],
           "options": {
             "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
             "passWithNoTests": true
@@ -836,12 +897,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/playlist/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/playlist/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/data-access"],
+          "outputs": [
+            "coverage/libs/web/playlist/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/playlist/data-access/jest.config.js",
             "passWithNoTests": true
