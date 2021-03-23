@@ -7,4 +7,11 @@ export const getHomeState = createFeatureSelector<RootState, fromHome.State>(
   fromHome.homeFeatureKey
 );
 
-export const getRecentPlayedTracks = createSelector(getHomeState, (home) => home.data?.items);
+export const getRecentPlayedTracks = createSelector(getHomeState, (home) => {
+  if (!home.data) {
+    return null;
+  }
+  return home.data.items
+    .filter(({ track }, idx, arr) => arr.findIndex((item) => item.track.id === track.id) === idx)
+    .slice(0, 10);
+});

@@ -1,8 +1,8 @@
-import { GenericState } from '@angular-spotify/web/shared/data-access/models';
+import { GenericState, SpotifyApiRecentPlayerTracksResponse } from '@angular-spotify/web/shared/data-access/models';
 import { createReducer, on } from '@ngrx/store';
 import { loadRecentTracks, loadRecentTracksError, loadRecentTracksSuccess } from './home.action';
 
-export type State = GenericState<SpotifyApi.UsersRecentlyPlayedTracksResponse>;
+export type State = GenericState<SpotifyApiRecentPlayerTracksResponse>;
 
 export const initialState: State = {
   data: null,

@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { HomeEffect, homeFeatureKey, homeReducer } from '@angular-spotify/web/home/data-access';
 import { EffectsModule } from '@ngrx/effects';
-
+import { GreetingModule } from '@angular-spotify/web/home/ui/greeting';
+import { RecentPlayedModule } from '@angular-spotify/web/home/ui/recent-played';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +17,9 @@ import { EffectsModule } from '@ngrx/effects';
       }
     ]),
     StoreModule.forFeature(homeFeatureKey, homeReducer),
-    EffectsModule.forFeature([HomeEffect])
+    EffectsModule.forFeature([HomeEffect]),
+    GreetingModule,
+    RecentPlayedModule
   ],
   declarations: [HomeComponent],
   exports: [HomeComponent]

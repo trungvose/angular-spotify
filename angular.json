@@ -894,6 +894,56 @@
           }
         }
       }
+    },
+    "web-home-ui-greeting": {
+      "projectType": "library",
+      "root": "libs/web/home/ui/greeting",
+      "sourceRoot": "libs/web/home/ui/greeting/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/home/ui/greeting/src/**/*.ts",
+              "libs/web/home/ui/greeting/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/home/ui/greeting"],
+          "options": {
+            "jestConfig": "libs/web/home/ui/greeting/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-home-ui-recent-played": {
+      "projectType": "library",
+      "root": "libs/web/home/ui/recent-played",
+      "sourceRoot": "libs/web/home/ui/recent-played/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/home/ui/recent-played/src/**/*.ts",
+              "libs/web/home/ui/recent-played/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/home/ui/recent-played"],
+          "options": {
+            "jestConfig": "libs/web/home/ui/recent-played/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

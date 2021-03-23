@@ -1,7 +1,10 @@
 import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { SpotifyPlayRequestApi } from '@angular-spotify/web/shared/data-access/models';
+import {
+  SpotifyApiRecentPlayerTracksResponse,
+  SpotifyPlayRequestApi
+} from '@angular-spotify/web/shared/data-access/models';
 @Injectable({ providedIn: 'root' })
 export class PlayerApiService {
   playerUrl: string;
@@ -47,8 +50,8 @@ export class PlayerApiService {
     });
   }
 
-  getRecentPlayedTracks(params: SpotifyApi.RecentlyPlayedParameterObject = {}) {
-    return this.http.get<SpotifyApi.UsersRecentlyPlayedTracksResponse>(
+  getRecentPlayedTracks(params: SpotifyApi.RecentlyPlayedParameterObject = { limit: 50 }) {
+    return this.http.get<SpotifyApiRecentPlayerTracksResponse>(
       `${this.playerUrl}/recently-played`,
       {
         params: params as any // eslint-disable-line

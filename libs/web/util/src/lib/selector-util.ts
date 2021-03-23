@@ -6,10 +6,20 @@ export class SelectorUtil {
   static getMediaPlayingState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
     return obs$.pipe(
       map(([uri, playback]) => {
-        const isCurrentPlaylistInContext = uri === playback.context?.uri;
-        if (isCurrentPlaylistInContext) {
-          return !playback.paused;
+        const hasContextUri = !!playback.context?.uri;
+        const hasTrackPlaying = !!playback.track_window.current_track;
+        if(hasContextUri){
+          const isCurrentPlaylistInContext = uri === playback.context?.uri;
+          if (isCurrentPlaylistInContext) {
+            return !playback.paused;
+          }
+        } else if (hasTrackPlaying){
+          const isCurrentTrackPlaying = uri === playback.track_window.current_track.uri;
+          if(isCurrentTrackPlaying){
+            return !playback.paused;
+          }
         }
+
         return false;
       }),
       startWith(false)
