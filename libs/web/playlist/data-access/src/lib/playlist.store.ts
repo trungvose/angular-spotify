@@ -1,7 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { switchMap } from 'rxjs/operators';
+import {
+  getPlaylist,
+  getPlaylistTracksById,
+  loadPlaylistTracks,
+  PlaybackStore,
+  RootState
+} from '@angular-spotify/web/shared/data-access/store';
+import { SelectorUtil } from '@angular-spotify/web/util';
+import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ComponentStore } from '@ngrx/component-store';
+import { select, Store } from '@ngrx/store';
+import { combineLatest, Observable } from 'rxjs';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 
 type TogglePlaylistParams = {
   isPlaying: boolean;
@@ -15,8 +26,47 @@ type PlayTrackParams = {
 
 @Injectable({ providedIn: 'root' })
 export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
-  constructor(private playerApi: PlayerApiService) {
+  playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
+  tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
+  isPlaylistPlaying$!: Observable<boolean>;
+
+  constructor(
+    private playerApi: PlayerApiService,
+    private route: ActivatedRoute,
+    private store: Store<RootState>,
+    private playbackStore: PlaybackStore
+  ) {
     super({});
+    this.init();
+  }
+
+  init() {
+    const playlistParams$ = this.route.params.pipe(
+      map((params) => params.playlistId),
+      filter((playlistId) => !!playlistId)
+    );
+
+    this.playlist$ = playlistParams$.pipe(
+      switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+    );
+
+    this.isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
+      combineLatest([
+        this.playlist$.pipe(map((playlist) => playlist?.uri)),
+        this.playbackStore.playback$
+      ])
+    );
+
+    this.tracks$ = playlistParams$.pipe(
+      tap((playlistId) => {
+        this.store.dispatch(
+          loadPlaylistTracks({
+            playlistId
+          })
+        );
+      }),
+      switchMap((playlistId) => this.store.pipe(select(getPlaylistTracksById(playlistId))))
+    );
   }
 
   readonly togglePlaylist = this.effect<TogglePlaylistParams>((params$) =>
