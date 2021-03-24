@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-declare const gtag: any;
+declare const gtag: any; // eslint-disable-line
 const GOOGLE_ANALYTICS_ID = 'G-24YF96FX0G';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleAnalyticsService {
-  gtag: any;
+  gtag: any; // eslint-disable-line
   constructor() {
     if (typeof gtag !== 'undefined') {
       this.gtag = gtag;

@@ -16,6 +16,7 @@ export class AppComponent {
   }
 
   handleGoogleAnalytics = (event: any): void => {
+    // eslint-disable-line
     if (event instanceof NavigationEnd) {
       this.googleAnalytics.sendPageView(event.urlAfterRedirects);
     }
