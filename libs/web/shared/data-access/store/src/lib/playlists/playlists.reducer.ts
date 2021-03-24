@@ -1,31 +1,49 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { Action, createReducer, on } from '@ngrx/store';
-import { loadPlaylists, loadPlaylistsError, loadPlaylistsSuccess } from './playlists.action';
+import { createReducer, on } from '@ngrx/store';
+import {
+  loadPlaylists,
+  loadPlaylistsError,
+  loadPlaylistsSuccess,
+  loadPlaylistSuccess
+} from './playlists.action';
 
-export type State = GenericState<SpotifyApi.ListOfUsersPlaylistsResponse>;
+export interface State extends GenericState<SpotifyApi.ListOfUsersPlaylistsResponse> {
+  map: Map<string, SpotifyApi.PlaylistObjectSimplified> | null;
+}
 
 const initialState: State = {
+  map: null,
   data: null,
   status: 'pending',
   error: null
 };
 
-const playlistsReducer = createReducer(
+export const playlistsReducer = createReducer(
   initialState,
   on(loadPlaylists, (state) => ({ ...state, status: 'loading' })),
-  on(loadPlaylistsSuccess, (state, { playlists }) => ({
-    ...state,
-    data: playlists,
-    status: 'success',
-    error: null
-  })),
+  on(loadPlaylistsSuccess, (state, { playlists }) => {
+    const { items } = playlists;
+    const map = new Map<string, SpotifyApi.PlaylistObjectSimplified>();
+    items.forEach((playlist) => map.set(playlist.id, playlist));
+
+    return {
+      ...state,
+      map: map,
+      data: playlists,
+      status: 'success',
+      error: null
+    };
+  }),
   on(loadPlaylistsError, (state, { error }) => ({
     ...state,
     error,
     status: 'error'
-  }))
+  })),
+  on(loadPlaylistSuccess, (state, { playlist }) => {
+    state.map?.set(playlist.id, playlist);
+    return {
+      ...state,
+      map: new Map<string, SpotifyApi.PlaylistObjectSimplified>(state.map!)
+    };
+  })
 );
-
-export function reducer(state: State | undefined, action: Action) {
-  return playlistsReducer(state, action);
-}

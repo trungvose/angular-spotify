@@ -25,6 +25,10 @@ module.exports = {
     '<rootDir>/libs//libs/web/visualizer/data-access',
     '<rootDir>/libs/web/visualizer/data-access',
     '<rootDir>/libs//libs/web/playlist/data-access',
-    '<rootDir>/libs/web/playlist/data-access'
+    '<rootDir>/libs/web/playlist/data-access',
+    '<rootDir>/libs/web/home/feature',
+    '<rootDir>/libs/web/home/ui/greeting',
+    '<rootDir>/libs/web/home/ui/recent-played',
+    '<rootDir>/libs/web/home/ui/featured-playlists'
   ]
 };

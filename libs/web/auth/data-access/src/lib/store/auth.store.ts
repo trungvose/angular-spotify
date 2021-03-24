@@ -17,6 +17,7 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly token$ = this.select((s) => s.accessToken).pipe(
     filter((token) => !!token)
   ) as Observable<string>;
+  readonly country$ = this.select((s) => s.country);
   readonly getUserId = () => this.get().id;
   readonly getToken = () => this.get().accessToken;
 
@@ -24,8 +25,11 @@ export class AuthStore extends ComponentStore<AuthState> {
     super(<AuthState>{});
   }
 
-  readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => ({
-    ...state,
-    ...user
-  }));
+  readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
+    console.log(user);
+    return ({
+      ...state,
+      ...user
+    })
+  });
 }

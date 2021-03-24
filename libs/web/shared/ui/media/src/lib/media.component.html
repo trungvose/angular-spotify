@@ -10,7 +10,7 @@
                     [primary]="true"
                     [large]="true"
                     [isPlaying]="isPlaying"
-                    (togglePlay)="togglePlaylist($event)"
+                    (togglePlay)="togglePlay.emit($event)"
                     asClickStopPropagation>
     </as-play-button>
   </div>

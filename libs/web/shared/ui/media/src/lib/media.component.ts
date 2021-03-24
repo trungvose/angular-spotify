@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { combineLatest, Observable, of } from 'rxjs';
 import { SelectorUtil } from '@angular-spotify/web/util';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { combineLatest, Observable, of } from 'rxjs';
 @Component({
   selector: 'as-media',
   templateUrl: './media.component.html',
@@ -15,22 +14,15 @@ export class MediaComponent implements OnInit {
   @Input() description!: string | null;
   @Input() routerUrl!: string;
   @Input() uri!: string;
+  @Output() togglePlay = new EventEmitter<boolean>();
 
   isMediaPlaying$!: Observable<boolean>;
 
-  constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {}
+  constructor(private playbackStore: PlaybackStore) {}
 
   ngOnInit() {
     this.isMediaPlaying$ = SelectorUtil.getMediaPlayingState(
       combineLatest([of(this.uri), this.playbackStore.playback$])
     );
-  }
-
-  togglePlaylist(isPlaying: boolean) {
-    this.playerApi
-      .togglePlay(isPlaying, {
-        context_uri: this.uri
-      })
-      .subscribe();//TODO: Refactor with component store live stream
   }
 }
