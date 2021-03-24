@@ -40,7 +40,7 @@
       "prefix": "angular-spotify",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/angular-spotify",
             "index": "apps/angular-spotify/src/index.html",
@@ -50,10 +50,7 @@
             "aot": true,
             "assets": ["apps/angular-spotify/src/favicon.ico", "apps/angular-spotify/src/assets"],
             "styles": ["apps/angular-spotify/src/styles.scss"],
-            "scripts": [],
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -86,7 +83,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "angular-spotify:build"
           },
