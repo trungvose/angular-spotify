@@ -43,7 +43,10 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/angular-spotify",
-            "index": "apps/angular-spotify/src/index.html",
+            "index": {
+              "input": "apps/angular-spotify/src/index.prod.html",
+              "output": "index.html"
+            },
             "main": "apps/angular-spotify/src/main.ts",
             "polyfills": "apps/angular-spotify/src/polyfills.ts",
             "tsConfig": "apps/angular-spotify/tsconfig.app.json",
