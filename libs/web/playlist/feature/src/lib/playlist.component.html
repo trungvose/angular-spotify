@@ -6,6 +6,7 @@
     [description]="playlist.description"
     [artist]="playlist.owner.display_name"
     [trackCount]="playlist.tracks.total"
+    [likesCount]="$any(playlist)?.followers?.total"
   >
   </as-media-summary>
 

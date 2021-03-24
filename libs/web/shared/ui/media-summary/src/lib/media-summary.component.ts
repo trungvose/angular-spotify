@@ -12,5 +12,6 @@ export class MediaSummaryComponent {
   @Input() description!: string | null;
   @Input() artist: string | undefined;
   @Input() trackCount: number | undefined;
+  @Input() likesCount: number | undefined;
   @Input() imageUrl: string | undefined;
 }
