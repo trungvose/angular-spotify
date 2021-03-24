@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 @Component({
   selector: 'as-playlist-track',
@@ -31,6 +31,10 @@ export class PlaylistTrackComponent implements OnInit {
           position: this.index
         }
       })
-      .subscribe();//TODO: Refactor with component store live stream
+      .subscribe(); //TODO: Refactor with component store live stream
+  }
+
+  getAlbumRouteUrl(album: SpotifyApi.AlbumObjectSimplified) {
+    return RouteUtil.getAlbumRouteUrl(album.id);
   }
 }
