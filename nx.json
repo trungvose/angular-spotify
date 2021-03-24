@@ -7,7 +7,7 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": { "defaultBase": "main" },
   "npmScope": "angular-spotify",
   "tasksRunnerOptions": {
     "default": {
