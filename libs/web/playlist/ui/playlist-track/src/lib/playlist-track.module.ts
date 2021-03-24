@@ -6,9 +6,11 @@ import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-p
 import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
 import { MediaOrderModule } from '@angular-spotify/web/shared/ui/media-order';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     MediaTableModule,
     DurationPipeModule,
     TrackMainInfoModule,
