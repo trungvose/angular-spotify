@@ -11,7 +11,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && husky install",
     "nx": "nx",
-    "start": "ng serve --hmr",
+    "start": "ng serve",
     "build": "ng build",
     "build:prod": "cross-env NODE_ENV=production ng build --prod",
     "test": "ng test",

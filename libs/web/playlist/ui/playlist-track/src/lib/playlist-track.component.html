@@ -4,7 +4,10 @@
     </as-media-order>
     <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"> </as-track-main-info>
   </ng-container>
-  <a class="text-description link-subtle hover:underline">
+  <a
+    class="text-description link-subtle hover:underline"
+    [routerLink]="getAlbumRouteUrl(item.track.album)"
+  >
     {{ item.track.album.name }}
   </a>
   <div class="text-description" [title]="item.added_at | date: 'medium'">
