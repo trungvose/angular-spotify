@@ -970,6 +970,106 @@
           }
         }
       }
+    },
+    "web-album-feature": {
+      "projectType": "library",
+      "root": "libs/web/album/feature",
+      "sourceRoot": "libs/web/album/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/album/feature/src/**/*.ts",
+              "libs/web/album/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/feature"],
+          "options": {
+            "jestConfig": "libs/web/album/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-work-in-progress": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/work-in-progress",
+      "sourceRoot": "libs/web/shared/ui/work-in-progress/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/work-in-progress/src/**/*.ts",
+              "libs/web/shared/ui/work-in-progress/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/work-in-progress"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-artist-feature": {
+      "projectType": "library",
+      "root": "libs/web/artist/feature",
+      "sourceRoot": "libs/web/artist/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/artist/feature/src/**/*.ts",
+              "libs/web/artist/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/artist/feature"],
+          "options": {
+            "jestConfig": "libs/web/artist/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-tracks-loading": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/tracks-loading",
+      "sourceRoot": "libs/web/shared/ui/tracks-loading/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/tracks-loading/src/**/*.ts",
+              "libs/web/shared/ui/tracks-loading/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -85,6 +85,14 @@
       "@angular-spotify/web/home/ui/recent-played": ["libs/web/home/ui/recent-played/src/index.ts"],
       "@angular-spotify/web/home/ui/featured-playlists": [
         "libs/web/home/ui/featured-playlists/src/index.ts"
+      ],
+      "@angular-spotify/web/album/feature": ["libs/web/album/feature/src/index.ts"],
+      "@angular-spotify/web/shared/ui/work-in-progress": [
+        "libs/web/shared/ui/work-in-progress/src/index.ts"
+      ],
+      "@angular-spotify/web/artist/feature": ["libs/web/artist/feature/src/index.ts"],
+      "@angular-spotify/web/shared/ui/tracks-loading": [
+        "libs/web/shared/ui/tracks-loading/src/index.ts"
       ]
     }
   },

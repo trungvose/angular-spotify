@@ -1,11 +1,15 @@
+import { SelectorUtil } from '@angular-spotify/web/util';
 import { createSelector } from '@ngrx/store';
 import { RootState } from '../rootState';
 
 export const getPlaylistTracksState = (state: RootState) => state.playlistTracks;
-export const getIsTracksLoading = createSelector(
+export const getPlaylistTracksLoading = createSelector(
   getPlaylistTracksState,
-  (state) => state.status === 'loading'
+  SelectorUtil.isLoading
 );
+
+export const getPlaylistTracksDone = createSelector(getPlaylistTracksState, SelectorUtil.isDone);
+
 export const getPlaylistTracksById = (playlistId: string) =>
   createSelector(getPlaylistTracksState, ({ data }) => {
     return data?.get(playlistId);
