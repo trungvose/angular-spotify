@@ -1,12 +1,16 @@
 <h2 class="mt-8 mb-4 text-2xl text-white">Recently Played</h2>
 
-<div *ngIf="recentTracks$ | async as recentTracks"
-     class="common-grid">
-  <as-media *ngFor="let historyObject of recentTracks"
-            [title]="historyObject.track.name"
-            [description]="historyObject.track.artists[0]?.name!"
-            [imageUrl]="historyObject.track.album.images[0]?.url!"
-            [uri]="historyObject.track.uri"
-            (togglePlay)="togglePlayTrack($event, historyObject.track.uri)">
+<div *ngIf="recentTracks$ | async as recentTracks" class="common-grid">
+  <as-media
+    *ngFor="let historyObject of recentTracks"
+    [title]="historyObject.track.name"
+    [description]="historyObject.track.artists[0]?.name!"
+    [imageUrl]="historyObject.track.album.images[0]?.url!"
+    [uri]="historyObject.track.uri"
+    (togglePlay)="togglePlayTrack($event, historyObject.track.uri)"
+  >
   </as-media>
+</div>
+<div *ngIf="isLoading$ | async" class="grid py-3 place-items-center">
+  <svg-icon key="audio-animated" [size]="'xl'"> </svg-icon>
 </div>
