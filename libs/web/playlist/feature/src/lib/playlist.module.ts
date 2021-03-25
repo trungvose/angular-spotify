@@ -7,6 +7,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { PlaylistComponent } from './playlist.component';
+import { RouterUtil } from '@angular-spotify/web/util';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loading';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,9 +18,11 @@ import { PlaylistComponent } from './playlist.component';
     MediaTableModule,
     PlaylistTrackModule,
     SvgIconsModule,
+    ReactiveComponentModule,
+    TracksLoadingModule,
     RouterModule.forChild([
       {
-        path: '',
+        path: `:${RouterUtil.Configuration.PlaylistId}`,
         component: PlaylistComponent
       }
     ])

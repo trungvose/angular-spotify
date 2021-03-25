@@ -1,21 +1,21 @@
 /// <reference types="spotify-web-playback-sdk" />
+import { GenericState } from '@angular-spotify/web/shared/data-access/models';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-
 export class SelectorUtil {
   static getMediaPlayingState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
     return obs$.pipe(
       map(([uri, playback]) => {
         const hasContextUri = !!playback.context?.uri;
         const hasTrackPlaying = !!playback.track_window.current_track;
-        if(hasContextUri){
+        if (hasContextUri) {
           const isCurrentPlaylistInContext = uri === playback.context?.uri;
           if (isCurrentPlaylistInContext) {
             return !playback.paused;
           }
-        } else if (hasTrackPlaying){
+        } else if (hasTrackPlaying) {
           const isCurrentTrackPlaying = uri === playback.track_window.current_track.uri;
-          if(isCurrentTrackPlaying){
+          if (isCurrentTrackPlaying) {
             return !playback.paused;
           }
         }
@@ -40,5 +40,13 @@ export class SelectorUtil {
       }),
       startWith(false)
     );
+  }
+
+  static isLoading({ status }: GenericState<unknown>) {
+    return status === 'loading';
+  }
+
+  static isDone({ status }: GenericState<unknown>) {
+    return status === 'success' || status === 'error';
   }
 }

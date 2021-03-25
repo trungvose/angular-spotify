@@ -14,21 +14,9 @@ export const loadPlaylistsError = createAction(
   props<{ error: string }>()
 );
 
-export const loadPlaylist = createAction(
-  '[Playlists Store/Load Playlist By Id]',
-  props<{
-    playlistId: string;
-  }>()
-);
-
 export const loadPlaylistSuccess = createAction(
   '[Playlists Store/Load Playlist By Id success]',
   props<{
     playlist: SpotifyApi.PlaylistObjectSimplified;
   }>()
-);
-
-export const loadPlaylistError = createAction(
-  '[Playlists Store/Load Playlist By Id error]',
-  props<{ error: string }>()
 );

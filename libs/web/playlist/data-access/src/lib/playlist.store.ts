@@ -1,43 +1,64 @@
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { GenericState } from '@angular-spotify/web/shared/data-access/models';
+import {
+  PlayerApiService,
+  PlaylistApiService
+} from '@angular-spotify/web/shared/data-access/spotify-api';
 import {
   getPlaylist,
+  getPlaylistsState,
   getPlaylistTracksById,
-  loadPlaylist,
+  getPlaylistTracksLoading,
+  loadPlaylistSuccess,
   loadPlaylistTracks,
   PlaybackStore,
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
-import { SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComponentStore } from '@ngrx/component-store';
+import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { select, Store } from '@ngrx/store';
-import { combineLatest, Observable, of } from 'rxjs';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+
+interface PlaylistState extends GenericState<SpotifyApi.PlaylistObjectFull> {
+  playlistId: string;
+}
 
 type TogglePlaylistParams = {
   isPlaying: boolean;
-  playlist: SpotifyApi.PlaylistObjectSimplified;
 };
 
 type PlayTrackParams = {
-  playlist: SpotifyApi.PlaylistObjectSimplified;
   position: number;
 };
 
 @Injectable({ providedIn: 'root' })
-export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
+export class PlaylistStore extends ComponentStore<PlaylistState> {
   playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
   tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
   isPlaylistPlaying$!: Observable<boolean>;
+  isPlaylistTracksLoading$!: Observable<boolean>;
+  isCurrentPlaylistLoading$!: Observable<boolean>;
+  readonly playlistId$ = this.select((s) => s.playlistId);
+
+  get playlistContextUri() {
+    return RouteUtil.getPlaylistContextUri(this.get().playlistId);
+  }
 
   constructor(
     private playerApi: PlayerApiService,
+    private playlistsApi: PlaylistApiService,
     private route: ActivatedRoute,
     private store: Store<RootState>,
     private playbackStore: PlaybackStore
   ) {
-    super({});
+    super({
+      data: null,
+      error: null,
+      status: 'pending',
+      playlistId: ''
+    });
     this.init();
   }
 
@@ -47,13 +68,15 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
       filter((playlistId) => !!playlistId)
     );
 
+    this.isPlaylistTracksLoading$ = this.store.select(getPlaylistTracksLoading);
+    this.isCurrentPlaylistLoading$ = this.select(SelectorUtil.isLoading);
+
     this.playlist$ = playlistParams$.pipe(
       tap((playlistId) => {
-        this.store.dispatch(
-          loadPlaylist({
-            playlistId
-          })
-        );
+        this.patchState({
+          playlistId
+        });
+        this.loadPlaylist({ playlistId });
       }),
       switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
     );
@@ -77,11 +100,48 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
     );
   }
 
+  readonly loadPlaylist = this.effect<{ playlistId: string }>((params$) =>
+    params$.pipe(
+      withLatestFrom(this.store.select(getPlaylistsState)),
+      filter(([params, state]) => !state.map?.get(params.playlistId)),
+      tap(() => {
+        this.patchState({
+          status: 'loading',
+          error: null
+        });
+      }),
+      map(([action]) => action),
+      mergeMap(({ playlistId }) =>
+        this.playlistsApi.getById(playlistId).pipe(
+          tapResponse(
+            (playlist) => {
+              this.store.dispatch(
+                loadPlaylistSuccess({
+                  playlist
+                })
+              );
+              this.patchState({
+                status: 'success',
+                error: null
+              });
+            },
+            (e) => {
+              this.patchState({
+                status: 'error',
+                error: e as string
+              });
+            }
+          )
+        )
+      )
+    )
+  );
+
   readonly togglePlaylist = this.effect<TogglePlaylistParams>((params$) =>
     params$.pipe(
-      switchMap(({ isPlaying, playlist }) =>
+      switchMap(({ isPlaying }) =>
         this.playerApi.togglePlay(isPlaying, {
-          context_uri: playlist.uri
+          context_uri: this.playlistContextUri
         })
       )
     )
@@ -89,9 +149,9 @@ export class PlaylistStore extends ComponentStore<Record<string, unknown>> {
 
   readonly playTrack = this.effect<PlayTrackParams>((params$) =>
     params$.pipe(
-      switchMap(({ playlist, position }) =>
+      switchMap(({ position }) =>
         this.playerApi.play({
-          context_uri: playlist.uri,
+          context_uri: this.playlistContextUri,
           offset: {
             position
           }

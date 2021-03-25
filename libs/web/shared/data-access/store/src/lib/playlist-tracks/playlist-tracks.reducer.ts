@@ -20,7 +20,7 @@ export const playlistTracksReducer = createReducer(
   on(loadPlaylistTracksSuccess, (state, { playlistId, playlistTracks }) => {
     const { data: map } = state;
     map?.set(playlistId, playlistTracks);
-    return { ...state, data: map };
+    return { ...state, data: map, status: 'success' };
   }),
-  on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error }))
+  on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error, status: 'error' }))
 );

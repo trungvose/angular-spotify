@@ -11,4 +11,8 @@ export class RouteUtil {
   static getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
     return `/${RouterUtil.Configuration.Playlist}/${playlist.id}`;
   }
+
+  static getPlaylistContextUri(playlistId: string) {
+    return `spotify:playlist:${playlistId}`;
+  }
 }

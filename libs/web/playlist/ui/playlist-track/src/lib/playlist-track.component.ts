@@ -11,7 +11,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 })
 export class PlaylistTrackComponent implements OnInit {
   @Input() index!: number;
-  @Input() contextUri!: string;
+  @Input() contextUri!: string | null;
   @Input() item: SpotifyApi.PlaylistTrackObject | undefined;
   isTrackPlaying$!: Observable<boolean>;
 
@@ -24,6 +24,10 @@ export class PlaylistTrackComponent implements OnInit {
   }
 
   togglePlayTrack(isPlaying: boolean) {
+    if (!this.contextUri) {
+      return;
+    }
+
     this.playerApi
       .togglePlay(isPlaying, {
         context_uri: this.contextUri,
