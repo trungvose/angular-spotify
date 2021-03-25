@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { getPlaylists, RootState } from '@angular-spotify/web/shared/data-access/store';
+import {
+  getPlaylists,
+  getPlaylistsLoading,
+  RootState
+} from '@angular-spotify/web/shared/data-access/store';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'as-nav-bar-playlist',
@@ -10,10 +14,12 @@ import { Observable } from 'rxjs';
 })
 export class NavBarPlaylistComponent implements OnInit {
   playlists$!: Observable<SpotifyApi.ListOfUsersPlaylistsResponse | null>;
+  isPlaylistsLoading$!: Observable<boolean>;
 
   constructor(private store: Store<RootState>) {}
 
   ngOnInit() {
     this.playlists$ = this.store.pipe(select(getPlaylists));
+    this.isPlaylistsLoading$ = this.store.select(getPlaylistsLoading);
   }
 }

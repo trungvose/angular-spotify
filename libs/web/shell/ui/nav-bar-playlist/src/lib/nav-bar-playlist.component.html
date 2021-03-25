@@ -16,3 +16,6 @@
     <as-nav-playlist [playlist]="playlist"></as-nav-playlist>
   </li>
 </ul>
+<div *ngIf="isPlaylistsLoading$ | async" class="grid py-4 place-items-center">
+  <svg-icon key="audio-animated" [size]="'lg'"> </svg-icon>
+</div>
