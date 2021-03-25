@@ -51,7 +51,15 @@
             "polyfills": "apps/angular-spotify/src/polyfills.ts",
             "tsConfig": "apps/angular-spotify/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/angular-spotify/src/favicon.ico", "apps/angular-spotify/src/assets"],
+            "assets": [
+              "apps/angular-spotify/src/favicon.ico",
+              "apps/angular-spotify/src/assets",
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
+            ],
             "styles": ["apps/angular-spotify/src/styles.scss"],
             "scripts": []
           },

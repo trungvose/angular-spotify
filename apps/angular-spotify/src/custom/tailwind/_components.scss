@@ -39,10 +39,4 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     @apply grid;
   }
-
-  .tracks-container {
-    .ant-skeleton-paragraph > li {
-      height: 24px !important;
-    }
-  }
 }

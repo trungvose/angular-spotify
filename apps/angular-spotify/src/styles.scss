@@ -15,3 +15,7 @@ body {
   color: #b3b3b3;
   @apply h-full w-full absolute overflow-hidden flex flex-col;
 }
+
+.tracks-container .ant-skeleton-paragraph > li {
+  height: 24px !important;
+}
