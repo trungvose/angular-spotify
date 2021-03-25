@@ -21,7 +21,9 @@ registerLocaleData(en);
     CommonModule,
     WebLayoutModule,
     IconModule,
-    RouterModule.forRoot(webShellRoutes),
+    RouterModule.forRoot(webShellRoutes, {
+      scrollPositionRestoration: 'top'
+    }),
     StoreModule.forRoot(rootReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25
