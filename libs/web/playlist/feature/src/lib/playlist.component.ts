@@ -10,26 +10,30 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistComponent {
-  playlist$!: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
-  tracks$!: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
-  isPlaylistPlaying$!: Observable<boolean>;
+  playlistId$: Observable<string>;
+  playlist$: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
+  tracks$: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
+  isPlaylistPlaying$: Observable<boolean>;
+  isPlaylistTracksLoading$: Observable<boolean>;
+  isCurrentPlaylistLoading$: Observable<boolean>;
 
   constructor(private store: PlaylistStore) {
+    this.playlistId$ = this.store.playlistId$;
     this.playlist$ = this.store.playlist$;
     this.isPlaylistPlaying$ = this.store.isPlaylistPlaying$;
+    this.isCurrentPlaylistLoading$ = this.store.isCurrentPlaylistLoading$;
     this.tracks$ = this.store.tracks$;
+    this.isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
   }
 
-  togglePlaylist(isPlaying: boolean, playlist: SpotifyApi.PlaylistObjectSimplified) {
+  togglePlaylist(isPlaying: boolean) {
     this.store.togglePlaylist({
-      isPlaying,
-      playlist
+      isPlaying
     });
   }
 
-  playTrack(playlist: SpotifyApi.PlaylistObjectSimplified, position: number) {
+  playTrack(position: number) {
     this.store.playTrack({
-      playlist,
       position
     });
   }

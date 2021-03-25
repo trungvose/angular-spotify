@@ -90,7 +90,10 @@
       "@angular-spotify/web/shared/ui/work-in-progress": [
         "libs/web/shared/ui/work-in-progress/src/index.ts"
       ],
-      "@angular-spotify/web/artist/feature": ["libs/web/artist/feature/src/index.ts"]
+      "@angular-spotify/web/artist/feature": ["libs/web/artist/feature/src/index.ts"],
+      "@angular-spotify/web/shared/ui/tracks-loading": [
+        "libs/web/shared/ui/tracks-loading/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

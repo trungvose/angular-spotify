@@ -32,6 +32,7 @@ module.exports = {
     '<rootDir>/libs/web/home/ui/featured-playlists',
     '<rootDir>/libs/web/album/feature',
     '<rootDir>/libs/web/shared/ui/work-in-progress',
-    '<rootDir>/libs/web/artist/feature'
+    '<rootDir>/libs/web/artist/feature',
+    '<rootDir>/libs/web/shared/ui/tracks-loading'
   ]
 };

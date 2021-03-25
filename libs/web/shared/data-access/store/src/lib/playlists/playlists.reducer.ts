@@ -25,7 +25,6 @@ export const playlistsReducer = createReducer(
     const { items } = playlists;
     const map = new Map<string, SpotifyApi.PlaylistObjectSimplified>();
     items.forEach((playlist) => map.set(playlist.id, playlist));
-
     return {
       ...state,
       map: map,

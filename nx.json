@@ -64,6 +64,7 @@
     "web-home-ui-featured-playlists": { "tags": ["type:ui", "scope:web"] },
     "web-album-feature": { "tags": ["type:feature", "scope:web"] },
     "web-shared-ui-work-in-progress": { "tags": ["type:ui", "scope:web"] },
-    "web-artist-feature": { "tags": ["type:feature", "scope:web"] }
+    "web-artist-feature": { "tags": ["type:feature", "scope:web"] },
+    "web-shared-ui-tracks-loading": { "tags": ["type:ui", "scope:web"] }
   }
 }

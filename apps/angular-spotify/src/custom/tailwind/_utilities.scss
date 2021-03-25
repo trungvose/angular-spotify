@@ -6,4 +6,8 @@
       @apply text-white;
     }
   }
+
+  .no-select {
+    user-select: none;
+  }
 }
