@@ -13,7 +13,7 @@ import {
   PlaybackStore,
   RootState
 } from '@angular-spotify/web/shared/data-access/store';
-import { SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
@@ -43,7 +43,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
   readonly playlistId$ = this.select((s) => s.playlistId);
 
   get playlistContextUri() {
-    return `spotify:playlist:${this.get().playlistId}`;
+    return RouteUtil.getPlaylistContextUri(this.get().playlistId);
   }
 
   constructor(

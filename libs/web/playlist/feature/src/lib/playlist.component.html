@@ -36,7 +36,7 @@
       *ngFor="let item of tracks.items; let idx = index"
       [item]="item"
       [index]="idx"
-      [contextUri]="playlistId$ | async"
+      [contextUri]="getPlaylistContextUri(playlistId$ | async)"
       (dblclick)="playTrack(idx)"
     >
     </as-playlist-track>

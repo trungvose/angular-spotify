@@ -1,4 +1,5 @@
 import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
+import { RouteUtil } from '@angular-spotify/web/util';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -36,5 +37,9 @@ export class PlaylistComponent {
     this.store.playTrack({
       position
     });
+  }
+
+  getPlaylistContextUri(playlistId: string | null) {
+    return RouteUtil.getPlaylistContextUri(playlistId || '');
   }
 }
