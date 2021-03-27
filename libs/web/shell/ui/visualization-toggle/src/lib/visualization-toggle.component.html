@@ -1,0 +1,10 @@
+<ng-container *ngrxLet="isVisualizationOn$ as isOn">
+  <nz-switch
+    [ngModel]="isOn"
+    nz-tooltip
+    [nzTooltipTitle]="titleTmpl"
+    (ngModelChange)="toggle($event)"
+  >
+  </nz-switch>
+  <ng-template #titleTmpl> Turn {{ isOn ? 'off' : 'on' }} the cool visualizer! </ng-template>
+</ng-container>

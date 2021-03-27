@@ -98,6 +98,9 @@
       ],
       "@angular-spotify/web/collection/playlists/feature": [
         "libs/web/collection/playlists/feature/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/visualization-toggle": [
+        "libs/web/shell/ui/visualization-toggle/src/index.ts"
       ]
     }
   },

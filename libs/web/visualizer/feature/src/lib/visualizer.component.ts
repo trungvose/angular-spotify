@@ -9,7 +9,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { mean } from 'lodash';
+import { mean } from 'lodash-es';
 import { timer } from 'rxjs';
 import { map, switchMap, filter } from 'rxjs/operators';
 import { Sketch } from 'sketch-js';

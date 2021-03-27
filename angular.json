@@ -1103,6 +1103,31 @@
           }
         }
       }
+    },
+    "web-shell-ui-visualization-toggle": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/visualization-toggle",
+      "sourceRoot": "libs/web/shell/ui/visualization-toggle/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/visualization-toggle/src/**/*.ts",
+              "libs/web/shell/ui/visualization-toggle/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/visualization-toggle"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { webShellRoutes } from './web-shell.routes';
@@ -21,6 +22,7 @@ registerLocaleData(en);
     CommonModule,
     WebLayoutModule,
     IconModule,
+    NoopAnimationsModule,
     RouterModule.forRoot(webShellRoutes, {
       scrollPositionRestoration: 'top'
     }),

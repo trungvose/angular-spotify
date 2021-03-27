@@ -1,10 +1,10 @@
 .ant-slider {
   .ant-slider-rail {
-    background-color: #535353;
+    @apply bg-sliderRail;
   }
 
   .ant-slider-track {
-    background-color: #b3b3b3;
+    @apply bg-sliderTrack;
   }
 
   .ant-slider-handle {
@@ -13,13 +13,13 @@
 
   &:hover {
     .ant-slider-rail {
-      background-color: #535353;
+      @apply bg-sliderRail;
     }
-    
+
     .ant-slider-track {
       @apply bg-primary;
     }
-    
+
     .ant-slider-handle {
       visibility: visible;
     }
