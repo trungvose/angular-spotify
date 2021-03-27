@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { mean } from 'lodash';
-import { combineLatest, timer } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { timer } from 'rxjs';
+import { map, switchMap, filter } from 'rxjs/operators';
 import { Sketch } from 'sketch-js';
 
 const INTERVAL = 100;
@@ -38,10 +38,18 @@ export class VisualizerComponent implements OnInit, OnDestroy {
   }
 
   init() {
-    // TODO do something with switchMap to cancel timer
-    combineLatest([timer(0, INTERVAL), this.playbackStore.segments$])
+    this.playbackStore.segments$
       .pipe(
-        tap(([num, data]) => {
+        filter((x) => x.isPlaying),
+        switchMap((data) =>
+          timer(0, INTERVAL).pipe(
+            map((num) => ({
+              num,
+              data
+            }))
+          )
+        ),
+        map(({ num, data }) => {
           const { position, isPlaying, segments } = data;
           if (!isPlaying) {
             return;
