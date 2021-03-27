@@ -1,4 +1,4 @@
-<ng-container *ngIf="playlist$ | async as playlist">
+<div class="content-spacing" *ngIf="playlist$ | async as playlist">
   <as-media-summary
     type="Playlist"
     [title]="playlist.name"
@@ -9,7 +9,7 @@
     [likesCount]="$any(playlist)?.followers?.total"
   >
   </as-media-summary>
-  <div class="px-8 pt-0 pb-6 playlist-action">
+  <div class="pt-0 pb-6 playlist-action">
     <as-play-button
       [large]="true"
       [primary]="true"
@@ -18,7 +18,7 @@
     >
     </as-play-button>
   </div>
-</ng-container>
+</div>
 
 <div class="px-8">
   <as-media-table-header>

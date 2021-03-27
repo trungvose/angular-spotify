@@ -1,4 +1,8 @@
 @layer components {
+  .content-spacing {
+    @apply px-8;
+  }
+
   .text-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
