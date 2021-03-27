@@ -3,7 +3,7 @@ export const NUM_BANDS = 128;
 export const SMOOTHING = 0.5;
 export const SCALE = { MIN: 5.0, MAX: 80.0 };
 export const SPEED = { MIN: 0.2, MAX: 1.0 };
-export const ALPHA = { MIN: 0.8, MAX: 0.9 };
+export const ALPHA = { MIN: 0.5, MAX: 0.9 };
 export const SPIN = { MIN: 0.001, MAX: 0.005 };
 export const SIZE = { MIN: 0.5, MAX: 1.25 };
 export const COLORS = [
@@ -23,6 +23,6 @@ export const COLORS = [
   '#f6c5af',
   '#453643',
   '#03CEA4',
-  '#45CB85',
+  '#45CB85'
 ];
 export const TWO_PI = Math.PI * 2;
