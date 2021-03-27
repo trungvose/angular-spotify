@@ -274,23 +274,6 @@
         }
       }
     },
-    "web-collection-playlists": {
-      "projectType": "library",
-      "root": "libs/web/collection/playlists",
-      "sourceRoot": "libs/web/collection/playlists/src",
-      "prefix": "angular-spotify",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/collection/playlists/src/**/*.ts",
-              "libs/web/collection/playlists/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "web-shared-ui-track-main-info": {
       "projectType": "library",
       "root": "libs/web/shared/ui/track-main-info",
@@ -1075,6 +1058,48 @@
           "options": {
             "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-collection-tracks-feature": {
+      "projectType": "library",
+      "root": "libs/web/collection/tracks/feature",
+      "sourceRoot": "libs/web/collection/tracks/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/collection/tracks/feature/src/**/*.ts",
+              "libs/web/collection/tracks/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/collection/tracks/feature"],
+          "options": {
+            "jestConfig": "libs/web/collection/tracks/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-collection-playlists-feature": {
+      "projectType": "library",
+      "root": "libs/web/collection/playlists/feature",
+      "sourceRoot": "libs/web/collection/playlists/feature/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/collection/playlists/feature/src/**/*.ts",
+              "libs/web/collection/playlists/feature/src/**/*.html"
+            ]
           }
         }
       }

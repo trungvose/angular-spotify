@@ -42,7 +42,7 @@ export class PlaybackService {
     this.playbackStore.player().setVolume(volume);
     this.playbackStore.patchState({
       volume
-    })
+    });
   }
 
   private async initPlaybackSDK(token: string) {
@@ -78,6 +78,12 @@ export class PlaybackService {
         data: state,
         volume: await player.getVolume()
       });
+      const currentTrackId = state.track_window?.current_track?.id;
+      if (!state.paused && currentTrackId) {
+        this.playbackStore.loadTracksAnalytics({
+          trackId: currentTrackId
+        });
+      }
     });
 
     // Ready

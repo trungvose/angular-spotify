@@ -1,11 +1,16 @@
+// Audio visualization originally created by Justin Windle (@soulwire)
+// as seen on https://codepen.io/soulwire/pen/Dscga
+// also seen on https://github.com/koel/core/blob/master/js/utils/visualizer.ts by @phanan
+
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../typings/sketch-js.d.ts" />
+
 import * as Sketch from 'sketch-js';
 import { Particle } from './particle';
 import { random } from 'lodash-es';
 import { NUM_BANDS, NUM_PARTICLES, SMOOTHING } from './const';
 
-type OnUpdate = (bands: Uint8Array) => void;
+type OnUpdate = (bands: number) => void;
 
 export class AudioAnalyser {
   numBands: number;
@@ -13,7 +18,7 @@ export class AudioAnalyser {
   bands!: Uint8Array;
   onUpdate!: OnUpdate;
 
-  constructor(numBands = 256, smoothing = 0.3) {
+  constructor(numBands = NUM_BANDS, smoothing = SMOOTHING) {
     this.numBands = numBands;
     this.smoothing = smoothing;
   }
@@ -21,7 +26,7 @@ export class AudioAnalyser {
 
 export const initVisualizer = (container: HTMLElement) => {
   // setup the audio analyser
-  const analyser = new AudioAnalyser(NUM_BANDS, SMOOTHING);
+  const analyser = new AudioAnalyser();
 
   const sketch = Sketch.create({
     container,
@@ -37,10 +42,10 @@ export const initVisualizer = (container: HTMLElement) => {
       }
 
       // update particles based on fft transformed audio frequencies
-      analyser.onUpdate = (bands: Uint8Array) =>
+      analyser.onUpdate = (num) =>
         this.particles.map(
           (particle: Particle): Particle => {
-            particle.energy = bands[particle.band] / 256;
+            particle.energy = num; //bands[particle.band] / 256;
 
             return particle;
           }
@@ -65,7 +70,7 @@ export const initVisualizer = (container: HTMLElement) => {
   });
 
   return {
-    sketch, 
+    sketch,
     analyser
   };
 };

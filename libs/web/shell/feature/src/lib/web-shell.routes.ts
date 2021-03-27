@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
 import { LayoutComponent } from '@angular-spotify/web/shell/ui/layout';
-import { RouterUtil } from '@angular-spotify/web/util';
 
 export const webShellRoutes: Route[] = [
   {
@@ -14,12 +13,12 @@ export const webShellRoutes: Route[] = [
       {
         path: 'collection/playlists',
         loadChildren: async () =>
-          (await import('@angular-spotify/web/collection/playlists')).PlaylistsModule
+          (await import('@angular-spotify/web/collection/playlists/feature')).PlaylistsModule
       },
       {
-        path: 'collection',
-        redirectTo: 'collection/playlists',
-        pathMatch: 'full'
+        path: 'collection/tracks',
+        loadChildren: async () =>
+          (await import('@angular-spotify/web/collection/tracks/feature')).TracksModule
       },
       {
         path: `playlist`,
@@ -38,6 +37,11 @@ export const webShellRoutes: Route[] = [
         path: 'visualizer',
         loadChildren: async () =>
           (await import('@angular-spotify/web/visualizer/feature')).VisualizerModule
+      },
+      {
+        path: 'collection',
+        redirectTo: 'collection/playlists',
+        pathMatch: 'full'
       }
     ]
   },

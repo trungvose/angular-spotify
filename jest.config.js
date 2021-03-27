@@ -33,6 +33,7 @@ module.exports = {
     '<rootDir>/libs/web/album/feature',
     '<rootDir>/libs/web/shared/ui/work-in-progress',
     '<rootDir>/libs/web/artist/feature',
-    '<rootDir>/libs/web/shared/ui/tracks-loading'
+    '<rootDir>/libs/web/shared/ui/tracks-loading',
+    '<rootDir>/libs/web/collection/tracks/feature'
   ]
 };
