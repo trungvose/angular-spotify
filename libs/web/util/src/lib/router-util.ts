@@ -5,6 +5,7 @@ export class RouterUtil {
     Album: 'album',
     AlbumId: 'albumId',
     Artist: 'artist',
-    ArtistId: 'artistId'
+    ArtistId: 'artistId',
+    Visualizer: 'visualizer'
   };
 }

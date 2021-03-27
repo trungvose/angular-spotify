@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 import { LayoutComponent } from '@angular-spotify/web/shell/ui/layout';
+import { RouterUtil } from '@angular-spotify/web/util';
 
 export const webShellRoutes: Route[] = [
   {
@@ -34,7 +35,7 @@ export const webShellRoutes: Route[] = [
         loadChildren: async () => (await import('@angular-spotify/web/artist/feature')).ArtistModule
       },
       {
-        path: 'visualizer',
+        path: RouterUtil.Configuration.Visualizer,
         loadChildren: async () =>
           (await import('@angular-spotify/web/visualizer/feature')).VisualizerModule
       },
