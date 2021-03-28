@@ -1,4 +1,4 @@
-import { ClassProvider, Injectable } from '@angular/core';
+import { Injectable, Provider } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 }
 
-export const authInterceptorProvider: ClassProvider = {
+export const authInterceptorProvider: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: AuthInterceptor,
   multi: true

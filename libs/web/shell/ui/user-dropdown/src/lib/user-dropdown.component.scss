@@ -1,0 +1,46 @@
+$black: rgba(0, 0, 0);
+$size: 32px;
+
+.user-dropdown {
+  background-color: rgba($black, 0.4);
+  border-radius: 23px;
+  height: $size;
+  min-width: $size;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  padding: 2px;
+  @apply flex items-center justify-center;
+
+  &:hover {
+    background-color: rgba($black, 0.8);
+  }
+}
+
+.rounded-img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dropdown-container {
+  background-color: #5a5a5a;
+  font-size: '1.1rem';
+
+  .dropdown-item {
+    @apply py-3;
+
+    a {
+      color: rgba(white, 0.8);
+    }
+
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.1);
+      text-decoration: none;
+      a {
+        @apply text-white;
+      }
+    }
+  }
+}

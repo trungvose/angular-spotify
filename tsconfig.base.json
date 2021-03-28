@@ -73,7 +73,6 @@
       "@angular-spotify/web/shell/ui/player-volume": [
         "libs/web/shell/ui/player-volume/src/index.ts"
       ],
-      "@angular-spotify/web/playlist/feature": ["libs/web/playlist/feature/src/index.ts"],
       "@angular-spotify/web/playlist/ui/playlist-track": [
         "libs/web/playlist/ui/playlist-track/src/index.ts"
       ],
@@ -93,15 +92,24 @@
       "@angular-spotify/web/shared/ui/tracks-loading": [
         "libs/web/shared/ui/tracks-loading/src/index.ts"
       ],
-      "@angular-spotify/web/collection/tracks/feature": [
-        "libs/web/collection/tracks/feature/src/index.ts"
-      ],
-      "@angular-spotify/web/collection/playlists/feature": [
-        "libs/web/collection/playlists/feature/src/index.ts"
-      ],
       "@angular-spotify/web/shell/ui/visualization-toggle": [
         "libs/web/shell/ui/visualization-toggle/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/playlist/features/detail": [
+        "libs/web/playlist/features/detail/src/index.ts"
+      ],
+      "@angular-spotify/web/playlist/features/list": [
+        "libs/web/playlist/features/list/src/index.ts"
+      ],
+      "@angular-spotify/web/auth/ui/unauthorized-modal": [
+        "libs/web/auth/ui/unauthorized-modal/src/index.ts"
+      ],
+      "@angular-spotify/web/browse/feature": ["libs/web/browse/feature/src/index.ts"],
+      "@angular-spotify/web/shell/ui/user-dropdown": [
+        "libs/web/shell/ui/user-dropdown/src/index.ts"
+      ],
+      "@angular-spotify/web/shell/ui/social-share": ["libs/web/shell/ui/social-share/src/index.ts"],
+      "@angular-spotify/web/tracks/feature": ["libs/web/tracks/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

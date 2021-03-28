@@ -1,11 +1,9 @@
-import { AuthService } from '@angular-spotify/web/auth/data-access';
-import {
-  loadPlaylists,
-  PlaybackService,
-  RootState
-} from '@angular-spotify/web/shared/data-access/store';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AuthStore } from '@angular-spotify/web/auth/data-access';
+import { PlaybackService } from '@angular-spotify/web/shared/data-access/store';
+import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
+
 @Component({
   selector: 'as-layout',
   templateUrl: './layout.component.html',
@@ -14,13 +12,13 @@ import { Store } from '@ngrx/store';
 })
 export class LayoutComponent implements OnInit {
   constructor(
-    private authService: AuthService,
+    private authStore: AuthStore,
     private playbackService: PlaybackService,
-    private store: Store<RootState>
+    private store: Store
   ) {}
 
   ngOnInit(): void {
-    this.authService.init();
+    this.authStore.init();
     this.playbackService.init();
     this.store.dispatch(loadPlaylists());
   }

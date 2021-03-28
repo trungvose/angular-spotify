@@ -1,0 +1,30 @@
+.ant-btn {
+  &.btn-with-icon {
+    @apply text-white text-opacity-70;
+    padding: 4px 15px !important;
+    border: none;
+    display: flex;
+    align-items: center;
+    svg-icon {
+      @apply mr-2;
+    }
+  }
+
+  @apply bg-sliderRail;
+
+  &:hover,
+  &:focus {
+    border-color: #d9d9d9;
+    @apply bg-sliderTrack bg-opacity-70 text-white;
+  }
+}
+
+.ant-btn-primary {
+  background: $primary;
+  border: lighten($primary, 3%);
+
+  &:hover {
+    background: lighten($primary, 3%);
+    border: lighten($primary, 3%);
+  }
+}

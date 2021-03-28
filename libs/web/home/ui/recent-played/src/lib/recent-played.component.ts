@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { RootState } from '@angular-spotify/web/shared/data-access/store';
 import {
   getRecentPlayedTracks,
   getRecentPlayedTracksLoading
@@ -18,7 +17,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 export class RecentPlayedComponent implements OnInit {
   recentTracks$!: Observable<SpotifyApiPlayHistoryObject[] | undefined | null>;
   isLoading$!: Observable<boolean>;
-  constructor(private store: Store<RootState>, private playerApi: PlayerApiService) {}
+  constructor(private store: Store, private playerApi: PlayerApiService) {}
 
   ngOnInit(): void {
     this.recentTracks$ = this.store.pipe(select(getRecentPlayedTracks));

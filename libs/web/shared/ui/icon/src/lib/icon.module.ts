@@ -11,6 +11,14 @@ import { asVolumeMediumIcon } from './svg/volume-medium';
 import { asVolumeMuteIcon } from './svg/volume-mute';
 import { asClockIcon } from './svg/clock';
 import { asAudioAnimatedIcon } from './svg/audio-animated';
+import { asGithubIcon } from './svg/github';
+import { asTwitterIcon } from './svg/twitter';
+import { asQuestionCircleIcon } from './svg/question-circle';
+import { asCupIcon } from './svg/cup';
+import { asEmojiHeartEyesIcon } from './svg/emoji-heart-eyes';
+import { asCupFillIcon } from './svg/cup-fill';
+import { asCupStrawIcon } from './svg/cup-straw';
+import { asCaretDownFillIcon } from './svg/caret-down-fill';
 
 @NgModule({
   imports: [
@@ -26,7 +34,15 @@ import { asAudioAnimatedIcon } from './svg/audio-animated';
         asVolumeMediumIcon,
         asVolumeMuteIcon,
         asClockIcon,
-        asAudioAnimatedIcon
+        asAudioAnimatedIcon,
+        asGithubIcon,
+        asTwitterIcon,
+        asQuestionCircleIcon,
+        asCupIcon,
+        asCupFillIcon,
+        asCupStrawIcon,
+        asEmojiHeartEyesIcon, 
+        asCaretDownFillIcon
       ]
     })
   ],

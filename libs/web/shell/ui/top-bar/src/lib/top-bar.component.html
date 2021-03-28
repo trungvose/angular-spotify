@@ -1,22 +1,14 @@
 <div class="flex">
-  <button class="mr-4 arrow-button" title="Go back">
+  <button class="mr-4 arrow-button" title="Go back" (click)="back()">
     <svg role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24">
       <polyline points="16 4 7 12 16 20" fill="none" stroke="currentColor"></polyline>
     </svg>
   </button>
-  <button class="arrow-button" title="Go backward">
+  <button class="arrow-button" title="Go forward" (click)="forward()">
     <svg role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24">
       <polyline points="8 4 17 12 8 20" fill="none" stroke="currentColor"></polyline>
     </svg>
   </button>
 </div>
-<div class="user-dropdown">
-  <figure class="w-7 h-7" title="Trung Vo">
-    <img
-      src="https://avatars.githubusercontent.com/u/6767322?s=460&u=78f2b51f7e089ffeaf82cbe817d5fe8e9aff0d19&v=4"
-      alt="User Profile"
-      class="rounded-img"
-    />
-  </figure>
-  <span class="w-16 ml-2 text-xs text-white truncate">Trung Vo</span>
-</div>
+<as-social-share></as-social-share>
+<as-user-dropdown></as-user-dropdown>

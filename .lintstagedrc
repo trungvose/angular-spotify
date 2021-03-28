@@ -1,6 +1,5 @@
 {
-  "*.{js,ts,html,scss}": [
-    "npm run affected:lint",
-    "npm run format:write"
+  "*.{js,ts,html}": [
+    "eslint --cache"
   ]
 }

@@ -11,7 +11,7 @@ import {
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { mean } from 'lodash-es';
 import { timer } from 'rxjs';
-import { map, switchMap, filter } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Sketch } from 'sketch-js';
 
 const INTERVAL = 100;
@@ -23,6 +23,7 @@ const INTERVAL = 100;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VisualizerComponent implements OnInit, OnDestroy {
+  isFullscreen = false;
   sketch!: Sketch;
   analyser!: AudioAnalyser;
 
@@ -40,7 +41,6 @@ export class VisualizerComponent implements OnInit, OnDestroy {
   init() {
     this.playbackStore.segments$
       .pipe(
-        filter((x) => x.isPlaying),
         switchMap((data) =>
           timer(0, INTERVAL).pipe(
             map((num) => ({
@@ -59,12 +59,20 @@ export class VisualizerComponent implements OnInit, OnDestroy {
           if (segment) {
             const avgPitch = mean(segment?.pitches);
             this.analyser.onUpdate(avgPitch / 2);
-            //this.analyser.onUpdate(random(0, 0.2, true))
           }
         }),
         untilDestroyed(this)
       )
       .subscribe();
+  }
+
+  toggleFullscreen() {
+    if (this.isFullscreen) {
+      document.exitFullscreen();
+    } else {
+      (this.visualizer.nativeElement as HTMLElement).requestFullscreen();
+    }
+    this.isFullscreen = !this.isFullscreen;
   }
 
   ngOnDestroy() {
