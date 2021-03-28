@@ -18,6 +18,7 @@ import { asCupIcon } from './svg/cup';
 import { asEmojiHeartEyesIcon } from './svg/emoji-heart-eyes';
 import { asCupFillIcon } from './svg/cup-fill';
 import { asCupStrawIcon } from './svg/cup-straw';
+import { asCaretDownFillIcon } from './svg/caret-down-fill';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { asCupStrawIcon } from './svg/cup-straw';
         asCupIcon,
         asCupFillIcon,
         asCupStrawIcon,
-        asEmojiHeartEyesIcon
+        asEmojiHeartEyesIcon, 
+        asCaretDownFillIcon
       ]
     })
   ],
