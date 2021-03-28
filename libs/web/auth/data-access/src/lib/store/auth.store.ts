@@ -22,6 +22,11 @@ export class AuthStore extends ComponentStore<AuthState> {
     filter((token) => !!token)
   ) as Observable<string>;
   readonly country$ = this.select((s) => s.country);
+  readonly userName$ = this.select((s) => s.display_name);
+  readonly userAvatar$ = this.select(
+    (s) =>
+      (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
+  );
   readonly getUserId = () => this.get().id;
   readonly getToken = () => this.get().accessToken;
 

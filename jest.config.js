@@ -37,6 +37,7 @@ module.exports = {
     '<rootDir>/libs/web/collection/tracks/feature',
     '<rootDir>/libs/web/shell/ui/visualization-toggle',
     '<rootDir>/libs/web/auth/ui/unauthorized-modal',
-    '<rootDir>/libs/web/browse/feature'
+    '<rootDir>/libs/web/browse/feature',
+    '<rootDir>/libs/web/shell/ui/user-dropdown'
   ]
 };

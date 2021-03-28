@@ -20,22 +20,3 @@ $size: 32px;
   position: relative;
   cursor: pointer;
 }
-
-.user-dropdown {
-  background-color: $faded;
-  border-radius: 23px;
-  height: $size;
-  min-width: $size;
-  border: 0;
-  cursor: pointer;
-  color: #fff;
-  padding: 2px;
-  @apply flex items-center justify-center;
-}
-
-.rounded-img {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}

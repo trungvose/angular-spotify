@@ -1178,6 +1178,31 @@
           }
         }
       }
+    },
+    "web-shell-ui-user-dropdown": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/user-dropdown",
+      "sourceRoot": "libs/web/shell/ui/user-dropdown/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/user-dropdown/src/**/*.ts",
+              "libs/web/shell/ui/user-dropdown/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
