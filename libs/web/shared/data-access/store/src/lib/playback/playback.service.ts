@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { tap } from 'rxjs/operators';
@@ -9,7 +10,8 @@ export class PlaybackService {
   constructor(
     private authStore: AuthStore,
     private playbackStore: PlaybackStore,
-    private playerApi: PlayerApiService
+    private playerApi: PlayerApiService,
+    private titleService: Title
   ) {}
 
   init() {
@@ -54,7 +56,6 @@ export class PlaybackService {
       }
     });
 
-    // Error handling
     player.addListener('initialization_error', ({ message }) => {
       console.error(message);
     });
@@ -71,9 +72,9 @@ export class PlaybackService {
       console.error(message);
     });
 
-    // Playback status updates
     player.addListener('player_state_changed', async (state: Spotify.PlaybackState) => {
       console.log(state);
+      this.setAppTitle(state);
       this.playbackStore.patchState({
         data: state,
         volume: await player.getVolume()
@@ -86,7 +87,6 @@ export class PlaybackService {
       }
     });
 
-    // Ready
     player.addListener('ready', ({ device_id }) => {
       console.log('Ready with Device ID', device_id);
       this.playbackStore.patchState({
@@ -95,16 +95,25 @@ export class PlaybackService {
       this.playerApi.transferUserPlayback(device_id).subscribe();
     });
 
-    // Not Ready
     player.addListener('not_ready', ({ device_id }) => {
       console.log('Device ID has gone offline', device_id);
     });
 
-    // Connect Angular Spotify player!
     await player.connect();
     this.playbackStore.patchState({
       player
     });
+  }
+
+  //TODO: move to an effect somewhere
+  setAppTitle(state: Spotify.PlaybackState) {
+    const currentTrack = state?.track_window?.current_track;
+    if (currentTrack) {
+      const artistName = currentTrack.artists[0].name || '';
+      this.titleService.setTitle(
+        `Angular Spotify - ${currentTrack.name} ${artistName ? `- ${artistName}` : ''}`
+      );
+    }
   }
 
   private waitForSpotifyWebPlaybackSDKToLoad(): Promise<typeof Spotify> {
