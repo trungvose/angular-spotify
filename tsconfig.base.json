@@ -110,7 +110,8 @@
       "@angular-spotify/web/browse/feature": ["libs/web/browse/feature/src/index.ts"],
       "@angular-spotify/web/shell/ui/user-dropdown": [
         "libs/web/shell/ui/user-dropdown/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/shell/ui/social-share": ["libs/web/shell/ui/social-share/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

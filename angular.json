@@ -1203,6 +1203,31 @@
           }
         }
       }
+    },
+    "web-shell-ui-social-share": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/social-share",
+      "sourceRoot": "libs/web/shell/ui/social-share/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/social-share/src/**/*.ts",
+              "libs/web/shell/ui/social-share/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/social-share"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

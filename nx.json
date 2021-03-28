@@ -70,6 +70,7 @@
     "web-playlist-features-list": { "tags": ["type:feature", "scope:web"] },
     "web-auth-ui-unauthorized-modal": { "tags": ["type:ui", "scope:web"] },
     "web-browse-feature": { "tags": ["type:feature", "scope:web"] },
-    "web-shell-ui-user-dropdown": { "tags": ["type:ui", "scope:web"] }
+    "web-shell-ui-user-dropdown": { "tags": ["type:ui", "scope:web"] },
+    "web-shell-ui-social-share": { "tags": ["type:ui", "scope:web"] }
   }
 }
