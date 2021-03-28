@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AuthService } from '@angular-spotify/web/auth/data-access';
+import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { PlaybackService } from '@angular-spotify/web/shared/data-access/store';
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
 
@@ -12,13 +12,13 @@ import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
 })
 export class LayoutComponent implements OnInit {
   constructor(
-    private authService: AuthService,
+    private authStore: AuthStore,
     private playbackService: PlaybackService,
     private store: Store
   ) {}
 
   ngOnInit(): void {
-    this.authService.init();
+    this.authStore.init();
     this.playbackService.init();
     this.store.dispatch(loadPlaylists());
   }

@@ -35,6 +35,7 @@ module.exports = {
     '<rootDir>/libs/web/artist/feature',
     '<rootDir>/libs/web/shared/ui/tracks-loading',
     '<rootDir>/libs/web/collection/tracks/feature',
-    '<rootDir>/libs/web/shell/ui/visualization-toggle'
+    '<rootDir>/libs/web/shell/ui/visualization-toggle',
+    '<rootDir>/libs/web/auth/ui/unauthorized-modal'
   ]
 };

@@ -1,0 +1,9 @@
+.ant-btn-primary {
+  background: $primary;
+  border: lighten($primary, 3%);
+
+  &:hover {
+    background: lighten($primary, 3%);
+    border: lighten($primary, 3%);
+  }
+}

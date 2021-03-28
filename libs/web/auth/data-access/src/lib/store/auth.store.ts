@@ -1,10 +1,14 @@
 // MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
 /// <reference types="spotify-api" />
 
+import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map, switchMapTo, tap } from 'rxjs/operators';
+import { SpotifyAuthorize } from '../models/spotify-authorize';
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
   tokenType: string | null;
@@ -21,15 +25,53 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly getUserId = () => this.get().id;
   readonly getToken = () => this.get().accessToken;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private spotify: SpotifyApiService,
+    private modalService: NzModalService
+  ) {
     super(<AuthState>{});
   }
 
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
     console.log(user);
-    return ({
+    return {
       ...state,
       ...user
-    })
+    };
   });
+
+  readonly init = this.effect((params$) => params$.pipe(switchMapTo(this.initAuth())));
+
+  redirectToAuthorize() {
+    const spotifyAuthorize = new SpotifyAuthorize();
+    const url = spotifyAuthorize.createAuthorizeURL();
+    window.location.href = url;
+  }
+
+  private initAuth() {
+    if (!window.location.hash) {
+      this.redirectToAuthorize();
+    }
+
+    return this.route.fragment.pipe(
+      filter((fragment) => !!fragment),
+      map((fragment) => new URLSearchParams(fragment)),
+      map((params) => ({
+        accessToken: params.get('access_token'),
+        tokenType: params.get('token_type'),
+        expiresIn: Number(params.get('expires_in')),
+        state: params.get('state')
+      })),
+      tap((params) => {
+        this.patchState(params);
+        console.info('spotify authenticated');
+      }),
+      tap(() => {
+        this.setCurrentUser(this.spotify.getMe());
+        this.router.navigate([]);
+      })
+    );
+  }
 }
