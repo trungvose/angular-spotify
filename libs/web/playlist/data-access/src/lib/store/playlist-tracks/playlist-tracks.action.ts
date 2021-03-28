@@ -1,16 +1,22 @@
+import { GenericStoreStatus } from '@angular-spotify/web/shared/data-access/models';
 import { createAction, props } from '@ngrx/store';
 
 export const loadPlaylistTracks = createAction(
-  '[Playlist Detail Page/Load]',
+  '[Playlist Tracks/Load]',
   props<{ playlistId: string }>()
 );
 
 export const loadPlaylistTracksSuccess = createAction(
-  '[Playlist Detail Page/Load Success]',
+  '[Playlist Tracks/Load Success]',
   props<{ playlistId: string; playlistTracks: SpotifyApi.PlaylistTrackResponse }>()
 );
 
 export const loadPlaylistTracksError = createAction(
-  '[Playlist Detail Page/Load Error]',
+  '[Playlist Tracks/Load Error]',
   props<{ error: string }>()
+);
+
+export const statePlaylistTracksStateStatus = createAction(
+  '[Playlist Tracks/Set Playlist Tracks Status]',
+  props<{ status: GenericStoreStatus }>()
 );

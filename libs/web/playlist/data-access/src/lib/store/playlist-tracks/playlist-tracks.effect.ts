@@ -3,9 +3,13 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY } from 'rxjs';
-import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { getPlaylistTracksState } from './playlist-tracks.selector';
-import { loadPlaylistTracks, loadPlaylistTracksSuccess } from './playlist-tracks.action';
+import {
+  loadPlaylistTracks,
+  loadPlaylistTracksSuccess,
+  statePlaylistTracksStateStatus
+} from './playlist-tracks.action';
 
 @Injectable({ providedIn: 'root' })
 export class PlaylistTracksEffect {
@@ -13,6 +17,15 @@ export class PlaylistTracksEffect {
     this.actions$.pipe(
       ofType(loadPlaylistTracks),
       withLatestFrom(this.store.pipe(select(getPlaylistTracksState))),
+      tap(([{ playlistId }, playlistTracks]) => {
+        if (playlistTracks.data?.has(playlistId)) {
+          this.store.dispatch(
+            statePlaylistTracksStateStatus({
+              status: 'success'
+            })
+          );
+        }
+      }),
       filter(([{ playlistId }, playlistTracks]) => {
         return !playlistTracks.data?.has(playlistId);
       }),

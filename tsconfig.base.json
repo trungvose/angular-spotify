@@ -106,7 +106,8 @@
       ],
       "@angular-spotify/web/auth/ui/unauthorized-modal": [
         "libs/web/auth/ui/unauthorized-modal/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/browse/feature": ["libs/web/browse/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

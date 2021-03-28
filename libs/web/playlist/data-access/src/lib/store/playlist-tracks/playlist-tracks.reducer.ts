@@ -3,7 +3,8 @@ import { createReducer, on } from '@ngrx/store';
 import {
   loadPlaylistTracks,
   loadPlaylistTracksError,
-  loadPlaylistTracksSuccess
+  loadPlaylistTracksSuccess,
+  statePlaylistTracksStateStatus
 } from './playlist-tracks.action';
 
 export const playlistTrackFeatureKey = 'playlistTracks';
@@ -23,5 +24,6 @@ export const playlistTracksReducer = createReducer(
     map?.set(playlistId, playlistTracks);
     return { ...state, data: map, status: 'success' };
   }),
-  on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error, status: 'error' }))
+  on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error, status: 'error' })),
+  on(statePlaylistTracksStateStatus, (state, { status }) => ({ ...state, status }))
 );

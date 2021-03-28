@@ -16,7 +16,7 @@ export class UIStore extends ComponentStore<UIState> {
     super({
       navItems: [
         { label: 'Home', path: '' },
-        { label: 'Search', path: '/visualizer' },
+        { label: 'Browse', path: '/browse' },
         { label: 'Your Library', path: '/collection/playlists' }
       ],
       isShowUnauthorizedModal: false
