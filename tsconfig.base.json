@@ -92,9 +92,6 @@
       "@angular-spotify/web/shared/ui/tracks-loading": [
         "libs/web/shared/ui/tracks-loading/src/index.ts"
       ],
-      "@angular-spotify/web/collection/tracks/feature": [
-        "libs/web/collection/tracks/feature/src/index.ts"
-      ],
       "@angular-spotify/web/shell/ui/visualization-toggle": [
         "libs/web/shell/ui/visualization-toggle/src/index.ts"
       ],
@@ -111,7 +108,8 @@
       "@angular-spotify/web/shell/ui/user-dropdown": [
         "libs/web/shell/ui/user-dropdown/src/index.ts"
       ],
-      "@angular-spotify/web/shell/ui/social-share": ["libs/web/shell/ui/social-share/src/index.ts"]
+      "@angular-spotify/web/shell/ui/social-share": ["libs/web/shell/ui/social-share/src/index.ts"],
+      "@angular-spotify/web/tracks/feature": ["libs/web/tracks/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

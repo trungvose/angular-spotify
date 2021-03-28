@@ -1045,31 +1045,6 @@
         }
       }
     },
-    "web-collection-tracks-feature": {
-      "projectType": "library",
-      "root": "libs/web/collection/tracks/feature",
-      "sourceRoot": "libs/web/collection/tracks/feature/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/collection/tracks/feature/src/**/*.ts",
-              "libs/web/collection/tracks/feature/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/collection/tracks/feature"],
-          "options": {
-            "jestConfig": "libs/web/collection/tracks/feature/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-shell-ui-visualization-toggle": {
       "projectType": "library",
       "root": "libs/web/shell/ui/visualization-toggle",
@@ -1224,6 +1199,31 @@
           "outputs": ["coverage/libs/web/shell/ui/social-share"],
           "options": {
             "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-tracks-feature": {
+      "projectType": "library",
+      "root": "libs/web/tracks/feature",
+      "sourceRoot": "libs/web/tracks/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/tracks/feature/src/**/*.ts",
+              "libs/web/tracks/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/tracks/feature"],
+          "options": {
+            "jestConfig": "libs/web/tracks/feature/jest.config.js",
             "passWithNoTests": true
           }
         }
