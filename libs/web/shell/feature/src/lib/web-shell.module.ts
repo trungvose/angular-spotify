@@ -7,7 +7,6 @@ import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { rootReducers, rootEffects } from '@angular-spotify/web/shared/data-access/store';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import * as Sentry from '@sentry/angular';
@@ -15,6 +14,14 @@ import * as Sentry from '@sentry/angular';
 /** config angular i18n **/
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import {
+  PlaylistsEffect,
+  playlistsFeatureKey,
+  playlistsReducer,
+  playlistTrackFeatureKey,
+  PlaylistTracksEffect,
+  playlistTracksReducer
+} from '@angular-spotify/web/playlist/data-access';
 registerLocaleData(en);
 
 @NgModule({
@@ -26,11 +33,13 @@ registerLocaleData(en);
     RouterModule.forRoot(webShellRoutes, {
       scrollPositionRestoration: 'top'
     }),
-    StoreModule.forRoot(rootReducers),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature(playlistsFeatureKey, playlistsReducer),
+    StoreModule.forFeature(playlistTrackFeatureKey, playlistTracksReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
-    EffectsModule.forRoot(rootEffects)
+    EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect])
   ],
   exports: [RouterModule],
   providers: [

@@ -6,9 +6,10 @@ import {
   loadPlaylistTracksSuccess
 } from './playlist-tracks.action';
 
-export type State = GenericState<Map<string, SpotifyApi.PlaylistTrackResponse>>;
+export const playlistTrackFeatureKey = 'playlistTracks';
+export type PlaylistTracksState = GenericState<Map<string, SpotifyApi.PlaylistTrackResponse>>;
 
-const initialState: State = {
+const initialState: PlaylistTracksState = {
   data: new Map(),
   status: 'pending',
   error: null

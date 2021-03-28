@@ -5,7 +5,6 @@ import { select, Store } from '@ngrx/store';
 import { EMPTY } from 'rxjs';
 import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { getPlaylistTracksState } from './playlist-tracks.selector';
-import { RootState } from '../rootState';
 import { loadPlaylistTracks, loadPlaylistTracksSuccess } from './playlist-tracks.action';
 
 @Injectable({ providedIn: 'root' })
@@ -34,6 +33,6 @@ export class PlaylistTracksEffect {
   constructor(
     private actions$: Actions,
     private playlistsApi: PlaylistApiService,
-    private store: Store<RootState>
+    private store: Store
   ) {}
 }

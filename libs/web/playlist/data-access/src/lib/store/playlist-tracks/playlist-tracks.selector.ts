@@ -1,8 +1,11 @@
 import { SelectorUtil } from '@angular-spotify/web/util';
-import { createSelector } from '@ngrx/store';
-import { RootState } from '../rootState';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { playlistTrackFeatureKey, PlaylistTracksState } from './playlist-tracks.reducer';
 
-export const getPlaylistTracksState = (state: RootState) => state.playlistTracks;
+export const getPlaylistTracksState = createFeatureSelector<PlaylistTracksState>(
+  playlistTrackFeatureKey
+);
+
 export const getPlaylistTracksLoading = createSelector(
   getPlaylistTracksState,
   SelectorUtil.isLoading

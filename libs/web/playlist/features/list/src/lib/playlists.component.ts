@@ -1,13 +1,10 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import {
-  getPlaylists,
-  getPlaylistsLoading,
-  RootState
-} from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil } from '@angular-spotify/web/util';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { getPlaylists, getPlaylistsLoading } from '@angular-spotify/web/playlist/data-access';
+
 @Component({
   selector: 'as-playlists',
   templateUrl: './playlists.component.html',
@@ -18,7 +15,7 @@ export class PlaylistsComponent {
   isPlaylistsLoading$: Observable<boolean>;
   playlists$: Observable<SpotifyApi.ListOfUsersPlaylistsResponse | null>;
 
-  constructor(private store: Store<RootState>, private playerApi: PlayerApiService) {
+  constructor(private store: Store, private playerApi: PlayerApiService) {
     this.playlists$ = this.store.pipe(select(getPlaylists));
     this.isPlaylistsLoading$ = this.store.pipe(select(getPlaylistsLoading));
   }

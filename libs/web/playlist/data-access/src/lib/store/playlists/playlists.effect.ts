@@ -4,7 +4,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY } from 'rxjs';
 import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
-import { RootState } from '../rootState';
 import { loadPlaylists, loadPlaylistsSuccess } from './playlists.action';
 import { getPlaylistsState } from './playlists.selector';
 
@@ -31,6 +30,6 @@ export class PlaylistsEffect {
   constructor(
     private actions$: Actions,
     private playlistsApi: PlaylistApiService,
-    private store: Store<RootState>
+    private store: Store
   ) {}
 }

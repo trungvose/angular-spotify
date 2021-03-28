@@ -3,16 +3,7 @@ import {
   PlayerApiService,
   PlaylistApiService
 } from '@angular-spotify/web/shared/data-access/spotify-api';
-import {
-  getPlaylist,
-  getPlaylistsState,
-  getPlaylistTracksById,
-  getPlaylistTracksLoading,
-  loadPlaylistSuccess,
-  loadPlaylistTracks,
-  PlaybackStore,
-  RootState
-} from '@angular-spotify/web/shared/data-access/store';
+import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -20,6 +11,12 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import {
+  getPlaylistTracksById,
+  getPlaylistTracksLoading,
+  loadPlaylistTracks
+} from '../playlist-tracks';
+import { getPlaylist, getPlaylistsState, loadPlaylistSuccess } from '../playlists';
 
 interface PlaylistState extends GenericState<SpotifyApi.PlaylistObjectFull> {
   playlistId: string;
@@ -50,7 +47,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
     private playerApi: PlayerApiService,
     private playlistsApi: PlaylistApiService,
     private route: ActivatedRoute,
-    private store: Store<RootState>,
+    private store: Store,
     private playbackStore: PlaybackStore
   ) {
     super({

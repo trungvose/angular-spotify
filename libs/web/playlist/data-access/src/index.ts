@@ -1,1 +1,1 @@
-export * from './lib/playlist.store';
+export * from './lib/store';

@@ -7,11 +7,13 @@ import {
   loadPlaylistSuccess
 } from './playlists.action';
 
-export interface State extends GenericState<SpotifyApi.ListOfUsersPlaylistsResponse> {
+export const playlistsFeatureKey = 'playlists';
+
+export interface PlaylistsState extends GenericState<SpotifyApi.ListOfUsersPlaylistsResponse> {
   map: Map<string, SpotifyApi.PlaylistObjectSimplified> | null;
 }
 
-const initialState: State = {
+const initialState: PlaylistsState = {
   map: null,
   data: null,
   status: 'pending',
