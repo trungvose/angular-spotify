@@ -219,7 +219,7 @@ Special thanks to my friend [@nartc][nartc], who helped me review the code early
 
 | Resource                                                               | Description                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [@koel/vue-tetris][koel]                                               | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
+| [@koel/koel][koel]                                               | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
 | [beeman/component-store-playground][beeman/component-store-playground] | A nice example of using Nx with ngrx/component-store, I refer to the project structure from this repo                 |
 | [Start using ngrx/effects for this][tim]                               | An excellent write up by [Tim Deschryver][tim-twitter]                                                                |
 
