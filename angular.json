@@ -56,7 +56,7 @@
               "apps/angular-spotify/src/assets",
               {
                 "glob": "_redirects",
-                "input": "src",
+                "input": "apps/angular-spotify/src",
                 "output": "/"
               }
             ],

@@ -8,6 +8,12 @@ Check out the **live application** -> https://spotify.trungk18.com
 
 **Spotify premium** is required for the Web Playback SDK to play music. If you are using a free account, you can still browse the app, but it couldn't play the music. Sorry about that 🤣
 
+![Angular Spotify Demo][demo]
+
+![Angular Spotify Visualizer][visualizer]
+
+![Angular Spotify Web Player][web-player]
+
 ## Support
 
 If you like my work, feel free to:
@@ -24,11 +30,11 @@ Thanks a bunch for stopping by and supporting me!
 
 I still remember Window Media Player on windows has the visualization when you start to play the music, and I wanted to have the same experience when listening to Spotify. That is the reason I started this project.
 
-I found that there weren't many resources on building a proper real-world scale application, and that's my focus for sharing. I made a [Jira clone application][jira] as the first one for that purpose. [Nx workspace][nx] is getting more and more attention from the Angular community, but people are always confused about how to architect and set up a Nx project. I hope Angular Spotify will give you more insight on that despite it is my first project using Nx 🤣
+I found that there weren't many resources on building a proper real-world scale application, and that's my focus for sharing. I made a [Jira clone application][jira] as the first one for that purpose. [Nx workspace][nx] is getting more and more attention from the Angular community, but people are always confused about how to architect and set up a Nx project. I hope Angular Spotify will give you more insight on that despite the fact that it is my first project using Nx 🤣
 
 ---
 
-You know I am one of the moderators of [Angular Vietnam][angularvn]. Recently, I also started [Angular Singapore][angularsg]. This piece of work is the beginning of my long-term plan to bring Angular knowledge to more people. I desire to advocate and grow the Angular developer community in Singapore and Vietnam :)
+You know I am one of the moderators of [Angular Vietnam][angularvn]. Recently, I also started [Angular Singapore][angularsg]. This piece of work is my another long-term plan to bring Angular knowledge to more people. I desire to advocate and grow the Angular developer community in Singapore and Vietnam :)
 
 ## Tech stack
 
@@ -209,11 +215,11 @@ If you'd like to contribute, please fork the repository and make changes as you'
 
 ## Credits and reference
 
-Special thanks to my friend[nartc][nartc], who helped me review the code early.
+Special thanks to my friend [nartc][nartc], who helped me review the code early.
 
 | Resource                                                               | Description                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [@koel/vue-tetris][vue]                                                | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
+| [@koel/vue-tetris][koel]                                               | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
 | [beeman/component-store-playground][beeman/component-store-playground] | A nice example of using Nx with ngrx/component-store, I refer to the project structure from this repo                 |
 | [Start using ngrx/effects for this][tim]                               | An excellent write up by [Tim Deschryver][tim-twitter]                                                                |
 
@@ -243,3 +249,6 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [time]: /apps/angular-spotify/src/assets/readme/time-spending.png
 [dep-graph]: /apps/angular-spotify/src/assets/readme/dep-graph.png
 [sdk-flow]: /apps/angular-spotify/src/assets/readme/sdk-flow.png
+[demo]: /apps/angular-spotify/src/assets/readme/angular-spotify-demo-short.gif
+[visualizer]: /apps/angular-spotify/src/assets/readme/angular-spotify-visualization.gif
+[web-player]: /apps/angular-spotify/src/assets/readme/angular-spotify-web-player.png
