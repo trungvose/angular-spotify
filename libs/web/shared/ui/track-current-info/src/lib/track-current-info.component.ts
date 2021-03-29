@@ -1,6 +1,6 @@
 /// <reference types="spotify-web-playback-sdk" />
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { RouteUtil, StringUtil } from '@angular-spotify/web/util';
+import { RouteUtil, StringUtil } from '@angular-spotify/web/shared/utils';
 
 @Component({
   selector: 'as-track-current-info',

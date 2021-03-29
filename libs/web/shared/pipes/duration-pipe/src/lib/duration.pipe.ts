@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TimeUtil } from '@angular-spotify/web/util';
+import { TimeUtil } from '@angular-spotify/web/shared/utils';
 @Pipe({
   name: 'duration'
 })

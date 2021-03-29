@@ -291,27 +291,6 @@
         }
       }
     },
-    "web-util": {
-      "root": "libs/web/util",
-      "sourceRoot": "libs/web/util/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/util/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/util"],
-          "options": {
-            "jestConfig": "libs/web/util/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-shared-pipes-duration-pipe": {
       "projectType": "library",
       "root": "libs/web/shared/pipes/duration-pipe",
@@ -1224,6 +1203,27 @@
           "outputs": ["coverage/libs/web/tracks/feature"],
           "options": {
             "jestConfig": "libs/web/tracks/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-utils": {
+      "root": "libs/web/shared/utils",
+      "sourceRoot": "libs/web/shared/utils/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/utils"],
+          "options": {
+            "jestConfig": "libs/web/shared/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -1,6 +1,6 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 
@@ -31,6 +31,6 @@ export class NavPlaylistComponent implements OnInit {
       .togglePlay(isPlaying, {
         context_uri: this.playlist?.uri
       })
-      .subscribe();//TODO: Refactor with component store live stream
+      .subscribe(); //TODO: Refactor with component store live stream
   }
 }

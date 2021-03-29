@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { PlaylistComponent } from './playlist.component';
-import { RouterUtil } from '@angular-spotify/web/util';
+import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loading';
 @NgModule({

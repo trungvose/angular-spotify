@@ -3,7 +3,7 @@ import {
   recentFeatureTracksFeatureKey,
   RecentPlayedTracksState
 } from './recent-played-tracks.reducer';
-import { SelectorUtil } from '@angular-spotify/web/util';
+import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 
 export const getRecentPlayedTracksState = createFeatureSelector<RecentPlayedTracksState>(
   recentFeatureTracksFeatureKey

@@ -4,7 +4,7 @@ import {
   PlaylistApiService
 } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';

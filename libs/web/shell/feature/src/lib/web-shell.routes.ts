@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { LayoutComponent } from '@angular-spotify/web/shell/ui/layout';
-import { RouterUtil } from '@angular-spotify/web/util';
+import { RouterUtil } from '@angular-spotify/web/shared/utils';
 
 export const webShellRoutes: Route[] = [
   {

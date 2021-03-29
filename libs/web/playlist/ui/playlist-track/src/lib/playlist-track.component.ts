@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { RouteUtil, SelectorUtil } from '@angular-spotify/web/util';
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 @Component({
   selector: 'as-playlist-track',

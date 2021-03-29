@@ -54,9 +54,6 @@
     "web-shared-ui-track-main-info": {
       "tags": ["type:ui", "scope:web"]
     },
-    "web-util": {
-      "tags": ["type:util", "scope:web"]
-    },
     "web-shared-pipes-duration-pipe": {
       "tags": ["type:pipe", "scope:web"]
     },
@@ -179,6 +176,9 @@
     },
     "web-tracks-feature": {
       "tags": ["type:feature", "scope:web"]
+    },
+    "web-shared-utils": {
+      "tags": ["type:util", "scope:web"]
     }
   }
 }

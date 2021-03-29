@@ -1,4 +1,4 @@
-import { RouterUtil } from '@angular-spotify/web/util';
+import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
