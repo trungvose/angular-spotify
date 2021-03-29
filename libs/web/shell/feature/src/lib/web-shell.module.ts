@@ -22,6 +22,7 @@ import {
   PlaylistTracksEffect,
   playlistTracksReducer
 } from '@angular-spotify/web/playlist/data-access';
+import { extModules } from './build-specifics';
 registerLocaleData(en);
 
 const rootReducers = {
@@ -39,10 +40,8 @@ const rootReducers = {
       scrollPositionRestoration: 'top'
     }),
     StoreModule.forRoot(rootReducers),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25
-    }),
-    EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect])
+    EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect]),
+    ...extModules,
   ],
   exports: [RouterModule],
   providers: [

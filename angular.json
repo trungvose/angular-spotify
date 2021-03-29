@@ -69,6 +69,10 @@
                 {
                   "replace": "apps/angular-spotify/src/environments/environment.ts",
                   "with": "apps/angular-spotify/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/web/shell/feature/src/lib/build-specifics/index.ts",
+                  "with": "libs/web/shell/feature/src/lib/build-specifics/index.prod.ts"
                 }
               ],
               "optimization": true,
