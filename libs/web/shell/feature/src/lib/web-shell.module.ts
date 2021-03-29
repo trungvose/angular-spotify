@@ -24,6 +24,11 @@ import {
 } from '@angular-spotify/web/playlist/data-access';
 registerLocaleData(en);
 
+const rootReducers = {
+  [playlistsFeatureKey]: playlistsReducer,
+  [playlistTrackFeatureKey]: playlistTracksReducer
+};
+
 @NgModule({
   imports: [
     CommonModule,
@@ -33,9 +38,7 @@ registerLocaleData(en);
     RouterModule.forRoot(webShellRoutes, {
       scrollPositionRestoration: 'top'
     }),
-    StoreModule.forRoot({}),
-    StoreModule.forFeature(playlistsFeatureKey, playlistsReducer),
-    StoreModule.forFeature(playlistTrackFeatureKey, playlistTracksReducer),
+    StoreModule.forRoot(rootReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
