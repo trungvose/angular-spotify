@@ -14,7 +14,7 @@ Sentry.init({
   dsn: 'https://678ecbef83174cfb881d81a1e74aa0ff@o495789.ingest.sentry.io/5691023',
   integrations: [
     new Integrations.BrowserTracing({
-      tracingOrigins: ['localhost', 'https://spotify.trungk18.com/'],
+      tracingOrigins: ['https://spotify.trungk18.com/'],
       routingInstrumentation: Sentry.routingInstrumentation
     })
   ],

@@ -6,7 +6,6 @@ import { webShellRoutes } from './web-shell.routes';
 import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import * as Sentry from '@sentry/angular';
