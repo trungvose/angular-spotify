@@ -6,11 +6,7 @@ A simple Spotify client built with Angular 11, Nx workspace, ngrx, TailwindCSS a
 
 Check out the **live application** -> https://spotify.trungk18.com
 
-### Technical Notes
-
-- Upon opening Angular Spotify, It will redirect you to Spotify to get access to you data. Angular Spotify only use the data purely for displaying on the UI. We won't store your data anywhere else.
-- Angular Spotify only keeps the access token in browser memory, without even storing it into browser local storage. If you do a hard refresh on the browser, It will ask for a new access token from Spotify. One access token is only valid for **one hour**.
-- **Spotify premium** is required for the Web Playback SDK to work.
+**Spotify premium** is required for the Web Playback SDK to play music. If you are using a free account, you still can browse the app but it couldn't play the music for you. Sorry about that 🤣
 
 ## Support
 
@@ -67,6 +63,23 @@ All components are following:
 - Mostly everything will stay in the `libs` folder. New modules, new models, new configurations, new components etc... are in libs. libs should be separated into different directories based on existing apps. We won't put them inside the apps folder. For example in an Angular, it contains the main.ts, `app.component.ts` and `app.module.ts`
 
 ### Structure
+
+### Authentication Flow
+
+- Upon opening Angular Spotify, It will redirect you to Spotify to get access to you data. Angular Spotify only use the data purely for displaying on the UI. We won't store your data anywhere else.
+- Angular Spotify only keeps the access token in browser memory, without even storing it into browser local storage. If you do a hard refresh on the browser, It will ask for a new access token from Spotify. One access token is only valid for **one hour**.
+
+### Dependency Graph
+
+Nx provides an [dependency graph][dep-graph-nx] out of the box. To view it on your browser, clone my repository and run:
+
+```bash
+npm run dep-graph
+```
+
+A simplify graph looks like the following. It gives you insightful information for your mono repo and specially helpful when you are multiple projects are depending on each other.
+
+![Angular Spotify Dependency Graph][dep-graph]
 
 ## Features and Roadmap
 
@@ -144,5 +157,7 @@ Feel free to use my code on your project. It would be great if you put a referen
 [angularvn]: https://twitter.com/ngvnofficial
 [nartc]: https://github.com/nartc
 [gist]: https://gist.github.com/trungk18/7ef8766cafc05bc8fd87be22de6c5b12
+[dep-graph-nx]: https://nx.dev/latest/angular/structure/dependency-graph
 [stack]: /apps/angular-spotify/src/assets/readme/angular-spotify-tech-stack.png
 [time]: /apps/angular-spotify/src/assets/readme/time-spending.png
+[dep-graph]: /apps/angular-spotify/src/assets/readme/dep-graph.png

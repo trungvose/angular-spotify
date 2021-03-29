@@ -95,11 +95,11 @@
       "@angular-spotify/web/shell/ui/visualization-toggle": [
         "libs/web/shell/ui/visualization-toggle/src/index.ts"
       ],
-      "@angular-spotify/web/playlist/features/detail": [
-        "libs/web/playlist/features/detail/src/index.ts"
+      "@angular-spotify/web/playlist/feature/detail": [
+        "libs/web/playlist/feature/detail/src/index.ts"
       ],
-      "@angular-spotify/web/playlist/features/list": [
-        "libs/web/playlist/features/list/src/index.ts"
+      "@angular-spotify/web/playlist/feature/list": [
+        "libs/web/playlist/feature/list/src/index.ts"
       ],
       "@angular-spotify/web/auth/ui/unauthorized-modal": [
         "libs/web/auth/ui/unauthorized-modal/src/index.ts"

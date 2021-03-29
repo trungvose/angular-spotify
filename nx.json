@@ -159,10 +159,10 @@
     "web-shell-ui-visualization-toggle": {
       "tags": ["type:ui", "scope:web"]
     },
-    "web-playlist-features-detail": {
+    "web-playlist-feature-detail": {
       "tags": ["type:feature", "scope: web"]
     },
-    "web-playlist-features-list": {
+    "web-playlist-feature-list": {
       "tags": ["type:feature", "scope:web"]
     },
     "web-auth-ui-unauthorized-modal": {
