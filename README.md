@@ -66,13 +66,13 @@ See my original notes on [Nx workspace structure for NestJS and Angular][gist]
 
 All components are following:
 
-- OnPush Change Detection and async pipes: all components use observable and async pipe for rendering data. No single subscribe is using for manually subscribing for rendering. Only some places are calling subscribe for dispatching an action, which I will have a refactor live stream session with my friend [nartc][nartc] to use the component store for a fully subscribe-less application.
+- OnPush Change Detection and async pipes: all components use observable and async pipe for rendering data. No single subscribe is using for manually subscribing for rendering. Only some places are calling subscribe for dispatching an action, which I will have a refactor live stream session with my friend [@nartc][nartc] to use the component store for a fully subscribe-less application.
 - SCAMs (single component Angular modules) for tree-shakable components, meaning each component will have a respective module. For example, a RegisterComponent will have a corresponding RegisterModule. We won't declare RegisterComponent as part of AuthModule, for instance.
 - Mostly, everything will stay in the `libs` folder. New modules, new models, new configurations, new components etc... are in libs. libs should be separated into different directories based on existing apps. We won't put them inside the apps folder. For example in an Angular, contains the `main.ts`, `app.component.ts` and `app.module.ts`
 
 ### Structure
 
-I follow the structure recommended by my friend [nartc][nartc]. Below is the simplified version of the application structure.
+I followed the structure recommended by my friend [@nartc][nartc]. Below is the simplified version of the application structure.
 
 ```
 .
@@ -160,7 +160,7 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | 2   | Sat, 10th April 2021, 10AM | [Build the album list and detail pages][live-02]                |
 | 3   | Sat, 17th April 2021, 10AM | [Build the artist list and detail pages][live-03]               |
 
-I will also do some refactoring with [nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
+I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
 [live-01]: https://www.youtube.com/watch?v=9njo6MZWBN0
 [live-02]: https://www.youtube.com/watch?v=vEIxjcrXcDc
@@ -172,7 +172,7 @@ It is a side project that I only spent time outside of the office hours to work 
 
 I couldn't get the full-time report from waka time because it only shows me the latest two weeks. 🤣
 
-I have spent approximately 50 hours working on this project, which is equivalent to watching the [whole Stranger Things series twice][stranger].
+I have spent approximately 50 hours working on this project, which is almost the same amount that I worked on the first version of [jira.trungk18.com][jira].
 
 I enjoyed working on this project. The visualization was the most exciting one, and I decided to start this project because of that single component.
 
@@ -215,7 +215,7 @@ If you'd like to contribute, please fork the repository and make changes as you'
 
 ## Credits and reference
 
-Special thanks to my friend [nartc][nartc], who helped me review the code early.
+Special thanks to my friend [@nartc][nartc], who helped me review the code early.
 
 | Resource                                                               | Description                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
