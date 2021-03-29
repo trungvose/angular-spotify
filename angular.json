@@ -291,27 +291,6 @@
         }
       }
     },
-    "web-util": {
-      "root": "libs/web/util",
-      "sourceRoot": "libs/web/util/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/util/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/util"],
-          "options": {
-            "jestConfig": "libs/web/util/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-shared-pipes-duration-pipe": {
       "projectType": "library",
       "root": "libs/web/shared/pipes/duration-pipe",
@@ -1070,35 +1049,35 @@
         }
       }
     },
-    "web-playlist-features-detail": {
+    "web-playlist-feature-detail": {
       "projectType": "library",
-      "root": "libs/web/playlist/features/detail",
-      "sourceRoot": "libs/web/playlist/features/detail/src",
+      "root": "libs/web/playlist/feature/detail",
+      "sourceRoot": "libs/web/playlist/feature/detail/src",
       "prefix": "as",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/web/playlist/features/detail/src/**/*.ts",
-              "libs/web/playlist/features/detail/src/**/*.html"
+              "libs/web/playlist/feature/detail/src/**/*.ts",
+              "libs/web/playlist/feature/detail/src/**/*.html"
             ]
           }
         }
       }
     },
-    "web-playlist-features-list": {
+    "web-playlist-feature-list": {
       "projectType": "library",
-      "root": "libs/web/playlist/features/list",
-      "sourceRoot": "libs/web/playlist/features/list/src",
+      "root": "libs/web/playlist/feature/list",
+      "sourceRoot": "libs/web/playlist/feature/list/src",
       "prefix": "angular-spotify",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/web/playlist/features/list/src/**/*.ts",
-              "libs/web/playlist/features/list/src/**/*.html"
+              "libs/web/playlist/feature/list/src/**/*.ts",
+              "libs/web/playlist/feature/list/src/**/*.html"
             ]
           }
         }
@@ -1224,6 +1203,27 @@
           "outputs": ["coverage/libs/web/tracks/feature"],
           "options": {
             "jestConfig": "libs/web/tracks/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-utils": {
+      "root": "libs/web/shared/utils",
+      "sourceRoot": "libs/web/shared/utils/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/utils"],
+          "options": {
+            "jestConfig": "libs/web/shared/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

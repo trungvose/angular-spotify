@@ -1,6 +1,13 @@
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { SelectorUtil } from '@angular-spotify/web/util';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SelectorUtil } from '@angular-spotify/web/shared/utils';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 @Component({
   selector: 'as-media',

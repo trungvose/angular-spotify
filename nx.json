@@ -54,9 +54,6 @@
     "web-shared-ui-track-main-info": {
       "tags": ["type:ui", "scope:web"]
     },
-    "web-util": {
-      "tags": ["type:util", "scope:web"]
-    },
     "web-shared-pipes-duration-pipe": {
       "tags": ["type:pipe", "scope:web"]
     },
@@ -159,10 +156,10 @@
     "web-shell-ui-visualization-toggle": {
       "tags": ["type:ui", "scope:web"]
     },
-    "web-playlist-features-detail": {
+    "web-playlist-feature-detail": {
       "tags": ["type:feature", "scope: web"]
     },
-    "web-playlist-features-list": {
+    "web-playlist-feature-list": {
       "tags": ["type:feature", "scope:web"]
     },
     "web-auth-ui-unauthorized-modal": {
@@ -179,6 +176,9 @@
     },
     "web-tracks-feature": {
       "tags": ["type:feature", "scope:web"]
+    },
+    "web-shared-utils": {
+      "tags": ["type:util", "scope:web"]
     }
   }
 }

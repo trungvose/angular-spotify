@@ -1,5 +1,5 @@
 import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
-import { RouteUtil } from '@angular-spotify/web/util';
+import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 

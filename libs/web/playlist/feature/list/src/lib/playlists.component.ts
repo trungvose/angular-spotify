@@ -1,5 +1,5 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { RouteUtil } from '@angular-spotify/web/util';
+import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';

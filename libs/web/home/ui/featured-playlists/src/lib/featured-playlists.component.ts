@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { getFeaturedPlaylists } from '@angular-spotify/web/home/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { RouteUtil } from '@angular-spotify/web/util';
+import { RouteUtil } from '@angular-spotify/web/shared/utils';
 
 @Component({
   selector: 'as-featured-playlists',

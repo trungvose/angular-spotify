@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { RouteUtil } from '@angular-spotify/web/util';
+import { RouteUtil } from '@angular-spotify/web/shared/utils';
 
 @Component({
   selector: 'as-track-main-info',

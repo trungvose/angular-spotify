@@ -6,11 +6,11 @@
     <div [ngClass]="['ellipsis-one-line', 'text-base', isPlaying ? 'text-primary': 'text-white']">
       {{ track.name }}
     </div>
-    <div class="flex ellipsis-one-line">
+    <div class="flex">
       <ng-container *ngFor="let artist of track.artists | slice:0:2; let idx = index">
         <span class="mr-1"
               *ngIf="idx !== 0">,</span>
-        <a class="text-description link-subtle hover:underline"
+        <a class="text-description link-subtle ellipsis-one-line hover:underline"
            [routerLink]="getArtistRouteUrl(artist)">
           {{ artist.name }}
         </a>
