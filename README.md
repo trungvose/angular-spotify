@@ -66,7 +66,7 @@ See my original notes on [Nx workspace structure for NestJS and Angular][gist]
 
 All components are following:
 
-- OnPush Change Detection and async pipes: all components use observable and async pipe for rendering data. No single subscribe is using for manually subscribing for rendering. Only some places are calling subscribe for dispatching an action, which I will have a refactor live stream session with my friend [@nartc][nartc] to use the component store for a fully subscribe-less application.
+- OnPush Change Detection and async pipes: all components use observable and async pipe for rendering data without any single manual subscribe. Only some places are calling subscribe for dispatching an action, which I will have a refactor live stream session with my friend [@nartc][nartc] to use the component store for a fully subscribe-less application.
 - SCAMs (single component Angular modules) for tree-shakable components, meaning each component will have a respective module. For example, a RegisterComponent will have a corresponding RegisterModule. We won't declare RegisterComponent as part of AuthModule, for instance.
 - Mostly, everything will stay in the `libs` folder. New modules, new models, new configurations, new components etc... are in libs. libs should be separated into different directories based on existing apps. We won't put them inside the apps folder. For example in an Angular, contains the `main.ts`, `app.component.ts` and `app.module.ts`
 
@@ -113,7 +113,7 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
 
 ### Authentication Flow
 
-I follow `Implicit Grant Flow` Spotify recommended for client-side only application. It is carried out client-side and does not involve secret keys. The access tokens that are issued are short-lived, and there are no refresh tokens to extend them when they expire.
+I follow `Implicit Grant Flow` that Spotify recommended for client-side only application and does not involve secret keys. The access tokens that are issued are short-lived, and there are no refresh tokens to extend them when they expire.
 
 View the [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 
@@ -134,6 +134,14 @@ npm run dep-graph
 A simplified graph looks like the following. It gives you insightful information for your mono repo and especially helpful when multiple projects are depending on each other.
 
 ![Angular Spotify Dependency Graph][dep-graph]
+
+### Nx Computation Cache
+
+Having Nx Cloud configured shorten the deployment time quite a lot.
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly. Visit [Nx Cloud](https://nx.app/) to learn more.
+
+![Nx cloud][nx-cloud]
 
 ## Features and Roadmap
 
@@ -174,7 +182,7 @@ I couldn't get the full-time report from waka time because it only shows me the 
 
 I have spent approximately 50 hours working on this project, which is almost the same amount that I worked on the first version of [jira.trungk18.com][jira].
 
-I enjoyed working on this project. The visualization was the most exciting one, and I decided to start this project because of that single component.
+The visualizer was the most exciting feature, and I decided to start this project because of that single component.
 
 ![Angular Spotify - Time spending][time]
 
@@ -252,3 +260,4 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [demo]: /apps/angular-spotify/src/assets/readme/angular-spotify-demo-short.gif
 [visualizer]: /apps/angular-spotify/src/assets/readme/angular-spotify-visualization.gif
 [web-player]: /apps/angular-spotify/src/assets/readme/angular-spotify-web-player.png
+[nx-cloud]: /apps/angular-spotify/src/assets/readme/nx-cloud.png
