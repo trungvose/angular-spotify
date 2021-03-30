@@ -6,13 +6,22 @@ import {
 import { TrackApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { Observable } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { EMPTY, Observable } from 'rxjs';
+import {
+  catchError,
+  filter,
+  map,
+  switchMap,
+  tap,
+  withLatestFrom
+} from 'rxjs/operators';
 interface PlaybackState extends GenericState<Spotify.PlaybackState> {
   player: Spotify.SpotifyPlayer;
   deviceId: string;
   volume: number;
   analysis: SpotifyApiAudioAnalysisResponse;
+  trackAnalysisId: string;
+  isAnalysisLoading: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -33,6 +42,10 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
       return !data.paused;
     })
   );
+  readonly analysisInfo$ = this.select((s) => ({
+    trackAnalysisId: s.trackAnalysisId,
+    isAnalysisLoading: s.isAnalysisLoading
+  }));
   readonly segments$ = this.select((s) => ({
     isPlaying: s.data ? !s.data.paused : false,
     position: s.data?.position,
@@ -46,9 +59,28 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
   }
 
   readonly loadTracksAnalytics = this.effect<{ trackId: string }>((params$) =>
-    params$.pipe(
-      switchMap(({ trackId }) => this.trackApi.getAudioAnalysis(trackId)),
-      map((analysis) => {
+    params$.pipe(      
+      withLatestFrom(this.analysisInfo$),
+      filter(
+        ([{ trackId }, { isAnalysisLoading, trackAnalysisId }]) =>
+          !isAnalysisLoading && trackId !== trackAnalysisId
+      ),
+      tap(() => {
+        this.patchState({ isAnalysisLoading: true });
+      }),
+      switchMap(([{ trackId }]) =>
+        this.trackApi.getAudioAnalysis(trackId).pipe(
+          map((analysis) => ({
+            analysis,
+            trackId
+          })),
+          catchError(() => {
+            this.patchState({ isAnalysisLoading: false });
+            return EMPTY;
+          })
+        )
+      ),
+      map(({ analysis, trackId }) => {
         analysis.segments = analysis.segments.map((segment) => ({
           ...segment,
           start: segment.start * 1000,
@@ -56,7 +88,9 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
         }));
 
         this.patchState({
-          analysis: analysis
+          analysis: analysis,
+          trackAnalysisId: trackId,
+          isAnalysisLoading: false
         });
       })
     )

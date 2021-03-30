@@ -74,6 +74,10 @@ export class PlaybackService {
 
     player.addListener('player_state_changed', async (state: Spotify.PlaybackState) => {
       console.log(state);
+      if (!state) {
+        console.info('No player info!');
+        return;
+      }
       this.setAppTitle(state);
       this.playbackStore.patchState({
         data: state,
@@ -107,7 +111,7 @@ export class PlaybackService {
 
   //TODO: move to an effect somewhere
   setAppTitle(state: Spotify.PlaybackState) {
-    const currentTrack = state?.track_window?.current_track;
+    const currentTrack = state.track_window?.current_track;
     if (currentTrack) {
       const artistName = currentTrack.artists[0].name || '';
       this.titleService.setTitle(
