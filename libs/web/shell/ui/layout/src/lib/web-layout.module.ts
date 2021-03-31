@@ -8,6 +8,8 @@ import { MainViewModule } from '@angular-spotify/web/shell/ui/main-view';
 import { StoreModule } from '@ngrx/store';
 import { NowPlayingBarModule } from '@angular-spotify/web/shell/ui/now-playing-bar';
 import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthorized-modal';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthoriz
     TopBarModule,
     MainViewModule,
     NowPlayingBarModule,
-    UnauthorizedModalModule
+    UnauthorizedModalModule,
+    NzNotificationModule
   ],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]

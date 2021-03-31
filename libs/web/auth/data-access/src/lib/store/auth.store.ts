@@ -5,10 +5,11 @@ import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spoti
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
-import { NzModalService } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
   tokenType: string | null;
@@ -34,13 +35,13 @@ export class AuthStore extends ComponentStore<AuthState> {
     private router: Router,
     private route: ActivatedRoute,
     private spotify: SpotifyApiService,
-    private modalService: NzModalService
+    private notification: NzNotificationService
   ) {
     super(<AuthState>{});
   }
 
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
-    console.log(user);
+    this.notifyFreeUser(user);
     return {
       ...state,
       ...user
@@ -78,5 +79,19 @@ export class AuthStore extends ComponentStore<AuthState> {
         this.router.navigate([]);
       })
     );
+  }
+
+  private notifyFreeUser(user: SpotifyApi.CurrentUsersProfileResponse) {
+    if (user.product !== 'premium') {
+      this.notification.create(
+        'info',
+        `I can't play the music for you :(`,
+        'I rely on Spotify Playback SDK for playing music, and it requires a premium account. You can still browse Angular Spotify, just without the music. Cheers!',
+        {
+          nzDuration: 15000,
+          nzPauseOnHover: true
+        }
+      );
+    }
   }
 }
