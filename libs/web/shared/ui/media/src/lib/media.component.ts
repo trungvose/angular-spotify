@@ -16,7 +16,7 @@ import { combineLatest, Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MediaComponent implements OnInit {
-  @Input() imageUrl!: string;
+  @Input() imageUrl: string | undefined;
   @Input() title!: string;
   @Input() description!: string | null;
   @Input() routerUrl!: string;
