@@ -7,6 +7,7 @@ import {
 } from '@angular-spotify/web/home/data-access';
 import { SpotifyApiPlayHistoryObject } from '@angular-spotify/web/shared/data-access/models';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { RouteUtil } from '@angular-spotify/web/shared/utils';
 
 @Component({
   selector: 'as-recent-played',
@@ -30,5 +31,9 @@ export class RecentPlayedComponent implements OnInit {
         uris: [trackUri]
       })
       .subscribe();
+  }
+
+  getAlbumUrl(albumId: string){
+    return RouteUtil.getAlbumRouteUrl(albumId)
   }
 }
