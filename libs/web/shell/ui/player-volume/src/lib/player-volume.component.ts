@@ -27,7 +27,7 @@ export class PlayerVolumeComponent {
     this.volumeIcon$ = this.volume$.pipe(
       map((volume) => volume * 100),
       map((volume) => {
-        if (volume >= 80) {
+        if (volume >= 70) {
           return new VolumeHighIcon(volume);
         } else if (volume > 0) {
           return new VolumeMediumIcon(volume);

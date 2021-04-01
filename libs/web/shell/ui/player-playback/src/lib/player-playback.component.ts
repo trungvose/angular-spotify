@@ -32,13 +32,13 @@ export class PlayerPlaybackComponent {
     this.max$ = this.playbackStore.playback$.pipe(map(({ duration }) => duration));
   }
 
-  async seek(positions: NzSliderValue) {
+  seek(positions: NzSliderValue) {
     if (Array.isArray(positions)) {
       const lastPosition = positions[positions.length - 1];
-      await this.playbackService.seek(lastPosition);
+      this.playbackService.seek(lastPosition);
     }
     if (typeof positions === 'number') {
-      await this.playbackService.seek(positions);
+      this.playbackService.seek(positions);
     }
     this.isSliderMoving$.next(false);
   }

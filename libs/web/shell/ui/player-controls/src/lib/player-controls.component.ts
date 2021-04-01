@@ -15,14 +15,14 @@ export class PlayerControlsComponent {
   }
 
   async togglePlay() {
-    await this.playbackService.play();
+    this.playbackService.play();
   }
 
   async next() {
-    await this.playbackService.next();
+    this.playbackService.next();
   }
 
   async prev() {
-    await this.playbackService.prev();
+    this.playbackService.prev();
   }
 }
