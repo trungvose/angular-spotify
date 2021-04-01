@@ -1,0 +1,11 @@
+as-media-table-row.track-row {
+  &:hover {
+    .track-order {
+      display: none;
+    }
+
+    .track-play-button {
+      display: block;
+    }
+  }
+}

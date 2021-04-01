@@ -1,5 +1,5 @@
 <div class="flex group">
-  <div class="flex group-hover:hidden ">
+  <div class="flex group-hover:hidden track-order">
     <img *ngIf="isPlaying; else indexTmpl"
          class="animated-equalizer"
          src="/assets/images/equaliser-animated-green.gif"
@@ -7,7 +7,7 @@
   </div>
 
 
-  <as-play-button class="hidden pt-1 group-hover:block"
+  <as-play-button class="hidden pt-1 group-hover:block track-play-button"
                   [flatIcon]="true"
                   [isPlaying]="isPlaying"
                   (togglePlay)="togglePlay.emit($event)">
