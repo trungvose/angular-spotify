@@ -50,6 +50,14 @@ export class PlayerApiService {
     });
   }
 
+  setVolume(volume: number) {
+    return this.http.put(`${this.playerUrl}/volume`, null, {
+      params: {
+        volume_percent: `${volume}`
+      }
+    });
+  }
+
   getRecentPlayedTracks(params: SpotifyApi.RecentlyPlayedParameterObject = { limit: 50 }) {
     return this.http.get<SpotifyApiRecentPlayerTracksResponse>(
       `${this.playerUrl}/recently-played`,

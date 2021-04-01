@@ -4,6 +4,7 @@ import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { tap } from 'rxjs/operators';
 import { PlaybackStore } from './playback.store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PlaybackService {
@@ -40,11 +41,11 @@ export class PlaybackService {
     this.playbackStore.player().seek(pos_ms);
   }
 
-  setVolume(volume: number) {
-    this.playbackStore.player().setVolume(volume);
+  setVolume(volume: number): Observable<unknown> {
     this.playbackStore.patchState({
       volume
     });
+    return this.playerApi.setVolume(Math.floor(volume * 100))
   }
 
   private async initPlaybackSDK(token: string) {
