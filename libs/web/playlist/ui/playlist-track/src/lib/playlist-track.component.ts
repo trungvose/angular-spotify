@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
@@ -7,7 +7,8 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
   selector: 'as-playlist-track',
   templateUrl: './playlist-track.component.html',
   styleUrls: ['./playlist-track.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class PlaylistTrackComponent implements OnInit {
   @Input() index!: number;
