@@ -4,17 +4,17 @@ import { playlistsFeatureKey, PlaylistsState } from './playlists.reducer';
 
 export const getPlaylistsState = createFeatureSelector<PlaylistsState>(playlistsFeatureKey);
 export const getPlaylists = createSelector(getPlaylistsState, (state) => state.data);
-export const getPlaylistsWithRouteUrl = createSelector(getPlaylistsState, (state) => {
-  if (state.data) {
+export const getPlaylistsWithRouteUrl = createSelector(getPlaylists, (playlists) => {
+  if (playlists) {
     return {
-      ...state.data,
-      items: state.data.items.map((item) => ({
+      ...playlists,
+      items: playlists.items.map((item) => ({
         ...item,
         routeUrl: RouteUtil.getPlaylistRouteUrl(item)
       }))
     };
   }
-  return state.data;
+  return playlists;
 });
 export const getPlaylistsLoading = createSelector(getPlaylistsState, SelectorUtil.isLoading);
 export const getPlaylistsDone = createSelector(getPlaylistsState, SelectorUtil.isDone);
