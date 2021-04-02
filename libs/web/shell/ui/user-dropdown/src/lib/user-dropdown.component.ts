@@ -11,7 +11,6 @@ import { UserDropdownStore } from './user-dropdown.store';
 export class UserDropdownComponent {
   userName$ = this.store.userName$;
   userAvatar$ = this.store.userAvatar$;
-  constructor(private store: UserDropdownStore) {
-    
-  }
+
+  constructor(private store: UserDropdownStore) {}
 }

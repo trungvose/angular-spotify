@@ -1,6 +1,7 @@
+import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NzModalRef } from 'ng-zorro-antd/modal';
-import { AuthStore } from '@angular-spotify/web/auth/data-access';
+
 @Component({
   templateUrl: './unauthorized-modal.component.html',
   styleUrls: ['./unauthorized-modal.component.scss'],

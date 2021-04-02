@@ -1,6 +1,5 @@
 import {
   VolumeHighIcon,
-
   VolumeMediumIcon,
   VolumeMuteIcon
 } from '@angular-spotify/web/shared/data-access/models';
@@ -10,6 +9,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
 import { Subject } from 'rxjs';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
+
 @UntilDestroy()
 @Component({
   selector: 'as-player-volume',
@@ -25,11 +25,11 @@ export class PlayerVolumeComponent {
     map((volume) => {
       if (volume >= 70) {
         return new VolumeHighIcon(volume);
-      } else if (volume > 0) {
-        return new VolumeMediumIcon(volume);
-      } else {
-        return new VolumeMuteIcon();
       }
+      if (volume > 0) {
+        return new VolumeMediumIcon(volume);
+      }
+      return new VolumeMuteIcon();
     })
   );
 

@@ -2,12 +2,9 @@
   <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
     <as-media-order [index]="index" [isPlaying]="isPlaying!" (togglePlay)="togglePlayTrack($event)">
     </as-media-order>
-    <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"> </as-track-main-info>
+    <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"></as-track-main-info>
   </ng-container>
-  <a
-    class="text-description link-subtle hover:underline"
-    [routerLink]="getAlbumRouteUrl(item.track.album)"
-  >
+  <a class="text-description link-subtle hover:underline" [routerLink]="albumRouteUrl">
     {{ item.track.album.name }}
   </a>
   <div class="text-description" [title]="item.added_at | date: 'medium'">

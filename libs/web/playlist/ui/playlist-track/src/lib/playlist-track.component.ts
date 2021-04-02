@@ -1,8 +1,15 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
-import { combineLatest, Observable, of } from 'rxjs';
+import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
+import { combineLatest, Observable, of } from 'rxjs';
+
 @Component({
   selector: 'as-playlist-track',
   templateUrl: './playlist-track.component.html',
@@ -11,16 +18,31 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
   encapsulation: ViewEncapsulation.None
 })
 export class PlaylistTrackComponent implements OnInit {
+  get item(): SpotifyApi.PlaylistTrackObject | undefined {
+    return this._item;
+  }
+
+  @Input()
+  set item(value: SpotifyApi.PlaylistTrackObject | undefined) {
+    this._item = value;
+    if (value?.track) {
+      this.albumRouteUrl = RouteUtil.getAlbumRouteUrl(value.track.album.id);
+    }
+  }
+
+  private _item: SpotifyApi.PlaylistTrackObject | undefined;
+
   @Input() index!: number;
   @Input() contextUri!: string | null;
-  @Input() item: SpotifyApi.PlaylistTrackObject | undefined;
+
   isTrackPlaying$!: Observable<boolean>;
+  albumRouteUrl?: string;
 
   constructor(private playbackStore: PlaybackStore, private playerApi: PlayerApiService) {}
 
   ngOnInit(): void {
     this.isTrackPlaying$ = SelectorUtil.getTrackPlayingState(
-      combineLatest([of(this.item?.track.id), this.playbackStore.playback$])
+      combineLatest([of(this._item?.track.id), this.playbackStore.playback$])
     );
   }
 

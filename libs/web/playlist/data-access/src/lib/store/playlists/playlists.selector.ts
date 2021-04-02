@@ -1,9 +1,21 @@
+import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { playlistsFeatureKey, PlaylistsState } from './playlists.reducer';
 
 export const getPlaylistsState = createFeatureSelector<PlaylistsState>(playlistsFeatureKey);
 export const getPlaylists = createSelector(getPlaylistsState, (state) => state.data);
+export const getPlaylistsWithRouteUrl = createSelector(getPlaylistsState, (state) => {
+  if (state.data) {
+    return {
+      ...state.data,
+      items: state.data.items.map((item) => ({
+        ...item,
+        routeUrl: RouteUtil.getPlaylistRouteUrl(item)
+      }))
+    };
+  }
+  return state.data;
+});
 export const getPlaylistsLoading = createSelector(getPlaylistsState, SelectorUtil.isLoading);
 export const getPlaylistsDone = createSelector(getPlaylistsState, SelectorUtil.isDone);
 export const getPlaylistsMap = createSelector(getPlaylistsState, (state) => state.map);

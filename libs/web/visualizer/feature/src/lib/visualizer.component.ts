@@ -1,9 +1,11 @@
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { AudioAnalyser, initVisualizer } from '@angular-spotify/web/visualizer/data-access';
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
   OnInit,
   ViewChild
@@ -11,10 +13,11 @@ import {
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { mean } from 'lodash-es';
 import { timer } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { Sketch } from 'sketch-js';
 
 const INTERVAL = 100;
+
 @UntilDestroy()
 @Component({
   selector: 'as-visualizer',
@@ -29,7 +32,10 @@ export class VisualizerComponent implements OnInit, OnDestroy {
 
   @ViewChild('visualizer', { static: true }) visualizer!: ElementRef;
 
-  constructor(private playbackStore: PlaybackStore) {}
+  constructor(
+    private playbackStore: PlaybackStore,
+    @Inject(DOCUMENT) private readonly document: Document
+  ) {}
 
   ngOnInit(): void {
     const { sketch, analyser } = initVisualizer(this.visualizer.nativeElement);
@@ -49,7 +55,7 @@ export class VisualizerComponent implements OnInit, OnDestroy {
             }))
           )
         ),
-        map(({ num, data }) => {
+        tap(({ num, data }) => {
           const { position, isPlaying, segments } = data;
           if (!isPlaying) {
             return;
@@ -68,7 +74,7 @@ export class VisualizerComponent implements OnInit, OnDestroy {
 
   toggleFullscreen() {
     if (this.isFullscreen) {
-      document.exitFullscreen();
+      this.document.exitFullscreen();
     } else {
       (this.visualizer.nativeElement as HTMLElement).requestFullscreen();
     }
