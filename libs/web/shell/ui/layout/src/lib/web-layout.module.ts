@@ -8,6 +8,7 @@ import { MainViewModule } from '@angular-spotify/web/shell/ui/main-view';
 import { StoreModule } from '@ngrx/store';
 import { NowPlayingBarModule } from '@angular-spotify/web/shell/ui/now-playing-bar';
 import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthorized-modal';
+import { AlbumArtOverlayModule } from '@angular-spotify/web/shell/ui/album-art-overlay';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthoriz
     TopBarModule,
     MainViewModule,
     NowPlayingBarModule,
-    UnauthorizedModalModule
+    UnauthorizedModalModule,
+    AlbumArtOverlayModule
   ],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]

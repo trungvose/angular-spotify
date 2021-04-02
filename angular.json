@@ -1232,6 +1232,31 @@
           }
         }
       }
+    },
+    "web-shell-ui-album-art-overlay": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/album-art-overlay",
+      "sourceRoot": "libs/web/shell/ui/album-art-overlay/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shell/ui/album-art-overlay/src/**/*.ts",
+              "libs/web/shell/ui/album-art-overlay/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/album-art-overlay"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
