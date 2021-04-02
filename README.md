@@ -12,6 +12,8 @@ Check out the **live application** -> https://spotify.trungk18.com
 
 ![Angular Spotify Visualizer][visualizer]
 
+![Angular Spotify Web Player][album-art]
+
 ![Angular Spotify Web Player][web-player]
 
 ## Support
@@ -167,12 +169,14 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | 1   | Sat, 3rd April 2021, 10AM  | [Structure your Angular application with Nx workspace][live-01] |
 | 2   | Sat, 10th April 2021, 10AM | [Build the album list and detail pages][live-02]                |
 | 3   | Sat, 17th April 2021, 10AM | [Build the artist list and detail pages][live-03]               |
+| 4   | Sat, 24th April 2021, 10AM | [Build the track list page][live-04]                            |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
 [live-01]: https://www.youtube.com/watch?v=9njo6MZWBN0
 [live-02]: https://www.youtube.com/watch?v=vEIxjcrXcDc
 [live-03]: https://www.youtube.com/watch?v=8P3pB40JF2w
+[live-04]: https://youtu.be/Oj4yomnxfj4
 
 ## Time spending
 
@@ -227,7 +231,7 @@ Special thanks to my friend [@nartc][nartc], who helped me review the code early
 
 | Resource                                                               | Description                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [@koel/koel][koel]                                               | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
+| [@koel/koel][koel]                                                     | A cool player made by [@phanan][phanan], I reused the visualizer code from this repo with my additional customization |
 | [beeman/component-store-playground][beeman/component-store-playground] | A nice example of using Nx with ngrx/component-store, I refer to the project structure from this repo                 |
 | [Start using ngrx/effects for this][tim]                               | An excellent write up by [Tim Deschryver][tim-twitter]                                                                |
 
@@ -259,5 +263,6 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [sdk-flow]: /apps/angular-spotify/src/assets/readme/sdk-flow.png
 [demo]: /apps/angular-spotify/src/assets/readme/angular-spotify-demo-short.gif
 [visualizer]: /apps/angular-spotify/src/assets/readme/angular-spotify-visualization.gif
+[album-art]: /apps/angular-spotify/src/assets/readme/angular-spotify-album-art.gif
 [web-player]: /apps/angular-spotify/src/assets/readme/angular-spotify-web-player.png
 [nx-cloud]: /apps/angular-spotify/src/assets/readme/nx-cloud.png
