@@ -1,5 +1,4 @@
 <div id="bg-overlay"
      *ngIf="albumBackgroundImage$ | async as bgUrl"
-     [style.background-image]="getBackgroundUrl(bgUrl)">
-
+     [style.background-image]="bgUrl">
 </div>

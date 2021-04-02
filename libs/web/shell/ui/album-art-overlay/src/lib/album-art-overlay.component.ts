@@ -14,14 +14,11 @@ export class AlbumArtOverlayComponent {
       if (!track?.album?.images) {
         return null;
       }
-      return track.album.images[0]?.url;
+      const imageUrl = track.album.images[0]?.url;
+      return imageUrl ? `url(${imageUrl})` : null
     })
   );
 
   constructor(private playbackStore: PlaybackStore) {
-  }
-
-  getBackgroundUrl(url: string) {
-    return `url(${url})`;
   }
 }
