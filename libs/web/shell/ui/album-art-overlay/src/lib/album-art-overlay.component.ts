@@ -14,7 +14,8 @@ export class AlbumArtOverlayComponent {
       if (!track?.album?.images) {
         return null;
       }
-      return track.album.images[0]?.url ? `url(track.album.images[0]?.url)` : null;
+      const imageUrl = track.album.images[0]?.url;
+      return imageUrl ? `url(${imageUrl})` : null;
     })
   );
 
