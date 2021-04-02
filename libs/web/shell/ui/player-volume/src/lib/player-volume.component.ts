@@ -39,7 +39,7 @@ export class PlayerVolumeComponent {
 
     this.setVolume$
       .pipe(
-        debounceTime(100),
+        debounceTime(50),
         switchMap((volume) => this.playbackService.setVolume(volume)),
         untilDestroyed(this)
       )

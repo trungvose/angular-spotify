@@ -31,7 +31,7 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
   ) as Observable<Spotify.PlaybackState>;
 
   readonly context$ = this.playback$.pipe(map((data) => data.context));
-  readonly currentTrack$ = this.playback$.pipe(map((data) => data?.track_window.current_track));
+  readonly currentTrack$ = this.playback$.pipe(map((data) => data?.track_window?.current_track));
   readonly position$ = this.playback$.pipe(map((data) => data?.position));
   readonly volume$ = this.select((s) => s.volume);
   readonly isPlaying$ = this.playback$.pipe(
