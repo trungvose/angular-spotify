@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,17 +9,16 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AlbumArtOverlayComponent {
-  albumBackgroundImage$: Observable<string | null>;
+  albumBackgroundImage$ = this.playbackStore.currentTrack$.pipe(
+    map((track) => {
+      if (!track?.album?.images) {
+        return null;
+      }
+      return track.album.images[0]?.url;
+    })
+  );
 
   constructor(private playbackStore: PlaybackStore) {
-    this.albumBackgroundImage$ = this.playbackStore.currentTrack$.pipe(
-      map((track) => {
-        if (!track?.album?.images) {
-          return null;
-        }
-        return track.album.images[0]?.url;
-      })
-    );
   }
 
   getBackgroundUrl(url: string) {
