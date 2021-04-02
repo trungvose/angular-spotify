@@ -2,7 +2,6 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { getPlaylists, getPlaylistsLoading } from '@angular-spotify/web/playlist/data-access';
 
 @Component({
@@ -12,12 +11,10 @@ import { getPlaylists, getPlaylistsLoading } from '@angular-spotify/web/playlist
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistsComponent {
-  isPlaylistsLoading$: Observable<boolean>;
-  playlists$: Observable<SpotifyApi.ListOfUsersPlaylistsResponse | null>;
+  playlists$ = this.store.pipe(select(getPlaylists));
+  isPlaylistsLoading$ = this.store.pipe(select(getPlaylistsLoading));
 
-  constructor(private store: Store, private playerApi: PlayerApiService) {
-    this.playlists$ = this.store.pipe(select(getPlaylists));
-    this.isPlaylistsLoading$ = this.store.pipe(select(getPlaylistsLoading));
+  constructor(private store: Store, private playerApi: PlayerApiService) {    
   }
 
   getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {

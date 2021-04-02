@@ -1,7 +1,6 @@
 import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'as-playlist',
@@ -11,20 +10,15 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistComponent {
-  playlistId$: Observable<string>;
-  playlist$: Observable<SpotifyApi.PlaylistObjectSimplified | undefined>;
-  tracks$: Observable<SpotifyApi.PlaylistTrackResponse | undefined>;
-  isPlaylistPlaying$: Observable<boolean>;
-  isPlaylistTracksLoading$: Observable<boolean>;
-  isCurrentPlaylistLoading$: Observable<boolean>;
+  playlistId$ = this.store.playlistId$;
+  playlist$ = this.store.playlist$;
+  isPlaylistPlaying$ = this.store.isPlaylistPlaying$;
+  isCurrentPlaylistLoading$ = this.store.isCurrentPlaylistLoading$;
+  tracks$ = this.store.tracks$;
+  isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
 
   constructor(private store: PlaylistStore) {
-    this.playlistId$ = this.store.playlistId$;
-    this.playlist$ = this.store.playlist$;
-    this.isPlaylistPlaying$ = this.store.isPlaylistPlaying$;
-    this.isCurrentPlaylistLoading$ = this.store.isCurrentPlaylistLoading$;
-    this.tracks$ = this.store.tracks$;
-    this.isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
+
   }
 
   togglePlaylist(isPlaying: boolean) {

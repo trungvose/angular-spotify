@@ -1,7 +1,7 @@
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
-import { BehaviorSubject, combineLatest, Observable, of, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, of, timer } from 'rxjs';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'as-player-playback',
@@ -10,26 +10,23 @@ import { debounceTime, map, switchMap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerPlaybackComponent {
-  progress$: Observable<number>;
-  max$: Observable<number>;
-  isSliderMoving$: BehaviorSubject<boolean>;
+  isSliderMoving$ = new BehaviorSubject<boolean>(false);
+  progress$ = combineLatest([this.playbackStore.playback$, this.isSliderMoving$]).pipe(
+    debounceTime(20),
+    switchMap(([{ paused, position }, isMoving]) => {
+      if (paused || isMoving) {
+        return of(position);
+      }
+      const progressTimer$ = timer(0, 1000);
+      return progressTimer$.pipe(
+        map((x) => x * 1000),
+        map((x) => x + position)
+      );
+    })
+  );
+  max$ = this.playbackStore.playback$.pipe(map(({ duration }) => duration));
 
-  constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
-    this.isSliderMoving$ = new BehaviorSubject<boolean>(false);
-    this.progress$ = combineLatest([this.playbackStore.playback$, this.isSliderMoving$]).pipe(
-      debounceTime(20),
-      switchMap(([{ paused, position }, isMoving]) => {
-        if (paused || isMoving) {
-          return of(position);
-        }
-        const progressTimer$ = timer(0, 1000);
-        return progressTimer$.pipe(
-          map((x) => x * 1000),
-          map((x) => x + position)
-        );
-      })
-    );
-    this.max$ = this.playbackStore.playback$.pipe(map(({ duration }) => duration));
+  constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {    
   }
 
   seek(positions: NzSliderValue) {

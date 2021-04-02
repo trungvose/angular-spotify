@@ -1,15 +1,15 @@
 import {
   VolumeHighIcon,
-  VolumeIcon,
+
   VolumeMediumIcon,
   VolumeMuteIcon
 } from '@angular-spotify/web/shared/data-access/models';
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NzSliderValue } from 'ng-zorro-antd/slider';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, map, switchMap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { NzSliderValue } from 'ng-zorro-antd/slider';
+import { Subject } from 'rxjs';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 @UntilDestroy()
 @Component({
   selector: 'as-player-volume',
@@ -19,24 +19,21 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 })
 export class PlayerVolumeComponent {
   setVolume$ = new Subject<number>();
-  volume$: Observable<number>;
-  volumeIcon$: Observable<VolumeIcon>;
+  volume$ = this.playbackStore.volume$;
+  volumeIcon$ = this.volume$.pipe(
+    map((volume) => volume * 100),
+    map((volume) => {
+      if (volume >= 70) {
+        return new VolumeHighIcon(volume);
+      } else if (volume > 0) {
+        return new VolumeMediumIcon(volume);
+      } else {
+        return new VolumeMuteIcon();
+      }
+    })
+  );
 
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
-    this.volume$ = this.playbackStore.volume$;
-    this.volumeIcon$ = this.volume$.pipe(
-      map((volume) => volume * 100),
-      map((volume) => {
-        if (volume >= 70) {
-          return new VolumeHighIcon(volume);
-        } else if (volume > 0) {
-          return new VolumeMediumIcon(volume);
-        } else {
-          return new VolumeMuteIcon();
-        }
-      })
-    );
-
     this.setVolume$
       .pipe(
         debounceTime(50),
