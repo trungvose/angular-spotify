@@ -1,6 +1,5 @@
-import { getFeaturedPlaylists } from '@angular-spotify/web/home/data-access';
+import { getFeaturedPlaylistsWithRouteUrl } from '@angular-spotify/web/home/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
@@ -11,10 +10,9 @@ import { select, Store } from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturedPlaylistsComponent {
-  featuredPlaylists$ = this.store.pipe(select(getFeaturedPlaylists));
+  featuredPlaylists$ = this.store.pipe(select(getFeaturedPlaylistsWithRouteUrl));
 
   constructor(private store: Store, private playerApi: PlayerApiService) {}
-
 
   togglePlay(isPlaying: boolean, playlistUri: string) {
     this.playerApi
@@ -22,9 +20,5 @@ export class FeaturedPlaylistsComponent {
         context_uri: playlistUri
       })
       .subscribe();
-  }
-
-  getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
-    return RouteUtil.getPlaylistRouteUrl(playlist);
   }
 }

@@ -1,12 +1,12 @@
 <a
-  [routerLink]="getPlaylistRouteUrl(playlist)"
+  [routerLink]="playlistWithRoute.routeUrl"
   *ngrxLet="isPlaylistPlaying$ as isPlaying"
   routerLinkActive="active"
-  [title]="playlist.name"
+  [title]="playlistWithRoute.name"
   class="playlist-link link-subtle"
 >
   <span class="ellipsis-one-line">
-    {{ playlist.name }}
+    {{ playlistWithRoute.name }}
   </span>
   <as-play-button
     *ngIf="isPlaying"

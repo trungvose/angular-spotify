@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,10 +15,9 @@ export class AlbumArtOverlayComponent {
         return null;
       }
       const imageUrl = track.album.images[0]?.url;
-      return imageUrl ? `url(${imageUrl})` : null
+      return imageUrl ? `url(${imageUrl})` : null;
     })
   );
 
-  constructor(private playbackStore: PlaybackStore) {
-  }
+  constructor(private playbackStore: PlaybackStore) {}
 }

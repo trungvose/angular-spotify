@@ -2,7 +2,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { getPlaylists, getPlaylistsLoading } from '@angular-spotify/web/playlist/data-access';
+import { getPlaylists, getPlaylistsLoading, getPlaylistsWithRouteUrl } from '@angular-spotify/web/playlist/data-access';
 
 @Component({
   selector: 'as-playlists',
@@ -11,14 +11,10 @@ import { getPlaylists, getPlaylistsLoading } from '@angular-spotify/web/playlist
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistsComponent {
-  playlists$ = this.store.pipe(select(getPlaylists));
+  playlists$ = this.store.pipe(select(getPlaylistsWithRouteUrl));
   isPlaylistsLoading$ = this.store.pipe(select(getPlaylistsLoading));
 
-  constructor(private store: Store, private playerApi: PlayerApiService) {    
-  }
-
-  getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
-    return RouteUtil.getPlaylistRouteUrl(playlist);
+  constructor(private store: Store, private playerApi: PlayerApiService) {
   }
 
   togglePlay(isPlaying: boolean, contextUri: string) {
