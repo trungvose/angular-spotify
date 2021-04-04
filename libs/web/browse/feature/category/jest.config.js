@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-browse-feature',
-  preset: '../../../../jest.preset.js',
+  displayName: 'web-browse-feature-category',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       }
     }
   },
-  coverageDirectory: '../../../../coverage/libs/web/browse/feature',
+  coverageDirectory: '../../../../../coverage/libs/web/browse/feature/category',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

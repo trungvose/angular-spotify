@@ -101,7 +101,6 @@
       "@angular-spotify/web/auth/ui/unauthorized-modal": [
         "libs/web/auth/ui/unauthorized-modal/src/index.ts"
       ],
-      "@angular-spotify/web/browse/feature": ["libs/web/browse/feature/src/index.ts"],
       "@angular-spotify/web/shell/ui/user-dropdown": [
         "libs/web/shell/ui/user-dropdown/src/index.ts"
       ],
@@ -110,7 +109,14 @@
       "@angular-spotify/web/shared/utils": ["libs/web/shared/utils/src/index.ts"],
       "@angular-spotify/web/shell/ui/album-art-overlay": [
         "libs/web/shell/ui/album-art-overlay/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/browse/feature/categories": [
+        "libs/web/browse/feature/categories/src/index.ts"
+      ],
+      "@angular-spotify/web/browse/feature/category": [
+        "libs/web/browse/feature/category/src/index.ts"
+      ],
+      "@angular-spotify/web/browse/feature/shell": ["libs/web/browse/feature/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
