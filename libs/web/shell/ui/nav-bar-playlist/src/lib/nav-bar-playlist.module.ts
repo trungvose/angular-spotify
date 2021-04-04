@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { NavPlaylistComponent } from './nav-playlist/nav-playlist.component';
 import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
 @NgModule({
-  imports: [CommonModule, RouterModule, PlayButtonModule, ReactiveComponentModule, SvgIconsModule],
+  imports: [CommonModule, RouterModule, PlayButtonModule, ReactiveComponentModule, SpinnerModule],
   declarations: [NavBarPlaylistComponent, NavPlaylistComponent],
   exports: [NavBarPlaylistComponent]
 })

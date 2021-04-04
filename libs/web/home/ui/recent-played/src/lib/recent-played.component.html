@@ -11,8 +11,5 @@
             (togglePlay)="togglePlayTrack($event, historyObject.track.uri)">
   </as-media>
 </div>
-<div *ngIf="isLoading$ | async"
-     class="grid py-3 place-items-center">
-  <svg-icon key="audio-animated"
-            [size]="'xl'"> </svg-icon>
-</div>
+<as-spinner *ngIf="isLoading$ | async">
+</as-spinner>

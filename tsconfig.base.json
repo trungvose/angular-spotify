@@ -120,7 +120,8 @@
       "@angular-spotify/web/browse/data-access": ["libs/web/browse/data-access/src/index.ts"],
       "@angular-spotify/web/browse/ui/category-cover": [
         "libs/web/browse/ui/category-cover/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/shared/ui/spinner": ["libs/web/shared/ui/spinner/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

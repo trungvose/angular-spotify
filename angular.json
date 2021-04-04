@@ -1353,6 +1353,31 @@
           }
         }
       }
+    },
+    "web-shared-ui-spinner": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/spinner",
+      "sourceRoot": "libs/web/shared/ui/spinner/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/spinner/src/**/*.ts",
+              "libs/web/shared/ui/spinner/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/spinner"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/spinner/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
