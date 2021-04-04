@@ -10,12 +10,36 @@ export class BrowseApiService {
   }
 
   getAllFeaturedPlaylists(
-    params: Record<string, any> = {// eslint-disable-line
+    params: Record<string, any> = { // eslint-disable-line
       limit: 50
     }
   ) {
     return this.http.get<SpotifyApi.ListOfFeaturedPlaylistsResponse>(
       `${this.browseUrl}/featured-playlists`,
+      {
+        params
+      }
+    );
+  }
+
+  getAllCategories(
+    params: Record<string, any> = { // eslint-disable-line
+      limit: 50
+    }
+  ) {
+    return this.http.get<SpotifyApi.MultipleCategoriesResponse>(`${this.browseUrl}/categories`, {
+      params
+    });
+  }
+
+  getCategoryPlaylists(
+    categoryId: string,
+    params: Record<string, any> = { // eslint-disable-line
+      limit: 50
+    }
+  ) {
+    return this.http.get<SpotifyApi.CategoryPlaylistsReponse>(
+      `${this.browseUrl}/categories/${categoryId}/playlists`,
       {
         params
       }

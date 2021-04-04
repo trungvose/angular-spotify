@@ -1,8 +1,7 @@
+import { getPlaylistsLoading, getPlaylistsWithRouteUrl } from '@angular-spotify/web/playlist/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { RouteUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { getPlaylists, getPlaylistsLoading, getPlaylistsWithRouteUrl } from '@angular-spotify/web/playlist/data-access';
 
 @Component({
   selector: 'as-playlists',

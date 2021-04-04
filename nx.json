@@ -74,6 +74,8 @@
     "web-shell-ui-album-art-overlay": { "tags": [] },
     "web-browse-feature-categories": { "tags": ["type:feature", "scope:web"] },
     "web-browse-feature-category": { "tags": ["type:feature", "scope:web"] },
-    "web-browse-feature-shell": { "tags": ["type:feature", "scope:web"] }
+    "web-browse-feature-shell": { "tags": ["type:feature", "scope:web"] },
+    "web-browse-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-browse-ui-category-cover": { "tags": ["type:ui", "scope:web"] }
   }
 }

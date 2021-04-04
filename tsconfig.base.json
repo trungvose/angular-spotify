@@ -116,7 +116,11 @@
       "@angular-spotify/web/browse/feature/category": [
         "libs/web/browse/feature/category/src/index.ts"
       ],
-      "@angular-spotify/web/browse/feature/shell": ["libs/web/browse/feature/shell/src/index.ts"]
+      "@angular-spotify/web/browse/feature/shell": ["libs/web/browse/feature/shell/src/index.ts"],
+      "@angular-spotify/web/browse/data-access": ["libs/web/browse/data-access/src/index.ts"],
+      "@angular-spotify/web/browse/ui/category-cover": [
+        "libs/web/browse/ui/category-cover/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 <div class="content-spacing">
-  <div class="playlist-container" *ngIf="playlists$ | async as playlists">
+  <div class="common-grid" *ngIf="playlists$ | async as playlists">
     <as-media
       *ngFor="let playlist of playlists.items"
       [title]="playlist.name"

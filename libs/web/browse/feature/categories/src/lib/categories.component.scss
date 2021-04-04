@@ -1,0 +1,5 @@
+.categories-container {
+  gap: --media-cover-gap;
+  grid-template-columns: --media-grid;
+  @apply grid;
+}
