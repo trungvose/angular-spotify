@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
-
+import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class BrowseApiService {
   browseUrl: string;
@@ -10,7 +10,8 @@ export class BrowseApiService {
   }
 
   getAllFeaturedPlaylists(
-    params: Record<string, any> = { // eslint-disable-line
+    params: Record<string, any> = {
+      // eslint-disable-line
       limit: 50
     }
   ) {
@@ -23,26 +24,32 @@ export class BrowseApiService {
   }
 
   getAllCategories(
-    params: Record<string, any> = { // eslint-disable-line
+    params: Record<string, any> = {
+      // eslint-disable-line
       limit: 50
     }
   ) {
-    return this.http.get<SpotifyApi.MultipleCategoriesResponse>(`${this.browseUrl}/categories`, {
-      params
-    });
+    return this.http
+      .get<SpotifyApi.MultipleCategoriesResponse>(`${this.browseUrl}/categories`, {
+        params
+      })
+      .pipe(map((res) => res.categories));
   }
 
   getCategoryPlaylists(
     categoryId: string,
-    params: Record<string, any> = { // eslint-disable-line
+    params: Record<string, any> = {
+      // eslint-disable-line
       limit: 50
     }
   ) {
-    return this.http.get<SpotifyApi.CategoryPlaylistsReponse>(
-      `${this.browseUrl}/categories/${categoryId}/playlists`,
-      {
-        params
-      }
-    );
+    return this.http
+      .get<SpotifyApi.CategoryPlaylistsReponse>(
+        `${this.browseUrl}/categories/${categoryId}/playlists`,
+        {
+          params
+        }
+      )
+      .pipe(map((res) => res.playlists));
   }
 }

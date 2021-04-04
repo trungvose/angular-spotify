@@ -6,7 +6,10 @@ import { StoreModule } from '@ngrx/store';
 import {
   CategoriesEffect,
   categoriesFeatureKey,
-  categoriesReducer
+  categoriesReducer,
+  CategoryPlaylistsEffect,
+  categoryPlaylistsFeatureKey,
+  categoryPlaylistsReducer
 } from '@angular-spotify/web/browse/data-access';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -26,7 +29,8 @@ import { EffectsModule } from '@ngrx/effects';
       }
     ]),
     StoreModule.forFeature(categoriesFeatureKey, categoriesReducer),
-    EffectsModule.forFeature([CategoriesEffect])
+    StoreModule.forFeature(categoryPlaylistsFeatureKey, categoryPlaylistsReducer),
+    EffectsModule.forFeature([CategoriesEffect, CategoryPlaylistsEffect])
   ]
 })
 export class BrowseShellModule {}

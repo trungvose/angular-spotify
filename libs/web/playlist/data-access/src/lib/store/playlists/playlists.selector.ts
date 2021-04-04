@@ -17,7 +17,6 @@ export const getPlaylistsWithRouteUrl = createSelector(getPlaylists, (playlists)
   return playlists;
 });
 export const getPlaylistsLoading = createSelector(getPlaylistsState, SelectorUtil.isLoading);
-export const getPlaylistsDone = createSelector(getPlaylistsState, SelectorUtil.isDone);
 export const getPlaylistsMap = createSelector(getPlaylistsState, (state) => state.map);
 export const getPlaylist = (playlistId: string) =>
   createSelector(getPlaylistsMap, (map) => map?.get(playlistId));

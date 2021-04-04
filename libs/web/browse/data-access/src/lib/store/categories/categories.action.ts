@@ -9,7 +9,7 @@ export const loadCategories = createAction(
 export const loadCategoriesSuccess = createAction(
   '[Browse Page/Load Categories Success',
   props<{
-    categories: SpotifyApi.MultipleCategoriesResponse;
+    categories: SpotifyApi.PagingObject<SpotifyApi.CategoryObject>;
   }>()
 );
 

@@ -1,1 +1,8 @@
-<p>detail works!</p>
+<div class="content-spacing">
+  <h2 class="mb-4 text-heading"
+      *ngIf="category$ | async as category">{{ category.name }}
+  </h2>
+  
+  <as-spinner *ngIf="isLoadingPlaylists$ | async">
+  </as-spinner>
+</div>
