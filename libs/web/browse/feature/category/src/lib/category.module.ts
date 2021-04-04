@@ -4,11 +4,13 @@ import { CategoryComponent } from './category.component';
 import { RouterModule } from '@angular/router';
 import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
 import { PlaylistListModule } from '@angular-spotify/web/shared/ui/playlist-list';
+import { ReactiveComponentModule } from '@ngrx/component';
 @NgModule({
   imports: [
     CommonModule,
     SpinnerModule,
     PlaylistListModule,
+    ReactiveComponentModule,
     RouterModule.forChild([
       {
         path: '',
