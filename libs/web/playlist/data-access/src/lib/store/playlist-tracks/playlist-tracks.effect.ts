@@ -8,7 +8,7 @@ import { getPlaylistTracksState } from './playlist-tracks.selector';
 import {
   loadPlaylistTracks,
   loadPlaylistTracksSuccess,
-  statePlaylistTracksStateStatus
+  setPlaylistTracksStateStatus
 } from './playlist-tracks.action';
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +20,7 @@ export class PlaylistTracksEffect {
       tap(([{ playlistId }, playlistTracks]) => {
         if (playlistTracks.data?.has(playlistId)) {
           this.store.dispatch(
-            statePlaylistTracksStateStatus({
+            setPlaylistTracksStateStatus({
               status: 'success'
             })
           );

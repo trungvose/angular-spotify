@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { getCategories, loadCategories } from '@angular-spotify/web/browse/data-access';
+import { getCategories, getCategoriesLoading, loadCategories } from '@angular-spotify/web/browse/data-access';
 
 @Component({
   selector: 'as-categories',
@@ -9,6 +9,7 @@ import { getCategories, loadCategories } from '@angular-spotify/web/browse/data-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoriesComponent {
+  isLoading$ = this.store.pipe(select(getCategoriesLoading))
   categories$ = this.store.pipe(select(getCategories));
 
   constructor(private store: Store) {

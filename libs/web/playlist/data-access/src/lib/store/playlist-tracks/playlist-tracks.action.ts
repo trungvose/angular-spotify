@@ -16,7 +16,7 @@ export const loadPlaylistTracksError = createAction(
   props<{ error: string }>()
 );
 
-export const statePlaylistTracksStateStatus = createAction(
+export const setPlaylistTracksStateStatus = createAction(
   '[Playlist Tracks/Set Playlist Tracks Status]',
   props<{ status: GenericStoreStatus }>()
 );

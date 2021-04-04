@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CategoriesComponent } from './categories.component';
 import { CategoryCoverModule } from '@angular-spotify/web/browse/ui/category-cover';
+import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,7 +14,8 @@ import { CategoryCoverModule } from '@angular-spotify/web/browse/ui/category-cov
         component: CategoriesComponent
       }
     ]),
-    CategoryCoverModule
+    CategoryCoverModule,
+    SpinnerModule
   ],
   declarations: [CategoriesComponent],
   exports: [CategoriesComponent]
