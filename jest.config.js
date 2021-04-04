@@ -45,6 +45,7 @@ module.exports = {
     '<rootDir>/libs/web/browse/feature/shell',
     '<rootDir>/libs/web/browse/data-access',
     '<rootDir>/libs/web/browse/ui/category-cover',
-    '<rootDir>/libs/web/shared/ui/spinner'
+    '<rootDir>/libs/web/shared/ui/spinner',
+    '<rootDir>/libs/web/shared/ui/playlist-list'
   ]
 };

@@ -9,16 +9,16 @@ import {
   loadCategoryPlaylistsSuccess,
   setCategoryPlaylistsState
 } from './category-playlists.action';
-import { getCategoryPlaylistsState } from './category-playlists.selector';
+import { getCategoryPlaylistsMap } from './category-playlists.selector';
 
 @Injectable()
 export class CategoryPlaylistsEffect {
   loadCategoryPlaylists$ = createEffect(() =>
     this.actions.pipe(
       ofType(loadCategoryPlaylists),
-      withLatestFrom(this.store.pipe(select(getCategoryPlaylistsState))),
-      tap(([{ categoryId }, state]) => {
-        if (state.data?.has(categoryId)) {
+      withLatestFrom(this.store.pipe(select(getCategoryPlaylistsMap))),
+      tap(([{ categoryId }, map]) => {
+        if (map?.has(categoryId)) {
           this.store.dispatch(
             setCategoryPlaylistsState({
               status: 'success'
@@ -26,8 +26,8 @@ export class CategoryPlaylistsEffect {
           );
         }
       }),
-      filter(([{ categoryId }, state]) => {
-        return !state.data?.has(categoryId);
+      filter(([{ categoryId }, map]) => {
+        return !map?.has(categoryId);
       }),
       switchMap(([{ categoryId }]) =>
         this.browseApi.getCategoryPlaylists(categoryId).pipe(

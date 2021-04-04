@@ -1,7 +1,11 @@
 /// <reference types="spotify-web-playback-sdk" />
-import { GenericState } from '@angular-spotify/web/shared/data-access/models';
+import {
+  GenericState,
+  PlaylistsResponseWithRoute
+} from '@angular-spotify/web/shared/data-access/models';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { RouteUtil } from './route-util';
 export class SelectorUtil {
   static getMediaPlayingState(obs$: Observable<[string | undefined, Spotify.PlaybackState]>) {
     return obs$.pipe(
@@ -48,5 +52,20 @@ export class SelectorUtil {
 
   static isDone({ status }: GenericState<unknown>) {
     return status === 'success' || status === 'error';
+  }
+
+  static getPlaylistsWithRoute(
+    playlists: SpotifyApi.ListOfUsersPlaylistsResponse | null | undefined
+  ): PlaylistsResponseWithRoute | null | undefined {
+    if (playlists) {
+      return {
+        ...playlists,
+        items: playlists.items.map((item) => ({
+          ...item,
+          routeUrl: RouteUtil.getPlaylistRouteUrl(item)
+        }))
+      };
+    }
+    return playlists;
   }
 }

@@ -27,7 +27,9 @@ export class CategoryComponent {
     switchMap((categoryId) => this.store.pipe(select(getCategoryById(categoryId))))
   );
 
+  // TODO: find out why it is always false
   isLoadingPlaylists$ = this.store.pipe(select(getCategoryPlaylistsLoading));
+
   playlists$ = this.categoryParams$.pipe(
     tap((categoryId) => {
       this.store.dispatch(loadCategoryPlaylists({ categoryId }));

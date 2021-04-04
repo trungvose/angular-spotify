@@ -121,7 +121,10 @@
       "@angular-spotify/web/browse/ui/category-cover": [
         "libs/web/browse/ui/category-cover/src/index.ts"
       ],
-      "@angular-spotify/web/shared/ui/spinner": ["libs/web/shared/ui/spinner/src/index.ts"]
+      "@angular-spotify/web/shared/ui/spinner": ["libs/web/shared/ui/spinner/src/index.ts"],
+      "@angular-spotify/web/shared/ui/playlist-list": [
+        "libs/web/shared/ui/playlist-list/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
