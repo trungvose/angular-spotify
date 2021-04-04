@@ -40,6 +40,12 @@ module.exports = {
     '<rootDir>/libs/web/browse/feature',
     '<rootDir>/libs/web/shell/ui/user-dropdown',
     '<rootDir>/libs/web/shell/ui/social-share',
-    '<rootDir>/libs/web/shell/ui/album-art-overlay'
+    '<rootDir>/libs/web/shell/ui/album-art-overlay',
+    '<rootDir>/libs/web/browse/feature/detail',
+    '<rootDir>/libs/web/browse/feature/shell',
+    '<rootDir>/libs/web/browse/data-access',
+    '<rootDir>/libs/web/browse/ui/category-cover',
+    '<rootDir>/libs/web/shared/ui/spinner',
+    '<rootDir>/libs/web/shared/ui/playlist-list'
   ]
 };

@@ -3,6 +3,10 @@
     @apply px-8 pt-4;
   }
 
+  .text-heading {
+    @apply text-2xl text-white;
+  }
+  
   .text-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;

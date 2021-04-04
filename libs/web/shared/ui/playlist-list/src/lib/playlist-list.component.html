@@ -1,0 +1,13 @@
+<div class="common-grid"
+     *ngIf="playlists">
+  <as-media *ngFor="let playlist of playlists.items"
+            [title]="playlist.name"
+            [uri]="playlist.uri"
+            [description]="playlist.description"
+            [imageUrl]="playlist.images[0]?.url"
+            [routerUrl]="playlist.routeUrl"
+            (togglePlay)="togglePlay($event, playlist.uri)">
+  </as-media>
+</div>
+<as-spinner *ngIf="isLoading">
+</as-spinner>

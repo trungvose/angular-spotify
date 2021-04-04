@@ -11,8 +11,6 @@ export const getPlaylistTracksLoading = createSelector(
   SelectorUtil.isLoading
 );
 
-export const getPlaylistTracksDone = createSelector(getPlaylistTracksState, SelectorUtil.isDone);
-
 export const getPlaylistTracksById = (playlistId: string) =>
   createSelector(getPlaylistTracksState, ({ data }) => {
     return data?.get(playlistId);

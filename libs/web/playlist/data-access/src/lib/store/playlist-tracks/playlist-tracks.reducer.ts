@@ -4,7 +4,7 @@ import {
   loadPlaylistTracks,
   loadPlaylistTracksError,
   loadPlaylistTracksSuccess,
-  statePlaylistTracksStateStatus
+  setPlaylistTracksStateStatus
 } from './playlist-tracks.action';
 
 export const playlistTrackFeatureKey = 'playlistTracks';
@@ -25,5 +25,5 @@ export const playlistTracksReducer = createReducer(
     return { ...state, data: map, status: 'success' };
   }),
   on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error, status: 'error' })),
-  on(statePlaylistTracksStateStatus, (state, { status }) => ({ ...state, status }))
+  on(setPlaylistTracksStateStatus, (state, { status }) => ({ ...state, status }))
 );

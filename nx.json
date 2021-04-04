@@ -67,11 +67,17 @@
     "web-playlist-feature-detail": { "tags": ["type:feature", "scope: web"] },
     "web-playlist-feature-list": { "tags": ["type:feature", "scope:web"] },
     "web-auth-ui-unauthorized-modal": { "tags": ["type:ui", "scope:web"] },
-    "web-browse-feature": { "tags": ["type:feature", "scope:web"] },
     "web-shell-ui-user-dropdown": { "tags": ["type:ui", "scope:web"] },
     "web-shell-ui-social-share": { "tags": ["type:ui", "scope:web"] },
     "web-tracks-feature": { "tags": ["type:feature", "scope:web"] },
     "web-shared-utils": { "tags": ["type:util", "scope:web"] },
-    "web-shell-ui-album-art-overlay": { "tags": [] }
+    "web-shell-ui-album-art-overlay": { "tags": [] },
+    "web-browse-feature-categories": { "tags": ["type:feature", "scope:web"] },
+    "web-browse-feature-category": { "tags": ["type:feature", "scope:web"] },
+    "web-browse-feature-shell": { "tags": ["type:feature", "scope:web"] },
+    "web-browse-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-browse-ui-category-cover": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-spinner": { "tags": ["type:ui", "scope:web"] },
+    "web-shared-ui-playlist-list": { "tags": ["type:ui", "scope:web"] }
   }
 }

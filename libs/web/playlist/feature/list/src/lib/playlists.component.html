@@ -1,17 +1,6 @@
 <div class="content-spacing">
-  <div class="playlist-container" *ngIf="playlists$ | async as playlists">
-    <as-media
-      *ngFor="let playlist of playlists.items"
-      [title]="playlist.name"
-      [uri]="playlist.uri"
-      [description]="playlist.description"
-      [imageUrl]="playlist.images[0]?.url"
-      [routerUrl]="playlist.routeUrl"
-      (togglePlay)="togglePlay($event, playlist.uri)"
-    >
-    </as-media>
-  </div>
-  <div *ngIf="isPlaylistsLoading$ | async" class="grid py-3 place-items-center">
-    <svg-icon key="audio-animated" [size]="'xl'"> </svg-icon>
-  </div>
+  <as-playlist-list [isLoading]="isPlaylistsLoading$ | async"
+                    [playlists]="$any(playlists$ | async)">
+
+  </as-playlist-list>
 </div>

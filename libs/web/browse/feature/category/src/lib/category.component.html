@@ -1,0 +1,8 @@
+<div class="content-spacing">
+  <h2 class="mb-4 text-heading"
+      *ngIf="category$ | async as category">{{ category.name }}
+  </h2>
+  <as-playlist-list [isLoading]="!(playlists$ | async)"
+                    [playlists]="$any(playlists$ | async)">
+  </as-playlist-list>
+</div>

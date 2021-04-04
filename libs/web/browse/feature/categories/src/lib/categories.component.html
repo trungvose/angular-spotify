@@ -1,0 +1,9 @@
+<div class="mb-6 content-spacing">
+  <div class="common-grid"
+       *ngIf="categories$ | async as categories">
+    <as-category-cover *ngFor="let category of categories.items"
+                       [category]="category">
+    </as-category-cover>
+  </div>
+  <as-spinner *ngIf="isLoading$ | async"></as-spinner>
+</div>

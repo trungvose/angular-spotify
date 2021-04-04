@@ -1,0 +1,9 @@
+<a class="category-cover-container" [routerLink]="category.id">
+  <as-media-cover [imageUrl]="category.icons[0]?.url">
+
+  </as-media-cover>
+  <div class="category-name ellipsis-one-line"
+       [title]="category.name">
+    {{ category.name }}
+  </div>
+</a>

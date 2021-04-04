@@ -7,10 +7,9 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MediaCoverComponent {
-  @Input() imageUrl: string | undefined;
-
-  @HostBinding('style.background-image')
-  get backgroundUrl() {
-    return `url(${this.imageUrl})`;
+  @Input() set imageUrl(url: string | undefined) {
+    this.backgroundUrl = url && `url(${url})`;
   }
+
+  @HostBinding('style.background-image') backgroundUrl!: string | undefined;
 }
