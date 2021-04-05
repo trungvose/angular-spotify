@@ -4,6 +4,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Input,
+  NgZone,
   ViewChild
 } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
@@ -14,32 +16,40 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./album-art-overlay.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class AlbumArtOverlayComponent implements AfterViewInit {
+  @Input() set imageUrl(url: string) {
+    this.zone.runOutsideAngular(() => {
+      this.drawImageToCanvas(url);
+    });
+  }
+
   @ViewChild('canvas') canvas!: ElementRef<HTMLCanvasElement>;
   context!: CanvasRenderingContext2D | null;
 
-  constructor(private playbackStore: PlaybackStore) {}
+  constructor(private zone: NgZone) {}
 
   ngAfterViewInit() {
+    this.zone.runOutsideAngular(() => {
+      this.initCanvas();
+    });
+  }
+
+  drawImageToCanvas(imageUrl: string) {
+    const imageObj = new Image();
+    imageObj.src = imageUrl;
+    imageObj.onload = () => {
+      if (this.context) {
+        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+        this.context.drawImage(imageObj, 0, 0);
+      }
+    };
+  }
+
+  initCanvas() {
     this.context = this.canvas.nativeElement.getContext('2d');
     if (this.context) {
       this.context.filter = 'blur(15px)';
+      this.context.globalAlpha = 0.07;
     }
-    this.playbackStore.currentTrack$
-      .pipe(
-        map((track) => track?.album?.images[0]?.url),
-        filter((imageUrl) => !!imageUrl)
-      )
-      .subscribe((imageUrl) => {
-        const imageObj = new Image();
-        imageObj.src = imageUrl;
-        imageObj.onload = () => {
-          if (this.context) {
-            this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
-            this.context.drawImage(imageObj, 0, 0);
-          }
-        };
-      });
   }
 }
