@@ -1,10 +1,9 @@
 #bg-overlay {
   position: fixed;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  filter: blur(20px);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   opacity: 0.07;
   z-index: 10000;
   overflow: hidden;
