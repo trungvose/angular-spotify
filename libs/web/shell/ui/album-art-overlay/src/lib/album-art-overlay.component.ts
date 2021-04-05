@@ -1,6 +1,11 @@
-import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { map } from 'rxjs/operators';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  NgZone,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'as-album-art-overlay',
@@ -9,15 +14,37 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AlbumArtOverlayComponent {
-  albumBackgroundImage$ = this.playbackStore.currentTrack$.pipe(
-    map((track) => {
-      if (!track?.album?.images) {
-        return null;
+  @Input() set imageUrl(url: string) {
+    this.zone.runOutsideAngular(() => {
+      if (!this.context) {
+        this.initCanvas();
       }
-      const imageUrl = track.album.images[0]?.url;
-      return imageUrl ? `url(${imageUrl})` : null;
-    })
-  );
+      this.drawImageToCanvas(url);
+    });
+  }
 
-  constructor(private playbackStore: PlaybackStore) {}
+  @ViewChild('canvas', {
+    static: true
+  })
+  canvas!: ElementRef<HTMLCanvasElement>;
+  context!: CanvasRenderingContext2D | null;
+
+  constructor(private zone: NgZone) {}
+
+  drawImageToCanvas(imageUrl: string) {
+    const imageObj = new Image();
+    imageObj.src = imageUrl;
+    imageObj.onload = () => {
+      if (this.context) {
+        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+        this.context.drawImage(imageObj, 0, 0);
+      }
+    };
+  }
+
+  initCanvas() {
+    this.context = this.canvas.nativeElement.getContext('2d') as CanvasRenderingContext2D;
+    this.context.filter = 'blur(15px)';
+    this.context.globalAlpha = 0.07;
+  }
 }

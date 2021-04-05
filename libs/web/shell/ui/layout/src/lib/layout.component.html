@@ -2,5 +2,6 @@
 <as-top-bar></as-top-bar>
 <as-main-view></as-main-view>
 <as-now-playing-bar></as-now-playing-bar>
-<!-- TODO: find an alternative for filter:blur, it is too heavy -->
-<!-- <as-album-art-overlay></as-album-art-overlay> -->
+<as-album-art-overlay *ngIf="currentAlbumCoverUrl$ | async as imageUrl"
+                      [imageUrl]="imageUrl">
+</as-album-art-overlay>

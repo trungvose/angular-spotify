@@ -12,7 +12,9 @@ Check out the **live application** -> https://spotify.trungk18.com
 
 ![Angular Spotify Visualizer][visualizer]
 
-![Angular Spotify Web Player][album-art]
+![Angular Spotify Browse][angular-spotify-browse]
+
+![Angular Spotify Blurry Background][album-art]
 
 ![Angular Spotify Web Player][web-player]
 
@@ -263,6 +265,7 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [sdk-flow]: /apps/angular-spotify/src/assets/readme/sdk-flow.png
 [demo]: /apps/angular-spotify/src/assets/readme/angular-spotify-demo-short.gif
 [visualizer]: /apps/angular-spotify/src/assets/readme/angular-spotify-visualization.gif
+[angular-spotify-browse]: /apps/angular-spotify/src/assets/readme/angular-spotify-browse.gif
 [album-art]: /apps/angular-spotify/src/assets/readme/angular-spotify-album-art.gif
 [web-player]: /apps/angular-spotify/src/assets/readme/angular-spotify-web-player.png
 [nx-cloud]: /apps/angular-spotify/src/assets/readme/nx-cloud.png
