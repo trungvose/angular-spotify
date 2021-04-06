@@ -26,19 +26,19 @@ export class PlaybackService {
   }
 
   play() {
-    this.playbackStore.player().togglePlay();
+    this.playbackStore.player()?.togglePlay();
   }
 
   next() {
-    this.playbackStore.player().nextTrack();
+    this.playbackStore.player()?.nextTrack();
   }
 
   prev() {
-    this.playbackStore.player().previousTrack();
+    this.playbackStore.player()?.previousTrack();
   }
 
   seek(pos_ms: number) {
-    this.playbackStore.player().seek(pos_ms);
+    this.playbackStore.player()?.seek(pos_ms);
   }
 
   setVolume(volume: number): Observable<unknown> {
