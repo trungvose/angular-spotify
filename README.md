@@ -28,7 +28,7 @@ If you like my work, feel free to:
 
 Thanks a bunch for stopping by and supporting me!
 
-[tweet]: https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2011,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript
+[tweet]: https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2011,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40tuantrungvo&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript
 
 ## Who is it for 🤷‍♀️
 
