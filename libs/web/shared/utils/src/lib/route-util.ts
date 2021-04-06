@@ -8,8 +8,8 @@ export class RouteUtil {
     return `/${RouterUtil.Configuration.Artist}/${artistId}`;
   }
 
-  static getPlaylistRouteUrl(playlist: SpotifyApi.PlaylistObjectSimplified) {
-    return `/${RouterUtil.Configuration.Playlist}/${playlist.id}`;
+  static getPlaylistRouteUrl(playlistId: string) {
+    return `/${RouterUtil.Configuration.Playlist}/${playlistId}`;
   }
 
   static getPlaylistContextUri(playlistId: string) {

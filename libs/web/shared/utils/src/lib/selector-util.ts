@@ -62,7 +62,7 @@ export class SelectorUtil {
         ...playlists,
         items: playlists.items.map((item) => ({
           ...item,
-          routeUrl: RouteUtil.getPlaylistRouteUrl(item)
+          routeUrl: RouteUtil.getPlaylistRouteUrl(item.id)
         }))
       };
     }

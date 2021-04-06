@@ -1,8 +1,8 @@
 <footer class="now-playing-bar-container">
   <div class="now-playing-bar-left">
-    <ng-container *ngIf="currentTrack$ | async as currentTrack">
-      <as-track-current-info [track]="currentTrack"></as-track-current-info>
-    </ng-container>
+    <as-track-current-info *ngIf="currentTrack$ | async as currentTrack"
+                           [track]="currentTrack">
+    </as-track-current-info>
   </div>
   <div class="now-playing-bar-center">
     <as-player-controls></as-player-controls>

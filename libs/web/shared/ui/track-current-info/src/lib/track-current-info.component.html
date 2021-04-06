@@ -1,11 +1,13 @@
 <ng-container *ngIf="track">
-  <img [src]="track.album.images[0]?.url"
-       class="track-cover"
+
+  <img [routerLink]="track.playlistUrl"
+       [src]="track.album.images[0]?.url"
+       class="cursor-pointer track-cover"
        [alt]="track.name" />
   <div class="flex flex-col">
     <div class="text-white ellipsis-one-line">
       <a class="hover:underline"
-         [routerLink]="getAlbumRouteUrl(track.album)">
+         [routerLink]="track.albumUrl">
         {{ track.name }}
       </a>
     </div>
@@ -14,7 +16,7 @@
         <span class="mr-1"
               *ngIf="idx !== 0">,</span>
         <a class="text-description link-subtle ellipsis-one-line hover:underline"
-           [routerLink]="getArtistRouteUrl(artist)">
+           [routerLink]="artist.artistUrl">
           {{ artist.name }}
         </a>
       </ng-container>

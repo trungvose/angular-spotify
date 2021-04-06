@@ -20,7 +20,7 @@ export const getFeaturedPlaylistsWithRouteUrl = createSelector(
           ...featuredPlaylists.playlists,
           items: featuredPlaylists.playlists.items.map((item) => ({
             ...item,
-            routeUrl: RouteUtil.getPlaylistRouteUrl(item)
+            routeUrl: RouteUtil.getPlaylistRouteUrl(item.id)
           }))
         }
       };
