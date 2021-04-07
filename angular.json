@@ -52,12 +52,16 @@
             "tsConfig": "apps/angular-spotify/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/angular-spotify/src/favicon.ico",
               "apps/angular-spotify/src/assets",
               {
                 "glob": "_redirects",
                 "input": "apps/angular-spotify/src",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/web/shared/assets/src/assets",
+                "output": "assets"
               }
             ],
             "styles": ["apps/angular-spotify/src/styles.scss"],
@@ -1403,6 +1407,12 @@
           }
         }
       }
+    },
+    "web-shared-assets": {
+      "root": "libs/web/shared/assets",
+      "sourceRoot": "libs/web/shared/assets/src",
+      "projectType": "library",
+      "architect": {}
     }
   }
 }
