@@ -1403,6 +1403,12 @@
           }
         }
       }
+    },
+    "web-shared-assets": {
+      "root": "libs/web/shared/assets",
+      "sourceRoot": "libs/web/shared/assets/src",
+      "projectType": "library",
+      "architect": {}
     }
   }
 }
