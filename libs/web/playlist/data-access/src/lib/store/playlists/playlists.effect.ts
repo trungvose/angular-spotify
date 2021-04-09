@@ -15,7 +15,7 @@ export class PlaylistsEffect {
       withLatestFrom(this.store.pipe(select(getPlaylistsState))),
       filter(([, playlistState]) => !playlistState.data),
       mergeMap(() =>
-        this.playlistsApi.getAll().pipe(
+        this.playlistsApi.getUserSavedPlaylists().pipe(
           map((playlists) =>
             loadPlaylistsSuccess({
               playlists
