@@ -1,11 +1,11 @@
-import { GenericStoreStatus } from '@angular-spotify/web/shared/data-access/models';
+import { GenericStoreStatus, SpotifyApiParams } from '@angular-spotify/web/shared/data-access/models';
 import { createAction, props } from '@ngrx/store';
 
 export const loadCategoryPlaylists = createAction(
   '[Browse Page]/Load Category Playlist',
   props<{
     categoryId: string;
-    params?: Record<string, string>;
+    params?: SpotifyApiParams;
   }>()
 );
 

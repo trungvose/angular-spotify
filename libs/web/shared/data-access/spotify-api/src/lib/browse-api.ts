@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
 import { map } from 'rxjs/operators';
+import { SpotifyApiParams } from '@angular-spotify/web/shared/data-access/models';
 @Injectable({ providedIn: 'root' })
 export class BrowseApiService {
   browseUrl: string;
@@ -10,8 +11,7 @@ export class BrowseApiService {
   }
 
   getAllFeaturedPlaylists(
-    params: Record<string, any> = {
-      // eslint-disable-line
+    params: SpotifyApiParams = {
       limit: 50
     }
   ) {
@@ -24,8 +24,7 @@ export class BrowseApiService {
   }
 
   getAllCategories(
-    params: Record<string, any> = {
-      // eslint-disable-line
+    params: SpotifyApiParams = {
       limit: 50
     }
   ) {
@@ -38,8 +37,7 @@ export class BrowseApiService {
 
   getCategoryPlaylists(
     categoryId: string,
-    params: Record<string, any> = {
-      // eslint-disable-line
+    params: SpotifyApiParams = {
       limit: 50
     }
   ) {
