@@ -9,7 +9,7 @@ export class AlbumApiService {
 
   getUserSavedAlbums(
     params: SpotifyApiParams = {
-      offset: 50
+      limit: 50
     }
   ) {
     return this.http.get<SpotifyApi.UsersSavedAlbumsResponse>(
