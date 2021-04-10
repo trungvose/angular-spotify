@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-album-feature',
-  preset: '../../../../jest.preset.js',
+  displayName: 'web-album-feature-detail',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       }
     }
   },
-  coverageDirectory: '../../../../coverage/libs/web/album/feature',
+  coverageDirectory: '../../../../../coverage/libs/web/album/feature/detail',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
