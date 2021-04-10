@@ -2,7 +2,7 @@ export class RouterUtil {
   static Configuration = {
     Playlist: 'playlist',
     PlaylistId: 'playlistId',
-    Album: 'album',
+    Albums: 'albums',
     AlbumId: 'albumId',
     Artist: 'artist',
     ArtistId: 'artistId',

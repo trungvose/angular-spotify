@@ -2,7 +2,7 @@ import { RouterUtil } from './router-util';
 
 export class RouteUtil {
   static getAlbumRouteUrl(albumId: string) {
-    return `/${RouterUtil.Configuration.Album}/${albumId}`;
+    return `/${RouterUtil.Configuration.Albums}/${albumId}`;
   }
   static getArtistRouteUrl(artistId: string) {
     return `/${RouterUtil.Configuration.Artist}/${artistId}`;

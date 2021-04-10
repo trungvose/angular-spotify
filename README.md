@@ -169,16 +169,20 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | #   | Time                       | Description/Link                                                |
 | --- | -------------------------- | --------------------------------------------------------------- |
 | 1   | Sat, 3rd April 2021, 10AM  | [Structure your Angular application with Nx workspace][live-01] |
-| 2   | Sat, 10th April 2021, 10AM | [Build the album list and detail pages][live-02]                |
-| 3   | Sat, 17th April 2021, 10AM | [Build the artist list and detail pages][live-03]               |
-| 4   | Sat, 24th April 2021, 10AM | [Build the track list page][live-04]                            |
+| 2   | Sat, 10th April 2021, 10AM | [Build the album list page][live-02]                            |
+| 3   | Sat, 17th April 2021, 10AM | [Build the album detail page][live-03]                          |
+| 4   | Sat, 24th April 2021, 10AM | [Build the artist detail page][live-04]                         |
+| 5   | Sat, 1st May 2021, 10AM    | [Build the track list page][live-05]                            |
+| 6   | TBD                        | Setup i18n and support new language                             |
+| 7   | TBD                        | Config Nx build:affected with Github action                     |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
 [live-01]: https://www.youtube.com/watch?v=9njo6MZWBN0
 [live-02]: https://www.youtube.com/watch?v=vEIxjcrXcDc
-[live-03]: https://www.youtube.com/watch?v=8P3pB40JF2w
-[live-04]: https://youtu.be/Oj4yomnxfj4
+[live-03]: https://youtu.be/c9-WTksAv-s
+[live-04]: https://www.youtube.com/watch?v=8P3pB40JF2w
+[live-05]: https://youtu.be/Oj4yomnxfj4
 
 ## Time spending
 
