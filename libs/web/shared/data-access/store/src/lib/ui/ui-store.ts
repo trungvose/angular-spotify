@@ -17,7 +17,8 @@ export class UIStore extends ComponentStore<UIState> {
       navItems: [
         { label: 'Home', path: '', exact: true },
         { label: 'Browse', path: '/browse' },
-        { label: 'Your Library', path: '/collection/playlists' }
+        { label: 'My Playlists', path: '/collection/playlists' },
+        { label: 'My Albums', path: '/albums' }
       ],
       isShowUnauthorizedModal: false
     });

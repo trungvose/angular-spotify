@@ -932,31 +932,6 @@
         }
       }
     },
-    "web-album-feature": {
-      "projectType": "library",
-      "root": "libs/web/album/feature",
-      "sourceRoot": "libs/web/album/feature/src",
-      "prefix": "as",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/web/album/feature/src/**/*.ts",
-              "libs/web/album/feature/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature"],
-          "options": {
-            "jestConfig": "libs/web/album/feature/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-shared-ui-work-in-progress": {
       "projectType": "library",
       "root": "libs/web/shared/ui/work-in-progress",
@@ -1413,6 +1388,102 @@
       "sourceRoot": "libs/web/shared/assets/src",
       "projectType": "library",
       "architect": {}
+    },
+    "web-album-feature-detail": {
+      "projectType": "library",
+      "root": "libs/web/album/feature/detail",
+      "sourceRoot": "libs/web/album/feature/detail/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/album/feature/detail/src/**/*.ts",
+              "libs/web/album/feature/detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/feature/detail"],
+          "options": {
+            "jestConfig": "libs/web/album/feature/detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-album-feature-list": {
+      "projectType": "library",
+      "root": "libs/web/album/feature/list",
+      "sourceRoot": "libs/web/album/feature/list/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/album/feature/list/src/**/*.ts",
+              "libs/web/album/feature/list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/feature/list"],
+          "options": {
+            "jestConfig": "libs/web/album/feature/list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-album-feature-shell": {
+      "projectType": "library",
+      "root": "libs/web/album/feature/shell",
+      "sourceRoot": "libs/web/album/feature/shell/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/album/feature/shell/src/**/*.ts",
+              "libs/web/album/feature/shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/feature/shell"],
+          "options": {
+            "jestConfig": "libs/web/album/feature/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-album-data-access": {
+      "root": "libs/web/album/data-access",
+      "sourceRoot": "libs/web/album/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/album/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/data-access"],
+          "options": {
+            "jestConfig": "libs/web/album/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

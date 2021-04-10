@@ -83,7 +83,6 @@
       "@angular-spotify/web/home/ui/featured-playlists": [
         "libs/web/home/ui/featured-playlists/src/index.ts"
       ],
-      "@angular-spotify/web/album/feature": ["libs/web/album/feature/src/index.ts"],
       "@angular-spotify/web/shared/ui/work-in-progress": [
         "libs/web/shared/ui/work-in-progress/src/index.ts"
       ],
@@ -124,7 +123,11 @@
       "@angular-spotify/web/shared/ui/spinner": ["libs/web/shared/ui/spinner/src/index.ts"],
       "@angular-spotify/web/shared/ui/playlist-list": [
         "libs/web/shared/ui/playlist-list/src/index.ts"
-      ]
+      ],
+      "@angular-spotify/web/album/feature/detail": ["libs/web/album/feature/detail/src/index.ts"],
+      "@angular-spotify/web/album/feature/list": ["libs/web/album/feature/list/src/index.ts"],
+      "@angular-spotify/web/album/feature/shell": ["libs/web/album/feature/shell/src/index.ts"],
+      "@angular-spotify/web/album/data-access": ["libs/web/album/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

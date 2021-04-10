@@ -9,16 +9,19 @@ export class AlbumApiService {
 
   getUserSavedAlbums(
     params: SpotifyApiParams = {
-      offset: 50
+      limit: 50
     }
   ) {
-    return this.http.get<SpotifyApi.UsersSavedAlbumsResponse>(`${this.appConfig}/me/albums`, {
-      params
-    });
+    return this.http.get<SpotifyApi.UsersSavedAlbumsResponse>(
+      `${this.appConfig.baseURL}/me/albums`,
+      {
+        params
+      }
+    );
   }
 
   getById(albumId: string) {
-    return this.http.get<SpotifyApi.AlbumObjectFull>(`${this.appConfig}/albums/${albumId}`);
+    return this.http.get<SpotifyApi.AlbumObjectFull>(`${this.appConfig.baseURL}/albums/${albumId}`);
   }
 
   getTracks(
@@ -28,7 +31,7 @@ export class AlbumApiService {
     }
   ) {
     return this.http.get<SpotifyApi.AlbumTracksResponse>(
-      `${this.appConfig}/albums/${albumId}/tracks`,
+      `${this.appConfig.baseURL}/albums/${albumId}/tracks`,
       {
         params
       }

@@ -1,0 +1,15 @@
+<div class="content-spacing">
+  <div class="common-grid"
+       *ngIf="albums$ | async as albums">
+    <as-media *ngFor="let item of albums.items"
+              [title]="item.album.name"
+              [uri]="item.album.uri"
+              [description]="item.album.artists[0].name"
+              [imageUrl]="item.album.images[0]?.url"
+              [routerUrl]="item.album.id"
+              (togglePlay)="togglePlay($event, item.album.uri)">
+    </as-media>
+  </div>
+  <as-spinner *ngIf="isLoading$ | async">
+  </as-spinner>
+</div>
