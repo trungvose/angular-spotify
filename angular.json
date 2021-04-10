@@ -1463,6 +1463,27 @@
           }
         }
       }
+    },
+    "web-album-data-access": {
+      "root": "libs/web/album/data-access",
+      "sourceRoot": "libs/web/album/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/album/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/data-access"],
+          "options": {
+            "jestConfig": "libs/web/album/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
