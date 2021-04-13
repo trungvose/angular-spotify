@@ -45,6 +45,7 @@
     "@angular/platform-browser": "11.2.7",
     "@angular/platform-browser-dynamic": "11.2.7",
     "@angular/router": "11.2.7",
+    "@angular/service-worker": "11.2.7",
     "@ngneat/svg-icon": "3.1.1",
     "@ngneat/until-destroy": "^8.0.4",
     "@ngrx/component": "11.0.1",
