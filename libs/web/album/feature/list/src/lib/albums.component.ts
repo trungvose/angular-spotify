@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { select, Store } from '@ngrx/store';
 import { getAlbums, getAlbumsLoading, loadAlbums } from '@angular-spotify/web/album/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { Store } from 'mini-rx-store';
 @Component({
   selector: 'as-albums',
   templateUrl: './albums.component.html',
@@ -9,8 +9,8 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AlbumsComponent implements OnInit {
-  albums$ = this.store.pipe(select(getAlbums));
-  isLoading$ = this.store.pipe(select(getAlbumsLoading));
+  albums$ = this.store.select(getAlbums);
+  isLoading$ = this.store.select(getAlbumsLoading);
 
   constructor(private store: Store, private playerApi: PlayerApiService) {}
 

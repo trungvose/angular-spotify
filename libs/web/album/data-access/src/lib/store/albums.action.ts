@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { action as createAction, props } from 'ts-action';
 
 export const loadAlbums = createAction('[Albums Page/API]');
 

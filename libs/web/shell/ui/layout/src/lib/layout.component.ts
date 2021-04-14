@@ -1,9 +1,9 @@
-import { Store } from '@ngrx/store';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
 import { filter, map } from 'rxjs/operators';
+import { Store } from 'mini-rx-store';
 
 @Component({
   selector: 'as-layout',
@@ -16,7 +16,7 @@ export class LayoutComponent implements OnInit {
     map((track) => track?.album?.images[0]?.url),
     filter((imageUrl) => !!imageUrl)
   );
-  
+
   constructor(
     private authStore: AuthStore,
     private playbackStore: PlaybackStore,

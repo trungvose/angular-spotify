@@ -4,11 +4,11 @@
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComponentStore } from '@ngrx/component-store';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
-import { filter, map, switchMapTo, tap } from 'rxjs/operators';
+import { filter, map, switchMap, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
+import { FeatureStore } from 'mini-rx-store';
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
   tokenType: string | null;
@@ -17,7 +17,7 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AuthStore extends ComponentStore<AuthState> {
+export class AuthStore extends FeatureStore<AuthState> {
   readonly token$ = this.select((s) => s.accessToken).pipe(
     filter((token) => !!token)
   ) as Observable<string>;
@@ -27,8 +27,8 @@ export class AuthStore extends ComponentStore<AuthState> {
     (s) =>
       (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
   );
-  readonly getUserId = () => this.get().id;
-  readonly getToken = () => this.get().accessToken;
+  readonly getUserId = () => this.state.id;
+  readonly getToken = () => this.state.accessToken;
 
   constructor(
     private router: Router,
@@ -36,16 +36,16 @@ export class AuthStore extends ComponentStore<AuthState> {
     private spotify: SpotifyApiService,
     private modalService: NzModalService
   ) {
-    super(<AuthState>{});
+    super('auth', <AuthState>{});
   }
 
-  readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
+  private setCurrentUser(user: SpotifyApi.CurrentUsersProfileResponse) {
     console.log(user);
-    return {
+    this.setState(state => ({
       ...state,
       ...user
-    };
-  });
+    }));
+  };
 
   readonly init = this.effect((params$) => params$.pipe(switchMapTo(this.initAuth())));
 
@@ -70,11 +70,12 @@ export class AuthStore extends ComponentStore<AuthState> {
         state: params.get('state')
       })),
       tap((params) => {
-        this.patchState(params);
+        this.setState(params);
         console.info('spotify authenticated');
       }),
-      tap(() => {
-        this.setCurrentUser(this.spotify.getMe());
+      switchMap(() => this.spotify.getMe()),
+      tap((me) => {
+        this.setCurrentUser(me);
         this.router.navigate([]);
       })
     );

@@ -1,7 +1,7 @@
 import { PlaylistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
+import { Actions, Store } from 'mini-rx-store';
+import { ofType } from 'ts-action-operators';
 import { EMPTY } from 'rxjs';
 import { catchError, filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { getPlaylistTracksState } from './playlist-tracks.selector';
@@ -13,10 +13,10 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class PlaylistTracksEffect {
-  loadPlaylistTracks$ = createEffect(() =>
+  loadPlaylistTracks$ =
     this.actions$.pipe(
       ofType(loadPlaylistTracks),
-      withLatestFrom(this.store.pipe(select(getPlaylistTracksState))),
+      withLatestFrom(this.store.select(getPlaylistTracksState)),
       tap(([{ playlistId }, playlistTracks]) => {
         if (playlistTracks.data?.has(playlistId)) {
           this.store.dispatch(
@@ -40,7 +40,6 @@ export class PlaylistTracksEffect {
           catchError(() => EMPTY)
         )
       )
-    )
   );
 
   constructor(

@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from 'mini-rx-store';
 import {
   recentFeatureTracksFeatureKey,
   RecentPlayedTracksState

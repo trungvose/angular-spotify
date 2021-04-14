@@ -1,5 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import { loadCategories, loadCategoriesSuccess, setCategoriesState } from './categories.action';
 export const categoriesFeatureKey = 'categories';
 
@@ -15,7 +15,7 @@ const initialState: CategoriesState = {
   map: new Map()
 };
 
-export const categoriesReducer = createReducer(
+export const categoriesReducer = createReducer<CategoriesState>(
   initialState,
   on(loadCategories, (state) => ({ ...state, status: 'loading' })),
   on(loadCategoriesSuccess, (state, { categories }) => {

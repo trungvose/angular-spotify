@@ -1,5 +1,5 @@
 import { SpotifyApiRecentPlayerTracksResponse } from '@angular-spotify/web/shared/data-access/models';
-import { createAction, props } from '@ngrx/store';
+import { action as createAction, props } from 'ts-action';
 
 export const loadRecentTracks = createAction('[Home/Load Recent Played Tracks]');
 export const loadRecentTracksSuccess = createAction(

@@ -1,5 +1,5 @@
 import { GenericState, SpotifyApiRecentPlayerTracksResponse } from '@angular-spotify/web/shared/data-access/models';
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import { loadRecentTracks, loadRecentTracksError, loadRecentTracksSuccess } from './recent-played-tracks.action';
 
 export type RecentPlayedTracksState = GenericState<SpotifyApiRecentPlayerTracksResponse>;
@@ -12,7 +12,7 @@ const initialState: RecentPlayedTracksState = {
 
 export const recentFeatureTracksFeatureKey = 'recentTracks';
 
-export const recentPlayedTracksReducer = createReducer(
+export const recentPlayedTracksReducer = createReducer<RecentPlayedTracksState>(
   initialState,
   on(loadRecentTracks, (state) => ({ ...state, status: 'loading' })),
   on(loadRecentTracksSuccess, (state, { response }) => ({

@@ -1,5 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import {
   loadPlaylistTracks,
   loadPlaylistTracksError,
@@ -16,7 +16,7 @@ const initialState: PlaylistTracksState = {
   error: null
 };
 
-export const playlistTracksReducer = createReducer(
+export const playlistTracksReducer = createReducer<PlaylistTracksState>(
   initialState,
   on(loadPlaylistTracks, (state) => ({ ...state, status: 'loading' })),
   on(loadPlaylistTracksSuccess, (state, { playlistId, playlistTracks }) => {

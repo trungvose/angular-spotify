@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from 'mini-rx-store';
 import { albumsFeatureKey, AlbumsState } from './albums.reducer';
 import {SelectorUtil} from '@angular-spotify/web/shared/utils';
 

@@ -7,9 +7,9 @@ import {
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { Store } from 'mini-rx-store';
 
 @Component({
   selector: 'as-category-detail',
@@ -24,17 +24,17 @@ export class CategoryComponent {
   );
 
   category$ = this.categoryParams$.pipe(
-    switchMap((categoryId) => this.store.pipe(select(getCategoryById(categoryId))))
+    switchMap((categoryId) => this.store.select(getCategoryById(categoryId)))
   );
 
   // TODO: find out why it is always false
-  isLoadingPlaylists$ = this.store.pipe(select(getCategoryPlaylistsLoading));
+  isLoadingPlaylists$ = this.store.select(getCategoryPlaylistsLoading);
 
   playlists$ = this.categoryParams$.pipe(
     tap((categoryId) => {
       this.store.dispatch(loadCategoryPlaylists({ categoryId }));
     }),
-    switchMap((categoryId) => this.store.pipe(select(getCategoryPlaylistsById(categoryId))))
+    switchMap((categoryId) => this.store.select(getCategoryPlaylistsById(categoryId)))
   );
 
   constructor(private route: ActivatedRoute, private store: Store) {}

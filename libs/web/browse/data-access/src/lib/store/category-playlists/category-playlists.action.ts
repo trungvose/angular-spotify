@@ -1,5 +1,5 @@
 import { GenericStoreStatus, SpotifyApiParams } from '@angular-spotify/web/shared/data-access/models';
-import { createAction, props } from '@ngrx/store';
+import { action as createAction, props } from 'ts-action';
 
 export const loadCategoryPlaylists = createAction(
   '[Browse Page]/Load Category Playlist',

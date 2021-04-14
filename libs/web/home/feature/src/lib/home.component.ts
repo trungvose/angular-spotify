@@ -1,6 +1,6 @@
 import { loadFeaturedPlaylists, loadRecentTracks } from '@angular-spotify/web/home/data-access';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store } from 'mini-rx-store';
 
 @Component({
   selector: 'as-home',

@@ -7,16 +7,15 @@ import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { select, Store } from '@ngrx/store';
-import { combineLatest, Observable } from 'rxjs';
-import { filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { combineLatest, EMPTY, Observable } from 'rxjs';
+import { catchError, filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import {
   getPlaylistTracksById,
   getPlaylistTracksLoading,
   loadPlaylistTracks
 } from '../playlist-tracks';
 import { getPlaylist, getPlaylistsState, loadPlaylistSuccess } from '../playlists';
+import { FeatureStore, Store } from 'mini-rx-store';
 
 interface PlaylistState extends GenericState<SpotifyApi.PlaylistObjectFull> {
   playlistId: string;
@@ -31,7 +30,7 @@ type PlayTrackParams = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class PlaylistStore extends ComponentStore<PlaylistState> {
+export class PlaylistStore extends FeatureStore<PlaylistState> {
   playlistParams$: Observable<string> = this.route.params.pipe(
     map((params) => params.playlistId),
     filter((playlistId) => !!playlistId)
@@ -42,12 +41,12 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
 
   playlist$ = this.playlistParams$.pipe(
     tap((playlistId) => {
-      this.patchState({
+      this.setState({
         playlistId
       });
       this.loadPlaylist({ playlistId });
     }),
-    switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+    switchMap((playlistId) => this.store.select(getPlaylist(playlistId)))
   );
 
   tracks$ = this.playlistParams$.pipe(
@@ -58,7 +57,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
         })
       );
     }),
-    switchMap((playlistId) => this.store.pipe(select(getPlaylistTracksById(playlistId))))
+    switchMap((playlistId) => this.store.select(getPlaylistTracksById(playlistId)))
   );
 
   isPlaylistPlaying$ = SelectorUtil.getMediaPlayingState(
@@ -73,7 +72,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
       withLatestFrom(this.store.select(getPlaylistsState)),
       filter(([params, state]) => !state.map?.get(params.playlistId)),
       tap(() => {
-        this.patchState({
+        this.setState({
           status: 'loading',
           error: null
         });
@@ -81,25 +80,26 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
       map(([action]) => action),
       mergeMap(({ playlistId }) =>
         this.playlistsApi.getById(playlistId).pipe(
-          tapResponse(
+          tap(
             (playlist) => {
               this.store.dispatch(
                 loadPlaylistSuccess({
                   playlist
                 })
               );
-              this.patchState({
+              this.setState({
                 status: 'success',
                 error: null
               });
-            },
-            (e) => {
-              this.patchState({
-                status: 'error',
-                error: e as string
-              });
             }
-          )
+          ),
+          catchError(e => {
+            this.setState({
+              status: 'error',
+              error: e as string
+            });
+            return EMPTY;
+          })
         )
       )
     )
@@ -131,7 +131,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
   readonly playlistId$ = this.select((s) => s.playlistId);
 
   get playlistContextUri() {
-    return RouteUtil.getPlaylistContextUri(this.get().playlistId);
+    return RouteUtil.getPlaylistContextUri(this.state.playlistId);
   }
 
   constructor(
@@ -141,7 +141,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
     private store: Store,
     private playbackStore: PlaybackStore
   ) {
-    super({
+    super('playlist', {
       data: null,
       error: null,
       status: 'pending',

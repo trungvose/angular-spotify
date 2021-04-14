@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { action as createAction, props } from 'ts-action';
 
 export const loadFeaturedPlaylists = createAction('[Home/Load Featured Playlists]');
 export const loadFeaturedPlaylistsSuccess = createAction(

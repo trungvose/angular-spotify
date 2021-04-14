@@ -1,5 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import {
   loadFeaturedPlaylists,
   loadFeaturedPlaylistsError,
@@ -16,7 +16,7 @@ const initialState: FeaturePlaylistsState = {
 
 export const featuredPlaylistsFeatureKey = 'feature-playlists';
 
-export const featuredPlaylistsReducer = createReducer(
+export const featuredPlaylistsReducer = createReducer<FeaturePlaylistsState>(
   initialState,
   on(loadFeaturedPlaylists, (state) => ({ ...state, status: 'loading' })),
   on(loadFeaturedPlaylistsSuccess, (state, { response }) => ({

@@ -1,4 +1,4 @@
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from 'mini-rx-store-ng';
 
 export const extModules = [
   StoreDevtoolsModule.instrument({

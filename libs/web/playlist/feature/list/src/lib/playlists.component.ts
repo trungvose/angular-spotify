@@ -3,7 +3,7 @@ import {
   getPlaylistsWithRouteUrl
 } from '@angular-spotify/web/playlist/data-access';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from 'mini-rx-store';
 
 @Component({
   selector: 'as-playlists',
@@ -12,8 +12,8 @@ import { select, Store } from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistsComponent {
-  playlists$ = this.store.pipe(select(getPlaylistsWithRouteUrl));
-  isPlaylistsLoading$ = this.store.pipe(select(getPlaylistsLoading));
+  playlists$ = this.store.select(getPlaylistsWithRouteUrl);
+  isPlaylistsLoading$ = this.store.select(getPlaylistsLoading);
 
   constructor(private store: Store) {}
 }

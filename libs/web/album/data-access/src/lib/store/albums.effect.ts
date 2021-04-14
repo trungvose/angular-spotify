@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AlbumApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { loadAlbums, loadAlbumsSuccess } from './albums.action';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
+import { Actions } from 'mini-rx-store';
+import { ofType } from 'ts-action-operators';
 
 @Injectable({ providedIn: 'root' })
 export class AlbumsEffect {
-  loadAlbums$ = createEffect(() =>
+  loadAlbums$ =
     this.actions$.pipe(
       ofType(loadAlbums),
       mergeMap(() =>
@@ -16,8 +17,7 @@ export class AlbumsEffect {
           catchError(() => EMPTY)
         )
       )
-    )
-  );
+    );
 
   constructor(private actions$: Actions, private albumApi: AlbumApiService) {}
 }

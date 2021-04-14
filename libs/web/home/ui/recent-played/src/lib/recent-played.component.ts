@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
 import {
   getRecentPlayedTracks,
   getRecentPlayedTracksLoading
 } from '@angular-spotify/web/home/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
+import { Store } from 'mini-rx-store';
 
 @Component({
   selector: 'as-recent-played',
@@ -14,8 +14,8 @@ import { RouteUtil } from '@angular-spotify/web/shared/utils';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecentPlayedComponent {
-  recentTracks$ = this.store.pipe(select(getRecentPlayedTracks));
-  isLoading$ = this.store.pipe(select(getRecentPlayedTracksLoading));
+  recentTracks$ = this.store.select(getRecentPlayedTracks);
+  isLoading$ = this.store.select(getRecentPlayedTracksLoading);
 
   constructor(private store: Store, private playerApi: PlayerApiService) {}
 

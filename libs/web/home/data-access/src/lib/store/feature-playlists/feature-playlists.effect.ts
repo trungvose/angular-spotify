@@ -1,7 +1,8 @@
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { BrowseApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions } from 'mini-rx-store';
+import { ofType } from 'ts-action-operators';
 import { EMPTY } from 'rxjs';
 import { catchError, map, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { loadFeaturedPlaylists, loadFeaturedPlaylistsSuccess } from './feature-playlists.action';
@@ -14,7 +15,7 @@ export class FeaturePlaylistsEffect {
     private authStore: AuthStore
   ) {}
 
-  loadFeaturedPlaylists$ = createEffect(() =>
+  loadFeaturedPlaylists$ =
     this.actions$.pipe(
       ofType(loadFeaturedPlaylists),
       withLatestFrom(this.authStore.country$),
@@ -33,6 +34,5 @@ export class FeaturePlaylistsEffect {
             catchError(() => EMPTY)
           )
       )
-    )
   );
 }

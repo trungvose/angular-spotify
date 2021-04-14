@@ -42,7 +42,7 @@ export class PlaybackService {
   }
 
   setVolume(volume: number): Observable<unknown> {
-    this.playbackStore.patchState({
+    this.playbackStore.setState({
       volume
     });
     return this.playerApi.setVolume(Math.floor(volume * 100))
@@ -80,7 +80,7 @@ export class PlaybackService {
         return;
       }
       this.setAppTitle(state);
-      this.playbackStore.patchState({
+      this.playbackStore.setState({
         data: state,
         volume: await player.getVolume()
       });
@@ -94,7 +94,7 @@ export class PlaybackService {
 
     player.addListener('ready', ({ device_id }) => {
       console.log('Ready with Device ID', device_id);
-      this.playbackStore.patchState({
+      this.playbackStore.setState({
         deviceId: device_id
       });
       this.playerApi.transferUserPlayback(device_id).subscribe();
@@ -105,7 +105,7 @@ export class PlaybackService {
     });
 
     await player.connect();
-    this.playbackStore.patchState({
+    this.playbackStore.setState({
       player
     });
   }

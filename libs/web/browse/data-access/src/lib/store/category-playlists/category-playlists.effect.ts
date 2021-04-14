@@ -1,7 +1,7 @@
 import { BrowseApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
+import { Actions, Store } from 'mini-rx-store';
+import { ofType } from 'ts-action-operators';
 import { EMPTY } from 'rxjs';
 import { catchError, filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import {
@@ -13,10 +13,10 @@ import { getCategoryPlaylistsMap } from './category-playlists.selector';
 
 @Injectable()
 export class CategoryPlaylistsEffect {
-  loadCategoryPlaylists$ = createEffect(() =>
+  loadCategoryPlaylists$ =
     this.actions.pipe(
       ofType(loadCategoryPlaylists),
-      withLatestFrom(this.store.pipe(select(getCategoryPlaylistsMap))),
+      withLatestFrom(this.store.select(getCategoryPlaylistsMap)),
       tap(([{ categoryId }, map]) => {
         if (map?.has(categoryId)) {
           this.store.dispatch(
@@ -40,7 +40,6 @@ export class CategoryPlaylistsEffect {
           catchError(() => EMPTY)
         )
       )
-    )
   );
 
   constructor(

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
-import { StoreModule } from '@ngrx/store';
 import {
   CategoriesEffect,
   categoriesFeatureKey,
@@ -11,7 +10,7 @@ import {
   categoryPlaylistsFeatureKey,
   categoryPlaylistsReducer
 } from '@angular-spotify/web/browse/data-access';
-import { EffectsModule } from '@ngrx/effects';
+import { EffectsModule, StoreModule } from 'mini-rx-store-ng';
 
 @NgModule({
   imports: [
@@ -30,7 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
     ]),
     StoreModule.forFeature(categoriesFeatureKey, categoriesReducer),
     StoreModule.forFeature(categoryPlaylistsFeatureKey, categoryPlaylistsReducer),
-    EffectsModule.forFeature([CategoriesEffect, CategoryPlaylistsEffect])
+    EffectsModule.register([CategoriesEffect, CategoryPlaylistsEffect])
   ]
 })
 export class BrowseShellModule {}

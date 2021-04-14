@@ -1,5 +1,5 @@
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from 'mini-rx-store';
 import { playlistsFeatureKey, PlaylistsState } from './playlists.reducer';
 
 export const getPlaylistsState = createFeatureSelector<PlaylistsState>(playlistsFeatureKey);

@@ -4,8 +4,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { webShellRoutes } from './web-shell.routes';
 import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import * as Sentry from '@sentry/angular';
@@ -22,6 +20,7 @@ import {
   playlistTracksReducer
 } from '@angular-spotify/web/playlist/data-access';
 import { extModules } from './build-specifics';
+import { EffectsModule, StoreModule } from 'mini-rx-store-ng';
 registerLocaleData(en);
 
 const rootReducers = {
@@ -38,8 +37,8 @@ const rootReducers = {
     RouterModule.forRoot(webShellRoutes, {
       scrollPositionRestoration: 'top'
     }),
-    StoreModule.forRoot(rootReducers),
-    EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect]),
+    StoreModule.forRoot({reducers: rootReducers}),
+    EffectsModule.register([PlaylistsEffect, PlaylistTracksEffect]),
     ...extModules,
   ],
   exports: [RouterModule],

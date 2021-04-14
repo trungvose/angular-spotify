@@ -5,14 +5,12 @@ import { RouterModule } from '@angular/router';
 import { NavBarModule } from '@angular-spotify/web/shell/ui/nav-bar';
 import { TopBarModule } from '@angular-spotify/web/shell/ui/top-bar';
 import { MainViewModule } from '@angular-spotify/web/shell/ui/main-view';
-import { StoreModule } from '@ngrx/store';
 import { NowPlayingBarModule } from '@angular-spotify/web/shell/ui/now-playing-bar';
 import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthorized-modal';
 import { AlbumArtOverlayModule } from '@angular-spotify/web/shell/ui/album-art-overlay';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule,
     RouterModule,
     NavBarModule,
     TopBarModule,

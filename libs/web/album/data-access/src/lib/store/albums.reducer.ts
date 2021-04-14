@@ -1,5 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import { loadAlbums, loadAlbumsError, loadAlbumsSuccess } from './albums.action';
 
 // eslint-disable-next-line
@@ -13,7 +13,7 @@ const initialState: AlbumsState = {
 
 export const albumsFeatureKey = 'albums';
 
-export const albumsReducer = createReducer(
+export const albumsReducer = createReducer<AlbumsState>(
   initialState,
   on(loadAlbums, (state) => ({
     ...state,

@@ -6,10 +6,10 @@ import {
 } from '@angular-spotify/web/shared/data-access/models';
 import { TrackApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { RouteUtil, StringUtil } from '@angular-spotify/web/shared/utils';
+import { FeatureStore } from 'mini-rx-store';
 
 interface PlaybackState extends GenericState<Spotify.PlaybackState> {
   player: Spotify.SpotifyPlayer;
@@ -21,7 +21,7 @@ interface PlaybackState extends GenericState<Spotify.PlaybackState> {
 }
 
 @Injectable({ providedIn: 'root' })
-export class PlaybackStore extends ComponentStore<PlaybackState> {
+export class PlaybackStore extends FeatureStore<PlaybackState> {
   readonly playback$ = this.select((s) => s.data).pipe(
     filter((data) => !!data)
   ) as Observable<Spotify.PlaybackState>;
@@ -80,10 +80,10 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
     segments: s.analysis?.segments
   })).pipe(filter((s) => !!s.segments));
 
-  readonly player = () => this.get().player;
+  readonly player = () => this.state.player;
 
   constructor(private trackApi: TrackApiService) {
-    super({} as PlaybackState);
+    super('playback', {} as PlaybackState);
   }
 
   readonly loadTracksAnalytics = this.effect<{ trackId: string }>((params$) =>
@@ -94,7 +94,7 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
           !isAnalysisLoading && trackId !== trackAnalysisId
       ),
       tap(() => {
-        this.patchState({ isAnalysisLoading: true });
+        this.setState({ isAnalysisLoading: true });
       }),
       switchMap(([{ trackId }]) =>
         this.trackApi.getAudioAnalysis(trackId).pipe(
@@ -103,7 +103,7 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
             trackId
           })),
           catchError(() => {
-            this.patchState({ isAnalysisLoading: false });
+            this.setState({ isAnalysisLoading: false });
             return EMPTY;
           })
         )
@@ -115,7 +115,7 @@ export class PlaybackStore extends ComponentStore<PlaybackState> {
           duration: segment.duration * 1000
         }));
 
-        this.patchState({
+        this.setState({
           analysis: analysis,
           trackAnalysisId: trackId,
           isAnalysisLoading: false
