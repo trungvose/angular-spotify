@@ -78,7 +78,7 @@
     "web-browse-ui-category-cover": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-spinner": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-playlist-list": { "tags": ["type:ui", "scope:web"] },
-    "web-shared-assets": { "tags": ["type:assets"], "implicitDependencies": ["angular-spotify"] },
+    "web-shared-assets": { "tags": ["type:assets"] },
     "web-album-feature-detail": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-list": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-shell": { "tags": ["type:feature", "scope:web"] },
