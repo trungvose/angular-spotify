@@ -1,4 +1,2 @@
-export * from './albums.action';
-export * from './albums.reducer';
-export * from './albums.effect';
-export * from './album.selector';
+export * from './albums';
+export * from './album';
