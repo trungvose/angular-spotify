@@ -1484,6 +1484,31 @@
           }
         }
       }
+    },
+    "web-lyrics-feature": {
+      "projectType": "library",
+      "root": "libs/web/lyrics/feature",
+      "sourceRoot": "libs/web/lyrics/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/lyrics/feature/src/**/*.ts",
+              "libs/web/lyrics/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/lyrics/feature"],
+          "options": {
+            "jestConfig": "libs/web/lyrics/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
