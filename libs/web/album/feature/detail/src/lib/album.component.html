@@ -1,12 +1,36 @@
 <div class="content-spacing">
-  <as-work-in-progress [featureName]="'album detail page'"></as-work-in-progress>
+  <ng-container *ngIf="album$ | async as album">
+    <as-media-summary type="Album"
+                      [title]="album.name"
+                      [imageUrl]="album.images[0]?.url"
+                      [artist]="album.artists[0]?.name"
+                      [trackCount]="album.tracks.total">
+    </as-media-summary>
+    <div class="pt-0 pb-6">
+      <as-play-button [large]="true"
+                      [primary]="true"
+                      [isPlaying]="isAlbumPlaying$ | async"
+                      (togglePlay)="toggleAlbum($event, album?.uri!)">
+      </as-play-button>
+    </div>
+
+  </ng-container>
+
+  <div class="px-8 mb-5 album-loading"
+       *ngIf="isAlbumLoading$ | async">
+    <as-tracks-loading [avatar]="true"
+                       [title]="true">
+    </as-tracks-loading>
+  </div>
+  <p class="text-white">
+    Let continue building it on the next week live stream. Thanks everyone for joining :)
+  </p>
   <iframe class="mt-6"
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/c9-WTksAv-s"
+          src="https://www.youtube.com/embed/8P3pB40JF2w"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-  </iframe>
+          allowfullscreen></iframe>
 </div>
