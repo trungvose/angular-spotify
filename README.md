@@ -188,7 +188,13 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 
 I have received some invitation to talk about Angular Spotify from the community. You can watch my talks below 🙂
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9zJcb6ZhBaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![BLS033](https://pbs.twimg.com/media/EzWVmV3UYAgjgY-?format=jpg&name=small)][01-beeman]
+
+| #   | Time                 | Description/Link                               |
+| --- | -------------------- | ---------------------------------------------- |
+| 1   | Wed, 21st April 2021 | [BLS SHOW & TELL - Angular Spotify][01-beeman] |
+
+[01-beeman]: https://youtu.be/9zJcb6ZhBaI
 
 ## Time spending
 
