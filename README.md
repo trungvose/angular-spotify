@@ -184,6 +184,12 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 [live-04]: https://www.youtube.com/watch?v=8P3pB40JF2w
 [live-05]: https://youtu.be/Oj4yomnxfj4
 
+## Community
+
+I have received some invitation to talk about Angular Spotify from the community. You can watch my talks below 🙂
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9zJcb6ZhBaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Time spending
 
 It is a side project that I only spent time outside of the office hours to work on. I initially planned to complete the project within two weeks, but the first two weekends were not very productive, maybe because of the holiday mood from Lunar New Year :) But once the lego blocks are getting together, I feel the rhythm, and I know it has to be finished by the end of March.
