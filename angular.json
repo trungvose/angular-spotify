@@ -62,7 +62,8 @@
                 "glob": "**/*",
                 "input": "libs/web/shared/assets/src/assets",
                 "output": "assets"
-              }
+              },
+              "apps/angular-spotify/src/manifest.webmanifest"
             ],
             "styles": ["apps/angular-spotify/src/styles.scss"],
             "scripts": []
@@ -97,7 +98,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/angular-spotify/ngsw-config.json"
             }
           }
         },
