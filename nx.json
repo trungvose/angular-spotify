@@ -82,6 +82,7 @@
     "web-album-feature-detail": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-list": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-shell": { "tags": ["type:feature", "scope:web"] },
-    "web-album-data-access": { "tags": ["type:data-access", "scope:web"] }
+    "web-album-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-album-ui-album-track": { "tags": ["type:ui", "scope:web"] }
   }
 }

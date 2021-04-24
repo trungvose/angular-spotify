@@ -1,6 +1,6 @@
 <as-media-table-row *ngIf="item" class="playlist-tracks-grid track-row">
   <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
-    <as-media-order [index]="index" [isPlaying]="isPlaying!" (togglePlay)="togglePlayTrack($event)">
+    <as-media-order [index]="index + 1" [isPlaying]="isPlaying!" (togglePlay)="togglePlayTrack($event)">
     </as-media-order>
     <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"></as-track-main-info>
   </ng-container>

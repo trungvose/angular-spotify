@@ -6,7 +6,6 @@ import {
   Component,
   Input,
   OnInit,
-  ViewEncapsulation
 } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 
@@ -15,7 +14,6 @@ import { combineLatest, Observable, of } from 'rxjs';
   templateUrl: './playlist-track.component.html',
   styleUrls: ['./playlist-track.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
 })
 export class PlaylistTrackComponent implements OnInit {
   get item(): SpotifyApi.PlaylistTrackObject | undefined {
