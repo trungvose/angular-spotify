@@ -170,11 +170,13 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | --- | -------------------------- | --------------------------------------------------------------- |
 | 1   | Sat, 3rd April 2021, 10AM  | [Structure your Angular application with Nx workspace][live-01] |
 | 2   | Sat, 10th April 2021, 10AM | [Build the album list page][live-02]                            |
-| 3   | Sat, 17th April 2021, 10AM | [Build the album detail page][live-03]                          |
-| 4   | Sat, 24th April 2021, 10AM | [Build the artist detail page][live-04]                         |
-| 5   | Sat, 1st May 2021, 10AM    | [Build the track list page][live-05]                            |
-| 6   | TBD                        | Setup i18n and support new language                             |
-| 7   | TBD                        | Config Nx build:affected with Github action                     |
+| 3   | Sat, 17th April 2021, 10AM | [Build the album detail page - part 1][live-03]                 |
+| 4   | Sat, 24th April 2021, 10AM | [Build the album detail page - part 2][live-04]                 |
+| 5   | Sat, 24th April 2021, 10AM | [Build the artist detail page - part 1][live-05]                |
+| 6   | Sat, 24th April 2021, 10AM | [Build the artist detail page - part 2][live-06]                |
+| 7   | Sat, 1st May 2021, 10AM    | [Build the track list page][live-07]                            |
+| 8   | TBD                        | Setup i18n and support new language                             |
+| 9   | TBD                        | Config Nx build:affected with Github action                     |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
@@ -182,7 +184,9 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 [live-02]: https://www.youtube.com/watch?v=vEIxjcrXcDc
 [live-03]: https://youtu.be/c9-WTksAv-s
 [live-04]: https://www.youtube.com/watch?v=8P3pB40JF2w
-[live-05]: https://youtu.be/Oj4yomnxfj4
+[live-05]: https://youtu.be/fNhdd-O5c9c
+[live-06]: https://youtu.be/Tt51-pxm6Ko
+[live-07]: https://youtu.be/Oj4yomnxfj4
 
 ## Community
 

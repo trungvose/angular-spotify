@@ -14,6 +14,20 @@
       </as-play-button>
     </div>
 
+    <as-media-table-header>
+      <div class="album-tracks-grid">
+        <div>#</div>
+        <div class="text-xs uppercase ellipsis-one-line">Title</div>
+        <svg-icon [key]="'clock'"></svg-icon>
+      </div>
+    </as-media-table-header>
+
+    <div class="mb-8">
+      <as-album-track *ngFor="let track of album.tracks.items"
+                      [contextUri]="album.uri"
+                      [track]="track">
+      </as-album-track>
+    </div>
   </ng-container>
 
   <div class="px-8 mb-5 album-loading"
@@ -22,15 +36,4 @@
                        [title]="true">
     </as-tracks-loading>
   </div>
-  <p class="text-white">
-    Let continue building it on the next week live stream. Thanks everyone for joining :)
-  </p>
-  <iframe class="mt-6"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/8P3pB40JF2w"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
 </div>
