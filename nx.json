@@ -214,7 +214,10 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-visualizer-ui": {
-      "tags": ["type:ui"]
+      "tags": ["type:ui", "scope:web"]
+    },
+    "web-album-ui-album-track": {
+      "tags": ["type:ui", "scope:web"]
     }
   }
 }

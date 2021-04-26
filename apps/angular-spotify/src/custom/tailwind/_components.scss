@@ -42,6 +42,24 @@
     gap: 16px;
   }
 
+  .album-tracks-grid {
+    display: grid;
+    grid-template-columns: 24px 6fr minmax(120px, 1fr);
+    gap: 16px;
+  }
+
+  .track-row {
+    &:hover {
+      .track-order {
+        display: none;
+      }
+  
+      .track-play-button {
+        display: block;
+      }
+    }
+  }  
+
   .common-grid {
     gap: 24px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
