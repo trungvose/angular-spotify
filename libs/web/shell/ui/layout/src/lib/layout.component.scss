@@ -10,3 +10,14 @@
     'nav-bar         main-view      '
     'now-playing-bar now-playing-bar';
 }
+
+#pip-visualizer {
+  position: fixed;
+  right: 20px;
+  bottom: 95px;
+  z-index: 10;
+  height: 160px;
+  width: 250px;
+  overflow: hidden;
+  background-color: black;
+}

@@ -1,5 +1,9 @@
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-import { AudioAnalyser, initVisualizer } from '@angular-spotify/web/visualizer/data-access';
+import {
+  AudioAnalyser,
+  initVisualizer,
+  VisualizerStore
+} from '@angular-spotify/web/visualizer/data-access';
 import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -29,12 +33,14 @@ export class WebVisualizerUiComponent implements OnInit, OnDestroy {
   isFullscreen = false;
   sketch!: Sketch;
   analyser!: AudioAnalyser;
+  isVisualizerShownAsPiP$ = this.visualizerStore.isShownAsPiP$;
 
   @ViewChild('visualizer', { static: true }) visualizer!: ElementRef;
 
   constructor(
     private playbackStore: PlaybackStore,
-    @Inject(DOCUMENT) private readonly document: Document
+    @Inject(DOCUMENT) private readonly document: Document,
+    private visualizerStore: VisualizerStore
   ) {}
 
   ngOnInit(): void {
@@ -79,6 +85,14 @@ export class WebVisualizerUiComponent implements OnInit, OnDestroy {
       (this.visualizer.nativeElement as HTMLElement).requestFullscreen();
     }
     this.isFullscreen = !this.isFullscreen;
+  }
+
+  togglePiP() {
+    this.visualizerStore.togglePiP();
+  }
+
+  close() {
+    this.visualizerStore.setVisibility({ value: false });
   }
 
   ngOnDestroy() {
