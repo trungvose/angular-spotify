@@ -2,6 +2,6 @@
 <as-top-bar></as-top-bar>
 <as-main-view></as-main-view>
 <as-now-playing-bar></as-now-playing-bar>
-<as-album-art-overlay *ngIf="currentAlbumCoverUrl$ | async as imageUrl"
-                      [imageUrl]="imageUrl">
+<as-album-art-overlay *ngIf="currentAlbumCoverUrl$ | async as imageUrl" [imageUrl]="imageUrl">
 </as-album-art-overlay>
+<as-web-visualizer-ui *ngIf="showPiPVisualizer$ | async" id="pip-visualizer"></as-web-visualizer-ui>

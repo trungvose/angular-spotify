@@ -128,6 +128,7 @@
       "@angular-spotify/web/album/feature/list": ["libs/web/album/feature/list/src/index.ts"],
       "@angular-spotify/web/album/feature/shell": ["libs/web/album/feature/shell/src/index.ts"],
       "@angular-spotify/web/album/data-access": ["libs/web/album/data-access/src/index.ts"],
+      "@angular-spotify/web/visualizer/ui": ["libs/web/visualizer/ui/src/index.ts"],
       "@angular-spotify/web/album/ui/album-track": ["libs/web/album/ui/album-track/src/index.ts"]
     }
   },

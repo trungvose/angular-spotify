@@ -1488,6 +1488,31 @@
         }
       }
     },
+    "web-visualizer-ui": {
+      "projectType": "library",
+      "root": "libs/web/visualizer/ui",
+      "sourceRoot": "libs/web/visualizer/ui/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/visualizer/ui/src/**/*.ts",
+              "libs/web/visualizer/ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/visualizer/ui"],
+          "options": {
+            "jestConfig": "libs/web/visualizer/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-album-ui-album-track": {
       "projectType": "library",
       "root": "libs/web/album/ui/album-track",

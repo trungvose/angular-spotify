@@ -1,0 +1,31 @@
+$size: 32px;
+$faded: rgba(0, 0, 0, 0.7);
+
+:host {
+  overflow: hidden;
+}
+
+#visualizer {
+  background: url('/assets/images/noise.png');
+  overflow: hidden;
+}
+
+.visualizer-actions-wrapper {
+  @apply absolute p-2;
+  right: 0px;
+
+  .action-btn {
+    @apply ml-2;
+    border: none;
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: $faded;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+}

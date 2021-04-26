@@ -98,7 +98,8 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
             │       └── playlist-track (angular:lib, SCAM for Component)
             ├── visualizer (dir)
             │   ├── data-access (angular:lib)
-            │   └── feature
+            │   ├── feature
+            │   └── ui (angular:lib)
             ├── home (dir)
             │   ├── data-access (angular:lib)
             │   ├── feature (angular:lib)
