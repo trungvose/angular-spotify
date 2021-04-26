@@ -14,6 +14,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "cross-env NODE_ENV=production ng build --prod",
+    "build:prod:sourcemap": "cross-env NODE_ENV=production ng build --prod --source-map",
+    "build:prod:stats": "npm run build:prod:sourcemap && source-map-explorer dist/apps/angular-spotify/**/*.js",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
