@@ -1,5 +1,5 @@
 $size: 32px;
-$faded: rgba(0, 0, 0, 0.7);
+$black: #000;
 
 :host {
   overflow: hidden;
@@ -20,12 +20,15 @@ $faded: rgba(0, 0, 0, 0.7);
     height: $size;
     width: $size;
     border-radius: 50%;
-    background-color: $faded;
+    background-color: rgba($black, 0.7);
     color: #fff;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     position: relative;
     cursor: pointer;
+    &:hover {
+      background-color: rgba($black, 0.4);
+    }
   }
 }

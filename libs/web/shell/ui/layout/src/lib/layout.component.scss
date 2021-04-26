@@ -16,8 +16,10 @@
   right: 20px;
   bottom: 95px;
   z-index: 10;
-  height: 160px;
-  width: 250px;
+  height: 225px;
+  width: 400px;
   overflow: hidden;
-  background-color: black;
+  background-color: #181818;
+  border-radius: 4px;
+  @apply shadow-md;
 }
