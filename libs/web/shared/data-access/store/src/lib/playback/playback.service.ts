@@ -76,7 +76,7 @@ export class PlaybackService {
     player.addListener('player_state_changed', async (state: Spotify.PlaybackState) => {
       console.log(state);
       if (!state) {
-        console.info('No player info!');
+        console.info('[Angular Spotify] No player info!');
         return;
       }
       this.setAppTitle(state);
@@ -93,7 +93,7 @@ export class PlaybackService {
     });
 
     player.addListener('ready', ({ device_id }) => {
-      console.log('Ready with Device ID', device_id);
+      console.log('[Angular Spotify] Ready with Device ID', device_id);
       this.playbackStore.patchState({
         deviceId: device_id
       });
@@ -101,7 +101,7 @@ export class PlaybackService {
     });
 
     player.addListener('not_ready', ({ device_id }) => {
-      console.log('Device ID has gone offline', device_id);
+      console.log('[Angular Spotify] Device ID has gone offline', device_id);
     });
 
     await player.connect();

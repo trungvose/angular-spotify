@@ -71,7 +71,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       })),
       tap((params) => {
         this.patchState(params);
-        console.info('spotify authenticated');
+        console.info('[Angular Spotify] Authenticated!');
       }),
       tap(() => {
         this.setCurrentUser(this.spotify.getMe());
