@@ -389,6 +389,12 @@
         "type:feature",
         "scope:web"
       ]
+    },
+    "web-settings-data-access": {
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     }
   }
 }
