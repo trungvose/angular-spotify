@@ -1,7 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import {
+  SETTINGS_FEATURE_KEY,
+  settingsReducer,
+  SettingsEffects,
+  SettingsFacade,
+  initSettingsFromLocalStorage
+} from '@angular-spotify/web/settings/data-access';
 
 @NgModule({
-  imports: [CommonModule]
+  imports: [
+    StoreModule.forFeature(SETTINGS_FEATURE_KEY, settingsReducer, {
+      metaReducers: [initSettingsFromLocalStorage]
+    }),
+    EffectsModule.forFeature([SettingsEffects])
+  ],
+  providers: [SettingsFacade]
 })
 export class SettingsModule {}
