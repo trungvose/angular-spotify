@@ -16,6 +16,8 @@ Check out the **live application** -> https://spotify.trungk18.com
 
 ![Angular Spotify Blurry Background][album-art]
 
+![Angular Spotify PWA][pwa]
+
 ![Angular Spotify Web Player][web-player]
 
 ## Support
@@ -288,5 +290,6 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [visualizer]: /libs/web/shared/assets/src/assets/readme/angular-spotify-visualization.gif
 [angular-spotify-browse]: /libs/web/shared/assets/src/assets/readme/angular-spotify-browse.gif
 [album-art]: /libs/web/shared/assets/src/assets/readme/angular-spotify-album-art.gif
+[pwa]: /libs/web/shared/assets/src/assets/readme/angular-spotify-pwa.gif
 [web-player]: /libs/web/shared/assets/src/assets/readme/angular-spotify-web-player.png
 [nx-cloud]: /libs/web/shared/assets/src/assets/readme/nx-cloud.png
