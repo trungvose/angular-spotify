@@ -8,7 +8,7 @@ import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { combineLatest, Observable, of } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { filter, map, mergeMap, pluck, switchMap, tap } from 'rxjs/operators';
 
 interface AlbumState extends GenericState<SpotifyApi.AlbumObjectFull> {
@@ -47,7 +47,7 @@ export class AlbumStore extends ComponentStore<AlbumState> {
         });
       }),
       mergeMap(({ albumId }) =>
-        this.albumApi.getById(albumId).pipe(
+        this.albumApi.getAlbum(albumId).pipe(
           tapResponse(
             (album) => {
               this.patchState({
