@@ -7,8 +7,9 @@
     {{ description }}
   </div>
   <div class="flex">
-    <div class="text-sm font-bold text-white">{{ artist }}</div>
+    <div class="text-sm font-bold text-white" *ngIf="artist">{{ artist }}</div>
     <div class="media-info" *ngIf="likesCount">{{ likesCount }} likes</div>
     <div class="media-info" *ngIf="trackCount">{{ trackCount }} songs</div>
+    <div class="media-info" *ngIf="followerCount">{{ followerCount }} followers</div>
   </div>
 </div>

@@ -51,6 +51,7 @@ module.exports = {
     '<rootDir>/libs/web/album/feature/shell',
     '<rootDir>/libs/web/album/data-access',
     '<rootDir>/libs/web/visualizer/ui',
-    '<rootDir>/libs/web/album/ui/album-track'
+    '<rootDir>/libs/web/album/ui/album-track',
+    '<rootDir>/libs/web/artist/data-access'
   ]
 };
