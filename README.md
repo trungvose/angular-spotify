@@ -2,7 +2,7 @@
 
 A simple Spotify client built with Angular 11, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
-> I have recently shared about #angularspotify at [AngularAir][https://angularair.com], you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
+> I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
 
 ## Working application
 
