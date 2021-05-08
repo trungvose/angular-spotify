@@ -2,6 +2,8 @@
 
 A simple Spotify client built with Angular 11, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
+> I have recently shared about #angularspotify at [AngularAir][https://angularair.com], you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
+
 ## Working application
 
 Check out the **live application** -> https://spotify.trungk18.com
@@ -197,11 +199,15 @@ I have received some invitation to talk about Angular Spotify from the community
 
 [![BLS033](https://pbs.twimg.com/media/EzWVmV3UYAgjgY-?format=jpg&name=small)][01-beeman]
 
-| #   | Time                 | Description/Link                               |
-| --- | -------------------- | ---------------------------------------------- |
-| 1   | Wed, 21st April 2021 | [BLS SHOW & TELL - Angular Spotify][01-beeman] |
+[![AngularAir](https://pbs.twimg.com/media/E0zEECXXMAQNpsA?format=jpg&name=medium)][02-air]
+
+| #   | Time                 | Description/Link                                   |
+| --- | -------------------- | -------------------------------------------------- |
+| 1   | Wed, 21st April 2021 | [BLS SHOW & TELL - Angular Spotify][01-beeman]     |
+| 2   | Fri, 08th May 2021   | [AngularAir - Another 1k stars repository][02-air] |
 
 [01-beeman]: https://youtu.be/9zJcb6ZhBaI
+[02-air]: https://youtu.be/uPB0KHKlrU8
 
 ## Time spending
 
