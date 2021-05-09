@@ -20,7 +20,7 @@ export class AlbumApiService {
     );
   }
 
-  getById(albumId: string) {
+  getAlbum(albumId: string) {
     return this.http.get<SpotifyApi.AlbumObjectFull>(`${this.appConfig.baseURL}/albums/${albumId}`);
   }
 
