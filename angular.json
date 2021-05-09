@@ -1582,6 +1582,7 @@
             "passWithNoTests": true
           }
         }
+      }
     },
     "web-artist-data-access": {
       "projectType": "library",

@@ -85,7 +85,7 @@
     "web-album-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-visualizer-ui": { "tags": ["type:ui", "scope:web"] },
     "web-album-ui-album-track": { "tags": ["type:ui", "scope:web"] },
-    "web-artist-data-access": { "tags": ["type"] },
+    "web-artist-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-settings-feature": { "tags": ["type:feature", "scope:web"] },
     "web-settings-data-access": { "tags": ["type:data-access", "scope:web"] }
   }

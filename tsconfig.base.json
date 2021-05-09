@@ -131,7 +131,7 @@
       "@angular-spotify/web/visualizer/ui": ["libs/web/visualizer/ui/src/index.ts"],
       "@angular-spotify/web/album/ui/album-track": ["libs/web/album/ui/album-track/src/index.ts"],
       "@angular-spotify/web/settings/feature": ["libs/web/settings/feature/src/index.ts"],
-      "@angular-spotify/web/settings/data-access": ["libs/web/settings/data-access/src/index.ts"]
+      "@angular-spotify/web/settings/data-access": ["libs/web/settings/data-access/src/index.ts"],
       "@angular-spotify/web/artist/data-access": ["libs/web/artist/data-access/src/index.ts"]
     }
   },
