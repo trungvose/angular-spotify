@@ -1538,6 +1538,52 @@
         }
       }
     },
+    "web-settings-feature": {
+      "projectType": "library",
+      "root": "libs/web/settings/feature",
+      "sourceRoot": "libs/web/settings/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/settings/feature/src/**/*.ts",
+              "libs/web/settings/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/settings/feature"],
+          "options": {
+            "jestConfig": "libs/web/settings/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-settings-data-access": {
+      "root": "libs/web/settings/data-access",
+      "sourceRoot": "libs/web/settings/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/settings/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/settings/data-access"],
+          "options": {
+            "jestConfig": "libs/web/settings/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-artist-data-access": {
       "projectType": "library",
       "root": "libs/web/artist/data-access",

@@ -93,6 +93,9 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
             │   ├── feature (angular:lib) - for configure any forRoot modules
             │   └── ui
             │       └── layout (angular:lib)
+            ├── settings (dir)
+            │   ├── feature (angular:lib) - for configure and persist all settings
+            │   └── data-access (workspace:lib) - store and services for settings module
             ├── playlist (dir)
             │   ├── data-access (angular:lib, service, state management)
             │   ├── features
