@@ -20,6 +20,8 @@ import { debounceTime, map, switchMap } from 'rxjs/operators';
 export class PlayerVolumeComponent {
   setVolume$ = new Subject<number>();
   volume$ = this.playbackStore.volume$;
+  /** Holds the value of volume. */
+  private _volume!: number;
   volumeIcon$ = this.volume$.pipe(
     map((volume) => volume * 100),
     map((volume) => {
@@ -32,6 +34,8 @@ export class PlayerVolumeComponent {
       return new VolumeMuteIcon();
     })
   );
+  /** Holds the value of volume before muted. */
+  private _mutedVolume!: number;
 
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
     this.setVolume$
@@ -41,10 +45,17 @@ export class PlayerVolumeComponent {
         untilDestroyed(this)
       )
       .subscribe();
+
+    this.volume$.subscribe((volume) => this._volume = volume);
   }
 
   toggleMute() {
-    this.setVolume$.next(0);
+    if (this._volume > 0) {
+      this._mutedVolume = this._volume;
+      this.setVolume$.next(0);
+    } else {
+      this.setVolume$.next(this._mutedVolume);
+    }
   }
 
   async changeVolume(positions: NzSliderValue) {
