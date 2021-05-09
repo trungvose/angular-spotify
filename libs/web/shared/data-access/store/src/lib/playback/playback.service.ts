@@ -20,7 +20,7 @@ export class PlaybackService {
   init() {
     this.authStore.token$
       .pipe(
-        withLatestFrom(this.playbackStore.volume$),
+        withLatestFrom(this.settingsFacade.volume$),
         tap(([token, volume]) => {
           this.initPlaybackSDK(token, volume);
         })
