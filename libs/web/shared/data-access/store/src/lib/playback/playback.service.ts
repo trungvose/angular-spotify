@@ -1,10 +1,11 @@
 import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { tap } from 'rxjs/operators';
+import { switchMap, take, tap } from 'rxjs/operators';
 import { PlaybackStore } from './playback.store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Observable } from 'rxjs';
+import { SettingsFacade } from '@angular-spotify/web/settings/data-access';
 
 @Injectable({ providedIn: 'root' })
 export class PlaybackService {
@@ -12,7 +13,8 @@ export class PlaybackService {
     private authStore: AuthStore,
     private playbackStore: PlaybackStore,
     private playerApi: PlayerApiService,
-    private titleService: Title
+    private titleService: Title,
+    private settingsFacade: SettingsFacade
   ) {}
 
   init() {
@@ -21,6 +23,14 @@ export class PlaybackService {
         tap((token) => {
           this.initPlaybackSDK(token);
         })
+      )
+      .subscribe();
+
+    // init volume from settings (local storage)
+    this.settingsFacade.volume$
+      .pipe(
+        take(1),
+        switchMap((volume) => this.setVolume(volume))
       )
       .subscribe();
   }
@@ -45,7 +55,8 @@ export class PlaybackService {
     this.playbackStore.patchState({
       volume
     });
-    return this.playerApi.setVolume(Math.floor(volume * 100))
+    this.settingsFacade.persistVolume(volume);
+    return this.playerApi.setVolume(Math.floor(volume * 100));
   }
 
   private async initPlaybackSDK(token: string) {
