@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
 import { Subject } from 'rxjs';
-import { debounceTime, map, switchMap } from 'rxjs/operators';
+import { debounceTime, map, switchMap, tap } from 'rxjs/operators';
 
 @UntilDestroy()
 @Component({
@@ -18,10 +18,9 @@ import { debounceTime, map, switchMap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerVolumeComponent {
-  setVolume$ = new Subject<number>();
-  volume$ = this.playbackStore.volume$;
-  /** Holds the value of volume. */
   private _volume!: number;
+  volume$ = this.playbackStore.volume$.pipe(tap((volume) => (this._volume = volume)));
+  setVolume$ = new Subject<number>();
   volumeIcon$ = this.volume$.pipe(
     map((volume) => volume * 100),
     map((volume) => {
@@ -34,8 +33,8 @@ export class PlayerVolumeComponent {
       return new VolumeMuteIcon();
     })
   );
-  /** Holds the value of volume before muted. */
-  private _mutedVolume!: number;
+
+  private _beforeMutedVolume!: number;
 
   constructor(private playbackStore: PlaybackStore, private playbackService: PlaybackService) {
     this.setVolume$
@@ -45,16 +44,14 @@ export class PlayerVolumeComponent {
         untilDestroyed(this)
       )
       .subscribe();
-
-    this.volume$.subscribe((volume) => this._volume = volume);
   }
 
   toggleMute() {
     if (this._volume > 0) {
-      this._mutedVolume = this._volume;
+      this._beforeMutedVolume = this._volume;
       this.setVolume$.next(0);
     } else {
-      this.setVolume$.next(this._mutedVolume);
+      this.setVolume$.next(this._beforeMutedVolume);
     }
   }
 
