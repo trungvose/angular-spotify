@@ -23,6 +23,7 @@ import {
   playlistTracksReducer
 } from '@angular-spotify/web/playlist/data-access';
 import { extModules } from './build-specifics';
+import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 registerLocaleData(en);
 
 const rootReducers = {
@@ -36,8 +37,10 @@ const rootReducers = {
     WebLayoutModule,
     IconModule,
     NoopAnimationsModule,
+    QuicklinkModule,
     RouterModule.forRoot(webShellRoutes, {
-      scrollPositionRestoration: 'top'
+      scrollPositionRestoration: 'top',
+      preloadingStrategy: QuicklinkStrategy
     }),
     StoreModule.forRoot(rootReducers),
     EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect]),
