@@ -2,6 +2,7 @@
   class="control-button hover:text-white"
   *ngIf="volumeIcon$ | async as volumeIcon"
   [key]="volumeIcon.icon"
+  [title]="volumeIcon.title"
   (click)="toggleMute()"
 >
 </svg-icon>
