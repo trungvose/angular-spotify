@@ -15,7 +15,7 @@
 .media-info {
   @apply text-white text-opacity-70;
 
-  &:before {
+  &:not(:first-child):before {
     content: '•';
     margin: 0px 4px;
   }
