@@ -3,13 +3,12 @@
 <div class="flex flex-col">
   <h3 class="text-sm text-white uppercase">{{ type }}</h3>
   <h2 class="media-title ellipsis-one-line">{{ title }}</h2>
-  <div class="mt-3 mb-2 text-description">
-    {{ description }}
-  </div>
+  <div class="mt-3 mb-2 text-description" [innerHTML]="description"></div>
   <div class="flex">
     <div class="text-sm font-bold text-white" *ngIf="artist">{{ artist }}</div>
-    <div class="media-info" *ngIf="likesCount">{{ likesCount }} likes</div>
-    <div class="media-info" *ngIf="trackCount">{{ trackCount }} songs</div>
-    <div class="media-info" *ngIf="followerCount">{{ followerCount }} followers</div>
+    <div class="media-info" *ngIf="likesCount">{{ likesCount | i18nPlural : likeMapping}}</div>
+    <div class="media-info" *ngIf="releaseDate">{{ releaseDate | date:'yyyy'}}</div>
+    <div class="media-info" *ngIf="trackCount">{{ trackCount | i18nPlural : songMapping }}</div>
+    <div class="media-info" *ngIf="followerCount">{{ followerCount | i18nPlural : followerMapping }}</div>
   </div>
 </div>

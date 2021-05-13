@@ -15,4 +15,9 @@ export class MediaSummaryComponent {
   @Input() likesCount: number | undefined;
   @Input() followerCount: number | undefined;
   @Input() imageUrl: string | undefined;
+  @Input() releaseDate: string | undefined;
+
+  likeMapping: {[k: string]: string} = {'=1': '# like', 'other': '# likes'};
+  songMapping: {[k: string]: string} = {'=1': '# song', 'other': '# songs'};
+  followerMapping: {[k: string]: string} = {'=1': '# follower', 'other': '# followers'};
 }

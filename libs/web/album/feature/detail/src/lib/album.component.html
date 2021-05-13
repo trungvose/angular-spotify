@@ -4,7 +4,8 @@
                       [title]="album.name"
                       [imageUrl]="album.images[0]?.url"
                       [artist]="album.artists[0]?.name"
-                      [trackCount]="album.tracks.total">
+                      [trackCount]="album.tracks.total"
+                      [releaseDate]="album.release_date">
     </as-media-summary>
     <div class="pt-0 pb-6">
       <as-play-button [large]="true"
