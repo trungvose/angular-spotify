@@ -54,6 +54,7 @@ module.exports = {
     '<rootDir>/libs/web/album/ui/album-track',
     '<rootDir>/libs/web/settings/feature',
     '<rootDir>/libs/web/settings/data-access',
-    '<rootDir>/libs/web/artist/data-access'
+    '<rootDir>/libs/web/artist/data-access',
+    '<rootDir>/libs/web/artist/ui/artist-top-tracks'
   ]
 };

@@ -1,30 +1,17 @@
-<div class="content-spacing">
-  <as-media-summary *ngIf="artist$ | async as artist"
-                    [type]="'Artist'"
-                    [title]="artist.name"
-                    [imageUrl]="artist.images[0]?.url"
-                    [followerCount]="artist.followers.total">
-  </as-media-summary>
-  
-  <div class="px-8 mb-5"
-       *ngIf="isArtistLoading$ | async">
-    <as-tracks-loading [avatar]="true"
-                       [title]="true"
-                       [rows]="2">
-    </as-tracks-loading>
+<ng-container *ngIf="artist$ | async as artist">
+  <div class="content-spacing">
+    <as-media-summary
+      [type]="'Artist'"
+      [title]="artist.name"
+      [imageUrl]="artist.images[0]?.url"
+      [followerCount]="artist.followers.total"
+    >
+    </as-media-summary>
+
+    <div class="px-8 mb-5" *ngIf="isArtistLoading$ | async">
+      <as-tracks-loading [avatar]="true" [title]="true" [rows]="2"> </as-tracks-loading>
+    </div>
+
+    <as-artist-top-tracks></as-artist-top-tracks>
   </div>
-
-  <ng-container [ngTemplateOutlet]="workInProgressTmpl"></ng-container>
-</div>
-
-<ng-template #workInProgressTmpl>
-  <as-work-in-progress [featureName]="'artist detail page'"></as-work-in-progress>
-  <iframe class="mt-6"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Tt51-pxm6Ko"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-</ng-template>
+</ng-container>

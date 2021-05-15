@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
 import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loading';
+import { WebArtistUiArtistTopTracksModule } from '@angular-spotify/web/artist/ui/artist-top-tracks';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loadi
       }
     ]),
     MediaSummaryModule,
-    TracksLoadingModule
+    TracksLoadingModule,
+    WebArtistUiArtistTopTracksModule
   ],
   declarations: [ArtistComponent],
   exports: [ArtistComponent]
