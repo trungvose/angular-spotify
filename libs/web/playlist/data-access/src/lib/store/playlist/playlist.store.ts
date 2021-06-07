@@ -33,11 +33,11 @@ type PlayTrackParams = {
 export class PlaylistStore extends FeatureStore<PlaylistState> {
   playlistParams$: Observable<string> = this.route.params.pipe(
     map((params) => params.playlistId),
-    filter((playlistId) => !!playlistId)
+    filter((playlistId: string) => !!playlistId)
   );
 
-  isPlaylistTracksLoading$ = this.store.select(getPlaylistTracksLoading);
   isCurrentPlaylistLoading$ = this.select(SelectorUtil.isLoading);
+  isPlaylistTracksLoading$ = this.store.select(getPlaylistTracksLoading);
 
   playlist$ = this.playlistParams$.pipe(
     tap((playlistId) => {
@@ -77,7 +77,7 @@ export class PlaylistStore extends FeatureStore<PlaylistState> {
           error: null
         });
       }),
-      map(([action]) => action),
+      map(([params]) => params),
       mergeMap(({ playlistId }) =>
         this.playlistsApi.getById(playlistId).pipe(
           tap(

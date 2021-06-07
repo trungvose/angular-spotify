@@ -4,7 +4,9 @@ import { ArtistComponent } from './artist.component';
 import { WorkInProgressModule } from '@angular-spotify/web/shared/ui/work-in-progress';
 import { RouterModule } from '@angular/router';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
-
+import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
+import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loading';
+import { WebArtistUiArtistTopTracksModule } from '@angular-spotify/web/artist/ui/artist-top-tracks';
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +16,10 @@ import { RouterUtil } from '@angular-spotify/web/shared/utils';
         path: `:${RouterUtil.Configuration.ArtistId}`,
         component: ArtistComponent
       }
-    ])
+    ]),
+    MediaSummaryModule,
+    TracksLoadingModule,
+    WebArtistUiArtistTopTracksModule
   ],
   declarations: [ArtistComponent],
   exports: [ArtistComponent]

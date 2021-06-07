@@ -4,6 +4,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { webShellRoutes } from './web-shell.routes';
 import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
+import { SettingsModule } from '@angular-spotify/web/settings/feature';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import * as Sentry from '@sentry/angular';
@@ -39,7 +40,8 @@ const rootReducers = {
     }),
     StoreModule.forRoot({reducers: rootReducers}),
     EffectsModule.register([PlaylistsEffect, PlaylistTracksEffect]),
-    ...extModules,
+    SettingsModule,
+    ...extModules
   ],
   exports: [RouterModule],
   providers: [

@@ -71,7 +71,7 @@ export class AuthStore extends FeatureStore<AuthState> {
       })),
       tap((params) => {
         this.setState(params);
-        console.info('spotify authenticated');
+        console.info('[Angular Spotify] Authenticated!');
       }),
       switchMap(() => this.spotify.getMe()),
       tap((me) => {

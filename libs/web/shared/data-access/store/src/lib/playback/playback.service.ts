@@ -1,10 +1,11 @@
 import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { tap } from 'rxjs/operators';
+import { switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
 import { PlaybackStore } from './playback.store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Observable } from 'rxjs';
+import { SettingsFacade } from '@angular-spotify/web/settings/data-access';
 
 @Injectable({ providedIn: 'root' })
 export class PlaybackService {
@@ -12,15 +13,25 @@ export class PlaybackService {
     private authStore: AuthStore,
     private playbackStore: PlaybackStore,
     private playerApi: PlayerApiService,
-    private titleService: Title
+    private titleService: Title,
+    private settingsFacade: SettingsFacade
   ) {}
 
   init() {
     this.authStore.token$
       .pipe(
-        tap((token) => {
-          this.initPlaybackSDK(token);
+        withLatestFrom(this.settingsFacade.volume$),
+        tap(([token, volume]) => {
+          this.initPlaybackSDK(token, volume);
         })
+      )
+      .subscribe();
+
+    // init volume from settings (local storage)
+    this.settingsFacade.volume$
+      .pipe(
+        take(1),
+        switchMap((volume) => this.setVolume(volume))
       )
       .subscribe();
   }
@@ -45,16 +56,18 @@ export class PlaybackService {
     this.playbackStore.setState({
       volume
     });
-    return this.playerApi.setVolume(Math.floor(volume * 100))
+    this.settingsFacade.persistVolume(volume);
+    return this.playerApi.setVolume(Math.floor(volume * 100));
   }
 
-  private async initPlaybackSDK(token: string) {
+  private async initPlaybackSDK(token: string, volume: number) {
     const { Player } = await this.waitForSpotifyWebPlaybackSDKToLoad();
     const player = new Player({
       name: 'Angular Spotify Web Player',
       getOAuthToken: (cb) => {
         cb(token);
-      }
+      },
+      volume
     });
 
     player.addListener('initialization_error', ({ message }) => {
@@ -76,7 +89,7 @@ export class PlaybackService {
     player.addListener('player_state_changed', async (state: Spotify.PlaybackState) => {
       console.log(state);
       if (!state) {
-        console.info('No player info!');
+        console.info('[Angular Spotify] No player info!');
         return;
       }
       this.setAppTitle(state);
@@ -93,7 +106,7 @@ export class PlaybackService {
     });
 
     player.addListener('ready', ({ device_id }) => {
-      console.log('Ready with Device ID', device_id);
+      console.log('[Angular Spotify] Ready with Device ID', device_id);
       this.playbackStore.setState({
         deviceId: device_id
       });
@@ -101,7 +114,7 @@ export class PlaybackService {
     });
 
     player.addListener('not_ready', ({ device_id }) => {
-      console.log('Device ID has gone offline', device_id);
+      console.log('[Angular Spotify] Device ID has gone offline', device_id);
     });
 
     await player.connect();

@@ -78,10 +78,16 @@
     "web-browse-ui-category-cover": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-spinner": { "tags": ["type:ui", "scope:web"] },
     "web-shared-ui-playlist-list": { "tags": ["type:ui", "scope:web"] },
-    "web-shared-assets": { "tags": ["type:assets"], "implicitDependencies": ["angular-spotify"] },
+    "web-shared-assets": { "tags": ["type:assets"] },
     "web-album-feature-detail": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-list": { "tags": ["type:feature", "scope:web"] },
     "web-album-feature-shell": { "tags": ["type:feature", "scope:web"] },
-    "web-album-data-access": { "tags": ["type:data-access", "scope:web"] }
+    "web-album-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-visualizer-ui": { "tags": ["type:ui", "scope:web"] },
+    "web-album-ui-album-track": { "tags": ["type:ui", "scope:web"] },
+    "web-artist-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-settings-feature": { "tags": ["type:feature", "scope:web"] },
+    "web-settings-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-artist-ui-artist-top-tracks": { "tags": ["type:ui", "scope:web"] }
   }
 }
