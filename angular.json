@@ -62,7 +62,8 @@
                 "glob": "**/*",
                 "input": "libs/web/shared/assets/src/assets",
                 "output": "assets"
-              }
+              },
+              "apps/angular-spotify/src/manifest.webmanifest"
             ],
             "styles": ["apps/angular-spotify/src/styles.scss"],
             "scripts": []
@@ -97,7 +98,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/angular-spotify/ngsw-config.json"
             }
           }
         },
@@ -1480,6 +1483,152 @@
           "outputs": ["coverage/libs/web/album/data-access"],
           "options": {
             "jestConfig": "libs/web/album/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-visualizer-ui": {
+      "projectType": "library",
+      "root": "libs/web/visualizer/ui",
+      "sourceRoot": "libs/web/visualizer/ui/src",
+      "prefix": "angular-spotify",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/visualizer/ui/src/**/*.ts",
+              "libs/web/visualizer/ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/visualizer/ui"],
+          "options": {
+            "jestConfig": "libs/web/visualizer/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-album-ui-album-track": {
+      "projectType": "library",
+      "root": "libs/web/album/ui/album-track",
+      "sourceRoot": "libs/web/album/ui/album-track/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/album/ui/album-track/src/**/*.ts",
+              "libs/web/album/ui/album-track/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/album/ui/album-track"],
+          "options": {
+            "jestConfig": "libs/web/album/ui/album-track/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-settings-feature": {
+      "projectType": "library",
+      "root": "libs/web/settings/feature",
+      "sourceRoot": "libs/web/settings/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/settings/feature/src/**/*.ts",
+              "libs/web/settings/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/settings/feature"],
+          "options": {
+            "jestConfig": "libs/web/settings/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-settings-data-access": {
+      "root": "libs/web/settings/data-access",
+      "sourceRoot": "libs/web/settings/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/settings/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/settings/data-access"],
+          "options": {
+            "jestConfig": "libs/web/settings/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-artist-data-access": {
+      "projectType": "library",
+      "root": "libs/web/artist/data-access",
+      "sourceRoot": "libs/web/artist/data-access/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/artist/data-access/src/**/*.ts",
+              "libs/web/artist/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/artist/data-access"],
+          "options": {
+            "jestConfig": "libs/web/artist/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-artist-ui-artist-top-tracks": {
+      "projectType": "library",
+      "root": "libs/web/artist/ui/artist-top-tracks",
+      "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/artist/ui/artist-top-tracks/src/**/*.ts",
+              "libs/web/artist/ui/artist-top-tracks/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+          "options": {
+            "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
             "passWithNoTests": true
           }
         }

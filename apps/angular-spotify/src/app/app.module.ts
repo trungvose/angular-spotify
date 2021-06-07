@@ -10,8 +10,18 @@ import {
 } from '@angular-spotify/web/auth/util';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, WebShellModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    WebShellModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000'
+    })
+  ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [

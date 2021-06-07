@@ -49,6 +49,12 @@ module.exports = {
     '<rootDir>/libs/web/shared/ui/playlist-list',
     '<rootDir>/libs/web/album/feature/list',
     '<rootDir>/libs/web/album/feature/shell',
-    '<rootDir>/libs/web/album/data-access'
+    '<rootDir>/libs/web/album/data-access',
+    '<rootDir>/libs/web/visualizer/ui',
+    '<rootDir>/libs/web/album/ui/album-track',
+    '<rootDir>/libs/web/settings/feature',
+    '<rootDir>/libs/web/settings/data-access',
+    '<rootDir>/libs/web/artist/data-access',
+    '<rootDir>/libs/web/artist/ui/artist-top-tracks'
   ]
 };

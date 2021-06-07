@@ -1,0 +1,15 @@
+<as-media-table-row class="album-tracks-grid track-row"
+                    (dblclick)="togglePlayTrack(false)">
+  <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
+    <as-media-order [index]="track.track_number"
+                    [isPlaying]="isPlaying!"
+                    (togglePlay)="togglePlayTrack($event)">
+    </as-media-order>
+    <as-track-main-info [track]="$any(track)"
+                        [isPlaying]="isPlaying">
+    </as-track-main-info>
+  </ng-container>
+  <div class="text-description">
+    {{ track.duration_ms | duration }}
+  </div>
+</as-media-table-row>

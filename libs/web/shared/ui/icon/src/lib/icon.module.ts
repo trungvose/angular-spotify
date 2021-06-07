@@ -19,6 +19,9 @@ import { asEmojiHeartEyesIcon } from './svg/emoji-heart-eyes';
 import { asCupFillIcon } from './svg/cup-fill';
 import { asCupStrawIcon } from './svg/cup-straw';
 import { asCaretDownFillIcon } from './svg/caret-down-fill';
+import { asTimesIcon } from './svg/times';
+import { asExpandIcon } from './svg/expand';
+import { asShrinkIcon } from './svg/shrink';
 
 @NgModule({
   imports: [
@@ -41,8 +44,11 @@ import { asCaretDownFillIcon } from './svg/caret-down-fill';
         asCupIcon,
         asCupFillIcon,
         asCupStrawIcon,
-        asEmojiHeartEyesIcon, 
-        asCaretDownFillIcon
+        asEmojiHeartEyesIcon,
+        asCaretDownFillIcon,
+        asTimesIcon,
+        asExpandIcon,
+        asShrinkIcon
       ]
     })
   ],

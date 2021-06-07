@@ -2,6 +2,8 @@
 
 A simple Spotify client built with Angular 11, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
+> I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
+
 ## Working application
 
 Check out the **live application** -> https://spotify.trungk18.com
@@ -15,6 +17,8 @@ Check out the **live application** -> https://spotify.trungk18.com
 ![Angular Spotify Browse][angular-spotify-browse]
 
 ![Angular Spotify Blurry Background][album-art]
+
+![Angular Spotify PWA][pwa]
 
 ![Angular Spotify Web Player][web-player]
 
@@ -89,6 +93,9 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
             │   ├── feature (angular:lib) - for configure any forRoot modules
             │   └── ui
             │       └── layout (angular:lib)
+            ├── settings (dir)
+            │   ├── feature (angular:lib) - for configure and persist all settings
+            │   └── data-access (workspace:lib) - store and services for settings module
             ├── playlist (dir)
             │   ├── data-access (angular:lib, service, state management)
             │   ├── features
@@ -98,7 +105,8 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
             │       └── playlist-track (angular:lib, SCAM for Component)
             ├── visualizer (dir)
             │   ├── data-access (angular:lib)
-            │   └── feature
+            │   ├── feature
+            │   └── ui (angular:lib)
             ├── home (dir)
             │   ├── data-access (angular:lib)
             │   ├── feature (angular:lib)
@@ -170,11 +178,13 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | --- | -------------------------- | --------------------------------------------------------------- |
 | 1   | Sat, 3rd April 2021, 10AM  | [Structure your Angular application with Nx workspace][live-01] |
 | 2   | Sat, 10th April 2021, 10AM | [Build the album list page][live-02]                            |
-| 3   | Sat, 17th April 2021, 10AM | [Build the album detail page][live-03]                          |
-| 4   | Sat, 24th April 2021, 10AM | [Build the artist detail page][live-04]                         |
-| 5   | Sat, 1st May 2021, 10AM    | [Build the track list page][live-05]                            |
-| 6   | TBD                        | Setup i18n and support new language                             |
-| 7   | TBD                        | Config Nx build:affected with Github action                     |
+| 3   | Sat, 17th April 2021, 10AM | [Build the album detail page - part 1][live-03]                 |
+| 4   | Sat, 24th April 2021, 10AM | [Build the album detail page - part 2][live-04]                 |
+| 5   | Sat, 8th May 2021, 10AM    | [Build the artist detail page - part 1][live-05]                |
+| 6   | Sat, 15th May 2021, 10AM   | [Build the artist detail page - part 2][live-06]                |
+| 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page][live-07]                            |
+| 8   | TBD                        | Setup i18n and support new language                             |
+| 9   | TBD                        | Config Nx build:affected with Github action                     |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
@@ -182,7 +192,25 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 [live-02]: https://www.youtube.com/watch?v=vEIxjcrXcDc
 [live-03]: https://youtu.be/c9-WTksAv-s
 [live-04]: https://www.youtube.com/watch?v=8P3pB40JF2w
-[live-05]: https://youtu.be/Oj4yomnxfj4
+[live-05]: https://youtu.be/fNhdd-O5c9c
+[live-06]: https://youtu.be/Tt51-pxm6Ko
+[live-07]: https://youtu.be/Oj4yomnxfj4
+
+## Community
+
+I have received some invitation to talk about Angular Spotify from the community. You can watch my talks below 🙂
+
+[![BLS033](https://pbs.twimg.com/media/EzWVmV3UYAgjgY-?format=jpg&name=small)][01-beeman]
+
+[![AngularAir](https://pbs.twimg.com/media/E0zEECXXMAQNpsA?format=jpg&name=medium)][02-air]
+
+| #   | Time                 | Description/Link                                   |
+| --- | -------------------- | -------------------------------------------------- |
+| 1   | Wed, 21st April 2021 | [BLS SHOW & TELL - Angular Spotify][01-beeman]     |
+| 2   | Fri, 08th May 2021   | [AngularAir - Another 1k stars repository][02-air] |
+
+[01-beeman]: https://youtu.be/9zJcb6ZhBaI
+[02-air]: https://youtu.be/uPB0KHKlrU8
 
 ## Time spending
 
@@ -271,5 +299,6 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [visualizer]: /libs/web/shared/assets/src/assets/readme/angular-spotify-visualization.gif
 [angular-spotify-browse]: /libs/web/shared/assets/src/assets/readme/angular-spotify-browse.gif
 [album-art]: /libs/web/shared/assets/src/assets/readme/angular-spotify-album-art.gif
+[pwa]: /libs/web/shared/assets/src/assets/readme/angular-spotify-pwa.gif
 [web-player]: /libs/web/shared/assets/src/assets/readme/angular-spotify-web-player.png
 [nx-cloud]: /libs/web/shared/assets/src/assets/readme/nx-cloud.png
