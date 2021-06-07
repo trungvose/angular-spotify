@@ -13,7 +13,7 @@ interface ArtistTopTracksState extends GenericState<SpotifyApi.ArtistsTopTracksR
 
 const featureKey = 'ArtistTopTracks';
 
-const featureSelector = createFeatureSelector<ArtistTopTracksState>(featureKey);
+const featureSelector = createFeatureSelector<ArtistTopTracksState>(); // The feature key is not needed when selectors are executed on a FeatureStore
 const getData = createSelector(featureSelector, state => state.data);
 const getStatus = createSelector(featureSelector, state => state.status);
 const getError = createSelector(featureSelector, state => state.error);
