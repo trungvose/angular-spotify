@@ -1,46 +1,48 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
 import { Injectable } from '@angular/core';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
+import { catchError, filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { ArtistStore } from './artist.store';
+import { createFeatureSelector, createSelector, FeatureStore } from 'mini-rx-store';
+import { EMPTY } from 'rxjs';
 
 interface ArtistTopTracksState extends GenericState<SpotifyApi.ArtistsTopTracksResponse> {
   artistId: string;
 }
 
-@Injectable()
-export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
-  readonly data$ = this.select((s) => s.data);
-  readonly status$ = this.select((s) => s.status);
-  readonly error$ = this.select((s) => s.error);
+const featureKey = 'ArtistTopTracks';
 
-  readonly vm$ = this.select(
-    this.data$,
-    this.error$,
-    this.status$,
-    (data, error, status) => ({ data, error, status }),
-    { debounce: true }
-  );
+const featureSelector = createFeatureSelector<ArtistTopTracksState>(featureKey);
+const getData = createSelector(featureSelector, state => state.data);
+const getStatus = createSelector(featureSelector, state => state.status);
+const getError = createSelector(featureSelector, state => state.error);
+const getVm = createSelector(getData, getStatus, getError, (data, status, error) => {
+  return { data, error, status };
+})
+
+@Injectable()
+export class ArtistTopTracksStore extends FeatureStore<ArtistTopTracksState> {
+  readonly vm$ = this.select(getVm);
 
   loadArtistTopTracks = this.effect<{ artistId: string }>((params$) =>
     params$.pipe(
       filter((artist) => artist.artistId !== ''),
-      tap(() => this.patchState({ status: 'loading', error: null })),
+      tap(() => this.setState({ status: 'loading', error: null })),
       withLatestFrom(this.authStore.country$),
       mergeMap(([{ artistId }, country]) =>
         this.artistApi.getArtistTopTracks(artistId, country).pipe(
-          tapResponse(
+          tap(
             (data) => {
-              this.patchState({
+              this.setState({
                 data,
                 status: 'success',
                 error: ''
               });
             },
-            (error) => this.patchState({ status: 'error', error: error as string })
-          )
+            (error) => this.setState({ status: 'error', error: error as string })
+          ),
+          catchError(() => EMPTY)
         )
       )
     )
@@ -51,9 +53,10 @@ export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
     private readonly authStore: AuthStore,
     private readonly artistApi: ArtistApiService
   ) {
-    super(<ArtistTopTracksState>{});
-    this.loadArtistTopTracks(
-      this.artistStore.artist$.pipe(map((artist) => ({ artistId: artist ? artist.id : '' })))
-    );
+    super(featureKey, <ArtistTopTracksState>{});
+
+    this.artistStore.artist$.pipe(map((artist) => ({ artistId: artist ? artist.id : '' }))).subscribe(
+      artistId => this.loadArtistTopTracks(artistId)
+    )
   }
 }

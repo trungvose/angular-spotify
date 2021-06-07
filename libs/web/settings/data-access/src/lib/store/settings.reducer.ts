@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { reducer as createReducer, on } from 'ts-action';
 import * as SettingsActions from './settings.actions';
 
 export const SETTINGS_FEATURE_KEY = 'settings';

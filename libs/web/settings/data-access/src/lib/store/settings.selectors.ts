@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from 'mini-rx-store';
 import { SETTINGS_FEATURE_KEY, SettingsState } from './settings.reducer';
 
 export const getSettings = createFeatureSelector<SettingsState>(SETTINGS_FEATURE_KEY);

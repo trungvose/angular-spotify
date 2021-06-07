@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { ComponentStore } from '@ngrx/component-store';
 import { filter, map, tap, withLatestFrom } from 'rxjs/operators';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
+import { FeatureStore } from 'mini-rx-store';
 
 interface VisualizerState {
   isVisible: boolean;
@@ -11,9 +11,9 @@ interface VisualizerState {
 }
 
 @Injectable({ providedIn: 'root' })
-export class VisualizerStore extends ComponentStore<VisualizerState> {
+export class VisualizerStore extends FeatureStore<VisualizerState> {
   constructor(private router: Router, private location: Location) {
-    super({ isVisible: false, isShownAsPiP: false });
+    super('Visualizer', { isVisible: false, isShownAsPiP: false });
 
     this.router.events
       .pipe(
@@ -21,7 +21,7 @@ export class VisualizerStore extends ComponentStore<VisualizerState> {
         map((e: NavigationEnd) =>
           e.urlAfterRedirects.includes(RouterUtil.Configuration.Visualizer)
         ),
-        withLatestFrom(this.state$),
+        withLatestFrom(this.select()),
         tap(([isAtVisualizerRoute, state]) => {
           if (isAtVisualizerRoute) {
             this.setState({ ...state, isVisible: true, isShownAsPiP: false });
@@ -40,9 +40,9 @@ export class VisualizerStore extends ComponentStore<VisualizerState> {
   readonly setVisibility = this.effect<{ value: boolean }>((params$) =>
     params$.pipe(
       tap(({ value }) => {
-        this.patchState({ isVisible: value });
+        this.setState({ isVisible: value });
       }),
-      map(() => this.get()),
+      map(() => this.state),
       tap((state) => this.handleStateChange(state))
     )
   );
@@ -51,9 +51,9 @@ export class VisualizerStore extends ComponentStore<VisualizerState> {
     params$.pipe(
       withLatestFrom(this.isShownAsPiP$),
       tap(([, isShownAsPiP]) => {
-        this.patchState({ isShownAsPiP: !isShownAsPiP });
+        this.setState({ isShownAsPiP: !isShownAsPiP });
       }),
-      map(() => this.get()),
+      map(() => this.state),
       tap((state) => this.handleStateChange(state))
     )
   );

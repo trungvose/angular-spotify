@@ -7,16 +7,16 @@ import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { combineLatest, Observable } from 'rxjs';
-import { filter, map, mergeMap, pluck, switchMap, tap } from 'rxjs/operators';
+import { combineLatest, EMPTY, Observable } from 'rxjs';
+import { catchError, filter, map, mergeMap, pluck, switchMap, tap } from 'rxjs/operators';
+import { FeatureStore } from 'mini-rx-store';
 
 interface AlbumState extends GenericState<SpotifyApi.AlbumObjectFull> {
   albumId: string;
 }
 
 @Injectable()
-export class AlbumStore extends ComponentStore<AlbumState> {
+export class AlbumStore extends FeatureStore<AlbumState> {
   albumIdParams$: Observable<string> = this.route.params.pipe(
     pluck(RouterUtil.Configuration.AlbumId),
     filter((albumId: string) => !!albumId)
@@ -26,7 +26,7 @@ export class AlbumStore extends ComponentStore<AlbumState> {
 
   album$ = this.albumIdParams$.pipe(
     tap((albumId) => {
-      this.patchState({
+      this.setState({
         albumId
       });
       this.loadAlbum({ albumId });
@@ -41,26 +41,27 @@ export class AlbumStore extends ComponentStore<AlbumState> {
   loadAlbum = this.effect<{ albumId: string }>((params$) =>
     params$.pipe(
       tap(() => {
-        this.patchState({
+        this.setState({
           status: 'loading',
           error: null
         });
       }),
       mergeMap(({ albumId }) =>
         this.albumApi.getAlbum(albumId).pipe(
-          tapResponse(
+          tap(
             (album) => {
-              this.patchState({
+              this.setState({
                 data: album,
                 status: 'success',
                 error: ''
               });
-            },
-            (error) => {
-              this.patchState({
+            }),
+            catchError(error => {
+              this.setState({
                 status: 'error',
                 error: error as string
               });
+              return EMPTY;
             }
           )
         )
@@ -84,6 +85,6 @@ export class AlbumStore extends ComponentStore<AlbumState> {
     private albumApi: AlbumApiService,
     private playerApi: PlayerApiService
   ) {
-    super(<AlbumState>{});
+    super('album', <AlbumState>{});
   }
 }
