@@ -4,11 +4,14 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
+
     - name: Cache Node.js modules
       uses: actions/cache@v2
       with:
@@ -18,7 +21,9 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
+
     - name: Install dependencies
       run: npm ci
+
     - name: Linting
       run: npm run lint
