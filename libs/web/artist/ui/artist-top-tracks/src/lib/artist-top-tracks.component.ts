@@ -22,7 +22,7 @@ import { ArtistTopTracksStore } from '@angular-spotify/web/artist/data-access';
   `,
   providers: [ArtistTopTracksStore]
 })
-export class WebArtistUiArtistTopTracksComponent {
+export class ArtistTopTracksComponent {
   readonly vm$ = this.store.vm$;
   constructor(private readonly store: ArtistTopTracksStore) {}
 }

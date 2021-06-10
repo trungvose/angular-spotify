@@ -11,8 +11,6 @@ import { ArtistStore } from '@angular-spotify/web/artist/data-access';
 export class ArtistComponent {
   artist$ = this.artistStore.artist$;
   isArtistLoading$ = this.artistStore.isArtistLoading$;
-  
-  constructor(private artistStore: ArtistStore){
-    
-  }
+
+  constructor(private artistStore: ArtistStore) {}
 }

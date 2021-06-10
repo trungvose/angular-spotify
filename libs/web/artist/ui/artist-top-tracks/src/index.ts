@@ -1,1 +1,1 @@
-export * from './lib/web-artist-ui-artist-top-tracks.module';
+export * from './lib/artist-top-tracks.module';

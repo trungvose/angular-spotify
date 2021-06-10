@@ -24,12 +24,12 @@ export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
     { debounce: true }
   );
 
-  loadArtistTopTracks = this.effect<{ artistId: string }>((params$) =>
+  loadArtistTopTracks = this.effect<string>((params$) =>
     params$.pipe(
-      filter((artist) => artist.artistId !== ''),
+      filter(artistId => !!artistId),
       tap(() => this.patchState({ status: 'loading', error: null })),
       withLatestFrom(this.authStore.country$),
-      mergeMap(([{ artistId }, country]) =>
+      mergeMap(([artistId, country]) =>
         this.artistApi.getArtistTopTracks(artistId, country).pipe(
           tapResponse(
             (data) => {
@@ -53,7 +53,7 @@ export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
   ) {
     super(<ArtistTopTracksState>{});
     this.loadArtistTopTracks(
-      this.artistStore.artist$.pipe(map((artist) => ({ artistId: artist ? artist.id : '' })))
+      this.artistStore.artistIdParams$
     );
   }
 }
