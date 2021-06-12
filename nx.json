@@ -88,6 +88,7 @@
     "web-artist-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-settings-feature": { "tags": ["type:feature", "scope:web"] },
     "web-settings-data-access": { "tags": ["type:data-access", "scope:web"] },
-    "web-artist-ui-artist-top-tracks": { "tags": ["type:ui", "scope:web"] }
+    "web-artist-ui-artist-top-tracks": { "tags": ["type:ui", "scope:web"] },
+    "web-artist-ui-artist-top-track": { "tags": ["type:ui", "scope:web"] }
   }
 }

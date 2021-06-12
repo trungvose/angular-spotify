@@ -4,20 +4,13 @@ import { ArtistTopTracksStore } from '@angular-spotify/web/artist/data-access';
 @Component({
   selector: 'as-artist-top-tracks',
   template: `
+    <h2 class="text-heading mt-2 mb-4">Popular</h2>
     <ng-container *ngIf="vm$ | async as vm">
-      <ng-container *ngFor="let track of vm.data?.tracks; let i = index">
-        <div class="flex justify-between items-center">
-          <div>
-            {{ i + 1 }}
-          </div>
-          <div class="flex-grow">
-            {{ track.name }}
-          </div>
-          <div>
-            {{ track.duration_ms | duration }}
-          </div>
-        </div>
-      </ng-container>
+      <as-artist-top-track
+        *ngFor="let track of vm.data?.tracks; let idx = index"
+        [order]="idx + 1"
+        [track]="track"
+      ></as-artist-top-track>
     </ng-container>
   `,
   providers: [ArtistTopTracksStore]

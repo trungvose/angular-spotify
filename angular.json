@@ -1633,6 +1633,31 @@
           }
         }
       }
+    },
+    "web-artist-ui-artist-top-track": {
+      "projectType": "library",
+      "root": "libs/web/artist/ui/artist-top-track",
+      "sourceRoot": "libs/web/artist/ui/artist-top-track/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/artist/ui/artist-top-track/src/**/*.ts",
+              "libs/web/artist/ui/artist-top-track/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/artist/ui/artist-top-track"],
+          "options": {
+            "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

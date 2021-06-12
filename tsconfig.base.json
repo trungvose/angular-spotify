@@ -135,6 +135,9 @@
       "@angular-spotify/web/artist/data-access": ["libs/web/artist/data-access/src/index.ts"],
       "@angular-spotify/web/artist/ui/artist-top-tracks": [
         "libs/web/artist/ui/artist-top-tracks/src/index.ts"
+      ],
+      "@angular-spotify/web/artist/ui/artist-top-track": [
+        "libs/web/artist/ui/artist-top-track/src/index.ts"
       ]
     }
   },

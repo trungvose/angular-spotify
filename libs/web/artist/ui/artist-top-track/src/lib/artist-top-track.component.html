@@ -1,0 +1,20 @@
+<as-media-table-row class="artist-top-tracks-grid track-row"
+                    (dblclick)="togglePlayTrack(false)">
+  <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
+    <as-media-order [index]="order"
+                    [isPlaying]="isPlaying!"
+                    (togglePlay)="togglePlayTrack($event)">
+    </as-media-order>
+    <as-track-main-info [track]="$any(track)"
+                        [isShowArtist]="false"
+                        [isPlaying]="isPlaying">
+    </as-track-main-info>
+    <a class="text-description link-subtle hover:underline"
+       [routerLink]="albumRouteUrl">
+      {{ track.album.name }}
+    </a>
+  </ng-container>
+  <div class="text-description">
+    {{ track.duration_ms | duration }}
+  </div>
+</as-media-table-row>
