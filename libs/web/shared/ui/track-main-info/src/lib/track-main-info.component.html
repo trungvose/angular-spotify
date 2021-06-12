@@ -7,7 +7,7 @@
     <div [ngClass]="['ellipsis-one-line', 'text-base', isPlaying ? 'text-primary': 'text-white']">
       {{ track.name }}
     </div>
-    <div class="flex">
+    <div class="flex" *ngIf="isShowArtist">
       <ng-container *ngFor="let artist of track.artists | slice:0:2; let idx = index">
         <span class="mr-1"
               *ngIf="idx !== 0">,</span>

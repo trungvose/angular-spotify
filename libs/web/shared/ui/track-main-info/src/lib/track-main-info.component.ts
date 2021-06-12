@@ -10,6 +10,7 @@ import { RouteUtil } from '@angular-spotify/web/shared/utils';
 export class TrackMainInfoComponent {
   @Input() track: SpotifyApi.TrackObjectFull | undefined;
   @Input() isPlaying!: boolean;
+  @Input() isShowArtist = true;
 
   getArtistRouteUrl(artist: SpotifyApi.ArtistObjectSimplified) {
     return RouteUtil.getArtistRouteUrl(artist.id);

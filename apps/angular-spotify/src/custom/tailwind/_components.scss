@@ -48,6 +48,12 @@
     gap: 16px;
   }
 
+  .artist-top-tracks-grid {
+    display: grid;
+    grid-template-columns: 24px 6fr 3fr minmax(120px, 1fr);
+    gap: 16px;
+  }
+
   .track-row {
     &:hover {
       .track-order {
