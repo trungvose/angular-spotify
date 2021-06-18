@@ -182,9 +182,10 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | 4   | Sat, 24th April 2021, 10AM | [Build the album detail page - part 2][live-04]                 |
 | 5   | Sat, 8th May 2021, 10AM    | [Build the artist detail page - part 1][live-05]                |
 | 6   | Sat, 15th May 2021, 10AM   | [Build the artist detail page - part 2][live-06]                |
-| 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page][live-07]                            |
-| 8   | TBD                        | Setup i18n and support new language                             |
-| 9   | TBD                        | Config Nx build:affected with Github action                     |
+| 8   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 1][live-08]                   |
+| 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 2][live-07]                   |
+| 9   | TBD                        | Setup i18n and support new language                             |
+| 10  | TBD                        | Config Nx build:affected with Github action                     |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
 
@@ -195,6 +196,7 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 [live-05]: https://youtu.be/fNhdd-O5c9c
 [live-06]: https://youtu.be/Tt51-pxm6Ko
 [live-07]: https://youtu.be/Oj4yomnxfj4
+[live-08]: https://youtu.be/1h5KKFSj9Es
 
 ## Community
 
