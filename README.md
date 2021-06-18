@@ -182,8 +182,8 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | 4   | Sat, 24th April 2021, 10AM | [Build the album detail page - part 2][live-04]                 |
 | 5   | Sat, 8th May 2021, 10AM    | [Build the artist detail page - part 1][live-05]                |
 | 6   | Sat, 15th May 2021, 10AM   | [Build the artist detail page - part 2][live-06]                |
-| 8   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 1][live-08]                   |
-| 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 2][live-07]                   |
+| 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 1][live-07]                   |
+| 8   | Sat, 19th Jun 2021, 10AM   | [Build the track list page - part 2][live-08]                   |
 | 9   | TBD                        | Setup i18n and support new language                             |
 | 10  | TBD                        | Config Nx build:affected with Github action                     |
 
