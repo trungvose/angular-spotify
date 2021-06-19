@@ -1,6 +1,7 @@
 <div class="content-spacing">
   <ng-container *ngIf="vm$ | async as vm">
     <as-media-summary type="Playlist"
+                      [imageUrl]="'https://data.whicdn.com/images/315873335/original.jpg'"
                       [title]="'Liked Songs'"
                       [trackCount]="vm.data?.total">
     </as-media-summary>
@@ -22,7 +23,8 @@
       <as-playlist-track *ngFor="let item of vm.data?.items; let idx = index"
                          [item]="$any(item)"
                          [index]="item.track.track_number - 1"
-                         [contextUri]="item.track.album.uri">
+                         [contextUri]="item.track.album.uri"
+                         (dblclick)="playTrack(item.track)">
       </as-playlist-track>
     </div>
 

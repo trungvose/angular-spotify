@@ -1,8 +1,11 @@
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { TrackApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { mergeMap, tap } from 'rxjs/operators';
-import {SelectorUtil} from '@angular-spotify/web/shared/utils';
+import {
+  PlayerApiService,
+  TrackApiService
+} from '@angular-spotify/web/shared/data-access/spotify-api';
+import { mergeMap, switchMap, tap } from 'rxjs/operators';
+import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 
 type TracksState = GenericState<SpotifyApi.UsersSavedTracksResponse>;
@@ -38,13 +41,26 @@ export class TracksStore extends ComponentStore<TracksState> {
       )
     )
   );
-  
-  vm$ = this.select(s => ({
+
+  playTrack = this.effect<{ track: SpotifyApi.TrackObjectFull }>((params$) =>
+    params$.pipe(
+      switchMap(({ track }) =>
+        this.playerApi.play({
+          context_uri: track.album.uri,
+          offset: {
+            position: track.track_number - 1
+          }
+        })
+      )
+    )
+  );
+
+  vm$ = this.select((s) => ({
     ...s,
     isLoading: SelectorUtil.isLoading(s)
-  }))
+  }));
 
-  constructor(private trackApi: TrackApiService) {
+  constructor(private trackApi: TrackApiService, private playerApi: PlayerApiService) {
     super(<TracksState>{});
   }
 }

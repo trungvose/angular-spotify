@@ -5,7 +5,7 @@ import { TracksStore } from '@angular-spotify/web/tracks/data-access';
   templateUrl: './tracks.component.html',
   styleUrls: ['./tracks.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [TracksStore],
+  providers: [TracksStore]
 })
 export class TracksComponent implements OnInit {
   vm$ = this.store.vm$;
@@ -14,5 +14,9 @@ export class TracksComponent implements OnInit {
 
   ngOnInit() {
     this.store.loadTracks();
+  }
+
+  playTrack(track: SpotifyApi.TrackObjectFull) {
+    this.store.playTrack({ track });
   }
 }
