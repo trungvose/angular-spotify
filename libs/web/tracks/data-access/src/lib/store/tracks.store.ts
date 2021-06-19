@@ -4,7 +4,7 @@ import {
   PlayerApiService,
   TrackApiService
 } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { mergeMap, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 
@@ -20,7 +20,7 @@ export class TracksStore extends ComponentStore<TracksState> {
           error: null
         });
       }),
-      mergeMap(() =>
+      switchMap(() =>
         this.trackApi.getUserSavedTracks().pipe(
           tapResponse(
             (response) => {

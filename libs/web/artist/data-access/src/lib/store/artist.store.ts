@@ -4,7 +4,7 @@ import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { Observable } from 'rxjs';
-import { filter, mergeMap, pluck, switchMap, tap } from 'rxjs/operators';
+import { filter, pluck, switchMap, tap } from 'rxjs/operators';
 import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 
 interface ArtistState extends GenericState<SpotifyApi.ArtistObjectFull> {
@@ -39,7 +39,7 @@ export class ArtistStore extends ComponentStore<ArtistState> {
           error: null
         });
       }),
-      mergeMap(({ artistId }) =>
+      switchMap(({ artistId }) =>
         this.artistApi.getArtist(artistId).pipe(
           tapResponse(
             (artist) => {
