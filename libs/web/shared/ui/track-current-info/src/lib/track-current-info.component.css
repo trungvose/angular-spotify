@@ -3,7 +3,8 @@
 }
 
 .track-cover {
-  max-width: 40px;
-  object-fit: contain;
+  width: 40px;
+  display: flex;
+  user-select: none;
   @apply mr-4;
 }

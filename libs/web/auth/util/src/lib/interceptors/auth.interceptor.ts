@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { mergeMap, take } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return this.authStore.token$.pipe(
       take(1),
-      mergeMap((token) => {
+      switchMap((token) => {
         if (!token) {
           return next.handle(req);
         }

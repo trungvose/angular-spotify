@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
-import { filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import {
   getPlaylistTracksById,
   getPlaylistTracksLoading,
@@ -79,7 +79,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
         });
       }),
       map(([params]) => params),
-      mergeMap(({ playlistId }) =>
+      switchMap(({ playlistId }) =>
         this.playlistsApi.getById(playlistId).pipe(
           tapResponse(
             (playlist) => {

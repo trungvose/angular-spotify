@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY } from 'rxjs';
-import { catchError, filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { loadPlaylists, loadPlaylistsSuccess } from './playlists.action';
 import { getPlaylistsState } from './playlists.selector';
 
@@ -14,7 +14,7 @@ export class PlaylistsEffect {
       ofType(loadPlaylists),
       withLatestFrom(this.store.pipe(select(getPlaylistsState))),
       filter(([, playlistState]) => !playlistState.data),
-      mergeMap(() =>
+      switchMap(() =>
         this.playlistsApi.getUserSavedPlaylists().pipe(
           map((playlists) =>
             loadPlaylistsSuccess({

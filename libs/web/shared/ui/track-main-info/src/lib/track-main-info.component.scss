@@ -3,8 +3,12 @@
 }
 
 .track-cover {
-  max-width: 40px;
-  object-fit: contain;
+  display: flex;
+  width: 40px;
   user-select: none;
   @apply mr-4;
+}
+
+.comma-separator {
+  user-select: none;
 }

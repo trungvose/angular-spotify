@@ -1,7 +1,7 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
 import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import { filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { ArtistStore } from './artist.store';
@@ -29,7 +29,7 @@ export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
       filter(artistId => !!artistId),
       tap(() => this.patchState({ status: 'loading', error: null })),
       withLatestFrom(this.authStore.country$),
-      mergeMap(([artistId, country]) =>
+      switchMap(([artistId, country]) =>
         this.artistApi.getArtistTopTracks(artistId, country).pipe(
           tapResponse(
             (data) => {
