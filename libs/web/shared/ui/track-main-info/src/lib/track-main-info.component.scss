@@ -4,6 +4,7 @@
 
 .track-cover {
   display: flex;
+  flex-shrink: 0;
   width: 40px;
   user-select: none;
   @apply mr-4;
