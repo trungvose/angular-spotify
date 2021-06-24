@@ -5,6 +5,11 @@ import { Observable } from 'rxjs';
 import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
 import { SpotifyApiParams } from '@angular-spotify/web/shared/data-access/models';
 
+export type SearchResponse = Pick<
+  SpotifyApi.SearchResponse,
+  'tracks' | 'artists' | 'albums' | 'playlists'
+>;
+
 @Injectable({ providedIn: 'root' })
 export class SearchApiService {
   constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private http: HttpClient) {}
@@ -14,12 +19,9 @@ export class SearchApiService {
    *
    * @param {string} term
    * @param {SpotifyApiParams} [apiParams={ limit: 50 }]
-   * @return {*}  {(Observable<Pick<SpotifyApi.SearchResponse, 'tracks' | 'artists' | 'albums' | 'playlists'>>)}
+   * @return {*}  {(Observable<SearchResponse>)}
    */
-  search(
-    term: string,
-    apiParams: SpotifyApiParams = { limit: 50 }
-  ): Observable<Pick<SpotifyApi.SearchResponse, 'tracks' | 'artists' | 'albums' | 'playlists'>> {
+  search(term: string, apiParams: SpotifyApiParams = { limit: 50 }): Observable<SearchResponse> {
     const params = new HttpParams({ fromObject: apiParams })
       .set('q', term)
       .set('type', 'track,artist,album,playlist');
