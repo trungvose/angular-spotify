@@ -17,6 +17,10 @@ export const webShellRoutes: Route[] = [
           (await import('@angular-spotify/web/browse/feature/shell')).BrowseShellModule
       },
       {
+        path: 'search',
+        loadChildren: async () => (await import('@angular-spotify/web/search/feature')).SearchModule
+      },
+      {
         path: 'collection/playlists',
         loadChildren: async () =>
           (await import('@angular-spotify/web/playlist/feature/list')).PlaylistsModule
