@@ -140,7 +140,8 @@
         "libs/web/artist/ui/artist-top-track/src/index.ts"
       ],
       "@angular-spotify/web/tracks/data-access": ["libs/web/tracks/data-access/src/index.ts"],
-      "@angular-spotify/web/search/feature": ["libs/web/search/feature/src/index.ts"]
+      "@angular-spotify/web/search/feature": ["libs/web/search/feature/src/index.ts"],
+      "@angular-spotify/web/shared/ui/input": ["libs/web/shared/ui/input/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
