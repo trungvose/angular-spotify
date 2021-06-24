@@ -22,6 +22,7 @@ import { asCaretDownFillIcon } from './svg/caret-down-fill';
 import { asTimesIcon } from './svg/times';
 import { asExpandIcon } from './svg/expand';
 import { asShrinkIcon } from './svg/shrink';
+import { asSearchIcon } from './svg/search';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { asShrinkIcon } from './svg/shrink';
         asCaretDownFillIcon,
         asTimesIcon,
         asExpandIcon,
-        asShrinkIcon
+        asShrinkIcon,
+        asSearchIcon
       ]
     })
   ],
