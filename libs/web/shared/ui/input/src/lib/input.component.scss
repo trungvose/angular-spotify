@@ -1,0 +1,47 @@
+.input-container {
+  position: relative;
+  display: flex;
+  min-height: 32px;
+  width: 100%;
+  overflow: hidden;
+
+  input {
+    flex-grow: 1;
+    border: none;
+    background: #fff;
+    color: #000;
+
+    &:focus,
+    &:hover {
+      border: none;
+      box-shadow: none;
+      background: #fff;
+      outline: 0;
+    }
+  }
+}
+
+.invalid {
+  &,
+  &:focus {
+    border: 1px solid #e13c3c;
+    box-shadow: none;
+  }
+}
+
+.input-icon-container {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.right {
+    left: auto;
+    right: 0;
+    cursor: pointer;
+  }
+}
