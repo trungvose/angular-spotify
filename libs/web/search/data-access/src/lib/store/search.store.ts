@@ -29,7 +29,7 @@ export class SearchStore extends ComponentStore<SearchState> {
       filter((term) => !!term),
       tap(() => this.patchState({ status: 'loading', error: null })),
       switchMap((term) =>
-        this.searchApiService.search(term).pipe(
+        this.searchApiService.search(term, { limit: 5 }).pipe(
           tapResponse(
             (data) => {
               this.patchState({
