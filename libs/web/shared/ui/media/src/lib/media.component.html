@@ -4,7 +4,8 @@
        [class.is-playing]="isPlaying"
        *ngrxLet="isMediaPlaying$ as isPlaying">
     <as-media-cover class="mb-4"
-                    [imageUrl]="imageUrl">
+                    [imageUrl]="imageUrl"
+                    [roundedImage]="roundedImage">
     </as-media-cover>
     <as-play-button class="play-button-overlay"
                     [primary]="true"
