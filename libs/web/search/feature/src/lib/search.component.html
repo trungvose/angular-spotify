@@ -2,17 +2,18 @@
   <!-- Search Input -->
   <div class="search-input-container">
     <as-input
+      class="search-control"
       [control]="searchControl"
       icon="search"
+      [iconSize]="'lg'"
       placeholder="Artists, songs, albums, or playlists"
+      [autoFocus]="true"
       [rounded]="true"
       [enableClearButton]="true"
     >
     </as-input>
+    <as-spinner class="ml-4" *ngIf="isLoading$ | async"></as-spinner>
   </div>
-
-  <!-- Loading spinner -->
-  <as-spinner *ngIf="isLoading$ | async"></as-spinner>
 
   <!-- Results lists -->
   <ng-container *ngIf="data$ | async as data">

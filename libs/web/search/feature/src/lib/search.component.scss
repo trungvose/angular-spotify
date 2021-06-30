@@ -1,3 +1,8 @@
 .search-input-container {
-  width: 364px;
+  @apply flex flex-wrap items-center;
+  min-height: 56px;
+  
+  .search-control {
+    width: 364px;
+  }  
 }

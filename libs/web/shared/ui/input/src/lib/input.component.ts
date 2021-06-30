@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -16,7 +16,7 @@ const IconSizesInPx: { [key in IconSize]: number } = {
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent {
+export class InputComponent implements AfterViewInit {
   @Input() control = new FormControl('');
   @Input() containerClassName = '';
   @Input() icon = '';
@@ -24,13 +24,15 @@ export class InputComponent {
   @Input() placeholder = '';
   @Input() rounded = false;
   @Input() enableClearButton = false;
+  @Input() autoFocus = false;
+  @ViewChild('input') inputRef!: ElementRef;
 
   get iconContainerWidth(): number {
     return IconSizesInPx[this.iconSize] * 2;
   }
 
   get inputContainerHeight(): number {
-    return IconSizesInPx[this.iconSize] * 1.5;
+    return IconSizesInPx[this.iconSize] * 1.8;
   }
 
   get showClearButton(): boolean {
@@ -39,5 +41,11 @@ export class InputComponent {
 
   clear() {
     this.control.patchValue('');
+  }
+
+  ngAfterViewInit() {
+    if(this.autoFocus && this.inputRef) {
+      this.inputRef.nativeElement.focus();
+    }
   }
 }

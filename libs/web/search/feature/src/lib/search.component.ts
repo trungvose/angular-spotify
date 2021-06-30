@@ -19,7 +19,7 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 export class SearchComponent implements OnInit {
   searchControl: FormControl = new FormControl('');
   data$ = this.store.data$;
-  isLoading$ = this.store.status$.pipe(map((s) => s === 'loading'));
+  isLoading$ = this.store.isLoading$;
 
   constructor(
     private router: Router,

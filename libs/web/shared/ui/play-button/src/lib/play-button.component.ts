@@ -14,6 +14,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayButtonComponent {
+  isPause: boolean | undefined;
   @Input() isPlaying: boolean | null | undefined;
   @Input() primary = false;
   @Input() large = false;
