@@ -1679,6 +1679,77 @@
           }
         }
       }
+    },
+    "web-search-feature": {
+      "projectType": "library",
+      "root": "libs/web/search/feature",
+      "sourceRoot": "libs/web/search/feature/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/search/feature/src/**/*.ts",
+              "libs/web/search/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/search/feature"],
+          "options": {
+            "jestConfig": "libs/web/search/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-ui-input": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/input",
+      "sourceRoot": "libs/web/shared/ui/input/src",
+      "prefix": "as",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/input/src/**/*.ts",
+              "libs/web/shared/ui/input/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/input"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/input/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-search-data-access": {
+      "root": "libs/web/search/data-access",
+      "sourceRoot": "libs/web/search/data-access/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/search/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/search/data-access"],
+          "options": {
+            "jestConfig": "libs/web/search/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

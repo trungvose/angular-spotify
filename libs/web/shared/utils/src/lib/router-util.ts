@@ -8,6 +8,7 @@ export class RouterUtil {
     ArtistId: 'artistId',
     Visualizer: 'visualizer',
     Browse: 'browse',
-    CategoryId: 'categoryId'
+    CategoryId: 'categoryId',
+    SearchQueryParam: 'q'
   };
 }

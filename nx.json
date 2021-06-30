@@ -90,6 +90,9 @@
     "web-settings-data-access": { "tags": ["type:data-access", "scope:web"] },
     "web-artist-ui-artist-top-tracks": { "tags": ["type:ui", "scope:web"] },
     "web-artist-ui-artist-top-track": { "tags": ["type:ui", "scope:web"] },
-    "web-tracks-data-access": { "tags": ["type:data-access", "scope:web"] }
+    "web-tracks-data-access": { "tags": ["type:data-access", "scope:web"] },
+    "web-search-feature": { "tags": ["type:feature", "scope:web"] },
+    "web-shared-ui-input": { "tags": ["type:ui", "scope:web"] },
+    "web-search-data-access": { "tags": ["type:data-access", "scope:web"] }
   }
 }

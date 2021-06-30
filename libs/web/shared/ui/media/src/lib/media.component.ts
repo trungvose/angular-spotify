@@ -21,6 +21,7 @@ export class MediaComponent implements OnInit {
   @Input() description!: string | null;
   @Input() routerUrl!: string;
   @Input() uri!: string;
+  @Input() roundedImage? = false;
   @Output() togglePlay = new EventEmitter<boolean>();
 
   isMediaPlaying$!: Observable<boolean>;

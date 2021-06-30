@@ -1,7 +1,7 @@
 <as-media-table-row class="album-tracks-grid track-row"
                     (dblclick)="togglePlayTrack(false)">
   <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
-    <as-media-order [index]="track.track_number"
+    <as-media-order [index]="trackIndex"
                     [isPlaying]="isPlaying!"
                     (togglePlay)="togglePlayTrack($event)">
     </as-media-order>

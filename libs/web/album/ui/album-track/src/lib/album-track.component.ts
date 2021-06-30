@@ -13,8 +13,14 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
 export class AlbumTrackComponent implements OnInit {
   @Input() track!: SpotifyApi.TrackObjectSimplified;
   @Input() contextUri!: string;
+  @Input() index?: number;
 
   isTrackPlaying$!: Observable<boolean>;
+
+  get trackIndex(): number {
+    return this.index === undefined ? this.track.track_number : this.index;
+  }
+
   constructor(
     private playbackStore: PlaybackStore, 
     private playerApi: PlayerApiService) {}

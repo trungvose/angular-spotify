@@ -57,6 +57,9 @@ module.exports = {
     '<rootDir>/libs/web/artist/data-access',
     '<rootDir>/libs/web/artist/ui/artist-top-tracks',
     '<rootDir>/libs/web/artist/ui/artist-top-track',
-    '<rootDir>/libs/web/tracks/data-access'
+    '<rootDir>/libs/web/tracks/data-access',
+    '<rootDir>/libs/web/search/feature',
+    '<rootDir>/libs/web/shared/ui/input',
+    '<rootDir>/libs/web/search/data-access'
   ]
 };

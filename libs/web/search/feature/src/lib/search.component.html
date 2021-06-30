@@ -1,0 +1,93 @@
+<div class="mb-6 content-spacing">
+  <!-- Search Input -->
+  <div class="search-input-container">
+    <as-input
+      [control]="searchControl"
+      icon="search"
+      placeholder="Artists, songs, albums, or playlists"
+      [rounded]="true"
+      [enableClearButton]="true"
+    >
+    </as-input>
+  </div>
+
+  <!-- Loading spinner -->
+  <as-spinner *ngIf="isLoading$ | async"></as-spinner>
+
+  <!-- Results lists -->
+  <ng-container *ngIf="data$ | async as data">
+    <!-- Tracks -->
+    <div *ngIf="data?.tracks?.items?.length">
+      <h2 class="mt-8 mb-4 text-heading">Songs</h2>
+      <as-media-table-header>
+        <div class="album-tracks-grid">
+          <div>#</div>
+          <div class="text-xs uppercase ellipsis-one-line">Title</div>
+          <svg-icon [key]="'clock'" title="Duration"></svg-icon>
+        </div>
+      </as-media-table-header>
+
+      <div class="mb-8">
+        <as-album-track
+          *ngFor="let item of data?.tracks?.items; let idx = index"
+          [track]="item"
+          [contextUri]="item.album.uri"
+          [index]="idx + 1"
+        >
+        </as-album-track>
+      </div>
+    </div>
+
+    <!-- Artists -->
+    <div *ngIf="data?.artists?.items?.length">
+      <h2 class="mt-8 mb-4 text-heading">Artists</h2>
+      <div class="common-grid">
+        <as-media
+          *ngFor="let item of data?.artists?.items"
+          [title]="item.name"
+          [uri]="item.uri"
+          [imageUrl]="item.images[0]?.url"
+          [routerUrl]="'/artist/' + item.id"
+          [description]="item.type | titlecase"
+          [roundedImage]="true"
+          (togglePlay)="togglePlay($event, item.uri)"
+        >
+        </as-media>
+      </div>
+    </div>
+
+    <!-- Albums -->
+    <div *ngIf="data?.albums?.items?.length">
+      <h2 class="mt-8 mb-4 text-heading">Albums</h2>
+      <div class="common-grid">
+        <as-media
+          *ngFor="let item of data?.albums?.items"
+          [title]="item.name"
+          [uri]="item.uri"
+          [description]="item.artists[0].name"
+          [imageUrl]="item.images[0]?.url"
+          [routerUrl]="'/albums/' + item.id"
+          (togglePlay)="togglePlay($event, item.uri)"
+        >
+        </as-media>
+      </div>
+    </div>
+
+    <!-- Playlists -->
+    <div *ngIf="data?.playlists?.items?.length">
+      <h2 class="mt-8 mb-4 text-heading">Playlists</h2>
+      <div class="common-grid">
+        <as-media
+          *ngFor="let item of data?.playlists?.items"
+          [title]="item.name"
+          [uri]="item.uri"
+          [description]="item.description"
+          [imageUrl]="item.images[0]?.url"
+          [routerUrl]="'/playlist/' + item.id"
+          (togglePlay)="togglePlay($event, item.uri)"
+        >
+        </as-media>
+      </div>
+    </div>
+  </ng-container>
+</div>
