@@ -41,6 +41,7 @@ export class InputComponent implements AfterViewInit {
 
   clear() {
     this.control.patchValue('');
+    this.inputRef.nativeElement.focus();
   }
 
   ngAfterViewInit() {
