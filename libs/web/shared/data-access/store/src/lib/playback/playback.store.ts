@@ -5,14 +5,14 @@ import {
   SpotifyTrackExtended
 } from '@angular-spotify/web/shared/data-access/models';
 import { TrackApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { RouteUtil, StringUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { RouteUtil, StringUtil } from '@angular-spotify/web/shared/utils';
 
 interface PlaybackState extends GenericState<Spotify.PlaybackState> {
-  player: Spotify.SpotifyPlayer;
+  player: Spotify.Player;
   deviceId: string;
   volume: number;
   analysis: SpotifyApiAudioAnalysisResponse;

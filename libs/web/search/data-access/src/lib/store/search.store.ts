@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
-import { filter, switchMap, tap } from 'rxjs/operators';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
-import {SelectorUtil} from '@angular-spotify/web/shared/utils';
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import {
-  SearchApiService,
-  SearchResponse
-} from '@angular-spotify/web/shared/data-access/spotify-api';
+import { SearchApiService, SearchResponse } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { SelectorUtil } from '@angular-spotify/web/shared/utils';
+import { Injectable } from '@angular/core';
+import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { filter, switchMap, tap } from 'rxjs/operators';
 
 type SearchState = GenericState<SearchResponse>;
 
@@ -15,7 +12,7 @@ export class SearchStore extends ComponentStore<SearchState> {
   readonly data$ = this.select((s) => s.data);
   readonly status$ = this.select((s) => s.status);
   readonly error$ = this.select((s) => s.error);
-  readonly isLoading$ = this.select(SelectorUtil.isLoading)
+  readonly isLoading$ = this.select(SelectorUtil.isLoading);
 
   readonly vm$ = this.select(
     this.data$,
@@ -39,7 +36,7 @@ export class SearchStore extends ComponentStore<SearchState> {
                 error: ''
               });
             },
-            (error) => this.patchState({ status: 'error', error: error as string })
+            (error) => this.patchState({ status: 'error', error: error as unknown as string })
           )
         )
       )

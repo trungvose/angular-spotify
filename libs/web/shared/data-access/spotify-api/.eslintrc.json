@@ -5,9 +5,6 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "parserOptions": {
-        "project": ["libs/web/shared/data-access/spotify-api/tsconfig.*?.json"]
-      },
       "rules": {}
     },
     {

@@ -1,8 +1,5 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import {
-  AlbumApiService,
-  PlayerApiService
-} from '@angular-spotify/web/shared/data-access/spotify-api';
+import { AlbumApiService, PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
@@ -59,7 +56,7 @@ export class AlbumStore extends ComponentStore<AlbumState> {
             (error) => {
               this.patchState({
                 status: 'error',
-                error: error as string
+                error: error as unknown as string
               });
             }
           )
