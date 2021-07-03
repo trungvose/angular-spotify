@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/album/feature/shell",
+  "sourceRoot": "libs/web/album/feature/shell/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/album/feature/shell/src/**/*.ts",
+          "libs/web/album/feature/shell/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/album/feature/shell"],
+      "options": {
+        "jestConfig": "libs/web/album/feature/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}

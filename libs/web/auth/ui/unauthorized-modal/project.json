@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/auth/ui/unauthorized-modal",
+  "sourceRoot": "libs/web/auth/ui/unauthorized-modal/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/auth/ui/unauthorized-modal/src/**/*.ts",
+          "libs/web/auth/ui/unauthorized-modal/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/auth/ui/unauthorized-modal"],
+      "options": {
+        "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/ui/track-main-info",
+  "sourceRoot": "libs/web/shared/ui/track-main-info/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/ui/track-main-info/src/**/*.ts",
+          "libs/web/shared/ui/track-main-info/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}
