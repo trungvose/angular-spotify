@@ -1,11 +1,11 @@
-import { ActivatedRoute } from '@angular/router';
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
+import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { Observable } from 'rxjs';
 import { filter, pluck, switchMap, tap } from 'rxjs/operators';
-import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 
 interface ArtistState extends GenericState<SpotifyApi.ArtistObjectFull> {
   artistId: string;
@@ -52,7 +52,7 @@ export class ArtistStore extends ComponentStore<ArtistState> {
             (error) => {
               this.patchState({
                 status: 'error',
-                error: error as string
+                error: error as unknown as string
               });
             }
           )

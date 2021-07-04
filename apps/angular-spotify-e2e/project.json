@@ -1,0 +1,28 @@
+{
+  "root": "apps/angular-spotify-e2e",
+  "sourceRoot": "apps/angular-spotify-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/angular-spotify-e2e/cypress.json",
+        "tsConfig": "apps/angular-spotify-e2e/tsconfig.e2e.json",
+        "devServerTarget": "angular-spotify:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "angular-spotify:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["angular-spotify"]
+}

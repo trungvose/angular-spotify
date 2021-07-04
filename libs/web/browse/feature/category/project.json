@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/browse/feature/category",
+  "sourceRoot": "libs/web/browse/feature/category/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/browse/feature/category/src/**/*.ts",
+          "libs/web/browse/feature/category/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/browse/feature/category"],
+      "options": {
+        "jestConfig": "libs/web/browse/feature/category/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}
