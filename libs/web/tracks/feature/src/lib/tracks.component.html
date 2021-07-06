@@ -22,7 +22,7 @@
     <div class="mb-8">
       <as-playlist-track *ngFor="let item of vm.data?.items; let idx = index"
                          [item]="$any(item)"
-                         [index]="item.track.track_number - 1"
+                         [index]="idx + 1"
                          [contextUri]="item.track.album.uri"
                          (dblclick)="playTrack(item.track)">
       </as-playlist-track>
