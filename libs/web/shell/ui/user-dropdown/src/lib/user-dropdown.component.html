@@ -1,7 +1,9 @@
 <div class="user-info">
-
   <ng-container *ngIf="(userProduct$ | async) !== 'premium'">
-    <button type="button" class="btn-upgrade" (click)="openLocation()" aria-roledescription="button">
+    <button type="button"
+            class="btn-upgrade"
+            (click)="openLocation()"
+            aria-roledescription="upgrade-button">
       Upgrade
     </button>
   </ng-container>
@@ -28,5 +30,4 @@
       </li>
     </ul>
   </nz-dropdown-menu>
-
 </div>
