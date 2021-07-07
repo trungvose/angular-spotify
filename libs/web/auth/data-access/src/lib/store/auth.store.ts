@@ -5,7 +5,6 @@ import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spoti
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
-import { NzModalService } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
@@ -23,6 +22,7 @@ export class AuthStore extends ComponentStore<AuthState> {
   ) as Observable<string>;
   readonly country$ = this.select((s) => s.country);
   readonly userName$ = this.select((s) => s.display_name);
+  readonly userProduct$ = this.select((s) => s.product);
   readonly userAvatar$ = this.select(
     (s) =>
       (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
@@ -33,8 +33,7 @@ export class AuthStore extends ComponentStore<AuthState> {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private spotify: SpotifyApiService,
-    private modalService: NzModalService
+    private spotify: SpotifyApiService
   ) {
     super(<AuthState>{});
   }
