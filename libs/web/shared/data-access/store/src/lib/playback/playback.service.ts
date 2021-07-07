@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
+import { tap, withLatestFrom } from 'rxjs/operators';
 import { PlaybackStore } from './playback.store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Observable } from 'rxjs';
@@ -24,14 +24,6 @@ export class PlaybackService {
         tap(([token, volume]) => {
           this.initPlaybackSDK(token, volume);
         })
-      )
-      .subscribe();
-
-    // init volume from settings (local storage)
-    this.settingsFacade.volume$
-      .pipe(
-        take(1),
-        switchMap((volume) => this.setVolume(volume))
       )
       .subscribe();
   }
