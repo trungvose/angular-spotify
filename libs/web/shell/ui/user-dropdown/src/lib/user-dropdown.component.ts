@@ -14,4 +14,9 @@ export class UserDropdownComponent {
   userProduct$ = this.store.userProduct$;
 
   constructor(private store: UserDropdownStore) {}
+
+  openLocation() {
+    const url = 'https://www.spotify.com/us/premium/';
+    window.open(url, '_blank');
+  }
 }
