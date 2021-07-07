@@ -13,6 +13,6 @@ export class UserDropdownStore extends ComponentStore<Record<string, string>> {
     super({});
     this.userName$ = this.store.userName$;
     this.userAvatar$ = this.store.userAvatar$;
-    this.userProduct$ = this.store.userAvatar$;
+    this.userProduct$ = this.store.userProduct$;
   }
 }
