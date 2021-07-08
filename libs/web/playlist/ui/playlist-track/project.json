@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/playlist/ui/playlist-track",
+  "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
+  "prefix": "angular-spotify",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/playlist/ui/playlist-track/src/**/*.ts",
+          "libs/web/playlist/ui/playlist-track/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+      "options": {
+        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

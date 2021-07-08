@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/home/ui/greeting",
+  "sourceRoot": "libs/web/home/ui/greeting/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/home/ui/greeting/src/**/*.ts",
+          "libs/web/home/ui/greeting/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/home/ui/greeting"],
+      "options": {
+        "jestConfig": "libs/web/home/ui/greeting/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

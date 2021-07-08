@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/web/playlist/feature/list",
+  "sourceRoot": "libs/web/playlist/feature/list/src",
+  "prefix": "angular-spotify",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/playlist/feature/list/src/**/*.ts",
+          "libs/web/playlist/feature/list/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}

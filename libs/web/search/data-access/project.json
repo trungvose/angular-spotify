@@ -1,0 +1,22 @@
+{
+  "root": "libs/web/search/data-access",
+  "sourceRoot": "libs/web/search/data-access/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/web/search/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/search/data-access"],
+      "options": {
+        "jestConfig": "libs/web/search/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:web"]
+}

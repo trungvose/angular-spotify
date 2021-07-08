@@ -8,6 +8,7 @@ import { ComponentStore } from '@ngrx/component-store';
 import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
+
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
   tokenType: string | null;
@@ -61,7 +62,7 @@ export class AuthStore extends ComponentStore<AuthState> {
 
     return this.route.fragment.pipe(
       filter((fragment) => !!fragment),
-      map((fragment) => new URLSearchParams(fragment)),
+      map((fragment) => new URLSearchParams(fragment as string)),
       map((params) => ({
         accessToken: params.get('access_token'),
         tokenType: params.get('token_type'),

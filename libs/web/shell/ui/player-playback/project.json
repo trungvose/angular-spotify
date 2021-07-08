@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shell/ui/player-playback",
+  "sourceRoot": "libs/web/shell/ui/player-playback/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shell/ui/player-playback/src/**/*.ts",
+          "libs/web/shell/ui/player-playback/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

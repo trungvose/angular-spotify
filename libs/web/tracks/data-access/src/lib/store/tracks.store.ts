@@ -1,12 +1,9 @@
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import {
-  PlayerApiService,
-  TrackApiService
-} from '@angular-spotify/web/shared/data-access/spotify-api';
-import { switchMap, tap } from 'rxjs/operators';
+import { PlayerApiService, TrackApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
+import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { switchMap, tap } from 'rxjs/operators';
 
 type TracksState = GenericState<SpotifyApi.UsersSavedTracksResponse>;
 
@@ -33,7 +30,7 @@ export class TracksStore extends ComponentStore<TracksState> {
             (error) => {
               this.patchState({
                 status: 'error',
-                error: error as string
+                error: error as unknown as string
               });
             }
           )

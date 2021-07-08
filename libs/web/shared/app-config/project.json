@@ -1,0 +1,22 @@
+{
+  "root": "libs/web/shared/app-config",
+  "sourceRoot": "libs/web/shared/app-config/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/web/shared/app-config/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/shared/app-config"],
+      "options": {
+        "jestConfig": "libs/web/shared/app-config/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
