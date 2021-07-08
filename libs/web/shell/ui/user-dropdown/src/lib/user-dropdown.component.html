@@ -1,9 +1,10 @@
 <div class="user-info">
-  <ng-container *ngIf="(userProduct$ | async) !== 'premium'">
+  <ng-container *ngIf="userProduct$ | async as userProduct">
     <button type="button"
             class="btn-upgrade"
             (click)="openLocation()"
-            aria-roledescription="upgrade-button">
+            aria-roledescription="upgrade-button"
+            *ngIf="userProduct !== 'premium'">
       Upgrade
     </button>
   </ng-container>
