@@ -1,11 +1,10 @@
+import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { UserDropdownStore } from './user-dropdown.store';
 
 @Component({
   selector: 'as-user-dropdown',
   templateUrl: './user-dropdown.component.html',
   styleUrls: ['./user-dropdown.component.scss'],
-  providers: [UserDropdownStore],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserDropdownComponent {
@@ -13,7 +12,7 @@ export class UserDropdownComponent {
   userAvatar$ = this.store.userAvatar$;
   userProduct$ = this.store.userProduct$;
 
-  constructor(private store: UserDropdownStore) {}
+  constructor(private store: AuthStore) { }
 
   openLocation() {
     const url = 'https://www.spotify.com/us/premium/';
