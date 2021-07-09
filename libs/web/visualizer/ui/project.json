@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/visualizer/ui",
+  "sourceRoot": "libs/web/visualizer/ui/src",
+  "prefix": "angular-spotify",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/visualizer/ui/src/**/*.ts",
+          "libs/web/visualizer/ui/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/visualizer/ui"],
+      "options": {
+        "jestConfig": "libs/web/visualizer/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

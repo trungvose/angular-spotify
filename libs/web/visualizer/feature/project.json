@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/visualizer/feature",
+  "sourceRoot": "libs/web/visualizer/feature/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/visualizer/feature/src/**/*.ts",
+          "libs/web/visualizer/feature/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/visualizer/feature"],
+      "options": {
+        "jestConfig": "libs/web/visualizer/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}

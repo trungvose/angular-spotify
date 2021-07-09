@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/artist/ui/artist-top-tracks",
+  "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/artist/ui/artist-top-tracks/src/**/*.ts",
+          "libs/web/artist/ui/artist-top-tracks/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+      "options": {
+        "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

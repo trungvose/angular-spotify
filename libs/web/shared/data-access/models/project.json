@@ -1,0 +1,14 @@
+{
+  "root": "libs/web/shared/data-access/models",
+  "sourceRoot": "libs/web/shared/data-access/models/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

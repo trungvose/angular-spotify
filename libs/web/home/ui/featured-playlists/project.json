@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/home/ui/featured-playlists",
+  "sourceRoot": "libs/web/home/ui/featured-playlists/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/home/ui/featured-playlists/src/**/*.ts",
+          "libs/web/home/ui/featured-playlists/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/home/ui/featured-playlists"],
+      "options": {
+        "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/ui/media-order",
+  "sourceRoot": "libs/web/shared/ui/media-order/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/ui/media-order/src/**/*.ts",
+          "libs/web/shared/ui/media-order/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/shared/ui/media-order"],
+      "options": {
+        "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

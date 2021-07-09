@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/ui/tracks-loading",
+  "sourceRoot": "libs/web/shared/ui/tracks-loading/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/ui/tracks-loading/src/**/*.ts",
+          "libs/web/shared/ui/tracks-loading/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
+      "options": {
+        "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

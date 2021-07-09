@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/ui/playlist-list",
+  "sourceRoot": "libs/web/shared/ui/playlist-list/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/ui/playlist-list/src/**/*.ts",
+          "libs/web/shared/ui/playlist-list/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/shared/ui/playlist-list"],
+      "options": {
+        "jestConfig": "libs/web/shared/ui/playlist-list/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

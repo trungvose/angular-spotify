@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/browse/ui/category-cover",
+  "sourceRoot": "libs/web/browse/ui/category-cover/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/browse/ui/category-cover/src/**/*.ts",
+          "libs/web/browse/ui/category-cover/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/browse/ui/category-cover"],
+      "options": {
+        "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/directives/click-stop-propagation",
+  "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
+          "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:directive", "scope:web"]
+}

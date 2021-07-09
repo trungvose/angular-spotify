@@ -1,0 +1,115 @@
+{
+  "projectType": "application",
+  "root": "apps/angular-spotify",
+  "sourceRoot": "apps/angular-spotify/src",
+  "prefix": "angular-spotify",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/angular-spotify",
+        "index": {
+          "input": "apps/angular-spotify/src/index.prod.html",
+          "output": "index.html"
+        },
+        "main": "apps/angular-spotify/src/main.ts",
+        "polyfills": "apps/angular-spotify/src/polyfills.ts",
+        "tsConfig": "apps/angular-spotify/tsconfig.app.json",
+        "assets": [
+          "apps/angular-spotify/src/assets",
+          {
+            "glob": "_redirects",
+            "input": "apps/angular-spotify/src",
+            "output": "/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/web/shared/assets/src/assets",
+            "output": "assets"
+          },
+          "apps/angular-spotify/src/manifest.webmanifest"
+        ],
+        "styles": ["apps/angular-spotify/src/styles.scss"],
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/angular-spotify/src/environments/environment.ts",
+              "with": "apps/angular-spotify/src/environments/environment.prod.ts"
+            },
+            {
+              "replace": "libs/web/shell/feature/src/lib/build-specifics/index.ts",
+              "with": "libs/web/shell/feature/src/lib/build-specifics/index.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }
+          ],
+          "serviceWorker": true,
+          "ngswConfigPath": "apps/angular-spotify/ngsw-config.json"
+        }
+      },
+      "defaultConfiguration": ""
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "angular-spotify:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-spotify:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-spotify:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/angular-spotify/src/**/*.ts",
+          "apps/angular-spotify/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/angular-spotify"],
+      "options": {
+        "jestConfig": "apps/angular-spotify/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

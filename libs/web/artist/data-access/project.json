@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/artist/data-access",
+  "sourceRoot": "libs/web/artist/data-access/src",
+  "prefix": "as",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/artist/data-access/src/**/*.ts",
+          "libs/web/artist/data-access/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/artist/data-access"],
+      "options": {
+        "jestConfig": "libs/web/artist/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:web"]
+}

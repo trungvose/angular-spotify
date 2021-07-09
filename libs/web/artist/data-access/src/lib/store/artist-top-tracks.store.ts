@@ -39,7 +39,7 @@ export class ArtistTopTracksStore extends ComponentStore<ArtistTopTracksState> {
                 error: ''
               });
             },
-            (error) => this.patchState({ status: 'error', error: error as string })
+            (error) => this.patchState({ status: 'error', error: error as unknown as string })
           )
         )
       )
