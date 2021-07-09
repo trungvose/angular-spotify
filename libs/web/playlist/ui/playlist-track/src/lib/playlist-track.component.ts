@@ -32,6 +32,7 @@ export class PlaylistTrackComponent implements OnInit {
 
   @Input() index!: number;
   @Input() contextUri!: string | null | undefined;
+  @Input() type: 'PLAYLIST' | 'LIKE_SONGS' = 'PLAYLIST';
 
   isTrackPlaying$!: Observable<boolean>;
   albumRouteUrl?: string;
@@ -53,7 +54,7 @@ export class PlaylistTrackComponent implements OnInit {
       .togglePlay(isPlaying, {
         context_uri: this.contextUri,
         offset: {
-          position: this.item.track.track_number - 1
+          position: this.type === 'PLAYLIST' ? this.index : this.item.track.track_number - 1
         }
       })
       .subscribe(); //TODO: Refactor with component store live stream
