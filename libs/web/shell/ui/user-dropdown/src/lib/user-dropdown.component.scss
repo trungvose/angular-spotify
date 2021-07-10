@@ -1,19 +1,27 @@
 $black: rgba(0, 0, 0);
 $size: 32px;
 
-.user-dropdown {
-  background-color: rgba($black, 0.4);
-  border-radius: 23px;
-  height: $size;
-  min-width: $size;
-  border: 0;
-  cursor: pointer;
-  color: #fff;
-  padding: 2px;
-  @apply flex items-center justify-center;
+.user {
+  &-info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &-dropdown {
+    background-color: rgba($black, 0.4);
+    border-radius: 23px;
+    height: $size;
+    min-width: $size;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    padding: 2px;
+    @apply flex items-center justify-center;
 
-  &:hover {
-    background-color: rgba($black, 0.8);
+    &:hover {
+      background-color: rgba($black, 0.8);
+    }
   }
 }
 
@@ -42,5 +50,26 @@ $size: 32px;
         @apply text-white;
       }
     }
+  }
+}
+
+.btn-upgrade {
+  border: 1px solid #ffffffb3;
+  border-radius: 100vh;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px 32px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: all 33ms cubic-bezier(.3,0,0,1);
+  transition: all 33ms ease;
+  white-space: nowrap;
+  background-color: #000;
+
+  &:hover {
+   transform: scale(1.05);
   }
 }

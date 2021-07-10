@@ -1,9 +1,9 @@
-import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
-import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { AuthStore } from '@angular-spotify/web/auth/data-access';
 import { ArtistStore } from './artist.store';
 
 interface ArtistTopTracksState extends GenericState<SpotifyApi.ArtistsTopTracksResponse> {
