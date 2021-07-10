@@ -1,21 +1,34 @@
-<div class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
-  <figure class="w-7 h-7" [title]="userName$ | async">
-    <img [src]="userAvatar$ | async" alt="User Profile" class="rounded-img" />
-  </figure>
-  <span class="w-16 ml-2 text-xs text-white truncate">{{ userName$ | async }}</span>
-  <svg-icon class="mr-2" [key]="'caret-down-fill'"></svg-icon>
+<div class="user-info">
+  <ng-container *ngIf="userProduct$ | async as userProduct">
+    <button type="button"
+            class="btn-upgrade"
+            (click)="openLocation()"
+            aria-roledescription="upgrade-button"
+            *ngIf="userProduct !== 'premium'">
+      Upgrade
+    </button>
+  </ng-container>
+
+  <div class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
+    <figure class="w-7 h-7" [title]="userName$ | async">
+      <img [src]="userAvatar$ | async" alt="User Profile" class="rounded-img" />
+    </figure>
+    <span class="w-16 ml-2 text-xs text-white truncate">{{ userName$ | async }}</span>
+    <svg-icon class="mr-2" [key]="'caret-down-fill'"></svg-icon>
+  </div>
+
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu class="dropdown-container">
+      <li nz-menu-item class="dropdown-item">
+        <a class="text-description" href="https://www.spotify.com/account/" target="_blank">
+          Profile
+        </a>
+      </li>
+      <li nz-menu-item class="dropdown-item">
+        <a class="text-description" href="https://www.spotify.com/account/apps/" target="_blank">
+          Remove Access
+        </a>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
 </div>
-<nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu class="dropdown-container">
-    <li nz-menu-item class="dropdown-item">
-      <a class="text-description" href="https://www.spotify.com/account/" target="_blank">
-        Profile
-      </a>
-    </li>
-    <li nz-menu-item class="dropdown-item">
-      <a class="text-description" href="https://www.spotify.com/account/apps/" target="_blank">
-        Remove Access
-      </a>
-    </li>
-  </ul>
-</nz-dropdown-menu>
