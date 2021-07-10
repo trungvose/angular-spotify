@@ -32,14 +32,16 @@
   </as-media-table-header>
 
   <div class="mb-8" *ngIf="tracks$ | async as tracks">
-    <as-playlist-track
-      *ngFor="let item of tracks.items; let idx = index"
-      [item]="item"
-      [index]="idx"
-      [contextUri]="getPlaylistContextUri(playlistId$ | async)"
-      (dblclick)="playTrack(idx)"
-    >
-    </as-playlist-track>
+    <ng-container *ngFor="let item of tracks.items; let idx = index">
+      <as-playlist-track
+        *ngIf="item.track"      
+        [item]="item"
+        [index]="idx"
+        [contextUri]="getPlaylistContextUri(playlistId$ | async)"
+        (dblclick)="playTrack(idx)"
+      >
+      </as-playlist-track>
+    </ng-container>
   </div>
 </div>
 

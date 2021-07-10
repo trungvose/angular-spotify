@@ -20,13 +20,15 @@
 
 
     <div class="mb-8">
-      <as-playlist-track *ngFor="let item of vm.data?.items; let idx = index"
-                         type='LIKE_SONGS'
-                         [item]="$any(item)"
-                         [index]="idx"
-                         [contextUri]="item.track.album.uri"
-                         (dblclick)="playTrack(item.track)">
-      </as-playlist-track>
+      <ng-container *ngFor="let item of vm.data?.items; let idx = index">
+        <as-playlist-track *ngIf="item.track"
+                           type='LIKE_SONGS'
+                           [item]="$any(item)"
+                           [index]="idx"
+                           [contextUri]="item.track.album.uri"
+                           (dblclick)="playTrack(item.track)">
+        </as-playlist-track>
+      </ng-container>
     </div>
 
     <div class="px-8 mb-5 album-loading"

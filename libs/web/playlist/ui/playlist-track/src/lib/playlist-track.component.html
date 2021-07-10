@@ -5,7 +5,7 @@
     <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"></as-track-main-info>
   </ng-container>
   <a class="text-description link-subtle hover:underline" [routerLink]="albumRouteUrl">
-    {{ item.track.album.name }}
+    {{ item.track.album?.name }}
   </a>
   <div class="text-description" [title]="item.added_at | date: 'medium'">
     {{ item.added_at | date }}

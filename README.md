@@ -1,5 +1,7 @@
 # Angular Spotify
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/trungk18/angular-spotify)
+
 A simple Spotify client built with Angular 12, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
 > I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
@@ -184,7 +186,7 @@ I scheduled a few live stream sessions to show you how I continue developing Ang
 | 6   | Sat, 15th May 2021, 10AM   | [Build the artist detail page - part 2][live-06]                |
 | 7   | Sat, 12th Jun 2021, 10AM   | [Build the track list page - part 1][live-07]                   |
 | 8   | Sat, 19th Jun 2021, 10AM   | [Build the track list page - part 2][live-08]                   |
-| 9   | TBD                        | Setup i18n and support new language                             |
+| 9   | Sun, 11th July 2021, 10AM  | [NgRx Component Store Unit Testing][live-09]                    |
 | 10  | TBD                        | Config Nx build:affected with Github action                     |
 
 I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office Hours. More detail is coming soon.
@@ -197,6 +199,7 @@ I will also do some refactoring with [@nartc][nartc] for Angular Vietnam Office 
 [live-06]: https://youtu.be/Tt51-pxm6Ko
 [live-07]: https://youtu.be/Oj4yomnxfj4
 [live-08]: https://youtu.be/1h5KKFSj9Es
+[live-09]: https://youtu.be/owwRjxm0zs0
 
 ## Community
 
