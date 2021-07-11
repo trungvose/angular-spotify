@@ -66,6 +66,6 @@ export class SelectorUtil {
         }))
       };
     }
-    return playlists;
+    return null;
   }
 }

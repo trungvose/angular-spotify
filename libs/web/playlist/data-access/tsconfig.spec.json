@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["jest", "node"]
+    "types": ["jest", "node", "spotify-api"]
   },
   "include": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.spec.js", "**/*.spec.jsx", "**/*.d.ts"]
 }

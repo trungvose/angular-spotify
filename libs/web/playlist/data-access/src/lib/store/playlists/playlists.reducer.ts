@@ -13,7 +13,7 @@ export interface PlaylistsState extends GenericState<SpotifyApi.ListOfUsersPlayl
   map: Map<string, SpotifyApi.PlaylistObjectSimplified> | null;
 }
 
-const initialState: PlaylistsState = {
+export const initialState: PlaylistsState = {
   map: null,
   data: null,
   status: 'pending',

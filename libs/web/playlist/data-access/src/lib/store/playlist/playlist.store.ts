@@ -40,7 +40,7 @@ export class PlaylistStore extends ComponentStore<PlaylistState> {
       });
       this.loadPlaylist({ playlistId });
     }),
-    switchMap((playlistId) => this.store.pipe(select(getPlaylist(playlistId))))
+    switchMap((playlistId) => this.store.select(getPlaylist(playlistId)))
   );
 
   tracks$ = this.playlistParams$.pipe(
