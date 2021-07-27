@@ -71,6 +71,8 @@
     "@angular/cli": "12.1.1",
     "@angular/compiler-cli": "12.1.1",
     "@angular/language-service": "12.1.1",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@ngneat/svg-generator": "3.0.1",
     "@nrwl/cli": "12.5.2",
     "@nrwl/cypress": "12.5.2",
