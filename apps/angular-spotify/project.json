@@ -111,5 +111,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:angular-spotify", "type:app"]
 }
