@@ -10,5 +10,5 @@
       }
     }
   },
-  "tags": ["type:ui","scope:web"]
+  "tags": ["type:data-access","scope:web"]
 }
