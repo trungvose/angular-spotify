@@ -3,5 +3,5 @@
   "sourceRoot": "libs/web/shared/assets/src",
   "projectType": "library",
   "targets": {},
-  "tags": ["type:assets"]
+  "tags": ["type:util", "scope:web"]
 }
