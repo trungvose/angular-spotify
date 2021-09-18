@@ -14,5 +14,5 @@
       }
     }
   },
-  "tags": ["type:directive", "scope:web"]
+  "tags": ["type:util", "scope:web"]
 }
