@@ -96,7 +96,7 @@
     "eslint": "7.30.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-cypress": "2.11.3",
-    "husky": "7.0.0",
+    "husky": "7.0.1",
     "jest": "27.0.6",
     "jest-preset-angular": "9.0.4",
     "lint-staged": "11.0.0",
