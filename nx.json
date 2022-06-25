@@ -25,7 +25,6 @@
       }
     }
   },
-  "projects": {},
   "targetDependencies": {
     "build": [
       {
