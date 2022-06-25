@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AlbumStore } from '@angular-spotify/web/album/data-access';
-import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
+import { AlbumTrackComponent } from '@angular-spotify/web/album/ui/album-track';
 import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
@@ -22,7 +22,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     PlayButtonModule,
     MediaTableModule,
     SvgIconsModule,
-    AlbumTrackModule,
+    AlbumTrackComponent
   ]
 })
 export class AlbumComponent {

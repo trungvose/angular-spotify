@@ -1,1 +1,1 @@
-export * from './lib/album-track.module';
+export * from './lib/album-track.component';

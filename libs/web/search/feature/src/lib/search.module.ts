@@ -6,7 +6,7 @@ import { InputModule } from '@angular-spotify/web/shared/ui/input';
 import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
 import { MediaModule } from '@angular-spotify/web/shared/ui/media';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
-import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
+import { AlbumTrackComponent } from '@angular-spotify/web/album/ui/album-track';
 import { SearchComponent } from './search.component';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 
@@ -18,7 +18,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     MediaModule,
     MediaTableModule,
     SvgIconsModule,
-    AlbumTrackModule,
+    AlbumTrackComponent,
     RouterModule.forChild([
       {
         path: '',
