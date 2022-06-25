@@ -10,7 +10,8 @@
           "libs/web/settings/feature/src/**/*.ts",
           "libs/web/settings/feature/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

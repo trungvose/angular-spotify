@@ -99,7 +99,8 @@
           "apps/angular-spotify/src/**/*.ts",
           "apps/angular-spotify/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

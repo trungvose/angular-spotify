@@ -10,7 +10,8 @@
           "libs/web/shell/ui/top-bar/src/**/*.ts",
           "libs/web/shell/ui/top-bar/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

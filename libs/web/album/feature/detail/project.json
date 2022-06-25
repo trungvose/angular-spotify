@@ -10,7 +10,8 @@
           "libs/web/album/feature/detail/src/**/*.ts",
           "libs/web/album/feature/detail/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

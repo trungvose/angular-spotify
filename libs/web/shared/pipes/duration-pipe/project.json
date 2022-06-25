@@ -10,7 +10,8 @@
           "libs/web/shared/pipes/duration-pipe/src/**/*.ts",
           "libs/web/shared/pipes/duration-pipe/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

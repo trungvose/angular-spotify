@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/shared/data-access/models",
   "sourceRoot": "libs/web/shared/data-access/models/src",
   "projectType": "library",
   "targets": {
@@ -7,8 +6,9 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
-  "tags": ["type:data-access","scope:web"]
+  "tags": ["type:data-access", "scope:web"]
 }

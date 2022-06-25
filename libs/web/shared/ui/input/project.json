@@ -10,7 +10,8 @@
           "libs/web/shared/ui/input/src/**/*.ts",
           "libs/web/shared/ui/input/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

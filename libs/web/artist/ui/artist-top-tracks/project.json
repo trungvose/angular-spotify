@@ -10,7 +10,8 @@
           "libs/web/artist/ui/artist-top-tracks/src/**/*.ts",
           "libs/web/artist/ui/artist-top-tracks/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

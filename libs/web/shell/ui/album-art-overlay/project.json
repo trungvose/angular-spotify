@@ -10,7 +10,8 @@
           "libs/web/shell/ui/album-art-overlay/src/**/*.ts",
           "libs/web/shell/ui/album-art-overlay/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

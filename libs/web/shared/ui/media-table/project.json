@@ -10,7 +10,8 @@
           "libs/web/shared/ui/media-table/src/**/*.ts",
           "libs/web/shared/ui/media-table/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

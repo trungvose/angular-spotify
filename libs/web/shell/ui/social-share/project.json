@@ -10,7 +10,8 @@
           "libs/web/shell/ui/social-share/src/**/*.ts",
           "libs/web/shell/ui/social-share/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

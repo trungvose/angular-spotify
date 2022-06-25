@@ -10,7 +10,8 @@
           "libs/web/shell/ui/visualization-toggle/src/**/*.ts",
           "libs/web/shell/ui/visualization-toggle/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

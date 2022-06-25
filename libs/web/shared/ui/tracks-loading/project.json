@@ -10,7 +10,8 @@
           "libs/web/shared/ui/tracks-loading/src/**/*.ts",
           "libs/web/shared/ui/tracks-loading/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

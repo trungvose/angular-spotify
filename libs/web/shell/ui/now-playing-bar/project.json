@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/now-playing-bar",
   "sourceRoot": "libs/web/shell/ui/now-playing-bar/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/shell/ui/now-playing-bar/src/**/*.ts",
           "libs/web/shell/ui/now-playing-bar/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:ui", "scope:web"]

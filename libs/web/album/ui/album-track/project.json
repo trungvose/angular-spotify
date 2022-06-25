@@ -10,7 +10,8 @@
           "libs/web/album/ui/album-track/src/**/*.ts",
           "libs/web/album/ui/album-track/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

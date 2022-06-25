@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/track-current-info",
   "sourceRoot": "libs/web/shared/ui/track-current-info/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/shared/ui/track-current-info/src/**/*.ts",
           "libs/web/shared/ui/track-current-info/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:ui", "scope:web"]

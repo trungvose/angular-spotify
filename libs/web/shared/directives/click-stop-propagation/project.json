@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/directives/click-stop-propagation",
   "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
           "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:util", "scope:web"]

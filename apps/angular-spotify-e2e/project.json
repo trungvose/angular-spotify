@@ -1,5 +1,4 @@
 {
-  "root": "apps/angular-spotify-e2e",
   "sourceRoot": "apps/angular-spotify-e2e/src",
   "projectType": "application",
   "targets": {
@@ -20,7 +19,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": [],

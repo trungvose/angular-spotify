@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/media-cover",
   "sourceRoot": "libs/web/shared/ui/media-cover/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/shared/ui/media-cover/src/**/*.ts",
           "libs/web/shared/ui/media-cover/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:ui", "scope:web"]

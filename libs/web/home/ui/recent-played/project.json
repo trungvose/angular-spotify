@@ -10,7 +10,8 @@
           "libs/web/home/ui/recent-played/src/**/*.ts",
           "libs/web/home/ui/recent-played/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

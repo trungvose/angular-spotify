@@ -10,7 +10,8 @@
           "libs/web/auth/ui/unauthorized-modal/src/**/*.ts",
           "libs/web/auth/ui/unauthorized-modal/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

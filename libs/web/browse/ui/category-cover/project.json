@@ -10,7 +10,8 @@
           "libs/web/browse/ui/category-cover/src/**/*.ts",
           "libs/web/browse/ui/category-cover/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

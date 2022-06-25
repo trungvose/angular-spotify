@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/track-main-info",
   "sourceRoot": "libs/web/shared/ui/track-main-info/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/shared/ui/track-main-info/src/**/*.ts",
           "libs/web/shared/ui/track-main-info/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:ui", "scope:web"]

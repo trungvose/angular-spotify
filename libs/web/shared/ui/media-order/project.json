@@ -10,7 +10,8 @@
           "libs/web/shared/ui/media-order/src/**/*.ts",
           "libs/web/shared/ui/media-order/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

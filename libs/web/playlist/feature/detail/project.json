@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/playlist/feature/detail",
   "sourceRoot": "libs/web/playlist/feature/detail/src",
   "prefix": "as",
   "targets": {
@@ -11,7 +10,8 @@
           "libs/web/playlist/feature/detail/src/**/*.ts",
           "libs/web/playlist/feature/detail/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": ["type:feature", "scope: web"]

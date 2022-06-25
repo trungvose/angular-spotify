@@ -10,7 +10,8 @@
           "libs/web/artist/data-access/src/**/*.ts",
           "libs/web/artist/data-access/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

@@ -10,7 +10,8 @@
           "libs/web/home/ui/featured-playlists/src/**/*.ts",
           "libs/web/home/ui/featured-playlists/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
