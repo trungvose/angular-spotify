@@ -14,5 +14,5 @@
       "outputs": ["{options.outputFile}"]
     }
   },
-  "tags": ["type:feature", "scope: web"]
+  "tags": ["type:feature", "scope:web"]
 }
