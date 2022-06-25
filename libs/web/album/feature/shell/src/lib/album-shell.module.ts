@@ -1,31 +1,32 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { RouterUtil } from '@angular-spotify/web/shared/utils';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import {
   AlbumsEffect,
   albumsFeatureKey,
   albumsReducer
 } from '@angular-spotify/web/album/data-access';
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
+import { RouterUtil } from '@angular-spotify/web/shared/utils';
+import { importProvidersFrom } from '@angular/core';
+import { Routes } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
+export const ALBUM_ROUTES: Routes = [
+  {
+    path: '',
+    providers: [
+      importProvidersFrom(
+        StoreModule.forFeature(albumsFeatureKey, albumsReducer),
+        EffectsModule.forFeature([AlbumsEffect])
+      )
+    ],
+    children: [
       {
         path: '',
-        loadChildren: async () =>
-          (await import('@angular-spotify/web/album/feature/list')).AlbumsModule
+        loadComponent: async () => (await import('@angular-spotify/web/album/feature/list')).AlbumsComponent
       },
       {
         path: `:${RouterUtil.Configuration.AlbumId}`,
-        loadChildren: async () =>
-          (await import('@angular-spotify/web/album/feature/detail')).AlbumModule
+        loadComponent: async () => (await import('@angular-spotify/web/album/feature/detail')).AlbumComponent
       }
-    ]),
-    StoreModule.forFeature(albumsFeatureKey, albumsReducer),
-    EffectsModule.forFeature([AlbumsEffect])
-  ]
-})
-export class AlbumShellModule {}
+    ]
+  }
+];

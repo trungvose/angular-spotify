@@ -2,11 +2,20 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { getAlbums, getAlbumsLoading, loadAlbums } from '@angular-spotify/web/album/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { MediaModule } from '@angular-spotify/web/shared/ui/media';
+import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'as-albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    MediaModule,
+    SpinnerModule,
+  ]
 })
 export class AlbumsComponent implements OnInit {
   albums$ = this.store.pipe(select(getAlbums));
