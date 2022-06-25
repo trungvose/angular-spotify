@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 const IconSizesInPx: { [key in IconSize]: number } = {
@@ -17,7 +17,7 @@ const IconSizesInPx: { [key in IconSize]: number } = {
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements AfterViewInit {
-  @Input() control = new FormControl('');
+  @Input() control = new UntypedFormControl('');
   @Input() containerClassName = '';
   @Input() icon = '';
   @Input() iconSize: IconSize = 'md';
