@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/browse/feature/shell",
   "sourceRoot": "libs/web/browse/feature/shell/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/browse/feature/shell"],
       "options": {
-        "jestConfig": "libs/web/browse/feature/shell/jest.config.js",
+        "jestConfig": "libs/web/browse/feature/shell/jest.config.ts",
         "passWithNoTests": true
       }
     }

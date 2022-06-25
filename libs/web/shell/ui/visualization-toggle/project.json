@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/visualization-toggle",
   "sourceRoot": "libs/web/shell/ui/visualization-toggle/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/ui/visualization-toggle"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.js",
+        "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/nav-bar-playlist",
   "sourceRoot": "libs/web/shell/ui/nav-bar-playlist/src",
   "prefix": "as",
   "targets": {
@@ -17,10 +16,10 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.js",
+        "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui","scope:web"]
+  "tags": ["type:ui", "scope:web"]
 }

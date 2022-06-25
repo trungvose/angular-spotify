@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/visualizer/ui",
   "sourceRoot": "libs/web/visualizer/ui/src",
   "prefix": "angular-spotify",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/visualizer/ui"],
       "options": {
-        "jestConfig": "libs/web/visualizer/ui/jest.config.js",
+        "jestConfig": "libs/web/visualizer/ui/jest.config.ts",
         "passWithNoTests": true
       }
     }

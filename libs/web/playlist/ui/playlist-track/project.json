@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/playlist/ui/playlist-track",
   "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
   "prefix": "angular-spotify",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
       "options": {
-        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
+        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.ts",
         "passWithNoTests": true
       }
     }

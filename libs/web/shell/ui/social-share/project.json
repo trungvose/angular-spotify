@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/social-share",
   "sourceRoot": "libs/web/shell/ui/social-share/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/ui/social-share"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
+        "jestConfig": "libs/web/shell/ui/social-share/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/tracks/data-access",
   "sourceRoot": "libs/web/tracks/data-access/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +12,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/tracks/data-access"],
       "options": {
-        "jestConfig": "libs/web/tracks/data-access/jest.config.js",
+        "jestConfig": "libs/web/tracks/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/artist/data-access",
   "sourceRoot": "libs/web/artist/data-access/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/artist/data-access"],
       "options": {
-        "jestConfig": "libs/web/artist/data-access/jest.config.js",
+        "jestConfig": "libs/web/artist/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

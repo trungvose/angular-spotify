@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/auth/data-access",
   "sourceRoot": "libs/web/auth/data-access/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +12,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/auth/data-access"],
       "options": {
-        "jestConfig": "libs/web/auth/data-access/jest.config.js",
+        "jestConfig": "libs/web/auth/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

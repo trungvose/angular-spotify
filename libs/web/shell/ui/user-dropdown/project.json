@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/user-dropdown",
   "sourceRoot": "libs/web/shell/ui/user-dropdown/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js",
+        "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.ts",
         "passWithNoTests": true
       }
     }

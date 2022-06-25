@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/artist/ui/artist-top-tracks",
   "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
       "options": {
-        "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
+        "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.ts",
         "passWithNoTests": true
       }
     }

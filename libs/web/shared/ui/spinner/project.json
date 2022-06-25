@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/spinner",
   "sourceRoot": "libs/web/shared/ui/spinner/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shared/ui/spinner"],
       "options": {
-        "jestConfig": "libs/web/shared/ui/spinner/jest.config.js",
+        "jestConfig": "libs/web/shared/ui/spinner/jest.config.ts",
         "passWithNoTests": true
       }
     }

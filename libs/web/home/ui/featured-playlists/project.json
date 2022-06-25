@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/home/ui/featured-playlists",
   "sourceRoot": "libs/web/home/ui/featured-playlists/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/home/ui/featured-playlists"],
       "options": {
-        "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.js",
+        "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.ts",
         "passWithNoTests": true
       }
     }

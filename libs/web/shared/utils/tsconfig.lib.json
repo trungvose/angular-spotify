@@ -8,5 +8,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "jest.config.ts"]
 }

@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/album/feature/list",
   "sourceRoot": "libs/web/album/feature/list/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/album/feature/list"],
       "options": {
-        "jestConfig": "libs/web/album/feature/list/jest.config.js",
+        "jestConfig": "libs/web/album/feature/list/jest.config.ts",
         "passWithNoTests": true
       }
     }

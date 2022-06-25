@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/tracks/feature",
   "sourceRoot": "libs/web/tracks/feature/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/tracks/feature"],
       "options": {
-        "jestConfig": "libs/web/tracks/feature/jest.config.js",
+        "jestConfig": "libs/web/tracks/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

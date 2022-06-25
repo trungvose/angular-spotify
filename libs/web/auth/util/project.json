@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/auth/util",
   "sourceRoot": "libs/web/auth/util/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +12,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/auth/util"],
       "options": {
-        "jestConfig": "libs/web/auth/util/jest.config.js",
+        "jestConfig": "libs/web/auth/util/jest.config.ts",
         "passWithNoTests": true
       }
     }

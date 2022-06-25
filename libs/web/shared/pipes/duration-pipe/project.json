@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/pipes/duration-pipe",
   "sourceRoot": "libs/web/shared/pipes/duration-pipe/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
       "options": {
-        "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.js",
+        "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/album/ui/album-track",
   "sourceRoot": "libs/web/album/ui/album-track/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/album/ui/album-track"],
       "options": {
-        "jestConfig": "libs/web/album/ui/album-track/jest.config.js",
+        "jestConfig": "libs/web/album/ui/album-track/jest.config.ts",
         "passWithNoTests": true
       }
     }

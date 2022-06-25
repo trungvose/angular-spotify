@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/shared/app-config",
   "sourceRoot": "libs/web/shared/app-config/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +12,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shared/app-config"],
       "options": {
-        "jestConfig": "libs/web/shared/app-config/jest.config.js",
+        "jestConfig": "libs/web/shared/app-config/jest.config.ts",
         "passWithNoTests": true
       }
     }

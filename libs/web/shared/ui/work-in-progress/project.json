@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/work-in-progress",
   "sourceRoot": "libs/web/shared/ui/work-in-progress/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shared/ui/work-in-progress"],
       "options": {
-        "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.js",
+        "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.ts",
         "passWithNoTests": true
       }
     }

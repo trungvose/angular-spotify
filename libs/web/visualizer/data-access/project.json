@@ -1,5 +1,4 @@
 {
-  "root": "libs/web/visualizer/data-access",
   "sourceRoot": "libs/web/visualizer/data-access/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +12,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/visualizer/data-access"],
       "options": {
-        "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
+        "jestConfig": "libs/web/visualizer/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

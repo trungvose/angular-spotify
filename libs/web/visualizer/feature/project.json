@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/visualizer/feature",
   "sourceRoot": "libs/web/visualizer/feature/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/visualizer/feature"],
       "options": {
-        "jestConfig": "libs/web/visualizer/feature/jest.config.js",
+        "jestConfig": "libs/web/visualizer/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

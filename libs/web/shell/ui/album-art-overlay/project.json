@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/ui/album-art-overlay",
   "sourceRoot": "libs/web/shell/ui/album-art-overlay/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/ui/album-art-overlay"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js",
+        "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.ts",
         "passWithNoTests": true
       }
     }

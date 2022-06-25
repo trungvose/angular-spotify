@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/search/feature",
   "sourceRoot": "libs/web/search/feature/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/search/feature"],
       "options": {
-        "jestConfig": "libs/web/search/feature/jest.config.js",
+        "jestConfig": "libs/web/search/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -105,7 +105,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/angular-spotify"],
       "options": {
-        "jestConfig": "apps/angular-spotify/jest.config.js",
+        "jestConfig": "apps/angular-spotify/jest.config.ts",
         "passWithNoTests": true
       }
     }

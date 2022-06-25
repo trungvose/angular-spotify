@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/browse/ui/category-cover",
   "sourceRoot": "libs/web/browse/ui/category-cover/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/browse/ui/category-cover"],
       "options": {
-        "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js",
+        "jestConfig": "libs/web/browse/ui/category-cover/jest.config.ts",
         "passWithNoTests": true
       }
     }

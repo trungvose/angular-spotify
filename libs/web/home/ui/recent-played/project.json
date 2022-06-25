@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/home/ui/recent-played",
   "sourceRoot": "libs/web/home/ui/recent-played/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/home/ui/recent-played"],
       "options": {
-        "jestConfig": "libs/web/home/ui/recent-played/jest.config.js",
+        "jestConfig": "libs/web/home/ui/recent-played/jest.config.ts",
         "passWithNoTests": true
       }
     }

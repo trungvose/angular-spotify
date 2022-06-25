@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shared/ui/tracks-loading",
   "sourceRoot": "libs/web/shared/ui/tracks-loading/src",
   "prefix": "as",
   "targets": {
@@ -17,7 +16,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
       "options": {
-        "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
+        "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.ts",
         "passWithNoTests": true
       }
     }

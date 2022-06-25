@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/web/shell/feature",
   "sourceRoot": "libs/web/shell/feature/src",
   "prefix": "as",
   "targets": {
@@ -17,10 +16,10 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/web/shell/feature"],
       "options": {
-        "jestConfig": "libs/web/shell/feature/jest.config.js",
+        "jestConfig": "libs/web/shell/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:feature","scope:web"]
+  "tags": ["type:feature", "scope:web"]
 }
