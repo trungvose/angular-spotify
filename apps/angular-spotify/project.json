@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/angular-spotify",
   "sourceRoot": "apps/angular-spotify/src",
   "prefix": "angular-spotify",
   "targets": {
