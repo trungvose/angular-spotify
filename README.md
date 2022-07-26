@@ -36,17 +36,6 @@ Thanks a bunch for stopping by and supporting me!
 
 [tweet]: https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2012,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40tuantrungvo&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript
 
-## Cake Defi
-
-I am working at [Cake Defi][cake]. We offer the easiest way to generate consistently high returns from your crypto assets. We are a team of passionate people who are committed to building a better future for everyone.
-
-I built the landing page at [cakedefi.com][cake] and architect the entire app at [app.cakedefi.com][cakeapp].
-
-[Sign up using my referral code: 136431][cake] to get started and get $20 FREE.
-
-[cake]: https://cakedefi.com/?ref=136431&utm_source=trungvo
-[cakeapp]: https://app.cakedefi.com/?ref=136431&utm_source=trungvo
-
 ## Who is it for 🤷‍♀️
 
 I still remember Window Media Player on windows has the visualization when you start to play the music, and I wanted to have the same experience when listening to Spotify. That is the reason I started this project.
