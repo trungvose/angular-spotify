@@ -1,19 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, ErrorHandler } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { webShellRoutes } from './web-shell.routes';
-import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { SettingsModule } from '@angular-spotify/web/settings/feature';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+import { AppInit, AppInitEffects } from '@angular-spotify/web/shared/app-init';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
-import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
+import { CommonModule } from '@angular/common';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
 import * as Sentry from '@sentry/angular';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { webShellRoutes } from './web-shell.routes';
 
 /** config angular i18n **/
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
 import {
   PlaylistsEffect,
   playlistsFeatureKey,
@@ -22,6 +21,8 @@ import {
   PlaylistTracksEffect,
   playlistTracksReducer
 } from '@angular-spotify/web/playlist/data-access';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
 import { extModules } from './build-specifics';
 registerLocaleData(en);
 
@@ -40,7 +41,7 @@ const rootReducers = {
       scrollPositionRestoration: 'top'
     }),
     StoreModule.forRoot(rootReducers),
-    EffectsModule.forRoot([PlaylistsEffect, PlaylistTracksEffect]),
+    EffectsModule.forRoot([AppInitEffects, PlaylistsEffect, PlaylistTracksEffect]),
     SettingsModule,
     ...extModules
   ],
@@ -52,6 +53,14 @@ const rootReducers = {
       useValue: Sentry.createErrorHandler({
         showDialog: true
       })
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (store: Store) => () => {
+        store.dispatch(AppInit());
+      },
+      multi: true,
+      deps: [Store],
     }
   ],
   declarations: []

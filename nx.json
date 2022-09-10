@@ -25,7 +25,11 @@
       }
     }
   },
-  "projects": {},
+  "projects": {
+    "web-shared-app-init": {
+      "tags": ["type:feature\"", "\"scope:web"]
+    }
+  },
   "targetDependencies": {
     "build": [
       {

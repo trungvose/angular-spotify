@@ -1,9 +1,8 @@
-import { Store } from '@ngrx/store';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
+import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { VisualizerStore } from '@angular-spotify/web/visualizer/data-access';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
@@ -20,7 +19,6 @@ export class LayoutComponent implements OnInit {
   );
 
   constructor(
-    private authStore: AuthStore,
     private playbackStore: PlaybackStore,
     private playbackService: PlaybackService,
     private store: Store,
@@ -28,7 +26,6 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authStore.init();
     this.playbackService.init();
     this.store.dispatch(loadPlaylists());
   }
