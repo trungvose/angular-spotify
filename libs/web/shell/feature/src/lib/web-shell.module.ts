@@ -1,5 +1,5 @@
 import { SettingsModule } from '@angular-spotify/web/settings/feature';
-import { AppInit, AppInitEffects } from '@angular-spotify/web/shared/app-init';
+import { AppInit, ApplicationEffects } from '@angular-spotify/web/shared/app-init';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { CommonModule } from '@angular/common';
@@ -41,7 +41,7 @@ const rootReducers = {
       scrollPositionRestoration: 'top'
     }),
     StoreModule.forRoot(rootReducers),
-    EffectsModule.forRoot([AppInitEffects, PlaylistsEffect, PlaylistTracksEffect]),
+    EffectsModule.forRoot([ApplicationEffects, PlaylistsEffect, PlaylistTracksEffect]),
     SettingsModule,
     ...extModules
   ],

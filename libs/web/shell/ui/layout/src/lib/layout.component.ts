@@ -1,5 +1,5 @@
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
-import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { VisualizerStore } from '@angular-spotify/web/visualizer/data-access';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -20,13 +20,11 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private playbackStore: PlaybackStore,
-    private playbackService: PlaybackService,
     private store: Store,
     private visualizerStore: VisualizerStore
   ) {}
 
   ngOnInit(): void {
-    this.playbackService.init();
     this.store.dispatch(loadPlaylists());
   }
 }

@@ -1,32 +1,18 @@
-import { Title } from '@angular/platform-browser';
-import { Injectable } from '@angular/core';
-import { AuthStore } from '@angular-spotify/web/auth/data-access';
-import { tap, withLatestFrom } from 'rxjs/operators';
-import { PlaybackStore } from './playback.store';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { Observable } from 'rxjs';
 import { SettingsFacade } from '@angular-spotify/web/settings/data-access';
+import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { PlaybackStore } from './playback.store';
 
 @Injectable({ providedIn: 'root' })
 export class PlaybackService {
   constructor(
-    private authStore: AuthStore,
     private playbackStore: PlaybackStore,
     private playerApi: PlayerApiService,
     private titleService: Title,
     private settingsFacade: SettingsFacade
   ) {}
-
-  init() {
-    this.authStore.token$
-      .pipe(
-        withLatestFrom(this.settingsFacade.volume$),
-        tap(([token, volume]) => {
-          this.initPlaybackSDK(token, volume);
-        })
-      )
-      .subscribe();
-  }
 
   play() {
     this.playbackStore.player()?.togglePlay();
@@ -52,7 +38,7 @@ export class PlaybackService {
     return this.playerApi.setVolume(Math.floor(volume * 100));
   }
 
-  private async initPlaybackSDK(token: string, volume: number) {
+  async initPlaybackSDK(token: string, volume: number) {
     const { Player } = await this.waitForSpotifyWebPlaybackSDKToLoad();
     const player = new Player({
       name: 'Angular Spotify Web Player',
