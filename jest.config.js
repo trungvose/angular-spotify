@@ -60,6 +60,7 @@ module.exports = {
     '<rootDir>/libs/web/tracks/data-access',
     '<rootDir>/libs/web/search/feature',
     '<rootDir>/libs/web/shared/ui/input',
-    '<rootDir>/libs/web/search/data-access'
+    '<rootDir>/libs/web/search/data-access',
+    '<rootDir>/libs/web/shared/app-init'
   ]
 };

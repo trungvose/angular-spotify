@@ -65,6 +65,7 @@
       "@angular-spotify/web/settings/data-access": ["libs/web/settings/data-access/src/index.ts"],
       "@angular-spotify/web/settings/feature": ["libs/web/settings/feature/src/index.ts"],
       "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"],
+      "@angular-spotify/web/shared/app-init": ["libs/web/shared/app-init/src/index.ts"],
       "@angular-spotify/web/shared/data-access/models": [
         "libs/web/shared/data-access/models/src/index.ts"
       ],

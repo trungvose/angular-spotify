@@ -1,10 +1,12 @@
 // MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
 /// <reference types="spotify-api" />
 
+import { AuthReady } from '@angular-spotify/web/shared/app-init';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
@@ -18,6 +20,15 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthStore extends ComponentStore<AuthState> {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private spotify: SpotifyApiService,
+    private store: Store,  
+  ) {
+    super(<AuthState>{});
+  }
+
   readonly token$ = this.select((s) => s.accessToken).pipe(
     filter((token) => !!token)
   ) as Observable<string>;
@@ -29,15 +40,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
   );
   readonly getUserId = () => this.get().id;
-  readonly getToken = () => this.get().accessToken;
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private spotify: SpotifyApiService
-  ) {
-    super(<AuthState>{});
-  }
+  readonly getToken = () => this.get().accessToken;  
 
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
     console.log(user);
@@ -71,6 +74,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       })),
       tap((params) => {
         this.patchState(params);
+        this.store.dispatch(AuthReady());
         console.info('[Angular Spotify] Authenticated!');
       }),
       tap(() => {
