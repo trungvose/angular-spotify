@@ -14,28 +14,27 @@ interface VisualizerState {
 export class VisualizerStore extends ComponentStore<VisualizerState> {
   constructor(private router: Router, private location: Location) {
     super({ isVisible: false, isShownAsPiP: false });
-
-    this.router.events
-      .pipe(
-        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-        map((e: NavigationEnd) =>
-          e.urlAfterRedirects.includes(RouterUtil.Configuration.Visualizer)
-        ),
-        withLatestFrom(this.state$),
-        tap(([isAtVisualizerRoute, state]) => {
-          if (isAtVisualizerRoute) {
-            this.setState({ ...state, isVisible: true, isShownAsPiP: false });
-          } else {
-            this.setState({ ...state, isShownAsPiP: true });
-          }
-        })
-      )
-      .subscribe();
+    this.showVisualizerAsPiP$();
   }
 
   readonly isShownAsPiP$ = this.select((s) => s.isShownAsPiP);
   readonly isVisible$ = this.select((s) => s.isVisible);
   readonly showPiPVisualizer$ = this.select((s) => s.isVisible && s.isShownAsPiP);
+
+  readonly showVisualizerAsPiP$ = this.effect(() =>
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e: NavigationEnd) => e.urlAfterRedirects.includes(RouterUtil.Configuration.Visualizer)),
+      withLatestFrom(this.state$),
+      tap(([isAtVisualizerRoute, state]) => {
+        if (isAtVisualizerRoute) {
+          this.setState({ ...state, isVisible: true, isShownAsPiP: false });
+        } else {
+          this.setState({ ...state, isShownAsPiP: true });
+        }
+      })
+    )
+  );
 
   readonly setVisibility = this.effect<{ value: boolean }>((params$) =>
     params$.pipe(
