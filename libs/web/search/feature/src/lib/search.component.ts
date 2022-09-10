@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
@@ -34,17 +34,17 @@ export class SearchComponent implements OnInit {
         untilDestroyed(this),
         debounceTime(300),
         distinctUntilChanged(),
-        filter((term) => term.length >= 1)
+        filter((term) => term.length >= 1),
+        tap((term) => {
+          this.syncQueryParams(term);
+          this.store.search(term);
+        })
       )
-      .subscribe((term) => {
-        this.syncQueryParams(term);
-        this.store.search(term);
-      });
+      .subscribe();
 
     // assign query param if available
-    const queryParam = this.activatedRoute.snapshot.queryParams[
-      RouterUtil.Configuration.SearchQueryParam
-    ];
+    const queryParam =
+      this.activatedRoute.snapshot.queryParams[RouterUtil.Configuration.SearchQueryParam];
     if (queryParam) {
       this.searchControl.patchValue(queryParam);
     }
