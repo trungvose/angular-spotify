@@ -1,7 +1,5 @@
 # Angular Spotify
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/trungk18/angular-spotify)
-
 A simple Spotify client built with Angular 12, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
 > I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
