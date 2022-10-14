@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { combineLatest } from 'rxjs';
-import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { AppInit, AuthReady } from './app-init.action';
 import { GoogleAnalyticsService } from './google-analytics.service';
 import { PromptUpdateService } from './promp-update.service';
