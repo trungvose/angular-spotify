@@ -36,7 +36,7 @@ export class InputComponent implements AfterViewInit {
   }
 
   get showClearButton(): boolean {
-    return this.enableClearButton && this.control?.value;
+    return this.enableClearButton && !!this.control?.value;
   }
 
   clear() {
