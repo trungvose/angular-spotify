@@ -29,6 +29,9 @@
           },
           "apps/angular-spotify/src/manifest.webmanifest"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["./node_modules"]
+        },
         "styles": ["apps/angular-spotify/src/styles.scss"],
         "scripts": [],
         "vendorChunk": true,

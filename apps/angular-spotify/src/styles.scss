@@ -1,17 +1,17 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import './custom/tailwind';
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+@use './custom/tailwind';
 
-@import '~ng-zorro-antd/style/index.min.css';
-@import '~ng-zorro-antd/slider/style/index.min.css';
-@import '~ng-zorro-antd/skeleton/style/index.min.css';
-@import '~ng-zorro-antd/switch/style/index.min.css';
-@import '~ng-zorro-antd/modal/style/index.min.css';
-@import '~ng-zorro-antd/button/style/index.min.css';
-@import '~ng-zorro-antd/tooltip/style/index.min.css';
-@import '~ng-zorro-antd/dropdown/style/index.min.css';
-@import './custom/ant';
+@use 'ng-zorro-antd/style/index.min.css' as *;
+@use 'ng-zorro-antd/slider/style/index.min.css' as slide;
+@use 'ng-zorro-antd/skeleton/style/index.min.css' as skeleton;
+@use 'ng-zorro-antd/switch/style/index.min.css' as switch;
+@use 'ng-zorro-antd/modal/style/index.min.css' as modal;
+@use 'ng-zorro-antd/button/style/index.min.css' as button;
+@use 'ng-zorro-antd/tooltip/style/index.min.css' as tooltip;
+@use 'ng-zorro-antd/dropdown/style/index.min.css' as dropdown;
+@use './custom/ant';
 
 body {
   min-width: 600px;
