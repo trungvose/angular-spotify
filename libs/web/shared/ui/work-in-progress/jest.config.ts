@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'web-shared-ui-work-in-progress',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

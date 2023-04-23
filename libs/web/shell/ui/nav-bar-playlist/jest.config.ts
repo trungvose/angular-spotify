@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'web-shell-ui-nav-bar-playlist',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

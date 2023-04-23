@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'web-auth-util',
   preset: '../../../../jest.preset.js',
   globals: {

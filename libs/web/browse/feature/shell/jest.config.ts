@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'web-browse-feature-shell',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

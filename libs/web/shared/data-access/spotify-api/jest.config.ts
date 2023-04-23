@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'web-shared-data-access-spotify-api',
   preset: '../../../../../jest.preset.js',
   globals: {
