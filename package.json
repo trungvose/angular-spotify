@@ -9,7 +9,7 @@
   },
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main && husky install",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main && husky install",
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
