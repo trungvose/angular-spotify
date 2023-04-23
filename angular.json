@@ -109,7 +109,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/angular-spotify"],
+          "outputs": ["{workspaceRoot}/coverage/apps/angular-spotify"],
           "options": {
             "jestConfig": "apps/angular-spotify/jest.config.ts",
             "passWithNoTests": true
@@ -134,7 +134,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/data-access"],
           "options": {
             "jestConfig": "libs/web/album/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -163,7 +163,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/detail"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/detail"],
           "options": {
             "jestConfig": "libs/web/album/feature/detail/jest.config.ts",
             "passWithNoTests": true
@@ -192,7 +192,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/list"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/list"],
           "options": {
             "jestConfig": "libs/web/album/feature/list/jest.config.ts",
             "passWithNoTests": true
@@ -221,7 +221,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/shell"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/shell"],
           "options": {
             "jestConfig": "libs/web/album/feature/shell/jest.config.ts",
             "passWithNoTests": true
@@ -250,7 +250,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/ui/album-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/ui/album-track"],
           "options": {
             "jestConfig": "libs/web/album/ui/album-track/jest.config.ts",
             "passWithNoTests": true
@@ -279,7 +279,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/data-access"],
           "options": {
             "jestConfig": "libs/web/artist/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -308,7 +308,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/feature"],
           "options": {
             "jestConfig": "libs/web/artist/feature/jest.config.ts",
             "passWithNoTests": true
@@ -337,7 +337,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-track"],
           "options": {
             "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.ts",
             "passWithNoTests": true
@@ -366,7 +366,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-tracks"],
           "options": {
             "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.ts",
             "passWithNoTests": true
@@ -391,7 +391,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/data-access"],
           "options": {
             "jestConfig": "libs/web/auth/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -420,7 +420,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/ui/unauthorized-modal"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/ui/unauthorized-modal"],
           "options": {
             "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.ts",
             "passWithNoTests": true
@@ -445,7 +445,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/util"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/util"],
           "options": {
             "jestConfig": "libs/web/auth/util/jest.config.ts",
             "passWithNoTests": true
@@ -470,7 +470,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/data-access"],
           "options": {
             "jestConfig": "libs/web/browse/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -499,7 +499,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/categories"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/categories"],
           "options": {
             "jestConfig": "libs/web/browse/feature/categories/jest.config.ts",
             "passWithNoTests": true
@@ -528,7 +528,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/category"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/category"],
           "options": {
             "jestConfig": "libs/web/browse/feature/category/jest.config.ts",
             "passWithNoTests": true
@@ -557,7 +557,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/shell"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/shell"],
           "options": {
             "jestConfig": "libs/web/browse/feature/shell/jest.config.ts",
             "passWithNoTests": true
@@ -586,7 +586,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/ui/category-cover"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/ui/category-cover"],
           "options": {
             "jestConfig": "libs/web/browse/ui/category-cover/jest.config.ts",
             "passWithNoTests": true
@@ -611,7 +611,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/data-access"],
           "options": {
             "jestConfig": "libs/web/home/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -640,7 +640,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/feature"],
           "options": {
             "jestConfig": "libs/web/home/feature/jest.config.ts",
             "passWithNoTests": true
@@ -669,7 +669,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/featured-playlists"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/featured-playlists"],
           "options": {
             "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.ts",
             "passWithNoTests": true
@@ -698,7 +698,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/greeting"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/greeting"],
           "options": {
             "jestConfig": "libs/web/home/ui/greeting/jest.config.ts",
             "passWithNoTests": true
@@ -727,7 +727,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/recent-played"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/recent-played"],
           "options": {
             "jestConfig": "libs/web/home/ui/recent-played/jest.config.ts",
             "passWithNoTests": true
@@ -752,7 +752,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/data-access"],
           "options": {
             "jestConfig": "libs/web/playlist/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -823,7 +823,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/ui/playlist-track"],
           "options": {
             "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.ts",
             "passWithNoTests": true
@@ -848,7 +848,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/search/data-access"],
           "options": {
             "jestConfig": "libs/web/search/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -877,7 +877,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/search/feature"],
           "options": {
             "jestConfig": "libs/web/search/feature/jest.config.ts",
             "passWithNoTests": true
@@ -902,7 +902,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/settings/data-access"],
           "options": {
             "jestConfig": "libs/web/settings/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -931,7 +931,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/settings/feature"],
           "options": {
             "jestConfig": "libs/web/settings/feature/jest.config.ts",
             "passWithNoTests": true
@@ -956,7 +956,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-config"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-config"],
           "options": {
             "jestConfig": "libs/web/shared/app-config/jest.config.ts",
             "passWithNoTests": true
@@ -974,7 +974,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-init"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-init"],
           "options": {
             "jestConfig": "libs/web/shared/app-init/jest.config.ts",
             "passWithNoTests": true
@@ -1034,7 +1034,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/spotify-api"],
           "options": {
             "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.ts",
             "passWithNoTests": true
@@ -1059,7 +1059,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/store"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/store"],
           "options": {
             "jestConfig": "libs/web/shared/data-access/store/jest.config.ts",
             "passWithNoTests": true
@@ -1109,7 +1109,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/pipes/duration-pipe"],
           "options": {
             "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.ts",
             "passWithNoTests": true
@@ -1138,7 +1138,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/icon"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/icon"],
           "options": {
             "jestConfig": "libs/web/shared/ui/icon/jest.config.ts",
             "passWithNoTests": true
@@ -1167,7 +1167,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/input"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/input"],
           "options": {
             "jestConfig": "libs/web/shared/ui/input/jest.config.ts",
             "passWithNoTests": true
@@ -1238,7 +1238,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-order"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/media-order"],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-order/jest.config.ts",
             "passWithNoTests": true
@@ -1288,7 +1288,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-table"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/media-table"],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-table/jest.config.ts",
             "passWithNoTests": true
@@ -1338,7 +1338,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/playlist-list"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/playlist-list"],
           "options": {
             "jestConfig": "libs/web/shared/ui/playlist-list/jest.config.ts",
             "passWithNoTests": true
@@ -1367,7 +1367,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/spinner"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/spinner"],
           "options": {
             "jestConfig": "libs/web/shared/ui/spinner/jest.config.ts",
             "passWithNoTests": true
@@ -1438,7 +1438,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/tracks-loading"],
           "options": {
             "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.ts",
             "passWithNoTests": true
@@ -1467,7 +1467,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/work-in-progress"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/work-in-progress"],
           "options": {
             "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.ts",
             "passWithNoTests": true
@@ -1492,7 +1492,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/utils"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/utils"],
           "options": {
             "jestConfig": "libs/web/shared/utils/jest.config.ts",
             "passWithNoTests": true
@@ -1521,7 +1521,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/feature"],
           "options": {
             "jestConfig": "libs/web/shell/feature/jest.config.ts",
             "passWithNoTests": true
@@ -1550,7 +1550,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/album-art-overlay"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/album-art-overlay"],
           "options": {
             "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.ts",
             "passWithNoTests": true
@@ -1579,7 +1579,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/layout"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/layout"],
           "options": {
             "jestConfig": "libs/web/shell/ui/layout/jest.config.ts",
             "passWithNoTests": true
@@ -1608,7 +1608,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/main-view"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/main-view"],
           "options": {
             "jestConfig": "libs/web/shell/ui/main-view/jest.config.ts",
             "passWithNoTests": true
@@ -1637,7 +1637,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/nav-bar"],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.ts",
             "passWithNoTests": true
@@ -1666,7 +1666,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/nav-bar-playlist"],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.ts",
             "passWithNoTests": true
@@ -1779,7 +1779,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/social-share"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/social-share"],
           "options": {
             "jestConfig": "libs/web/shell/ui/social-share/jest.config.ts",
             "passWithNoTests": true
@@ -1808,7 +1808,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/top-bar"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/top-bar"],
           "options": {
             "jestConfig": "libs/web/shell/ui/top-bar/jest.config.ts",
             "passWithNoTests": true
@@ -1837,7 +1837,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/user-dropdown"],
           "options": {
             "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.ts",
             "passWithNoTests": true
@@ -1866,7 +1866,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/visualization-toggle"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/visualization-toggle"],
           "options": {
             "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.ts",
             "passWithNoTests": true
@@ -1891,7 +1891,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/data-access"],
           "options": {
             "jestConfig": "libs/web/tracks/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -1920,7 +1920,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/feature"],
           "options": {
             "jestConfig": "libs/web/tracks/feature/jest.config.ts",
             "passWithNoTests": true
@@ -1945,7 +1945,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/data-access"],
           "options": {
             "jestConfig": "libs/web/visualizer/data-access/jest.config.ts",
             "passWithNoTests": true
@@ -1974,7 +1974,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/feature"],
           "options": {
             "jestConfig": "libs/web/visualizer/feature/jest.config.ts",
             "passWithNoTests": true
@@ -2003,7 +2003,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/ui"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/ui"],
           "options": {
             "jestConfig": "libs/web/visualizer/ui/jest.config.ts",
             "passWithNoTests": true
