@@ -34,9 +34,6 @@
       }
     ]
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
   "generators": {
     "@nrwl/angular": {
       "application": {
