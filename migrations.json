@@ -1,161 +1,353 @@
 {
   "migrations": [
     {
-      "version": "12.5.0-beta.1",
-      "description": "Rename the workspace-schematic script into workspace-generator script",
-      "factory": "./src/migrations/update-12-5-0/add-target-dependencies",
+      "cli": "nx",
+      "version": "14.0.6",
+      "description": "Remove root property from project.json files",
+      "factory": "./src/migrations/update-14-0-6/remove-roots",
+      "package": "nx",
+      "name": "14-0-6-remove-root"
+    },
+    {
+      "cli": "nx",
+      "version": "12.9.0",
+      "description": "Fixes invalid importPaths for buildable and publishable libs.",
+      "factory": "./src/migrations/update-12-9-0/update-invalid-import-paths",
+      "package": "@nrwl/angular",
+      "name": "update-invalid-import-paths"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.10",
+      "description": "Adds postcss packages needed for Tailwind support if ng-packagr is already installed.",
+      "factory": "./src/migrations/update-13-0-0/add-postcss-packages",
+      "package": "@nrwl/angular",
+      "name": "add-postcss-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "13.2.0-beta.1",
+      "description": "Remove deprecated options from webpack-server and webpack-browser.",
+      "factory": "./src/migrations/update-13-2-0/update-angular-config",
+      "package": "@nrwl/angular",
+      "name": "update-angular-config"
+    },
+    {
+      "cli": "nx",
+      "version": "13.2.0-beta.1",
+      "description": "Remove enableIvy and add compilationMode to library tsconfig and remove deprecated ng-packagr options.",
+      "factory": "./src/migrations/update-13-2-0/update-libraries",
+      "package": "@nrwl/angular",
+      "name": "update-libraries"
+    },
+    {
+      "cli": "nx",
+      "version": "13.2.0-beta.1",
+      "description": "Update jest config to support jest-preset-angular",
+      "factory": "./src/migrations/update-13-2-0/update-angular-jest-config",
+      "package": "@nrwl/angular",
+      "name": "update-angular-jest-config"
+    },
+    {
+      "cli": "nx",
+      "version": "13.2.0-beta.1",
+      "description": "Move some imports from @nrwl/angular/testing to jasmine-marbles",
+      "factory": "./src/migrations/update-13-2-0/update-testing-imports",
+      "package": "@nrwl/angular",
+      "name": "update-testing-imports"
+    },
+    {
+      "cli": "nx",
+      "version": "13.2.0",
+      "description": "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior.",
+      "factory": "./src/migrations/update-13-2-0/opt-out-testbed-teardown",
+      "package": "@nrwl/angular",
+      "name": "opt-out-testbed-teardown"
+    },
+    {
+      "cli": "nx",
+      "version": "13.3.0-beta.0",
+      "description": "In Angular version 13, the ESM became a first class citizen. This means the webpack config generated must be modified to support modules.",
+      "factory": "./src/migrations/update-13-3-0/update-mfe-webpack-config",
+      "package": "@nrwl/angular",
+      "name": "update-mfe-config-to-module-syntax"
+    },
+    {
+      "cli": "nx",
+      "version": "13.4.5-beta.7",
+      "description": "Remove the default for the invalid 'style' option for the library generator if configured.",
+      "factory": "./src/migrations/update-13-5-0/remove-library-generator-style-default",
+      "package": "@nrwl/angular",
+      "name": "remove-library-generator-style-default"
+    },
+    {
+      "cli": "nx",
+      "version": "13.5.0-beta.0",
+      "description": "A lot of changes to how MFEs operate were discovered and merged without appropriate migrations. This should cover migrating existing MFEs to the latest, using ESM and optmized production bundles.",
+      "factory": "./src/migrations/update-13-5-0/update-mfe-configs",
+      "package": "@nrwl/angular",
+      "name": "fix-incorrect-mfe-setups"
+    },
+    {
+      "cli": "nx",
+      "version": "13.8.1",
+      "description": "Angular doesn't attach styles.js to index.html with type=module in dev mode, meaning an error is written to the console. Cypress falls over on this error. Add logic to Cypress e2e projects to ignore this error.",
+      "factory": "./src/migrations/update-13-8-1/add-cypress-mfe-workaround",
+      "package": "@nrwl/angular",
+      "name": "add-cypress-mfe-workaround"
+    },
+    {
+      "cli": "nx",
+      "version": "13.8.4",
+      "description": "Karma coverage is broken since Angular 13 upgarde and the karma config is severely out of date. Bring it up to date fixing the coverage issue.",
+      "factory": "./src/migrations/update-13-8-4/migrate-karma-conf",
+      "package": "@nrwl/angular",
+      "name": "migrate-karma-config"
+    },
+    {
+      "cli": "nx",
+      "version": "13.9.0-beta.4",
+      "description": "Set buildLibsFromSource property to false to not break existing usage.",
+      "factory": "./src/migrations/update-13-9-0/set-build-libs-from-source",
+      "package": "@nrwl/angular",
+      "name": "set-build-libs-from-source"
+    },
+    {
+      "cli": "nx",
+      "version": "14.0.0-beta.1",
+      "description": "Rename mfe.config.js to module-federation.config.js for consistent terminology.",
+      "factory": "./src/migrations/update-14-0-0/rename-mf-config",
+      "package": "@nrwl/angular",
+      "name": "rename-module-federation-config"
+    },
+    {
+      "version": "13.0.0-beta.1",
+      "description": "Add default base to nx.json if its not currently set",
+      "factory": "./src/migrations/update-13-0-0/set-default-base-if-not-set",
       "cli": "nx",
       "package": "@nrwl/workspace",
-      "name": "add-target-dependencies"
+      "name": "set-default-base-if-not-set"
+    },
+    {
+      "version": "13.0.0-beta.4",
+      "description": "Move global settings into nx.json, and project specific settings into workspace.json",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-0-0/config-locations/config-locations",
+      "package": "@nrwl/workspace",
+      "name": "13-0-0-config-locations"
+    },
+    {
+      "version": "13.2.0",
+      "description": "Set --parallel=1 for existing repos to preserve the existing behavior",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-2-0/set-parallel-default",
+      "package": "@nrwl/workspace",
+      "name": "set-parallel-default"
+    },
+    {
+      "version": "13.3.0-beta.0",
+      "description": "@nrwl/workspace:tsc is now @nrwl/js:tsc",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-3-0/update-tsc-executor-location",
+      "package": "@nrwl/workspace",
+      "name": "13-3-0-tsc-location"
+    },
+    {
+      "version": "13.6.0-beta.0",
+      "description": "Remove old options that are no longer used",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-6-0/remove-old-task-runner-options",
+      "package": "@nrwl/workspace",
+      "name": "13-6-0-remove-old-task-runner-options"
+    },
+    {
+      "version": "13.9.0-beta.0",
+      "description": "Replace @nrwl/tao with nx",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-9-0/replace-tao-with-nx",
+      "package": "@nrwl/workspace",
+      "name": "13-9-0-replace-tao-with-nx"
+    },
+    {
+      "version": "13.10.0-beta.0",
+      "description": "Update the decorate-angular-cli script to require nx instead of @nrwl/cli",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-10-0/update-decorate-cli",
+      "package": "@nrwl/workspace",
+      "name": "13-10-0-update-decorate-cli"
+    },
+    {
+      "version": "13.10.0-beta.0",
+      "description": "Update the tasks runner property to import it from the nx package instead of @nrwl/worksapce",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-13-10-0/update-tasks-runner",
+      "package": "@nrwl/workspace",
+      "name": "13-10-0-update-tasks-runner"
+    },
+    {
+      "version": "14.0.0-beta.0",
+      "description": "Changes the presets in nx.json to come from the nx package",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-14-0-0/change-nx-json-presets",
+      "package": "@nrwl/workspace",
+      "name": "14-0-0-change-nx-json-presets"
+    },
+    {
+      "version": "14.0.0-beta.0",
+      "description": "Migrates from @nrwl/workspace:run-script to nx:run-script",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-14-0-0/change-npm-script-executor",
+      "package": "@nrwl/workspace",
+      "name": "14-0-0-change-npm-script-executor"
     },
     {
       "cli": "nx",
-      "version": "12.3.1",
-      "description": "Remove deprecated options and update others according to new defaults. It syncs with the v12 migration of Angular builders.",
-      "factory": "./src/migrations/update-12-3-0/update-webpack-browser-config",
-      "package": "@nrwl/angular",
-      "name": "update-webpack-browser-config"
+      "version": "12.8.0-beta.0",
+      "description": "Remove Typescript Preprocessor Plugin",
+      "factory": "./src/migrations/update-12-8-0/remove-typescript-plugin",
+      "package": "@nrwl/cypress",
+      "name": "remove-typescript-plugin"
     },
     {
       "cli": "nx",
-      "version": "12.3.1",
-      "description": "Updates storybook configurations to support webpack 5",
-      "factory": "./src/migrations/update-12-3-0/update-storybook",
-      "package": "@nrwl/angular",
-      "name": "update-storybook"
+      "version": "12.9.0-beta.0",
+      "description": "Add outputs for caching",
+      "factory": "./src/migrations/update-12-9-0/add-outputs",
+      "package": "@nrwl/linter",
+      "name": "add-outputs"
     },
     {
       "cli": "nx",
-      "version": "12.3.1",
-      "description": "Migrates some rules that have changed in Angular EsLint",
-      "factory": "./src/migrations/update-12-3-0/update-angular-eslint-rules",
-      "package": "@nrwl/angular",
-      "name": "update-angular-eslint-rules"
-    },
-    {
-      "cli": "nx",
-      "version": "12.3.5-beta.0",
-      "description": "Convert targets using @nrwl/angular:webpack-browser with the buildTarget option set to use the @nrwl/angular:delegate-build executor instead.",
-      "factory": "./src/migrations/update-12-3-0/convert-webpack-browser-build-target-to-delegate-build",
-      "package": "@nrwl/angular",
-      "name": "convert-webpack-browser-build-target-to-delegate-build"
-    },
-    {
-      "version": "12.0.0-next.0",
-      "factory": "./update-12/update-angular-config",
-      "description": "Remove deprecated options from 'angular.json' that are no longer present in v12.",
-      "package": "@angular/cli",
-      "name": "update-angular-config-v12"
-    },
-    {
-      "version": "12.0.0-next.1",
-      "factory": "./update-12/update-zonejs",
-      "description": "Update 'zone.js' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111",
-      "package": "@angular/cli",
-      "name": "update-zonejs"
-    },
-    {
-      "version": "12.0.0-next.2",
-      "factory": "./update-12/remove-emit-decorator-metadata",
-      "description": "Remove 'emitDecoratorMetadata' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata",
-      "package": "@angular/cli",
-      "name": "remove-emit-decorator-metadata"
-    },
-    {
-      "version": "12.0.0-next.4",
-      "factory": "./update-12/update-lazy-module-paths",
-      "description": "Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports.",
-      "package": "@angular/cli",
-      "name": "lazy-loading-string-syntax"
-    },
-    {
-      "version": "12.0.0-next.7",
-      "factory": "./update-9/update-i18n#updateI18nConfig",
-      "description": "Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options.",
-      "package": "@angular/cli",
-      "name": "remove-deprecated-i18n-options"
-    },
-    {
-      "version": "12.0.0-next.7",
-      "factory": "./update-12/update-web-workers",
-      "description": "Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5.",
-      "package": "@angular/cli",
-      "name": "update-web-workers-webpack-5"
-    },
-    {
-      "version": "12.0.1",
-      "factory": "./update-12/schematic-options",
-      "description": "Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options.",
-      "package": "@angular/cli",
-      "name": "schematic-options-12"
-    },
-    {
-      "version": "12.1.0",
-      "factory": "./update-12/replace-prod-flag",
-      "description": "Replace the deprecated '--prod' in package.json scripts.",
-      "package": "@angular/cli",
-      "name": "replace-deprecated-prod-flag"
-    },
-    {
-      "version": "12.0.0-beta",
-      "description": "In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it.",
-      "factory": "./migrations/activated-route-snapshot-fragment/index",
-      "package": "@angular/core",
-      "name": "migration-v12-activated-route-snapshot-fragment"
-    },
-    {
-      "version": "12.0.0-next.6",
-      "description": "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`.",
-      "factory": "./migrations/xhr-factory/index",
-      "package": "@angular/core",
-      "name": "migration-v12-xhr-factory"
-    },
-    {
-      "version": "12.0.2",
-      "description": "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`.",
-      "factory": "./migrations/deep-shadow-piercing-selector/index",
-      "package": "@angular/core",
-      "name": "migration-v12-deep-shadow-piercing-selector"
-    },
-    {
-      "version": "12.1.0-beta.1",
-      "cli": "nx",
-      "description": "Update jest-preset-angular to version 8.4.0",
-      "factory": "./src/migrations/update-12-1-2/update-jest-preset-angular",
-      "package": "@nrwl/jest",
-      "name": "update-jest-preset-angular-8-4-0"
-    },
-    {
-      "version": "12.1.2-beta.1",
-      "cli": "nx",
-      "description": "Replace tsConfig with tsconfig for ts-jest in jest.config.js",
-      "factory": "./src/migrations/update-12-1-2/update-ts-jest",
-      "package": "@nrwl/jest",
-      "name": "update-ts-jest-6-5-5"
-    },
-    {
-      "version": "12.4.0-beta.1",
-      "cli": "nx",
-      "description": "Add testEnvironment: 'jsdom' in web apps + libraries",
-      "factory": "./src/migrations/update-12-4-0/add-test-environment-for-node",
-      "package": "@nrwl/jest",
-      "name": "support-jest-27"
-    },
-    {
-      "version": "12.4.0-beta.1",
-      "cli": "nx",
-      "description": "Support for Jest 27 via updating ts-jest + jest-preset-angular",
-      "factory": "./src/migrations/update-12-4-0/update-jest-preset-angular",
-      "package": "@nrwl/jest",
-      "name": "update-ts-jest-and-jest-preset-angular"
-    },
-    {
-      "cli": "nx",
-      "version": "12.4.0-beta.0",
+      "version": "12.9.0-beta.0",
       "description": "Remove ESLint parserOptions.project config if no rules requiring type-checking are in use",
       "factory": "./src/migrations/update-12-4-0/remove-eslint-project-config-if-no-type-checking-rules",
       "package": "@nrwl/linter",
-      "name": "remove-eslint-project-config-if-no-type-checking-rules"
+      "name": "remove-eslint-project-config-if-no-type-checking-rules-again"
+    },
+    {
+      "cli": "nx",
+      "version": "13.3.0-beta.0",
+      "description": "Update eslint-rules jest.config.js in order to support ESLint v8 exports mapping, remove category field",
+      "factory": "./src/migrations/update-13-3-0/eslint-8-updates",
+      "package": "@nrwl/linter",
+      "name": "eslint-8-updates"
+    },
+    {
+      "version": "12.6.0-beta.0",
+      "cli": "nx",
+      "description": "Uses `getJestProjects()` to populate projects array in root level `jest.config.js` file.",
+      "factory": "./src/migrations/update-12-6-0/update-base-jest-config",
+      "package": "@nrwl/jest",
+      "name": "update-jest-config-to-use-util"
+    },
+    {
+      "version": "13.1.2-beta.0",
+      "cli": "nx",
+      "description": "Support .test. file names in tsconfigs",
+      "factory": "./src/migrations/update-13-1-2/update-tsconfigs-for-tests",
+      "package": "@nrwl/jest",
+      "name": "update-ts-config-for-test-filenames"
+    },
+    {
+      "version": "13.4.4-beta.0",
+      "cli": "nx",
+      "description": "Create a root babel config file if it doesn't exist and using babel-jest in jest.config.js and add @nrwl/web as needed",
+      "factory": "./src/migrations/update-13-4-4/add-missing-root-babel-config",
+      "package": "@nrwl/jest",
+      "name": "add-missing-root-babel-config"
+    },
+    {
+      "version": "14.0.0-beta.2",
+      "cli": "nx",
+      "description": "Update move jest config files to .ts files.",
+      "factory": "./src/migrations/update-14-0-0/update-jest-config-ext",
+      "package": "@nrwl/jest",
+      "name": "update-jest-config-extensions"
+    },
+    {
+      "version": "14.1.5-beta.0",
+      "cli": "nx",
+      "description": "Update to export default in jest config and revert jest.preset.ts to jest.preset.js",
+      "factory": "./src/migrations/update-14-1-5/update-exports-jest-config",
+      "package": "@nrwl/jest",
+      "name": "update-to-export-default"
+    },
+    {
+      "description": "The road to v13 beta",
+      "version": "13-beta",
+      "factory": "./13_0_0-beta/index",
+      "package": "@ngrx/store",
+      "name": "ngrx-store-migration-13-beta"
+    },
+    {
+      "description": "The road to v13 RC",
+      "version": "13-rc.1",
+      "factory": "./13_0_0-rc/index",
+      "package": "@ngrx/store",
+      "name": "ngrx-store-migration-13-rc"
+    },
+    {
+      "version": "13.0.0-beta",
+      "description": "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params.",
+      "factory": "./migrations/router-link-empty-expression/index",
+      "package": "@angular/core",
+      "name": "migration-v13-router-link-empty-expression"
+    },
+    {
+      "version": "13.0.0-beta",
+      "description": "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior.",
+      "factory": "./migrations/testbed-teardown/index",
+      "package": "@angular/core",
+      "name": "migration-v13-testbed-teardown"
+    },
+    {
+      "version": "13.1.0-beta",
+      "description": "As of Angular version 13, `entryComponents` are no longer necessary.",
+      "factory": "./migrations/entry-components/index",
+      "package": "@angular/core",
+      "name": "migration-v13.1-entry-components"
+    },
+    {
+      "description": "The road to v13",
+      "version": "13",
+      "factory": "./13_0_0/index",
+      "package": "@ngrx/effects",
+      "name": "ngrx-effects-migration-03"
+    },
+    {
+      "version": "13.0.0",
+      "factory": "./update-13/schematic-options",
+      "description": "Remove no longer valid Angular schematic options from `angular.json`.",
+      "package": "@angular/cli",
+      "name": "schematic-options-13"
+    },
+    {
+      "version": "13.0.0",
+      "factory": "./update-13/update-angular-config",
+      "description": "Remove deprecated options from 'angular.json' that are no longer present in v13.",
+      "package": "@angular/cli",
+      "name": "update-angular-config-v13"
+    },
+    {
+      "version": "13.0.0",
+      "factory": "./update-13/update-libraries",
+      "description": "Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration.",
+      "package": "@angular/cli",
+      "name": "update-libraries-v13"
+    },
+    {
+      "version": "13.0.0",
+      "factory": "./update-13/drop-ie-polyfills",
+      "description": "Remove polyfills required only for Internet Explorer which is no longer supported.",
+      "package": "@angular/cli",
+      "name": "drop-ie-polyfills"
+    },
+    {
+      "version": "13.0.0",
+      "factory": "./update-13/update-gitignore",
+      "description": "Updating '.gitignore' to include '.angular/cache'.",
+      "package": "@angular/cli",
+      "name": "update-gitignore"
     }
   ]
 }
