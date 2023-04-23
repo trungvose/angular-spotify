@@ -1,5 +1,8 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { VisualizerStore } from '@angular-spotify/web/visualizer/data-access';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -14,7 +17,7 @@ import { filter, map } from 'rxjs/operators';
 export class LayoutComponent implements OnInit {
   showPiPVisualizer$ = this.visualizerStore.showPiPVisualizer$;
   currentAlbumCoverUrl$ = this.playbackStore.currentTrack$.pipe(
-    map((track) => track?.album?.images[0]?.url),
+    map((track) => track?.album?.images[0].url),
     filter((imageUrl) => !!imageUrl)
   );
 

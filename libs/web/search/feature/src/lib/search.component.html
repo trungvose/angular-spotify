@@ -47,7 +47,7 @@
           *ngFor="let item of data?.artists?.items"
           [title]="item.name"
           [uri]="item.uri"
-          [imageUrl]="item.images[0]?.url"
+          [imageUrl]="item.images[0].url"
           [routerUrl]="'/artist/' + item.id"
           [description]="item.type | titlecase"
           [roundedImage]="true"
@@ -66,7 +66,7 @@
           [title]="item.name"
           [uri]="item.uri"
           [description]="item.artists[0].name"
-          [imageUrl]="item.images[0]?.url"
+          [imageUrl]="item.images[0].url"
           [routerUrl]="'/albums/' + item.id"
           (togglePlay)="togglePlay($event, item.uri)"
         >
@@ -83,7 +83,7 @@
           [title]="item.name"
           [uri]="item.uri"
           [description]="item.description"
-          [imageUrl]="item.images[0]?.url"
+          [imageUrl]="item.images[0].url"
           [routerUrl]="'/playlist/' + item.id"
           (togglePlay)="togglePlay($event, item.uri)"
         >

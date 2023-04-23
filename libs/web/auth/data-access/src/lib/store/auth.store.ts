@@ -1,6 +1,7 @@
 // MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
 /// <reference types="spotify-api" />
 
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AuthReady } from '@angular-spotify/web/shared/app-init';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
@@ -37,7 +38,7 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly userProduct$ = this.select((s) => s.product);
   readonly userAvatar$ = this.select(
     (s) =>
-      (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
+      (s.images && s.images[0].url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
   );
   readonly getUserId = () => this.get().id;
   readonly getToken = () => this.get().accessToken;  

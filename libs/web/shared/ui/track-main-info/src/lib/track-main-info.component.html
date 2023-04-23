@@ -1,6 +1,6 @@
 <ng-container *ngIf="track">
   <div class="track-cover" *ngIf="track.album">
-    <as-media-cover [imageUrl]="track.album.images[0]?.url"></as-media-cover>
+    <as-media-cover [imageUrl]="track.album.images[0].url"></as-media-cover>
   </div>
   <div class="flex flex-col">
     <div [ngClass]="['ellipsis-one-line', 'text-base', isPlaying ? 'text-primary': 'text-white']">

@@ -35,7 +35,7 @@ export class InputComponent implements AfterViewInit {
     return IconSizesInPx[this.iconSize] * 1.8;
   }
 
-  get showClearButton(): boolean {
+  get showClearButton(): string | false | null {
     return this.enableClearButton && this.control?.value;
   }
 
