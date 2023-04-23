@@ -32,7 +32,9 @@
               },
               "apps/angular-spotify/src/manifest.webmanifest"
             ],
-            "styles": ["apps/angular-spotify/src/styles.scss"],
+            "styles": [
+              "apps/angular-spotify/src/styles.scss"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -107,7 +109,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/angular-spotify"],
+          "outputs": [
+            "coverage/apps/angular-spotify"
+          ],
           "options": {
             "jestConfig": "apps/angular-spotify/jest.config.js",
             "passWithNoTests": true
@@ -115,7 +119,10 @@
         }
       },
       "configFilePath": "apps/angular-spotify/project.json",
-      "tags": ["type:app", "scope:angular-spotify"]
+      "tags": [
+        "type:app",
+        "scope:angular-spotify"
+      ]
     },
     "web-album-data-access": {
       "root": "libs/web/album/data-access",
@@ -125,12 +132,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/album/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/album/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/data-access"],
+          "outputs": [
+            "coverage/libs/web/album/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/album/data-access/jest.config.js",
             "passWithNoTests": true
@@ -138,7 +149,10 @@
         }
       },
       "configFilePath": "libs/web/album/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-album-feature-detail": {
       "projectType": "library",
@@ -157,7 +171,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/detail"],
+          "outputs": [
+            "coverage/libs/web/album/feature/detail"
+          ],
           "options": {
             "jestConfig": "libs/web/album/feature/detail/jest.config.js",
             "passWithNoTests": true
@@ -165,7 +181,10 @@
         }
       },
       "configFilePath": "libs/web/album/feature/detail/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-album-feature-list": {
       "projectType": "library",
@@ -184,7 +203,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/list"],
+          "outputs": [
+            "coverage/libs/web/album/feature/list"
+          ],
           "options": {
             "jestConfig": "libs/web/album/feature/list/jest.config.js",
             "passWithNoTests": true
@@ -192,7 +213,10 @@
         }
       },
       "configFilePath": "libs/web/album/feature/list/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-album-feature-shell": {
       "projectType": "library",
@@ -211,7 +235,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/shell"],
+          "outputs": [
+            "coverage/libs/web/album/feature/shell"
+          ],
           "options": {
             "jestConfig": "libs/web/album/feature/shell/jest.config.js",
             "passWithNoTests": true
@@ -219,7 +245,10 @@
         }
       },
       "configFilePath": "libs/web/album/feature/shell/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-album-ui-album-track": {
       "projectType": "library",
@@ -238,7 +267,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/ui/album-track"],
+          "outputs": [
+            "coverage/libs/web/album/ui/album-track"
+          ],
           "options": {
             "jestConfig": "libs/web/album/ui/album-track/jest.config.js",
             "passWithNoTests": true
@@ -246,7 +277,10 @@
         }
       },
       "configFilePath": "libs/web/album/ui/album-track/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-artist-data-access": {
       "projectType": "library",
@@ -265,7 +299,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/data-access"],
+          "outputs": [
+            "coverage/libs/web/artist/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/artist/data-access/jest.config.js",
             "passWithNoTests": true
@@ -273,7 +309,10 @@
         }
       },
       "configFilePath": "libs/web/artist/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-artist-feature": {
       "projectType": "library",
@@ -292,7 +331,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/feature"],
+          "outputs": [
+            "coverage/libs/web/artist/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/artist/feature/jest.config.js",
             "passWithNoTests": true
@@ -300,7 +341,10 @@
         }
       },
       "configFilePath": "libs/web/artist/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-artist-ui-artist-top-track": {
       "projectType": "library",
@@ -319,7 +363,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-track"],
+          "outputs": [
+            "coverage/libs/web/artist/ui/artist-top-track"
+          ],
           "options": {
             "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.js",
             "passWithNoTests": true
@@ -327,7 +373,10 @@
         }
       },
       "configFilePath": "libs/web/artist/ui/artist-top-track/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-artist-ui-artist-top-tracks": {
       "projectType": "library",
@@ -346,7 +395,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+          "outputs": [
+            "coverage/libs/web/artist/ui/artist-top-tracks"
+          ],
           "options": {
             "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
             "passWithNoTests": true
@@ -354,7 +405,10 @@
         }
       },
       "configFilePath": "libs/web/artist/ui/artist-top-tracks/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-auth-data-access": {
       "root": "libs/web/auth/data-access",
@@ -364,12 +418,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/auth/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/data-access"],
+          "outputs": [
+            "coverage/libs/web/auth/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/auth/data-access/jest.config.js",
             "passWithNoTests": true
@@ -377,7 +435,10 @@
         }
       },
       "configFilePath": "libs/web/auth/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-auth-ui-unauthorized-modal": {
       "projectType": "library",
@@ -396,7 +457,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/ui/unauthorized-modal"],
+          "outputs": [
+            "coverage/libs/web/auth/ui/unauthorized-modal"
+          ],
           "options": {
             "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.js",
             "passWithNoTests": true
@@ -404,7 +467,10 @@
         }
       },
       "configFilePath": "libs/web/auth/ui/unauthorized-modal/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-auth-util": {
       "root": "libs/web/auth/util",
@@ -414,12 +480,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/auth/util/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/auth/util/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/util"],
+          "outputs": [
+            "coverage/libs/web/auth/util"
+          ],
           "options": {
             "jestConfig": "libs/web/auth/util/jest.config.js",
             "passWithNoTests": true
@@ -427,7 +497,10 @@
         }
       },
       "configFilePath": "libs/web/auth/util/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-browse-data-access": {
       "root": "libs/web/browse/data-access",
@@ -437,12 +510,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/browse/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/browse/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/data-access"],
+          "outputs": [
+            "coverage/libs/web/browse/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/browse/data-access/jest.config.js",
             "passWithNoTests": true
@@ -450,7 +527,10 @@
         }
       },
       "configFilePath": "libs/web/browse/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-browse-feature-categories": {
       "projectType": "library",
@@ -469,7 +549,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/categories"],
+          "outputs": [
+            "coverage/libs/web/browse/feature/categories"
+          ],
           "options": {
             "jestConfig": "libs/web/browse/feature/categories/jest.config.js",
             "passWithNoTests": true
@@ -477,7 +559,10 @@
         }
       },
       "configFilePath": "libs/web/browse/feature/categories/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-browse-feature-category": {
       "projectType": "library",
@@ -496,7 +581,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/category"],
+          "outputs": [
+            "coverage/libs/web/browse/feature/category"
+          ],
           "options": {
             "jestConfig": "libs/web/browse/feature/category/jest.config.js",
             "passWithNoTests": true
@@ -504,7 +591,10 @@
         }
       },
       "configFilePath": "libs/web/browse/feature/category/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-browse-feature-shell": {
       "projectType": "library",
@@ -523,7 +613,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/shell"],
+          "outputs": [
+            "coverage/libs/web/browse/feature/shell"
+          ],
           "options": {
             "jestConfig": "libs/web/browse/feature/shell/jest.config.js",
             "passWithNoTests": true
@@ -531,7 +623,10 @@
         }
       },
       "configFilePath": "libs/web/browse/feature/shell/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-browse-ui-category-cover": {
       "projectType": "library",
@@ -550,7 +645,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/ui/category-cover"],
+          "outputs": [
+            "coverage/libs/web/browse/ui/category-cover"
+          ],
           "options": {
             "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js",
             "passWithNoTests": true
@@ -558,7 +655,10 @@
         }
       },
       "configFilePath": "libs/web/browse/ui/category-cover/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-home-data-access": {
       "root": "libs/web/home/data-access",
@@ -568,12 +668,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/home/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/home/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/data-access"],
+          "outputs": [
+            "coverage/libs/web/home/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/home/data-access/jest.config.js",
             "passWithNoTests": true
@@ -581,7 +685,10 @@
         }
       },
       "configFilePath": "libs/web/home/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-home-feature": {
       "projectType": "library",
@@ -600,7 +707,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/feature"],
+          "outputs": [
+            "coverage/libs/web/home/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/home/feature/jest.config.js",
             "passWithNoTests": true
@@ -608,7 +717,10 @@
         }
       },
       "configFilePath": "libs/web/home/feature/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-home-ui-featured-playlists": {
       "projectType": "library",
@@ -627,7 +739,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/featured-playlists"],
+          "outputs": [
+            "coverage/libs/web/home/ui/featured-playlists"
+          ],
           "options": {
             "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.js",
             "passWithNoTests": true
@@ -635,7 +749,10 @@
         }
       },
       "configFilePath": "libs/web/home/ui/featured-playlists/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-home-ui-greeting": {
       "projectType": "library",
@@ -654,7 +771,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/greeting"],
+          "outputs": [
+            "coverage/libs/web/home/ui/greeting"
+          ],
           "options": {
             "jestConfig": "libs/web/home/ui/greeting/jest.config.js",
             "passWithNoTests": true
@@ -662,7 +781,10 @@
         }
       },
       "configFilePath": "libs/web/home/ui/greeting/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-home-ui-recent-played": {
       "projectType": "library",
@@ -681,7 +803,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/recent-played"],
+          "outputs": [
+            "coverage/libs/web/home/ui/recent-played"
+          ],
           "options": {
             "jestConfig": "libs/web/home/ui/recent-played/jest.config.js",
             "passWithNoTests": true
@@ -689,7 +813,10 @@
         }
       },
       "configFilePath": "libs/web/home/ui/recent-played/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-playlist-data-access": {
       "root": "libs/web/playlist/data-access",
@@ -699,12 +826,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/playlist/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/playlist/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/data-access"],
+          "outputs": [
+            "coverage/libs/web/playlist/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/playlist/data-access/jest.config.js",
             "passWithNoTests": true
@@ -712,7 +843,10 @@
         }
       },
       "configFilePath": "libs/web/playlist/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-playlist-feature-detail": {
       "projectType": "library",
@@ -731,7 +865,10 @@
         }
       },
       "configFilePath": "libs/web/playlist/feature/detail/project.json",
-      "tags": ["type:feature", "scope: web"]
+      "tags": [
+        "type:feature",
+        "scope: web"
+      ]
     },
     "web-playlist-feature-list": {
       "projectType": "library",
@@ -750,7 +887,10 @@
         }
       },
       "configFilePath": "libs/web/playlist/feature/list/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-playlist-ui-playlist-track": {
       "projectType": "library",
@@ -769,7 +909,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+          "outputs": [
+            "coverage/libs/web/playlist/ui/playlist-track"
+          ],
           "options": {
             "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
             "passWithNoTests": true
@@ -777,7 +919,10 @@
         }
       },
       "configFilePath": "libs/web/playlist/ui/playlist-track/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-search-data-access": {
       "root": "libs/web/search/data-access",
@@ -787,12 +932,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/search/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/search/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/data-access"],
+          "outputs": [
+            "coverage/libs/web/search/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/search/data-access/jest.config.js",
             "passWithNoTests": true
@@ -800,7 +949,10 @@
         }
       },
       "configFilePath": "libs/web/search/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-search-feature": {
       "projectType": "library",
@@ -819,7 +971,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/feature"],
+          "outputs": [
+            "coverage/libs/web/search/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/search/feature/jest.config.js",
             "passWithNoTests": true
@@ -827,7 +981,10 @@
         }
       },
       "configFilePath": "libs/web/search/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-settings-data-access": {
       "root": "libs/web/settings/data-access",
@@ -837,12 +994,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/settings/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/settings/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/data-access"],
+          "outputs": [
+            "coverage/libs/web/settings/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/settings/data-access/jest.config.js",
             "passWithNoTests": true
@@ -850,7 +1011,10 @@
         }
       },
       "configFilePath": "libs/web/settings/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-settings-feature": {
       "projectType": "library",
@@ -869,7 +1033,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/feature"],
+          "outputs": [
+            "coverage/libs/web/settings/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/settings/feature/jest.config.js",
             "passWithNoTests": true
@@ -877,7 +1043,10 @@
         }
       },
       "configFilePath": "libs/web/settings/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-shared-app-config": {
       "root": "libs/web/shared/app-config",
@@ -887,12 +1056,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/app-config/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/app-config/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-config"],
+          "outputs": [
+            "coverage/libs/web/shared/app-config"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/app-config/jest.config.js",
             "passWithNoTests": true
@@ -900,7 +1073,10 @@
         }
       },
       "configFilePath": "libs/web/shared/app-config/project.json",
-      "tags": ["type:util", "scope:web"]
+      "tags": [
+        "type:util",
+        "scope:web"
+      ]
     },
     "web-shared-app-init": {
       "projectType": "library",
@@ -910,7 +1086,9 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-init"],
+          "outputs": [
+            "coverage/libs/web/shared/app-init"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/app-init/jest.config.js",
             "passWithNoTests": true
@@ -926,7 +1104,10 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-shared-assets": {
       "root": "libs/web/shared/assets",
@@ -934,7 +1115,10 @@
       "projectType": "library",
       "targets": {},
       "configFilePath": "libs/web/shared/assets/project.json",
-      "tags": ["type:util", "scope:web"]
+      "tags": [
+        "type:util",
+        "scope:web"
+      ]
     },
     "web-shared-data-access-models": {
       "root": "libs/web/shared/data-access/models",
@@ -944,12 +1128,17 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/models/**/*.ts"
+            ]
           }
         }
       },
       "configFilePath": "libs/web/shared/data-access/models/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-shared-data-access-spotify-api": {
       "root": "libs/web/shared/data-access/spotify-api",
@@ -959,12 +1148,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/spotify-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+          "outputs": [
+            "coverage/libs/web/shared/data-access/spotify-api"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
             "passWithNoTests": true
@@ -972,7 +1165,10 @@
         }
       },
       "configFilePath": "libs/web/shared/data-access/spotify-api/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-shared-data-access-store": {
       "root": "libs/web/shared/data-access/store",
@@ -982,12 +1178,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/data-access/store/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/data-access/store/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/store"],
+          "outputs": [
+            "coverage/libs/web/shared/data-access/store"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/data-access/store/jest.config.js",
             "passWithNoTests": true
@@ -995,7 +1195,10 @@
         }
       },
       "configFilePath": "libs/web/shared/data-access/store/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-shared-directives-click-stop-propagation": {
       "projectType": "library",
@@ -1014,7 +1217,10 @@
         }
       },
       "configFilePath": "libs/web/shared/directives/click-stop-propagation/project.json",
-      "tags": ["type:util", "scope:web"]
+      "tags": [
+        "type:util",
+        "scope:web"
+      ]
     },
     "web-shared-pipes-duration-pipe": {
       "projectType": "library",
@@ -1033,7 +1239,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
+          "outputs": [
+            "coverage/libs/web/shared/pipes/duration-pipe"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.js",
             "passWithNoTests": true
@@ -1041,7 +1249,10 @@
         }
       },
       "configFilePath": "libs/web/shared/pipes/duration-pipe/project.json",
-      "tags": ["type:util", "scope:web"]
+      "tags": [
+        "type:util",
+        "scope:web"
+      ]
     },
     "web-shared-ui-icon": {
       "projectType": "library",
@@ -1060,7 +1271,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/icon"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/icon"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/icon/jest.config.js",
             "passWithNoTests": true
@@ -1068,7 +1281,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/icon/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-input": {
       "projectType": "library",
@@ -1087,7 +1303,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/input"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/input"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/input/jest.config.js",
             "passWithNoTests": true
@@ -1095,7 +1313,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/input/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-media": {
       "projectType": "library",
@@ -1114,7 +1335,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/media/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-media-cover": {
       "projectType": "library",
@@ -1133,7 +1357,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/media-cover/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-media-order": {
       "projectType": "library",
@@ -1152,7 +1379,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-order"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/media-order"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
             "passWithNoTests": true
@@ -1160,7 +1389,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/media-order/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-media-summary": {
       "projectType": "library",
@@ -1179,7 +1411,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/media-summary/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-media-table": {
       "projectType": "library",
@@ -1198,7 +1433,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-table"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/media-table"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/media-table/jest.config.js",
             "passWithNoTests": true
@@ -1206,7 +1443,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/media-table/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-play-button": {
       "projectType": "library",
@@ -1225,7 +1465,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/play-button/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-playlist-list": {
       "projectType": "library",
@@ -1244,7 +1487,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/playlist-list"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/playlist-list"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/playlist-list/jest.config.js",
             "passWithNoTests": true
@@ -1252,7 +1497,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/playlist-list/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-spinner": {
       "projectType": "library",
@@ -1271,7 +1519,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/spinner"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/spinner"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/spinner/jest.config.js",
             "passWithNoTests": true
@@ -1279,7 +1529,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/spinner/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-track-current-info": {
       "projectType": "library",
@@ -1298,7 +1551,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/track-current-info/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-track-main-info": {
       "projectType": "library",
@@ -1317,7 +1573,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/track-main-info/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-tracks-loading": {
       "projectType": "library",
@@ -1336,7 +1595,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/tracks-loading"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
             "passWithNoTests": true
@@ -1344,7 +1605,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/tracks-loading/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-ui-work-in-progress": {
       "projectType": "library",
@@ -1363,7 +1627,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/work-in-progress"],
+          "outputs": [
+            "coverage/libs/web/shared/ui/work-in-progress"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.js",
             "passWithNoTests": true
@@ -1371,7 +1637,10 @@
         }
       },
       "configFilePath": "libs/web/shared/ui/work-in-progress/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shared-utils": {
       "root": "libs/web/shared/utils",
@@ -1381,12 +1650,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/shared/utils/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/shared/utils/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/utils"],
+          "outputs": [
+            "coverage/libs/web/shared/utils"
+          ],
           "options": {
             "jestConfig": "libs/web/shared/utils/jest.config.js",
             "passWithNoTests": true
@@ -1394,7 +1667,10 @@
         }
       },
       "configFilePath": "libs/web/shared/utils/project.json",
-      "tags": ["type:util", "scope:web"]
+      "tags": [
+        "type:util",
+        "scope:web"
+      ]
     },
     "web-shell-feature": {
       "projectType": "library",
@@ -1413,7 +1689,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/feature"],
+          "outputs": [
+            "coverage/libs/web/shell/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/feature/jest.config.js",
             "passWithNoTests": true
@@ -1421,7 +1699,10 @@
         }
       },
       "configFilePath": "libs/web/shell/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-shell-ui-album-art-overlay": {
       "projectType": "library",
@@ -1440,7 +1721,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/album-art-overlay"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/album-art-overlay"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js",
             "passWithNoTests": true
@@ -1448,7 +1731,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/album-art-overlay/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-layout": {
       "projectType": "library",
@@ -1467,7 +1753,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/layout"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/layout"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/layout/jest.config.js",
             "passWithNoTests": true
@@ -1475,7 +1763,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/layout/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-main-view": {
       "projectType": "library",
@@ -1494,7 +1785,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/main-view"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/main-view"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/main-view/jest.config.js",
             "passWithNoTests": true
@@ -1502,7 +1795,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/main-view/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-nav-bar": {
       "projectType": "library",
@@ -1521,7 +1817,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/nav-bar"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.js",
             "passWithNoTests": true
@@ -1529,7 +1827,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/nav-bar/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-nav-bar-playlist": {
       "projectType": "library",
@@ -1548,7 +1849,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/nav-bar-playlist"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.js",
             "passWithNoTests": true
@@ -1556,7 +1859,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/nav-bar-playlist/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-now-playing-bar": {
       "projectType": "library",
@@ -1575,7 +1881,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/now-playing-bar/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-player-controls": {
       "projectType": "library",
@@ -1594,7 +1903,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/player-controls/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-player-playback": {
       "projectType": "library",
@@ -1613,7 +1925,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/player-playback/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-player-volume": {
       "projectType": "library",
@@ -1632,7 +1947,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/player-volume/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-social-share": {
       "projectType": "library",
@@ -1651,7 +1969,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/social-share"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/social-share"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
             "passWithNoTests": true
@@ -1659,7 +1979,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/social-share/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-top-bar": {
       "projectType": "library",
@@ -1678,7 +2001,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/top-bar"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/top-bar"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/top-bar/jest.config.js",
             "passWithNoTests": true
@@ -1686,7 +2011,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/top-bar/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-user-dropdown": {
       "projectType": "library",
@@ -1705,7 +2033,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/user-dropdown"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js",
             "passWithNoTests": true
@@ -1713,7 +2043,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/user-dropdown/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-shell-ui-visualization-toggle": {
       "projectType": "library",
@@ -1732,7 +2065,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/visualization-toggle"],
+          "outputs": [
+            "coverage/libs/web/shell/ui/visualization-toggle"
+          ],
           "options": {
             "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.js",
             "passWithNoTests": true
@@ -1740,7 +2075,10 @@
         }
       },
       "configFilePath": "libs/web/shell/ui/visualization-toggle/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     },
     "web-tracks-data-access": {
       "root": "libs/web/tracks/data-access",
@@ -1750,12 +2088,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/tracks/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/tracks/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/data-access"],
+          "outputs": [
+            "coverage/libs/web/tracks/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/tracks/data-access/jest.config.js",
             "passWithNoTests": true
@@ -1763,7 +2105,10 @@
         }
       },
       "configFilePath": "libs/web/tracks/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-tracks-feature": {
       "projectType": "library",
@@ -1782,7 +2127,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/feature"],
+          "outputs": [
+            "coverage/libs/web/tracks/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/tracks/feature/jest.config.js",
             "passWithNoTests": true
@@ -1790,7 +2137,10 @@
         }
       },
       "configFilePath": "libs/web/tracks/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-visualizer-data-access": {
       "root": "libs/web/visualizer/data-access",
@@ -1800,12 +2150,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/visualizer/data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/web/visualizer/data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/data-access"],
+          "outputs": [
+            "coverage/libs/web/visualizer/data-access"
+          ],
           "options": {
             "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
             "passWithNoTests": true
@@ -1813,7 +2167,10 @@
         }
       },
       "configFilePath": "libs/web/visualizer/data-access/project.json",
-      "tags": ["type:data-access", "scope:web"]
+      "tags": [
+        "type:data-access",
+        "scope:web"
+      ]
     },
     "web-visualizer-feature": {
       "projectType": "library",
@@ -1832,7 +2189,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/feature"],
+          "outputs": [
+            "coverage/libs/web/visualizer/feature"
+          ],
           "options": {
             "jestConfig": "libs/web/visualizer/feature/jest.config.js",
             "passWithNoTests": true
@@ -1840,7 +2199,10 @@
         }
       },
       "configFilePath": "libs/web/visualizer/feature/project.json",
-      "tags": ["type:feature", "scope:web"]
+      "tags": [
+        "type:feature",
+        "scope:web"
+      ]
     },
     "web-visualizer-ui": {
       "projectType": "library",
@@ -1859,7 +2221,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/ui"],
+          "outputs": [
+            "coverage/libs/web/visualizer/ui"
+          ],
           "options": {
             "jestConfig": "libs/web/visualizer/ui/jest.config.js",
             "passWithNoTests": true
@@ -1867,7 +2231,10 @@
         }
       },
       "configFilePath": "libs/web/visualizer/ui/project.json",
-      "tags": ["type:ui", "scope:web"]
+      "tags": [
+        "type:ui",
+        "scope:web"
+      ]
     }
   }
 }
