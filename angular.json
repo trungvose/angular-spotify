@@ -114,7 +114,8 @@
           }
         }
       },
-      "configFilePath": "apps/angular-spotify/project.json"
+      "configFilePath": "apps/angular-spotify/project.json",
+      "tags": ["type:app", "scope:angular-spotify"]
     },
     "web-album-data-access": {
       "root": "libs/web/album/data-access",
@@ -136,7 +137,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/album/data-access/project.json"
+      "configFilePath": "libs/web/album/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-album-feature-detail": {
       "projectType": "library",
@@ -162,7 +164,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/album/feature/detail/project.json"
+      "configFilePath": "libs/web/album/feature/detail/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-album-feature-list": {
       "projectType": "library",
@@ -188,7 +191,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/album/feature/list/project.json"
+      "configFilePath": "libs/web/album/feature/list/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-album-feature-shell": {
       "projectType": "library",
@@ -214,7 +218,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/album/feature/shell/project.json"
+      "configFilePath": "libs/web/album/feature/shell/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-album-ui-album-track": {
       "projectType": "library",
@@ -240,7 +245,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/album/ui/album-track/project.json"
+      "configFilePath": "libs/web/album/ui/album-track/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-artist-data-access": {
       "projectType": "library",
@@ -266,7 +272,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/artist/data-access/project.json"
+      "configFilePath": "libs/web/artist/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-artist-feature": {
       "projectType": "library",
@@ -292,7 +299,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/artist/feature/project.json"
+      "configFilePath": "libs/web/artist/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-artist-ui-artist-top-track": {
       "projectType": "library",
@@ -318,7 +326,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/artist/ui/artist-top-track/project.json"
+      "configFilePath": "libs/web/artist/ui/artist-top-track/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-artist-ui-artist-top-tracks": {
       "projectType": "library",
@@ -344,7 +353,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/artist/ui/artist-top-tracks/project.json"
+      "configFilePath": "libs/web/artist/ui/artist-top-tracks/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-auth-data-access": {
       "root": "libs/web/auth/data-access",
@@ -366,7 +376,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/auth/data-access/project.json"
+      "configFilePath": "libs/web/auth/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-auth-ui-unauthorized-modal": {
       "projectType": "library",
@@ -392,7 +403,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/auth/ui/unauthorized-modal/project.json"
+      "configFilePath": "libs/web/auth/ui/unauthorized-modal/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-auth-util": {
       "root": "libs/web/auth/util",
@@ -414,7 +426,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/auth/util/project.json"
+      "configFilePath": "libs/web/auth/util/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-browse-data-access": {
       "root": "libs/web/browse/data-access",
@@ -436,7 +449,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/browse/data-access/project.json"
+      "configFilePath": "libs/web/browse/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-browse-feature-categories": {
       "projectType": "library",
@@ -462,7 +476,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/browse/feature/categories/project.json"
+      "configFilePath": "libs/web/browse/feature/categories/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-browse-feature-category": {
       "projectType": "library",
@@ -488,7 +503,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/browse/feature/category/project.json"
+      "configFilePath": "libs/web/browse/feature/category/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-browse-feature-shell": {
       "projectType": "library",
@@ -514,7 +530,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/browse/feature/shell/project.json"
+      "configFilePath": "libs/web/browse/feature/shell/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-browse-ui-category-cover": {
       "projectType": "library",
@@ -540,7 +557,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/browse/ui/category-cover/project.json"
+      "configFilePath": "libs/web/browse/ui/category-cover/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-home-data-access": {
       "root": "libs/web/home/data-access",
@@ -562,7 +580,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/home/data-access/project.json"
+      "configFilePath": "libs/web/home/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-home-feature": {
       "projectType": "library",
@@ -588,7 +607,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/home/feature/project.json"
+      "configFilePath": "libs/web/home/feature/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-featured-playlists": {
       "projectType": "library",
@@ -614,7 +634,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/home/ui/featured-playlists/project.json"
+      "configFilePath": "libs/web/home/ui/featured-playlists/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-greeting": {
       "projectType": "library",
@@ -640,7 +661,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/home/ui/greeting/project.json"
+      "configFilePath": "libs/web/home/ui/greeting/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-recent-played": {
       "projectType": "library",
@@ -666,7 +688,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/home/ui/recent-played/project.json"
+      "configFilePath": "libs/web/home/ui/recent-played/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-playlist-data-access": {
       "root": "libs/web/playlist/data-access",
@@ -688,7 +711,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/playlist/data-access/project.json"
+      "configFilePath": "libs/web/playlist/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-playlist-feature-detail": {
       "projectType": "library",
@@ -706,7 +730,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/playlist/feature/detail/project.json"
+      "configFilePath": "libs/web/playlist/feature/detail/project.json",
+      "tags": ["type:feature", "scope: web"]
     },
     "web-playlist-feature-list": {
       "projectType": "library",
@@ -724,7 +749,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/playlist/feature/list/project.json"
+      "configFilePath": "libs/web/playlist/feature/list/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-playlist-ui-playlist-track": {
       "projectType": "library",
@@ -750,7 +776,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/playlist/ui/playlist-track/project.json"
+      "configFilePath": "libs/web/playlist/ui/playlist-track/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-search-data-access": {
       "root": "libs/web/search/data-access",
@@ -772,7 +799,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/search/data-access/project.json"
+      "configFilePath": "libs/web/search/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-search-feature": {
       "projectType": "library",
@@ -798,7 +826,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/search/feature/project.json"
+      "configFilePath": "libs/web/search/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-settings-data-access": {
       "root": "libs/web/settings/data-access",
@@ -820,7 +849,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/settings/data-access/project.json"
+      "configFilePath": "libs/web/settings/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-settings-feature": {
       "projectType": "library",
@@ -846,7 +876,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/settings/feature/project.json"
+      "configFilePath": "libs/web/settings/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-shared-app-config": {
       "root": "libs/web/shared/app-config",
@@ -868,7 +899,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/app-config/project.json"
+      "configFilePath": "libs/web/shared/app-config/project.json",
+      "tags": ["type:util", "scope:web"]
     },
     "web-shared-app-init": {
       "projectType": "library",
@@ -893,14 +925,16 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["type:feature", "scope:web"]
     },
     "web-shared-assets": {
       "root": "libs/web/shared/assets",
       "sourceRoot": "libs/web/shared/assets/src",
       "projectType": "library",
       "targets": {},
-      "configFilePath": "libs/web/shared/assets/project.json"
+      "configFilePath": "libs/web/shared/assets/project.json",
+      "tags": ["type:util", "scope:web"]
     },
     "web-shared-data-access-models": {
       "root": "libs/web/shared/data-access/models",
@@ -914,7 +948,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/data-access/models/project.json"
+      "configFilePath": "libs/web/shared/data-access/models/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-data-access-spotify-api": {
       "root": "libs/web/shared/data-access/spotify-api",
@@ -936,7 +971,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/data-access/spotify-api/project.json"
+      "configFilePath": "libs/web/shared/data-access/spotify-api/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-data-access-store": {
       "root": "libs/web/shared/data-access/store",
@@ -958,7 +994,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/data-access/store/project.json"
+      "configFilePath": "libs/web/shared/data-access/store/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-directives-click-stop-propagation": {
       "projectType": "library",
@@ -976,7 +1013,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/directives/click-stop-propagation/project.json"
+      "configFilePath": "libs/web/shared/directives/click-stop-propagation/project.json",
+      "tags": ["type:util", "scope:web"]
     },
     "web-shared-pipes-duration-pipe": {
       "projectType": "library",
@@ -1002,7 +1040,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/pipes/duration-pipe/project.json"
+      "configFilePath": "libs/web/shared/pipes/duration-pipe/project.json",
+      "tags": ["type:util", "scope:web"]
     },
     "web-shared-ui-icon": {
       "projectType": "library",
@@ -1028,7 +1067,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/icon/project.json"
+      "configFilePath": "libs/web/shared/ui/icon/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-input": {
       "projectType": "library",
@@ -1054,7 +1094,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/input/project.json"
+      "configFilePath": "libs/web/shared/ui/input/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media": {
       "projectType": "library",
@@ -1072,7 +1113,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/media/project.json"
+      "configFilePath": "libs/web/shared/ui/media/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-cover": {
       "projectType": "library",
@@ -1090,7 +1132,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/media-cover/project.json"
+      "configFilePath": "libs/web/shared/ui/media-cover/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-order": {
       "projectType": "library",
@@ -1116,7 +1159,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/media-order/project.json"
+      "configFilePath": "libs/web/shared/ui/media-order/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-summary": {
       "projectType": "library",
@@ -1134,7 +1178,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/media-summary/project.json"
+      "configFilePath": "libs/web/shared/ui/media-summary/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-table": {
       "projectType": "library",
@@ -1160,7 +1205,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/media-table/project.json"
+      "configFilePath": "libs/web/shared/ui/media-table/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-play-button": {
       "projectType": "library",
@@ -1178,7 +1224,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/play-button/project.json"
+      "configFilePath": "libs/web/shared/ui/play-button/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-playlist-list": {
       "projectType": "library",
@@ -1204,7 +1251,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/playlist-list/project.json"
+      "configFilePath": "libs/web/shared/ui/playlist-list/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-spinner": {
       "projectType": "library",
@@ -1230,7 +1278,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/spinner/project.json"
+      "configFilePath": "libs/web/shared/ui/spinner/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-track-current-info": {
       "projectType": "library",
@@ -1248,7 +1297,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/track-current-info/project.json"
+      "configFilePath": "libs/web/shared/ui/track-current-info/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-track-main-info": {
       "projectType": "library",
@@ -1266,7 +1316,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/track-main-info/project.json"
+      "configFilePath": "libs/web/shared/ui/track-main-info/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-tracks-loading": {
       "projectType": "library",
@@ -1292,7 +1343,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/tracks-loading/project.json"
+      "configFilePath": "libs/web/shared/ui/tracks-loading/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-work-in-progress": {
       "projectType": "library",
@@ -1318,7 +1370,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/ui/work-in-progress/project.json"
+      "configFilePath": "libs/web/shared/ui/work-in-progress/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shared-utils": {
       "root": "libs/web/shared/utils",
@@ -1340,7 +1393,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shared/utils/project.json"
+      "configFilePath": "libs/web/shared/utils/project.json",
+      "tags": ["type:util", "scope:web"]
     },
     "web-shell-feature": {
       "projectType": "library",
@@ -1366,7 +1420,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/feature/project.json"
+      "configFilePath": "libs/web/shell/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-shell-ui-album-art-overlay": {
       "projectType": "library",
@@ -1392,7 +1447,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/album-art-overlay/project.json"
+      "configFilePath": "libs/web/shell/ui/album-art-overlay/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-layout": {
       "projectType": "library",
@@ -1418,7 +1474,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/layout/project.json"
+      "configFilePath": "libs/web/shell/ui/layout/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-main-view": {
       "projectType": "library",
@@ -1444,7 +1501,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/main-view/project.json"
+      "configFilePath": "libs/web/shell/ui/main-view/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-nav-bar": {
       "projectType": "library",
@@ -1470,7 +1528,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/nav-bar/project.json"
+      "configFilePath": "libs/web/shell/ui/nav-bar/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-nav-bar-playlist": {
       "projectType": "library",
@@ -1496,7 +1555,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/nav-bar-playlist/project.json"
+      "configFilePath": "libs/web/shell/ui/nav-bar-playlist/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-now-playing-bar": {
       "projectType": "library",
@@ -1514,7 +1574,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/now-playing-bar/project.json"
+      "configFilePath": "libs/web/shell/ui/now-playing-bar/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-controls": {
       "projectType": "library",
@@ -1532,7 +1593,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/player-controls/project.json"
+      "configFilePath": "libs/web/shell/ui/player-controls/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-playback": {
       "projectType": "library",
@@ -1550,7 +1612,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/player-playback/project.json"
+      "configFilePath": "libs/web/shell/ui/player-playback/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-volume": {
       "projectType": "library",
@@ -1568,7 +1631,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/player-volume/project.json"
+      "configFilePath": "libs/web/shell/ui/player-volume/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-social-share": {
       "projectType": "library",
@@ -1594,7 +1658,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/social-share/project.json"
+      "configFilePath": "libs/web/shell/ui/social-share/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-top-bar": {
       "projectType": "library",
@@ -1620,7 +1685,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/top-bar/project.json"
+      "configFilePath": "libs/web/shell/ui/top-bar/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-user-dropdown": {
       "projectType": "library",
@@ -1646,7 +1712,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/user-dropdown/project.json"
+      "configFilePath": "libs/web/shell/ui/user-dropdown/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-visualization-toggle": {
       "projectType": "library",
@@ -1672,7 +1739,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/shell/ui/visualization-toggle/project.json"
+      "configFilePath": "libs/web/shell/ui/visualization-toggle/project.json",
+      "tags": ["type:ui", "scope:web"]
     },
     "web-tracks-data-access": {
       "root": "libs/web/tracks/data-access",
@@ -1694,7 +1762,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/tracks/data-access/project.json"
+      "configFilePath": "libs/web/tracks/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-tracks-feature": {
       "projectType": "library",
@@ -1720,7 +1789,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/tracks/feature/project.json"
+      "configFilePath": "libs/web/tracks/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-visualizer-data-access": {
       "root": "libs/web/visualizer/data-access",
@@ -1742,7 +1812,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/visualizer/data-access/project.json"
+      "configFilePath": "libs/web/visualizer/data-access/project.json",
+      "tags": ["type:data-access", "scope:web"]
     },
     "web-visualizer-feature": {
       "projectType": "library",
@@ -1768,7 +1839,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/visualizer/feature/project.json"
+      "configFilePath": "libs/web/visualizer/feature/project.json",
+      "tags": ["type:feature", "scope:web"]
     },
     "web-visualizer-ui": {
       "projectType": "library",
@@ -1794,7 +1866,8 @@
           }
         }
       },
-      "configFilePath": "libs/web/visualizer/ui/project.json"
+      "configFilePath": "libs/web/visualizer/ui/project.json",
+      "tags": ["type:ui", "scope:web"]
     }
   }
 }
