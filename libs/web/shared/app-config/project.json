@@ -18,5 +18,6 @@
       }
     }
   },
-  "tags": ["type:util", "scope:web"]
+  "tags": ["type:util", "scope:web"],
+  "name": "web-shared-app-config"
 }

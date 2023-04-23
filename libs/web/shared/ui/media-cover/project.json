@@ -14,5 +14,6 @@
       }
     }
   },
-  "tags": ["type:ui", "scope:web"]
+  "tags": ["type:ui", "scope:web"],
+  "name": "web-shared-ui-media-cover"
 }

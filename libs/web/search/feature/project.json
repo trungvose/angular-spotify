@@ -22,5 +22,6 @@
       }
     }
   },
-  "tags": ["type:feature", "scope:web"]
+  "tags": ["type:feature", "scope:web"],
+  "name": "web-search-feature"
 }

@@ -22,5 +22,6 @@
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"]
+  "tags": ["type:data-access", "scope:web"],
+  "name": "web-artist-data-access"
 }
