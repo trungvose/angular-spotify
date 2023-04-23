@@ -146,37 +146,7 @@
           }
         }
       },
-      "tags": ["type:app", "scope:angular-spotify"],
       "configFilePath": "apps/angular-spotify/project.json"
-    },
-    "angular-spotify-e2e": {
-      "root": "apps/angular-spotify-e2e",
-      "sourceRoot": "apps/angular-spotify-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/angular-spotify-e2e/cypress.json",
-            "tsConfig": "apps/angular-spotify-e2e/tsconfig.e2e.json",
-            "devServerTarget": "angular-spotify:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-spotify:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["angular-spotify"],
-      "configFilePath": "apps/angular-spotify-e2e/project.json"
     },
     "web-album-data-access": {
       "root": "libs/web/album/data-access",
@@ -198,7 +168,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/album/data-access/project.json"
     },
     "web-album-feature-detail": {
@@ -225,7 +194,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/album/feature/detail/project.json"
     },
     "web-album-feature-list": {
@@ -252,7 +220,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/album/feature/list/project.json"
     },
     "web-album-feature-shell": {
@@ -279,7 +246,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/album/feature/shell/project.json"
     },
     "web-album-ui-album-track": {
@@ -306,7 +272,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/album/ui/album-track/project.json"
     },
     "web-artist-data-access": {
@@ -333,7 +298,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/artist/data-access/project.json"
     },
     "web-artist-feature": {
@@ -360,7 +324,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/artist/feature/project.json"
     },
     "web-artist-ui-artist-top-track": {
@@ -387,7 +350,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/artist/ui/artist-top-track/project.json"
     },
     "web-artist-ui-artist-top-tracks": {
@@ -414,7 +376,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/artist/ui/artist-top-tracks/project.json"
     },
     "web-auth-data-access": {
@@ -437,7 +398,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/auth/data-access/project.json"
     },
     "web-auth-ui-unauthorized-modal": {
@@ -464,7 +424,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/auth/ui/unauthorized-modal/project.json"
     },
     "web-auth-util": {
@@ -487,7 +446,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/auth/util/project.json"
     },
     "web-browse-data-access": {
@@ -510,7 +468,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/browse/data-access/project.json"
     },
     "web-browse-feature-categories": {
@@ -537,7 +494,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/browse/feature/categories/project.json"
     },
     "web-browse-feature-category": {
@@ -564,7 +520,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/browse/feature/category/project.json"
     },
     "web-browse-feature-shell": {
@@ -591,7 +546,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/browse/feature/shell/project.json"
     },
     "web-browse-ui-category-cover": {
@@ -618,7 +572,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/browse/ui/category-cover/project.json"
     },
     "web-home-data-access": {
@@ -641,7 +594,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/home/data-access/project.json"
     },
     "web-home-feature": {
@@ -668,7 +620,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/home/feature/project.json"
     },
     "web-home-ui-featured-playlists": {
@@ -695,7 +646,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/home/ui/featured-playlists/project.json"
     },
     "web-home-ui-greeting": {
@@ -722,7 +672,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/home/ui/greeting/project.json"
     },
     "web-home-ui-recent-played": {
@@ -749,7 +698,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/home/ui/recent-played/project.json"
     },
     "web-playlist-data-access": {
@@ -772,7 +720,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/playlist/data-access/project.json"
     },
     "web-playlist-feature-detail": {
@@ -791,7 +738,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope: web"],
       "configFilePath": "libs/web/playlist/feature/detail/project.json"
     },
     "web-playlist-feature-list": {
@@ -810,7 +756,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/playlist/feature/list/project.json"
     },
     "web-playlist-ui-playlist-track": {
@@ -837,7 +782,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/playlist/ui/playlist-track/project.json"
     },
     "web-search-data-access": {
@@ -860,7 +804,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/search/data-access/project.json"
     },
     "web-search-feature": {
@@ -887,7 +830,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/search/feature/project.json"
     },
     "web-settings-data-access": {
@@ -910,7 +852,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/settings/data-access/project.json"
     },
     "web-settings-feature": {
@@ -937,7 +878,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/settings/feature/project.json"
     },
     "web-shared-app-config": {
@@ -960,7 +900,6 @@
           }
         }
       },
-      "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/app-config/project.json"
     },
     "web-shared-app-init": {
@@ -993,7 +932,6 @@
       "sourceRoot": "libs/web/shared/assets/src",
       "projectType": "library",
       "targets": {},
-      "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/assets/project.json"
     },
     "web-shared-data-access-models": {
@@ -1008,7 +946,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/shared/data-access/models/project.json"
     },
     "web-shared-data-access-spotify-api": {
@@ -1031,7 +968,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/shared/data-access/spotify-api/project.json"
     },
     "web-shared-data-access-store": {
@@ -1054,7 +990,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/shared/data-access/store/project.json"
     },
     "web-shared-directives-click-stop-propagation": {
@@ -1073,7 +1008,6 @@
           }
         }
       },
-      "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/directives/click-stop-propagation/project.json"
     },
     "web-shared-pipes-duration-pipe": {
@@ -1100,7 +1034,6 @@
           }
         }
       },
-      "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/pipes/duration-pipe/project.json"
     },
     "web-shared-ui-icon": {
@@ -1127,7 +1060,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/icon/project.json"
     },
     "web-shared-ui-input": {
@@ -1154,7 +1086,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/input/project.json"
     },
     "web-shared-ui-media": {
@@ -1173,7 +1104,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media/project.json"
     },
     "web-shared-ui-media-cover": {
@@ -1192,7 +1122,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-cover/project.json"
     },
     "web-shared-ui-media-order": {
@@ -1219,7 +1148,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-order/project.json"
     },
     "web-shared-ui-media-summary": {
@@ -1238,7 +1166,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-summary/project.json"
     },
     "web-shared-ui-media-table": {
@@ -1265,7 +1192,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-table/project.json"
     },
     "web-shared-ui-play-button": {
@@ -1284,7 +1210,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/play-button/project.json"
     },
     "web-shared-ui-playlist-list": {
@@ -1311,7 +1236,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/playlist-list/project.json"
     },
     "web-shared-ui-spinner": {
@@ -1338,7 +1262,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/spinner/project.json"
     },
     "web-shared-ui-track-current-info": {
@@ -1357,7 +1280,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/track-current-info/project.json"
     },
     "web-shared-ui-track-main-info": {
@@ -1376,7 +1298,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/track-main-info/project.json"
     },
     "web-shared-ui-tracks-loading": {
@@ -1403,7 +1324,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/tracks-loading/project.json"
     },
     "web-shared-ui-work-in-progress": {
@@ -1430,7 +1350,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/work-in-progress/project.json"
     },
     "web-shared-utils": {
@@ -1453,7 +1372,6 @@
           }
         }
       },
-      "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/utils/project.json"
     },
     "web-shell-feature": {
@@ -1480,7 +1398,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/shell/feature/project.json"
     },
     "web-shell-ui-album-art-overlay": {
@@ -1507,7 +1424,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/album-art-overlay/project.json"
     },
     "web-shell-ui-layout": {
@@ -1534,7 +1450,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/layout/project.json"
     },
     "web-shell-ui-main-view": {
@@ -1561,7 +1476,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/main-view/project.json"
     },
     "web-shell-ui-nav-bar": {
@@ -1588,7 +1502,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/nav-bar/project.json"
     },
     "web-shell-ui-nav-bar-playlist": {
@@ -1615,7 +1528,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/nav-bar-playlist/project.json"
     },
     "web-shell-ui-now-playing-bar": {
@@ -1634,7 +1546,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/now-playing-bar/project.json"
     },
     "web-shell-ui-player-controls": {
@@ -1653,7 +1564,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-controls/project.json"
     },
     "web-shell-ui-player-playback": {
@@ -1672,7 +1582,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-playback/project.json"
     },
     "web-shell-ui-player-volume": {
@@ -1691,7 +1600,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-volume/project.json"
     },
     "web-shell-ui-social-share": {
@@ -1718,7 +1626,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/social-share/project.json"
     },
     "web-shell-ui-top-bar": {
@@ -1745,7 +1652,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/top-bar/project.json"
     },
     "web-shell-ui-user-dropdown": {
@@ -1772,7 +1678,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/user-dropdown/project.json"
     },
     "web-shell-ui-visualization-toggle": {
@@ -1799,7 +1704,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/visualization-toggle/project.json"
     },
     "web-tracks-data-access": {
@@ -1822,7 +1726,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/tracks/data-access/project.json"
     },
     "web-tracks-feature": {
@@ -1849,7 +1752,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/tracks/feature/project.json"
     },
     "web-visualizer-data-access": {
@@ -1872,7 +1774,6 @@
           }
         }
       },
-      "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/visualizer/data-access/project.json"
     },
     "web-visualizer-feature": {
@@ -1899,7 +1800,6 @@
           }
         }
       },
-      "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/visualizer/feature/project.json"
     },
     "web-visualizer-ui": {
@@ -1926,7 +1826,6 @@
           }
         }
       },
-      "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/visualizer/ui/project.json"
     }
   }
