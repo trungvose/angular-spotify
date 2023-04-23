@@ -1,0 +1,28 @@
+{
+  "name": "web-shared-app-init",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/web/shared/app-init/src",
+  "prefix": "angular-spotify",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-init"],
+      "options": {
+        "jestConfig": "libs/web/shared/app-init/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/app-init/src/**/*.ts",
+          "libs/web/shared/app-init/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}
