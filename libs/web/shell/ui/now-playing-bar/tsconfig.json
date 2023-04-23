@@ -6,5 +6,8 @@
     {
       "path": "./tsconfig.lib.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "target": "es2020"
+  }
 }
