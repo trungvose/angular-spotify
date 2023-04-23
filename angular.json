@@ -1,39 +1,8 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "angular-spotify",
-  "generators": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "strict": true
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
   "projects": {
     "angular-spotify": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "root": "apps/angular-spotify",
       "sourceRoot": "apps/angular-spotify/src",
@@ -135,13 +104,14 @@
               "apps/angular-spotify/src/**/*.ts",
               "apps/angular-spotify/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/angular-spotify"],
+          "outputs": ["{workspaceRoot}/coverage/apps/angular-spotify"],
           "options": {
-            "jestConfig": "apps/angular-spotify/jest.config.js",
+            "jestConfig": "apps/angular-spotify/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -150,6 +120,7 @@
       "configFilePath": "apps/angular-spotify/project.json"
     },
     "angular-spotify-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/angular-spotify-e2e",
       "sourceRoot": "apps/angular-spotify-e2e/src",
       "projectType": "application",
@@ -171,7 +142,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/angular-spotify-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": [],
@@ -179,6 +151,7 @@
       "configFilePath": "apps/angular-spotify-e2e/project.json"
     },
     "web-album-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/album/data-access",
       "sourceRoot": "libs/web/album/data-access/src",
       "projectType": "library",
@@ -187,13 +160,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/album/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/data-access"],
           "options": {
-            "jestConfig": "libs/web/album/data-access/jest.config.js",
+            "jestConfig": "libs/web/album/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -202,6 +176,7 @@
       "configFilePath": "libs/web/album/data-access/project.json"
     },
     "web-album-feature-detail": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/detail",
       "sourceRoot": "libs/web/album/feature/detail/src",
@@ -214,13 +189,14 @@
               "libs/web/album/feature/detail/src/**/*.ts",
               "libs/web/album/feature/detail/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/detail"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/detail"],
           "options": {
-            "jestConfig": "libs/web/album/feature/detail/jest.config.js",
+            "jestConfig": "libs/web/album/feature/detail/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -229,6 +205,7 @@
       "configFilePath": "libs/web/album/feature/detail/project.json"
     },
     "web-album-feature-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/list",
       "sourceRoot": "libs/web/album/feature/list/src",
@@ -241,13 +218,14 @@
               "libs/web/album/feature/list/src/**/*.ts",
               "libs/web/album/feature/list/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/list"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/list"],
           "options": {
-            "jestConfig": "libs/web/album/feature/list/jest.config.js",
+            "jestConfig": "libs/web/album/feature/list/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -256,6 +234,7 @@
       "configFilePath": "libs/web/album/feature/list/project.json"
     },
     "web-album-feature-shell": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/shell",
       "sourceRoot": "libs/web/album/feature/shell/src",
@@ -268,13 +247,14 @@
               "libs/web/album/feature/shell/src/**/*.ts",
               "libs/web/album/feature/shell/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/feature/shell"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/shell"],
           "options": {
-            "jestConfig": "libs/web/album/feature/shell/jest.config.js",
+            "jestConfig": "libs/web/album/feature/shell/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -283,6 +263,7 @@
       "configFilePath": "libs/web/album/feature/shell/project.json"
     },
     "web-album-ui-album-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/ui/album-track",
       "sourceRoot": "libs/web/album/ui/album-track/src",
@@ -295,13 +276,14 @@
               "libs/web/album/ui/album-track/src/**/*.ts",
               "libs/web/album/ui/album-track/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/album/ui/album-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/album/ui/album-track"],
           "options": {
-            "jestConfig": "libs/web/album/ui/album-track/jest.config.js",
+            "jestConfig": "libs/web/album/ui/album-track/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -310,6 +292,7 @@
       "configFilePath": "libs/web/album/ui/album-track/project.json"
     },
     "web-artist-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/data-access",
       "sourceRoot": "libs/web/artist/data-access/src",
@@ -322,13 +305,14 @@
               "libs/web/artist/data-access/src/**/*.ts",
               "libs/web/artist/data-access/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/data-access"],
           "options": {
-            "jestConfig": "libs/web/artist/data-access/jest.config.js",
+            "jestConfig": "libs/web/artist/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -337,6 +321,7 @@
       "configFilePath": "libs/web/artist/data-access/project.json"
     },
     "web-artist-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/feature",
       "sourceRoot": "libs/web/artist/feature/src",
@@ -349,13 +334,14 @@
               "libs/web/artist/feature/src/**/*.ts",
               "libs/web/artist/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/feature"],
           "options": {
-            "jestConfig": "libs/web/artist/feature/jest.config.js",
+            "jestConfig": "libs/web/artist/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -364,6 +350,7 @@
       "configFilePath": "libs/web/artist/feature/project.json"
     },
     "web-artist-ui-artist-top-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/ui/artist-top-track",
       "sourceRoot": "libs/web/artist/ui/artist-top-track/src",
@@ -376,13 +363,14 @@
               "libs/web/artist/ui/artist-top-track/src/**/*.ts",
               "libs/web/artist/ui/artist-top-track/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-track"],
           "options": {
-            "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.js",
+            "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -391,6 +379,7 @@
       "configFilePath": "libs/web/artist/ui/artist-top-track/project.json"
     },
     "web-artist-ui-artist-top-tracks": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/ui/artist-top-tracks",
       "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
@@ -403,13 +392,14 @@
               "libs/web/artist/ui/artist-top-tracks/src/**/*.ts",
               "libs/web/artist/ui/artist-top-tracks/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-tracks"],
           "options": {
-            "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
+            "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -418,6 +408,7 @@
       "configFilePath": "libs/web/artist/ui/artist-top-tracks/project.json"
     },
     "web-auth-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/auth/data-access",
       "sourceRoot": "libs/web/auth/data-access/src",
       "projectType": "library",
@@ -426,13 +417,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/data-access"],
           "options": {
-            "jestConfig": "libs/web/auth/data-access/jest.config.js",
+            "jestConfig": "libs/web/auth/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -441,6 +433,7 @@
       "configFilePath": "libs/web/auth/data-access/project.json"
     },
     "web-auth-ui-unauthorized-modal": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/auth/ui/unauthorized-modal",
       "sourceRoot": "libs/web/auth/ui/unauthorized-modal/src",
@@ -453,13 +446,14 @@
               "libs/web/auth/ui/unauthorized-modal/src/**/*.ts",
               "libs/web/auth/ui/unauthorized-modal/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/ui/unauthorized-modal"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/ui/unauthorized-modal"],
           "options": {
-            "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.js",
+            "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -468,6 +462,7 @@
       "configFilePath": "libs/web/auth/ui/unauthorized-modal/project.json"
     },
     "web-auth-util": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/auth/util",
       "sourceRoot": "libs/web/auth/util/src",
       "projectType": "library",
@@ -476,13 +471,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/auth/util/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/auth/util"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/auth/util"],
           "options": {
-            "jestConfig": "libs/web/auth/util/jest.config.js",
+            "jestConfig": "libs/web/auth/util/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -491,6 +487,7 @@
       "configFilePath": "libs/web/auth/util/project.json"
     },
     "web-browse-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/browse/data-access",
       "sourceRoot": "libs/web/browse/data-access/src",
       "projectType": "library",
@@ -499,13 +496,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/browse/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/data-access"],
           "options": {
-            "jestConfig": "libs/web/browse/data-access/jest.config.js",
+            "jestConfig": "libs/web/browse/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -514,6 +512,7 @@
       "configFilePath": "libs/web/browse/data-access/project.json"
     },
     "web-browse-feature-categories": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/categories",
       "sourceRoot": "libs/web/browse/feature/categories/src",
@@ -526,13 +525,14 @@
               "libs/web/browse/feature/categories/src/**/*.ts",
               "libs/web/browse/feature/categories/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/categories"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/categories"],
           "options": {
-            "jestConfig": "libs/web/browse/feature/categories/jest.config.js",
+            "jestConfig": "libs/web/browse/feature/categories/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -541,6 +541,7 @@
       "configFilePath": "libs/web/browse/feature/categories/project.json"
     },
     "web-browse-feature-category": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/category",
       "sourceRoot": "libs/web/browse/feature/category/src",
@@ -553,13 +554,14 @@
               "libs/web/browse/feature/category/src/**/*.ts",
               "libs/web/browse/feature/category/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/category"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/category"],
           "options": {
-            "jestConfig": "libs/web/browse/feature/category/jest.config.js",
+            "jestConfig": "libs/web/browse/feature/category/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -568,6 +570,7 @@
       "configFilePath": "libs/web/browse/feature/category/project.json"
     },
     "web-browse-feature-shell": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/shell",
       "sourceRoot": "libs/web/browse/feature/shell/src",
@@ -580,13 +583,14 @@
               "libs/web/browse/feature/shell/src/**/*.ts",
               "libs/web/browse/feature/shell/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/feature/shell"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/shell"],
           "options": {
-            "jestConfig": "libs/web/browse/feature/shell/jest.config.js",
+            "jestConfig": "libs/web/browse/feature/shell/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -595,6 +599,7 @@
       "configFilePath": "libs/web/browse/feature/shell/project.json"
     },
     "web-browse-ui-category-cover": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/ui/category-cover",
       "sourceRoot": "libs/web/browse/ui/category-cover/src",
@@ -607,13 +612,14 @@
               "libs/web/browse/ui/category-cover/src/**/*.ts",
               "libs/web/browse/ui/category-cover/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/browse/ui/category-cover"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/browse/ui/category-cover"],
           "options": {
-            "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js",
+            "jestConfig": "libs/web/browse/ui/category-cover/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -622,6 +628,7 @@
       "configFilePath": "libs/web/browse/ui/category-cover/project.json"
     },
     "web-home-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/home/data-access",
       "sourceRoot": "libs/web/home/data-access/src",
       "projectType": "library",
@@ -630,13 +637,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/home/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/data-access"],
           "options": {
-            "jestConfig": "libs/web/home/data-access/jest.config.js",
+            "jestConfig": "libs/web/home/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -645,6 +653,7 @@
       "configFilePath": "libs/web/home/data-access/project.json"
     },
     "web-home-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/feature",
       "sourceRoot": "libs/web/home/feature/src",
@@ -657,13 +666,14 @@
               "libs/web/home/feature/src/**/*.ts",
               "libs/web/home/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/feature"],
           "options": {
-            "jestConfig": "libs/web/home/feature/jest.config.js",
+            "jestConfig": "libs/web/home/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -672,6 +682,7 @@
       "configFilePath": "libs/web/home/feature/project.json"
     },
     "web-home-ui-featured-playlists": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/featured-playlists",
       "sourceRoot": "libs/web/home/ui/featured-playlists/src",
@@ -684,13 +695,14 @@
               "libs/web/home/ui/featured-playlists/src/**/*.ts",
               "libs/web/home/ui/featured-playlists/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/featured-playlists"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/featured-playlists"],
           "options": {
-            "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.js",
+            "jestConfig": "libs/web/home/ui/featured-playlists/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -699,6 +711,7 @@
       "configFilePath": "libs/web/home/ui/featured-playlists/project.json"
     },
     "web-home-ui-greeting": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/greeting",
       "sourceRoot": "libs/web/home/ui/greeting/src",
@@ -711,13 +724,14 @@
               "libs/web/home/ui/greeting/src/**/*.ts",
               "libs/web/home/ui/greeting/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/greeting"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/greeting"],
           "options": {
-            "jestConfig": "libs/web/home/ui/greeting/jest.config.js",
+            "jestConfig": "libs/web/home/ui/greeting/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -726,6 +740,7 @@
       "configFilePath": "libs/web/home/ui/greeting/project.json"
     },
     "web-home-ui-recent-played": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/recent-played",
       "sourceRoot": "libs/web/home/ui/recent-played/src",
@@ -738,13 +753,14 @@
               "libs/web/home/ui/recent-played/src/**/*.ts",
               "libs/web/home/ui/recent-played/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/home/ui/recent-played"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/recent-played"],
           "options": {
-            "jestConfig": "libs/web/home/ui/recent-played/jest.config.js",
+            "jestConfig": "libs/web/home/ui/recent-played/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -753,6 +769,7 @@
       "configFilePath": "libs/web/home/ui/recent-played/project.json"
     },
     "web-playlist-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/playlist/data-access",
       "sourceRoot": "libs/web/playlist/data-access/src",
       "projectType": "library",
@@ -761,13 +778,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/playlist/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/data-access"],
           "options": {
-            "jestConfig": "libs/web/playlist/data-access/jest.config.js",
+            "jestConfig": "libs/web/playlist/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -776,6 +794,7 @@
       "configFilePath": "libs/web/playlist/data-access/project.json"
     },
     "web-playlist-feature-detail": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/feature/detail",
       "sourceRoot": "libs/web/playlist/feature/detail/src",
@@ -788,13 +807,15 @@
               "libs/web/playlist/feature/detail/src/**/*.ts",
               "libs/web/playlist/feature/detail/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:feature", "scope: web"],
       "configFilePath": "libs/web/playlist/feature/detail/project.json"
     },
     "web-playlist-feature-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/feature/list",
       "sourceRoot": "libs/web/playlist/feature/list/src",
@@ -807,13 +828,15 @@
               "libs/web/playlist/feature/list/src/**/*.ts",
               "libs/web/playlist/feature/list/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:feature", "scope:web"],
       "configFilePath": "libs/web/playlist/feature/list/project.json"
     },
     "web-playlist-ui-playlist-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/ui/playlist-track",
       "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
@@ -826,13 +849,14 @@
               "libs/web/playlist/ui/playlist-track/src/**/*.ts",
               "libs/web/playlist/ui/playlist-track/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/playlist/ui/playlist-track"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/ui/playlist-track"],
           "options": {
-            "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js",
+            "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -841,6 +865,7 @@
       "configFilePath": "libs/web/playlist/ui/playlist-track/project.json"
     },
     "web-search-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/search/data-access",
       "sourceRoot": "libs/web/search/data-access/src",
       "projectType": "library",
@@ -849,13 +874,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/search/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/search/data-access"],
           "options": {
-            "jestConfig": "libs/web/search/data-access/jest.config.js",
+            "jestConfig": "libs/web/search/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -864,6 +890,7 @@
       "configFilePath": "libs/web/search/data-access/project.json"
     },
     "web-search-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/search/feature",
       "sourceRoot": "libs/web/search/feature/src",
@@ -876,13 +903,14 @@
               "libs/web/search/feature/src/**/*.ts",
               "libs/web/search/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/search/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/search/feature"],
           "options": {
-            "jestConfig": "libs/web/search/feature/jest.config.js",
+            "jestConfig": "libs/web/search/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -891,6 +919,7 @@
       "configFilePath": "libs/web/search/feature/project.json"
     },
     "web-settings-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/settings/data-access",
       "sourceRoot": "libs/web/settings/data-access/src",
       "projectType": "library",
@@ -899,13 +928,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/settings/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/settings/data-access"],
           "options": {
-            "jestConfig": "libs/web/settings/data-access/jest.config.js",
+            "jestConfig": "libs/web/settings/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -914,6 +944,7 @@
       "configFilePath": "libs/web/settings/data-access/project.json"
     },
     "web-settings-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/settings/feature",
       "sourceRoot": "libs/web/settings/feature/src",
@@ -926,13 +957,14 @@
               "libs/web/settings/feature/src/**/*.ts",
               "libs/web/settings/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/settings/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/settings/feature"],
           "options": {
-            "jestConfig": "libs/web/settings/feature/jest.config.js",
+            "jestConfig": "libs/web/settings/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -941,6 +973,7 @@
       "configFilePath": "libs/web/settings/feature/project.json"
     },
     "web-shared-app-config": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/app-config",
       "sourceRoot": "libs/web/shared/app-config/src",
       "projectType": "library",
@@ -949,13 +982,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/app-config/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-config"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-config"],
           "options": {
-            "jestConfig": "libs/web/shared/app-config/jest.config.js",
+            "jestConfig": "libs/web/shared/app-config/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -971,9 +1005,9 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/app-init"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-init"],
           "options": {
-            "jestConfig": "libs/web/shared/app-init/jest.config.js",
+            "jestConfig": "libs/web/shared/app-init/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -984,11 +1018,14 @@
               "libs/web/shared/app-init/src/**/*.ts",
               "libs/web/shared/app-init/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["type:feature", "scope:web"]
     },
     "web-shared-assets": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/assets",
       "sourceRoot": "libs/web/shared/assets/src",
       "projectType": "library",
@@ -997,6 +1034,7 @@
       "configFilePath": "libs/web/shared/assets/project.json"
     },
     "web-shared-data-access-models": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/models",
       "sourceRoot": "libs/web/shared/data-access/models/src",
       "projectType": "library",
@@ -1005,13 +1043,15 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:data-access", "scope:web"],
       "configFilePath": "libs/web/shared/data-access/models/project.json"
     },
     "web-shared-data-access-spotify-api": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/spotify-api",
       "sourceRoot": "libs/web/shared/data-access/spotify-api/src",
       "projectType": "library",
@@ -1020,13 +1060,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/spotify-api"],
           "options": {
-            "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
+            "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1035,6 +1076,7 @@
       "configFilePath": "libs/web/shared/data-access/spotify-api/project.json"
     },
     "web-shared-data-access-store": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/store",
       "sourceRoot": "libs/web/shared/data-access/store/src",
       "projectType": "library",
@@ -1043,13 +1085,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/data-access/store/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/data-access/store"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/store"],
           "options": {
-            "jestConfig": "libs/web/shared/data-access/store/jest.config.js",
+            "jestConfig": "libs/web/shared/data-access/store/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1058,6 +1101,7 @@
       "configFilePath": "libs/web/shared/data-access/store/project.json"
     },
     "web-shared-directives-click-stop-propagation": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/directives/click-stop-propagation",
       "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
@@ -1070,13 +1114,15 @@
               "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
               "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:util", "scope:web"],
       "configFilePath": "libs/web/shared/directives/click-stop-propagation/project.json"
     },
     "web-shared-pipes-duration-pipe": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/pipes/duration-pipe",
       "sourceRoot": "libs/web/shared/pipes/duration-pipe/src",
@@ -1089,13 +1135,14 @@
               "libs/web/shared/pipes/duration-pipe/src/**/*.ts",
               "libs/web/shared/pipes/duration-pipe/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/pipes/duration-pipe"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/pipes/duration-pipe"],
           "options": {
-            "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.js",
+            "jestConfig": "libs/web/shared/pipes/duration-pipe/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1104,6 +1151,7 @@
       "configFilePath": "libs/web/shared/pipes/duration-pipe/project.json"
     },
     "web-shared-ui-icon": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/icon",
       "sourceRoot": "libs/web/shared/ui/icon/src",
@@ -1116,13 +1164,14 @@
               "libs/web/shared/ui/icon/src/**/*.ts",
               "libs/web/shared/ui/icon/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/icon"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/icon"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/icon/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/icon/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1131,6 +1180,7 @@
       "configFilePath": "libs/web/shared/ui/icon/project.json"
     },
     "web-shared-ui-input": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/input",
       "sourceRoot": "libs/web/shared/ui/input/src",
@@ -1143,13 +1193,14 @@
               "libs/web/shared/ui/input/src/**/*.ts",
               "libs/web/shared/ui/input/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/input"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/input"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/input/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/input/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1158,6 +1209,7 @@
       "configFilePath": "libs/web/shared/ui/input/project.json"
     },
     "web-shared-ui-media": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media",
       "sourceRoot": "libs/web/shared/ui/media/src",
@@ -1170,13 +1222,15 @@
               "libs/web/shared/ui/media/src/**/*.ts",
               "libs/web/shared/ui/media/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media/project.json"
     },
     "web-shared-ui-media-cover": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-cover",
       "sourceRoot": "libs/web/shared/ui/media-cover/src",
@@ -1189,13 +1243,15 @@
               "libs/web/shared/ui/media-cover/src/**/*.ts",
               "libs/web/shared/ui/media-cover/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-cover/project.json"
     },
     "web-shared-ui-media-order": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-order",
       "sourceRoot": "libs/web/shared/ui/media-order/src",
@@ -1208,13 +1264,14 @@
               "libs/web/shared/ui/media-order/src/**/*.ts",
               "libs/web/shared/ui/media-order/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-order"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/media-order"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/media-order/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1223,6 +1280,7 @@
       "configFilePath": "libs/web/shared/ui/media-order/project.json"
     },
     "web-shared-ui-media-summary": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-summary",
       "sourceRoot": "libs/web/shared/ui/media-summary/src",
@@ -1235,13 +1293,15 @@
               "libs/web/shared/ui/media-summary/src/**/*.ts",
               "libs/web/shared/ui/media-summary/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/media-summary/project.json"
     },
     "web-shared-ui-media-table": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-table",
       "sourceRoot": "libs/web/shared/ui/media-table/src",
@@ -1254,13 +1314,14 @@
               "libs/web/shared/ui/media-table/src/**/*.ts",
               "libs/web/shared/ui/media-table/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/media-table"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/media-table"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/media-table/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/media-table/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1269,6 +1330,7 @@
       "configFilePath": "libs/web/shared/ui/media-table/project.json"
     },
     "web-shared-ui-play-button": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/play-button",
       "sourceRoot": "libs/web/shared/ui/play-button/src",
@@ -1281,13 +1343,15 @@
               "libs/web/shared/ui/play-button/src/**/*.ts",
               "libs/web/shared/ui/play-button/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/play-button/project.json"
     },
     "web-shared-ui-playlist-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/playlist-list",
       "sourceRoot": "libs/web/shared/ui/playlist-list/src",
@@ -1300,13 +1364,14 @@
               "libs/web/shared/ui/playlist-list/src/**/*.ts",
               "libs/web/shared/ui/playlist-list/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/playlist-list"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/playlist-list"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/playlist-list/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/playlist-list/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1315,6 +1380,7 @@
       "configFilePath": "libs/web/shared/ui/playlist-list/project.json"
     },
     "web-shared-ui-spinner": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/spinner",
       "sourceRoot": "libs/web/shared/ui/spinner/src",
@@ -1327,13 +1393,14 @@
               "libs/web/shared/ui/spinner/src/**/*.ts",
               "libs/web/shared/ui/spinner/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/spinner"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/spinner"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/spinner/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/spinner/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1342,6 +1409,7 @@
       "configFilePath": "libs/web/shared/ui/spinner/project.json"
     },
     "web-shared-ui-track-current-info": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/track-current-info",
       "sourceRoot": "libs/web/shared/ui/track-current-info/src",
@@ -1354,13 +1422,15 @@
               "libs/web/shared/ui/track-current-info/src/**/*.ts",
               "libs/web/shared/ui/track-current-info/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/track-current-info/project.json"
     },
     "web-shared-ui-track-main-info": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/track-main-info",
       "sourceRoot": "libs/web/shared/ui/track-main-info/src",
@@ -1373,13 +1443,15 @@
               "libs/web/shared/ui/track-main-info/src/**/*.ts",
               "libs/web/shared/ui/track-main-info/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shared/ui/track-main-info/project.json"
     },
     "web-shared-ui-tracks-loading": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/tracks-loading",
       "sourceRoot": "libs/web/shared/ui/tracks-loading/src",
@@ -1392,13 +1464,14 @@
               "libs/web/shared/ui/tracks-loading/src/**/*.ts",
               "libs/web/shared/ui/tracks-loading/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/tracks-loading"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/tracks-loading"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/tracks-loading/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1407,6 +1480,7 @@
       "configFilePath": "libs/web/shared/ui/tracks-loading/project.json"
     },
     "web-shared-ui-work-in-progress": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/work-in-progress",
       "sourceRoot": "libs/web/shared/ui/work-in-progress/src",
@@ -1419,13 +1493,14 @@
               "libs/web/shared/ui/work-in-progress/src/**/*.ts",
               "libs/web/shared/ui/work-in-progress/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/ui/work-in-progress"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/work-in-progress"],
           "options": {
-            "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/work-in-progress/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1434,6 +1509,7 @@
       "configFilePath": "libs/web/shared/ui/work-in-progress/project.json"
     },
     "web-shared-utils": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/utils",
       "sourceRoot": "libs/web/shared/utils/src",
       "projectType": "library",
@@ -1442,13 +1518,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shared/utils/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shared/utils"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shared/utils"],
           "options": {
-            "jestConfig": "libs/web/shared/utils/jest.config.js",
+            "jestConfig": "libs/web/shared/utils/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1457,6 +1534,7 @@
       "configFilePath": "libs/web/shared/utils/project.json"
     },
     "web-shell-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/feature",
       "sourceRoot": "libs/web/shell/feature/src",
@@ -1469,13 +1547,14 @@
               "libs/web/shell/feature/src/**/*.ts",
               "libs/web/shell/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/feature"],
           "options": {
-            "jestConfig": "libs/web/shell/feature/jest.config.js",
+            "jestConfig": "libs/web/shell/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1484,6 +1563,7 @@
       "configFilePath": "libs/web/shell/feature/project.json"
     },
     "web-shell-ui-album-art-overlay": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/album-art-overlay",
       "sourceRoot": "libs/web/shell/ui/album-art-overlay/src",
@@ -1496,13 +1576,14 @@
               "libs/web/shell/ui/album-art-overlay/src/**/*.ts",
               "libs/web/shell/ui/album-art-overlay/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/album-art-overlay"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/album-art-overlay"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1511,6 +1592,7 @@
       "configFilePath": "libs/web/shell/ui/album-art-overlay/project.json"
     },
     "web-shell-ui-layout": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/layout",
       "sourceRoot": "libs/web/shell/ui/layout/src",
@@ -1523,13 +1605,14 @@
               "libs/web/shell/ui/layout/src/**/*.ts",
               "libs/web/shell/ui/layout/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/layout"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/layout"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/layout/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/layout/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1538,6 +1621,7 @@
       "configFilePath": "libs/web/shell/ui/layout/project.json"
     },
     "web-shell-ui-main-view": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/main-view",
       "sourceRoot": "libs/web/shell/ui/main-view/src",
@@ -1550,13 +1634,14 @@
               "libs/web/shell/ui/main-view/src/**/*.ts",
               "libs/web/shell/ui/main-view/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/main-view"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/main-view"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/main-view/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/main-view/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1565,6 +1650,7 @@
       "configFilePath": "libs/web/shell/ui/main-view/project.json"
     },
     "web-shell-ui-nav-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/nav-bar",
       "sourceRoot": "libs/web/shell/ui/nav-bar/src",
@@ -1577,13 +1663,14 @@
               "libs/web/shell/ui/nav-bar/src/**/*.ts",
               "libs/web/shell/ui/nav-bar/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/nav-bar"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/nav-bar/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1592,6 +1679,7 @@
       "configFilePath": "libs/web/shell/ui/nav-bar/project.json"
     },
     "web-shell-ui-nav-bar-playlist": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/nav-bar-playlist",
       "sourceRoot": "libs/web/shell/ui/nav-bar-playlist/src",
@@ -1604,13 +1692,14 @@
               "libs/web/shell/ui/nav-bar-playlist/src/**/*.ts",
               "libs/web/shell/ui/nav-bar-playlist/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/nav-bar-playlist"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/nav-bar-playlist"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/nav-bar-playlist/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1619,6 +1708,7 @@
       "configFilePath": "libs/web/shell/ui/nav-bar-playlist/project.json"
     },
     "web-shell-ui-now-playing-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/now-playing-bar",
       "sourceRoot": "libs/web/shell/ui/now-playing-bar/src",
@@ -1631,13 +1721,15 @@
               "libs/web/shell/ui/now-playing-bar/src/**/*.ts",
               "libs/web/shell/ui/now-playing-bar/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/now-playing-bar/project.json"
     },
     "web-shell-ui-player-controls": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-controls",
       "sourceRoot": "libs/web/shell/ui/player-controls/src",
@@ -1650,13 +1742,15 @@
               "libs/web/shell/ui/player-controls/src/**/*.ts",
               "libs/web/shell/ui/player-controls/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-controls/project.json"
     },
     "web-shell-ui-player-playback": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-playback",
       "sourceRoot": "libs/web/shell/ui/player-playback/src",
@@ -1669,13 +1763,15 @@
               "libs/web/shell/ui/player-playback/src/**/*.ts",
               "libs/web/shell/ui/player-playback/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-playback/project.json"
     },
     "web-shell-ui-player-volume": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-volume",
       "sourceRoot": "libs/web/shell/ui/player-volume/src",
@@ -1688,13 +1784,15 @@
               "libs/web/shell/ui/player-volume/src/**/*.ts",
               "libs/web/shell/ui/player-volume/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": ["type:ui", "scope:web"],
       "configFilePath": "libs/web/shell/ui/player-volume/project.json"
     },
     "web-shell-ui-social-share": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/social-share",
       "sourceRoot": "libs/web/shell/ui/social-share/src",
@@ -1707,13 +1805,14 @@
               "libs/web/shell/ui/social-share/src/**/*.ts",
               "libs/web/shell/ui/social-share/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/social-share"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/social-share"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/social-share/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1722,6 +1821,7 @@
       "configFilePath": "libs/web/shell/ui/social-share/project.json"
     },
     "web-shell-ui-top-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/top-bar",
       "sourceRoot": "libs/web/shell/ui/top-bar/src",
@@ -1734,13 +1834,14 @@
               "libs/web/shell/ui/top-bar/src/**/*.ts",
               "libs/web/shell/ui/top-bar/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/top-bar"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/top-bar"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/top-bar/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/top-bar/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1749,6 +1850,7 @@
       "configFilePath": "libs/web/shell/ui/top-bar/project.json"
     },
     "web-shell-ui-user-dropdown": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/user-dropdown",
       "sourceRoot": "libs/web/shell/ui/user-dropdown/src",
@@ -1761,13 +1863,14 @@
               "libs/web/shell/ui/user-dropdown/src/**/*.ts",
               "libs/web/shell/ui/user-dropdown/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/user-dropdown"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1776,6 +1879,7 @@
       "configFilePath": "libs/web/shell/ui/user-dropdown/project.json"
     },
     "web-shell-ui-visualization-toggle": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/visualization-toggle",
       "sourceRoot": "libs/web/shell/ui/visualization-toggle/src",
@@ -1788,13 +1892,14 @@
               "libs/web/shell/ui/visualization-toggle/src/**/*.ts",
               "libs/web/shell/ui/visualization-toggle/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/shell/ui/visualization-toggle"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/visualization-toggle"],
           "options": {
-            "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.js",
+            "jestConfig": "libs/web/shell/ui/visualization-toggle/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1803,6 +1908,7 @@
       "configFilePath": "libs/web/shell/ui/visualization-toggle/project.json"
     },
     "web-tracks-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/tracks/data-access",
       "sourceRoot": "libs/web/tracks/data-access/src",
       "projectType": "library",
@@ -1811,13 +1917,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/tracks/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/data-access"],
           "options": {
-            "jestConfig": "libs/web/tracks/data-access/jest.config.js",
+            "jestConfig": "libs/web/tracks/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1826,6 +1933,7 @@
       "configFilePath": "libs/web/tracks/data-access/project.json"
     },
     "web-tracks-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/tracks/feature",
       "sourceRoot": "libs/web/tracks/feature/src",
@@ -1838,13 +1946,14 @@
               "libs/web/tracks/feature/src/**/*.ts",
               "libs/web/tracks/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/tracks/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/feature"],
           "options": {
-            "jestConfig": "libs/web/tracks/feature/jest.config.js",
+            "jestConfig": "libs/web/tracks/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1853,6 +1962,7 @@
       "configFilePath": "libs/web/tracks/feature/project.json"
     },
     "web-visualizer-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/visualizer/data-access",
       "sourceRoot": "libs/web/visualizer/data-access/src",
       "projectType": "library",
@@ -1861,13 +1971,14 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/visualizer/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/data-access"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/data-access"],
           "options": {
-            "jestConfig": "libs/web/visualizer/data-access/jest.config.js",
+            "jestConfig": "libs/web/visualizer/data-access/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1876,6 +1987,7 @@
       "configFilePath": "libs/web/visualizer/data-access/project.json"
     },
     "web-visualizer-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/visualizer/feature",
       "sourceRoot": "libs/web/visualizer/feature/src",
@@ -1888,13 +2000,14 @@
               "libs/web/visualizer/feature/src/**/*.ts",
               "libs/web/visualizer/feature/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/feature"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/feature"],
           "options": {
-            "jestConfig": "libs/web/visualizer/feature/jest.config.js",
+            "jestConfig": "libs/web/visualizer/feature/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -1903,6 +2016,7 @@
       "configFilePath": "libs/web/visualizer/feature/project.json"
     },
     "web-visualizer-ui": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/visualizer/ui",
       "sourceRoot": "libs/web/visualizer/ui/src",
@@ -1915,13 +2029,14 @@
               "libs/web/visualizer/ui/src/**/*.ts",
               "libs/web/visualizer/ui/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/visualizer/ui"],
+          "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/ui"],
           "options": {
-            "jestConfig": "libs/web/visualizer/ui/jest.config.js",
+            "jestConfig": "libs/web/visualizer/ui/jest.config.ts",
             "passWithNoTests": true
           }
         }

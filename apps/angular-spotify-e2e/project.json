@@ -24,5 +24,6 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["angular-spotify"]
+  "implicitDependencies": ["angular-spotify"],
+  "name": "angular-spotify-e2e"
 }

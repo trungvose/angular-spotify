@@ -111,5 +111,6 @@
       }
     }
   },
-  "tags": ["type:app", "scope:angular-spotify"]
+  "tags": ["type:app", "scope:angular-spotify"],
+  "name": "angular-spotify"
 }
