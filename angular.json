@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "angular-spotify": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "root": "apps/angular-spotify",
       "sourceRoot": "apps/angular-spotify/src",
@@ -119,6 +120,7 @@
       "tags": ["type:app", "scope:angular-spotify"]
     },
     "web-album-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/album/data-access",
       "sourceRoot": "libs/web/album/data-access/src",
       "projectType": "library",
@@ -143,6 +145,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-album-feature-detail": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/detail",
       "sourceRoot": "libs/web/album/feature/detail/src",
@@ -171,6 +174,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-album-feature-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/list",
       "sourceRoot": "libs/web/album/feature/list/src",
@@ -199,6 +203,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-album-feature-shell": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/feature/shell",
       "sourceRoot": "libs/web/album/feature/shell/src",
@@ -227,6 +232,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-album-ui-album-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/album/ui/album-track",
       "sourceRoot": "libs/web/album/ui/album-track/src",
@@ -255,6 +261,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-artist-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/data-access",
       "sourceRoot": "libs/web/artist/data-access/src",
@@ -283,6 +290,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-artist-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/feature",
       "sourceRoot": "libs/web/artist/feature/src",
@@ -311,6 +319,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-artist-ui-artist-top-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/ui/artist-top-track",
       "sourceRoot": "libs/web/artist/ui/artist-top-track/src",
@@ -339,6 +348,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-artist-ui-artist-top-tracks": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/artist/ui/artist-top-tracks",
       "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
@@ -367,6 +377,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-auth-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/auth/data-access",
       "sourceRoot": "libs/web/auth/data-access/src",
       "projectType": "library",
@@ -391,6 +402,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-auth-ui-unauthorized-modal": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/auth/ui/unauthorized-modal",
       "sourceRoot": "libs/web/auth/ui/unauthorized-modal/src",
@@ -419,6 +431,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-auth-util": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/auth/util",
       "sourceRoot": "libs/web/auth/util/src",
       "projectType": "library",
@@ -443,6 +456,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-browse-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/browse/data-access",
       "sourceRoot": "libs/web/browse/data-access/src",
       "projectType": "library",
@@ -467,6 +481,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-browse-feature-categories": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/categories",
       "sourceRoot": "libs/web/browse/feature/categories/src",
@@ -495,6 +510,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-browse-feature-category": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/category",
       "sourceRoot": "libs/web/browse/feature/category/src",
@@ -523,6 +539,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-browse-feature-shell": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/feature/shell",
       "sourceRoot": "libs/web/browse/feature/shell/src",
@@ -551,6 +568,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-browse-ui-category-cover": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/browse/ui/category-cover",
       "sourceRoot": "libs/web/browse/ui/category-cover/src",
@@ -579,6 +597,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-home-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/home/data-access",
       "sourceRoot": "libs/web/home/data-access/src",
       "projectType": "library",
@@ -603,6 +622,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-home-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/feature",
       "sourceRoot": "libs/web/home/feature/src",
@@ -631,6 +651,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-featured-playlists": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/featured-playlists",
       "sourceRoot": "libs/web/home/ui/featured-playlists/src",
@@ -659,6 +680,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-greeting": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/greeting",
       "sourceRoot": "libs/web/home/ui/greeting/src",
@@ -687,6 +709,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-home-ui-recent-played": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/home/ui/recent-played",
       "sourceRoot": "libs/web/home/ui/recent-played/src",
@@ -715,6 +738,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-playlist-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/playlist/data-access",
       "sourceRoot": "libs/web/playlist/data-access/src",
       "projectType": "library",
@@ -739,6 +763,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-playlist-feature-detail": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/feature/detail",
       "sourceRoot": "libs/web/playlist/feature/detail/src",
@@ -759,6 +784,7 @@
       "tags": ["type:feature", "scope: web"]
     },
     "web-playlist-feature-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/feature/list",
       "sourceRoot": "libs/web/playlist/feature/list/src",
@@ -779,6 +805,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-playlist-ui-playlist-track": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/playlist/ui/playlist-track",
       "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
@@ -807,6 +834,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-search-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/search/data-access",
       "sourceRoot": "libs/web/search/data-access/src",
       "projectType": "library",
@@ -831,6 +859,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-search-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/search/feature",
       "sourceRoot": "libs/web/search/feature/src",
@@ -859,6 +888,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-settings-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/settings/data-access",
       "sourceRoot": "libs/web/settings/data-access/src",
       "projectType": "library",
@@ -883,6 +913,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-settings-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/settings/feature",
       "sourceRoot": "libs/web/settings/feature/src",
@@ -911,6 +942,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-shared-app-config": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/app-config",
       "sourceRoot": "libs/web/shared/app-config/src",
       "projectType": "library",
@@ -962,6 +994,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-shared-assets": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/assets",
       "sourceRoot": "libs/web/shared/assets/src",
       "projectType": "library",
@@ -970,6 +1003,7 @@
       "tags": ["type:util", "scope:web"]
     },
     "web-shared-data-access-models": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/models",
       "sourceRoot": "libs/web/shared/data-access/models/src",
       "projectType": "library",
@@ -986,6 +1020,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-data-access-spotify-api": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/spotify-api",
       "sourceRoot": "libs/web/shared/data-access/spotify-api/src",
       "projectType": "library",
@@ -1010,6 +1045,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-data-access-store": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/data-access/store",
       "sourceRoot": "libs/web/shared/data-access/store/src",
       "projectType": "library",
@@ -1034,6 +1070,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-shared-directives-click-stop-propagation": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/directives/click-stop-propagation",
       "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
@@ -1054,6 +1091,7 @@
       "tags": ["type:util", "scope:web"]
     },
     "web-shared-pipes-duration-pipe": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/pipes/duration-pipe",
       "sourceRoot": "libs/web/shared/pipes/duration-pipe/src",
@@ -1082,6 +1120,7 @@
       "tags": ["type:util", "scope:web"]
     },
     "web-shared-ui-icon": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/icon",
       "sourceRoot": "libs/web/shared/ui/icon/src",
@@ -1110,6 +1149,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-input": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/input",
       "sourceRoot": "libs/web/shared/ui/input/src",
@@ -1138,6 +1178,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media",
       "sourceRoot": "libs/web/shared/ui/media/src",
@@ -1158,6 +1199,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-cover": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-cover",
       "sourceRoot": "libs/web/shared/ui/media-cover/src",
@@ -1178,6 +1220,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-order": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-order",
       "sourceRoot": "libs/web/shared/ui/media-order/src",
@@ -1206,6 +1249,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-summary": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-summary",
       "sourceRoot": "libs/web/shared/ui/media-summary/src",
@@ -1226,6 +1270,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-media-table": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/media-table",
       "sourceRoot": "libs/web/shared/ui/media-table/src",
@@ -1254,6 +1299,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-play-button": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/play-button",
       "sourceRoot": "libs/web/shared/ui/play-button/src",
@@ -1274,6 +1320,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-playlist-list": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/playlist-list",
       "sourceRoot": "libs/web/shared/ui/playlist-list/src",
@@ -1302,6 +1349,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-spinner": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/spinner",
       "sourceRoot": "libs/web/shared/ui/spinner/src",
@@ -1330,6 +1378,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-track-current-info": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/track-current-info",
       "sourceRoot": "libs/web/shared/ui/track-current-info/src",
@@ -1350,6 +1399,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-track-main-info": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/track-main-info",
       "sourceRoot": "libs/web/shared/ui/track-main-info/src",
@@ -1370,6 +1420,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-tracks-loading": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/tracks-loading",
       "sourceRoot": "libs/web/shared/ui/tracks-loading/src",
@@ -1398,6 +1449,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-ui-work-in-progress": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shared/ui/work-in-progress",
       "sourceRoot": "libs/web/shared/ui/work-in-progress/src",
@@ -1426,6 +1478,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shared-utils": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/shared/utils",
       "sourceRoot": "libs/web/shared/utils/src",
       "projectType": "library",
@@ -1450,6 +1503,7 @@
       "tags": ["type:util", "scope:web"]
     },
     "web-shell-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/feature",
       "sourceRoot": "libs/web/shell/feature/src",
@@ -1478,6 +1532,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-shell-ui-album-art-overlay": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/album-art-overlay",
       "sourceRoot": "libs/web/shell/ui/album-art-overlay/src",
@@ -1506,6 +1561,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-layout": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/layout",
       "sourceRoot": "libs/web/shell/ui/layout/src",
@@ -1534,6 +1590,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-main-view": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/main-view",
       "sourceRoot": "libs/web/shell/ui/main-view/src",
@@ -1562,6 +1619,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-nav-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/nav-bar",
       "sourceRoot": "libs/web/shell/ui/nav-bar/src",
@@ -1590,6 +1648,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-nav-bar-playlist": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/nav-bar-playlist",
       "sourceRoot": "libs/web/shell/ui/nav-bar-playlist/src",
@@ -1618,6 +1677,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-now-playing-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/now-playing-bar",
       "sourceRoot": "libs/web/shell/ui/now-playing-bar/src",
@@ -1638,6 +1698,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-controls": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-controls",
       "sourceRoot": "libs/web/shell/ui/player-controls/src",
@@ -1658,6 +1719,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-playback": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-playback",
       "sourceRoot": "libs/web/shell/ui/player-playback/src",
@@ -1678,6 +1740,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-player-volume": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/player-volume",
       "sourceRoot": "libs/web/shell/ui/player-volume/src",
@@ -1698,6 +1761,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-social-share": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/social-share",
       "sourceRoot": "libs/web/shell/ui/social-share/src",
@@ -1726,6 +1790,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-top-bar": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/top-bar",
       "sourceRoot": "libs/web/shell/ui/top-bar/src",
@@ -1754,6 +1819,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-user-dropdown": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/user-dropdown",
       "sourceRoot": "libs/web/shell/ui/user-dropdown/src",
@@ -1782,6 +1848,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-shell-ui-visualization-toggle": {
+      "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/shell/ui/visualization-toggle",
       "sourceRoot": "libs/web/shell/ui/visualization-toggle/src",
@@ -1810,6 +1877,7 @@
       "tags": ["type:ui", "scope:web"]
     },
     "web-tracks-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/tracks/data-access",
       "sourceRoot": "libs/web/tracks/data-access/src",
       "projectType": "library",
@@ -1834,6 +1902,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-tracks-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/tracks/feature",
       "sourceRoot": "libs/web/tracks/feature/src",
@@ -1862,6 +1931,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-visualizer-data-access": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/web/visualizer/data-access",
       "sourceRoot": "libs/web/visualizer/data-access/src",
       "projectType": "library",
@@ -1886,6 +1956,7 @@
       "tags": ["type:data-access", "scope:web"]
     },
     "web-visualizer-feature": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/visualizer/feature",
       "sourceRoot": "libs/web/visualizer/feature/src",
@@ -1914,6 +1985,7 @@
       "tags": ["type:feature", "scope:web"]
     },
     "web-visualizer-ui": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/web/visualizer/ui",
       "sourceRoot": "libs/web/visualizer/ui/src",
