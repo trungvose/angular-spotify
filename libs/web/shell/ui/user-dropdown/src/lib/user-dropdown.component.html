@@ -11,7 +11,7 @@
 
   <div class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
     <figure class="w-7 h-7" [title]="userName$ | async">
-      <img [src]="userAvatar$ | async" alt="User Profile" class="rounded-img" />
+      <img [src]="userAvatar$ | async" alt="User Avatar" class="rounded-img" />
     </figure>
     <span class="w-16 ml-2 text-xs text-white truncate">{{ userName$ | async }}</span>
     <svg-icon class="mr-2" [key]="'caret-down-fill'"></svg-icon>
