@@ -1,3 +1,13 @@
 :host {
-  @apply flex flex-wrap gap-2 justify-end flex-1 mr-4;
+  container-type: inline-size;
+  @apply flex gap-2 justify-end flex-1;
+}
+.btn-with-icon {
+  @apply flex items-center flex-shrink-0 gap-2;
+}
+
+@container (max-width: 485px) {
+  .btn-with-icon span {
+    @apply hidden;
+  }
 }
