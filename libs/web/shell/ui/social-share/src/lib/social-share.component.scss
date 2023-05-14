@@ -11,3 +11,9 @@
     @apply hidden;
   }
 }
+
+@container (max-width: 208px) {
+  .btn-with-icon {
+    @apply hidden;
+  }
+}
