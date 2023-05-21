@@ -147,5 +147,12 @@
       "@angular-spotify/web/visualizer/ui": ["libs/web/visualizer/ui/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }
