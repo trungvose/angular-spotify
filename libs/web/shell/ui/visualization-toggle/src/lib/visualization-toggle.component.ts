@@ -14,7 +14,7 @@ export class VisualizationToggleComponent {
 
   constructor(private visualizerStore: VisualizerStore, private playbackStore: PlaybackStore) {}
 
-  toggle(value: boolean) {
-    this.visualizerStore.setVisibility({ value });
+  toggle(isVisible: boolean) {
+    this.visualizerStore.setVisibility({ isVisible });
   }
 }
