@@ -92,7 +92,7 @@ export class WebVisualizerUiComponent implements OnInit, OnDestroy {
   }
 
   close() {
-    this.visualizerStore.setVisibility({ value: false });
+    this.visualizerStore.setVisibility({ isVisible: false });
   }
 
   ngOnDestroy() {

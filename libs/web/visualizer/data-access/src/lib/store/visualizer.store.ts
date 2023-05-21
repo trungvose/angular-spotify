@@ -6,14 +6,15 @@ import { filter, map, tap, withLatestFrom } from 'rxjs/operators';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 
 interface VisualizerState {
-  isVisible: boolean;
+  isFirstTime: boolean;
   isShownAsPiP: boolean;
+  isVisible: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
 export class VisualizerStore extends ComponentStore<VisualizerState> {
   constructor(private router: Router, private location: Location) {
-    super({ isVisible: false, isShownAsPiP: false });
+    super({ isVisible: false, isShownAsPiP: false, isFirstTime: true });
     this.showVisualizerAsPiP$();
   }
 
@@ -28,18 +29,19 @@ export class VisualizerStore extends ComponentStore<VisualizerState> {
       withLatestFrom(this.state$),
       tap(([isAtVisualizerRoute, state]) => {
         if (isAtVisualizerRoute) {
-          this.setState({ ...state, isVisible: true, isShownAsPiP: false });
-        } else {
+          this.setState({ isFirstTime: false, isVisible: true, isShownAsPiP: false });
+        }
+        if (!isAtVisualizerRoute && !state.isFirstTime) {
           this.setState({ ...state, isShownAsPiP: true });
         }
       })
     )
   );
 
-  readonly setVisibility = this.effect<{ value: boolean }>((params$) =>
+  readonly setVisibility = this.effect<{ isVisible: boolean }>((params$) =>
     params$.pipe(
-      tap(({ value }) => {
-        this.patchState({ isVisible: value });
+      tap(({ isVisible }) => {
+        this.patchState({ isVisible, isFirstTime: !isVisible });
       }),
       map(() => this.get()),
       tap((state) => this.handleStateChange(state))
@@ -58,6 +60,10 @@ export class VisualizerStore extends ComponentStore<VisualizerState> {
   );
 
   private handleStateChange({ isVisible, isShownAsPiP }: VisualizerState) {
+    if (!isVisible) {
+      this.patchState({ isFirstTime: true, isShownAsPiP: false, isVisible: false });
+    }
+
     if (isVisible && !isShownAsPiP) {
       this.router.navigate(['/', RouterUtil.Configuration.Visualizer]);
     }
