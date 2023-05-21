@@ -1,0 +1,7 @@
+.playlist-link {
+  @apply relative px-6 py-2 text-sm grid grid-cols-[40px_1fr] gap-4 items-center hover:bg-white hover:bg-opacity-20;
+
+  &.active {
+    @apply text-white bg-white bg-opacity-20;
+  }
+}

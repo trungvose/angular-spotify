@@ -5,12 +5,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { combineLatest, Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'as-nav-playlist',
-  templateUrl: './nav-playlist.component.html',
-  styleUrls: ['./nav-playlist.component.scss'],
+  selector: 'as-nav-links',
+  templateUrl: './nav-links.component.html',
+  styleUrls: ['./nav-links.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavPlaylistComponent implements OnInit {
+export class NavLinksComponent implements OnInit {
   @Input()
   set playlist(value: SpotifyApi.PlaylistObjectSimplified) {
     this.playlistWithRoute = { ...value, routeUrl: RouteUtil.getPlaylistRouteUrl(value.id) };

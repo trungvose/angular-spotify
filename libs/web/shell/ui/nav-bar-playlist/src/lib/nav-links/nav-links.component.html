@@ -5,12 +5,13 @@
   [title]="playlistWithRoute.name"
   class="playlist-link link-subtle"
 >
-  <span class="ellipsis-one-line">
+  <as-media-cover [imageUrl]="playlistWithRoute.images[0]?.url" />
+  <span [class]="{ 'ellipsis-one-line': true, 'pr-6': isPlaying }">
     {{ playlistWithRoute.name }}
   </span>
   <as-play-button
     *ngIf="isPlaying"
-    class="pl-4"
+    class="absolute right-2"
     [flatIcon]="true"
     [isShowVolumeIcon]="true"
     [isPlaying]="isPlaying"

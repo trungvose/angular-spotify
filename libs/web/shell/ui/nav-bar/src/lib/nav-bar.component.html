@@ -5,11 +5,11 @@
 
 <ul class="nav-bar-top">
   <li *ngFor="let item of navItems$ | async"
-      class="px-2 nav-link-container">
+      class="nav-link-container">
     <a [routerLink]="item.path"
        routerLinkActive="active"
        [routerLinkActiveOptions]="{ exact: item.exact! }"
-       class="flex items-center px-4 nav-link link-subtle">
+       class="flex items-center px-6 nav-link link-subtle">
       {{ item.label }}
     </a>
   </li>
