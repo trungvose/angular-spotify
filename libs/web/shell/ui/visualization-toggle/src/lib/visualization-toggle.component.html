@@ -2,11 +2,11 @@
   nz-tooltip
   [nzTooltipTitle]="titleTmpl"
   *ngrxLet="isVisualizationOn$ as isOn"
-  class="flex items-center"
+  class="flex items-center gap-2"
 >
   <svg-icon
     *ngIf="isPlaying$ | async"
-    class="mr-4 text-primary"
+    class="text-primary"
     [key]="'audio-animated'"
   ></svg-icon>
   <nz-switch [ngModel]="isOn" (ngModelChange)="toggle($event)"> </nz-switch>

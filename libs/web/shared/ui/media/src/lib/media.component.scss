@@ -29,8 +29,7 @@ $bg-hover: #282828;
 }
 
 .media-cover {
-  display: flex;
-  position: relative;
+  @apply flex relative;
 
   &.is-playing {
     .play-button-overlay {

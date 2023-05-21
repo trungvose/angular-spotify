@@ -10,6 +10,6 @@
   background-color: #181818;
   border-top: 1px solid #282828;
   display: grid;
-  grid-template-columns: minmax(180px, 30%) minmax(40%, 722px) minmax(180px, 30%);
+  grid-template-columns: minmax(180px, 3fr) minmax(200px, 4fr) minmax(240px, 3fr);
   @apply px-4 items-center h-nowPlayingBar;
 }

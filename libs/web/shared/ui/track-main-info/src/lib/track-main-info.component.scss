@@ -1,5 +1,5 @@
 :host {
-  @apply flex items-center;
+  @apply flex items-center gap-4;
 }
 
 .track-cover {
@@ -7,7 +7,6 @@
   flex-shrink: 0;
   width: 40px;
   user-select: none;
-  @apply mr-4;
 }
 
 .comma-separator {
