@@ -1,4 +1,4 @@
-<div aria-roledescription="button"
+<button aria-roledescription="button"
      [title]="isPlaying ? 'Pause': 'Play'"
      [ngClass]="buttonClass"
      (click)="togglePlay.emit(isPlaying!)">
@@ -11,4 +11,4 @@
             [size]="svgSize"
             key="volume-high">
   </svg-icon>
-</div>
+</button>

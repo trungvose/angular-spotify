@@ -21,6 +21,12 @@ body {
   @apply h-full w-full absolute overflow-hidden flex flex-col;
 }
 
-.tracks-container .ant-skeleton-paragraph > li {
+.tracks-container .ant-skeleton-paragraph>li {
   height: 24px !important;
+}
+
+a, button {
+  &:focus-visible {
+    @apply outline outline-2 outline-white outline-offset-2;
+  }
 }
