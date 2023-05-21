@@ -40,7 +40,7 @@
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:util", "type:ui"]
+                "onlyDependOnLibsWithTags": ["type:util", "type:ui", "type:data-access"]
               },
               {
                 "sourceTag": "type:data-access",
