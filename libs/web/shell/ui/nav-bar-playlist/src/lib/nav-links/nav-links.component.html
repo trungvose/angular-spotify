@@ -3,7 +3,7 @@
   *ngrxLet="isPlaylistPlaying$ as isPlaying"
   routerLinkActive="active"
   [title]="playlistWithRoute.name"
-  class="playlist-link link-subtle"
+  class="nav-link link-subtle"
 >
   <as-media-cover [imageUrl]="playlistWithRoute.images[0]?.url" />
   <span [class]="{ 'ellipsis-one-line': true, 'pr-6': isPlaying }">

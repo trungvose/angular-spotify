@@ -1,5 +1,4 @@
-$bg: #181818;
-$bg-hover: #282828;
+$bg: #282828;
 
 :host {
   border-radius: 4px;
@@ -8,7 +7,7 @@ $bg-hover: #282828;
   @apply flex flex-col p-4;
 
   &:hover {
-    background-color: #282828;
+    background-color: lighten($bg, 10%);
 
     .play-button-overlay {
       opacity: 1;

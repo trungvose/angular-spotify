@@ -1,4 +1,3 @@
-$faded: rgba(0, 0, 0, 0.7);
 $size: 32px;
 
 :host {
@@ -12,11 +11,12 @@ $size: 32px;
   height: $size;
   width: $size;
   border-radius: 50%;
-  background-color: $faded;
-  color: #fff;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
+
+  @apply bg-sliderRail hover:bg-sliderTrack text-white/70;
+  transition: all 0.3s;
 }

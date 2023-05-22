@@ -2,7 +2,7 @@
   grid-area: nav-bar;
   z-index: 3;
   min-height: 0;
-  @apply w-navBar flex flex-col pt-6 bg-black;
+  @apply w-navBar flex flex-col pt-4 bg-baseline rounded-lg;
 }
 
 .nav-link-container {
@@ -11,8 +11,7 @@
     height: 40px;
 
     &.active {
-      @apply text-white;
-      background-color: #282828;
+      @apply text-white bg-highlight;
       font-weight: 600;
     }
   }

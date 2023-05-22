@@ -12,12 +12,15 @@ module.exports = {
       },
       height: {
         topBar: '60px',
-        nowPlayingBar: '90px'
+        nowPlayingBar: '72px'
       },
       colors: {
         primary: '#1db954',
         sliderRail: '#535353',
-        sliderTrack: '#b3b3b3'
+        sliderTrack: '#b3b3b3',
+        baseline: 'rgb(var(--background-base) / <alpha-value>)',
+        white: 'rgb(var(--text-base) / <alpha-value>)',
+        highlight: 'hsla(0,0%,100%,.1)',
       }
     }
   },
