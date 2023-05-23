@@ -19,10 +19,17 @@ import { asEmojiHeartEyesIcon } from './svg/emoji-heart-eyes';
 import { asCupFillIcon } from './svg/cup-fill';
 import { asCupStrawIcon } from './svg/cup-straw';
 import { asCaretDownFillIcon } from './svg/caret-down-fill';
-import { asTimesIcon } from './svg/times';
-import { asExpandIcon } from './svg/expand';
-import { asShrinkIcon } from './svg/shrink';
 import { asSearchIcon } from './svg/search';
+import { asCompassIcon } from './svg/compass';
+import { asCompassFillIcon } from './svg/compass-fill';
+import { asHouseDoorIcon } from './svg/house-door';
+import { asHouseDoorFillIcon } from './svg/house-door-fill';
+import { asHeartIcon } from './svg/heart';
+import { asHeartFillIcon } from './svg/heart-fill';
+import { asSearchHeartIcon } from './svg/search-heart';
+import { asMusicNoteListIcon } from './svg/music-note-list';
+import { asJournalIcon } from './svg/journal';
+import { asMusicNoteBeamedIcon } from './svg/music-note-beamed';
 
 @NgModule({
   imports: [
@@ -47,10 +54,17 @@ import { asSearchIcon } from './svg/search';
         asCupStrawIcon,
         asEmojiHeartEyesIcon,
         asCaretDownFillIcon,
-        asTimesIcon,
-        asExpandIcon,
-        asShrinkIcon,
-        asSearchIcon
+        asSearchIcon,
+        asCompassFillIcon,
+        asCompassIcon,
+        asHouseDoorIcon,
+        asHouseDoorFillIcon,
+        asHeartIcon,
+        asHeartFillIcon,
+        asSearchHeartIcon,
+        asMusicNoteListIcon,
+        asJournalIcon,
+        asMusicNoteBeamedIcon
       ]
     })
   ],

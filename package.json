@@ -116,10 +116,8 @@
     "srcPath": "./libs/web/shared/ui/icon/src/lib/assets",
     "svgoConfig": {
       "plugins": [
-        {
-          "removeDimensions": true,
-          "cleanupAttrs": true
-        }
+        "removeDimensions",
+        "cleanupAttrs"
       ]
     }
   }

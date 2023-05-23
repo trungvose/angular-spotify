@@ -1,15 +1,3 @@
-<h1 class="px-6 pb-1 text-xs font-bold text-white uppercase text-opacity-60">Playlists</h1>
-<ul>
-  <li>
-    <a
-      routerLink="/collection/tracks"
-      routerLinkActive="active"
-      class="flex items-center px-6 nav-link link-subtle"
-    >
-      Liked songs
-    </a>
-  </li>
-</ul>
 <div class="mx-6 separator"></div>
 <ul class="playlists" *ngIf="playlists$ | async as playlists">
   <li *ngFor="let playlist of playlists.items">

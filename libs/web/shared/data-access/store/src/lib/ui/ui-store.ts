@@ -15,11 +15,12 @@ export class UIStore extends ComponentStore<UIState> {
   constructor(private modalService: NzModalService) {
     super({
       navItems: [
-        { label: 'Home', path: '', exact: true },
-        { label: 'Search', path: '/search' },
-        { label: 'Browse', path: '/browse' },
-        { label: 'My Playlists', path: '/collection/playlists' },
-        { label: 'My Albums', path: '/albums' }
+        { label: 'Home', path: '', exact: true, icon: 'house-door', iconSelected: 'house-door-fill' },
+        { label: 'Search', path: '/search', icon: 'search' },
+        { label: 'Browse', path: '/browse', icon: 'compass', iconSelected: 'compass-fill' },
+        { label: 'My Playlists', path: '/collection/playlists', icon: 'music-note-list', iconSelected: 'music-note-beamed' },
+        { label: 'My Albums', path: '/albums', icon: 'journal' },
+        { label: 'Liked songs', path: '/collection/tracks', icon: 'heart', iconSelected: 'heart-fill' }
       ],
       isShowUnauthorizedModal: false
     });
