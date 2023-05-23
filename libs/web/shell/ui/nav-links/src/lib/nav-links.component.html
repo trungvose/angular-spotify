@@ -1,5 +1,5 @@
 <div class="mx-6 separator"></div>
-<ul class="playlists" *ngIf="playlists$ | async as playlists">
+<ul class="pt-2 pb-1 px-0 overflow-auto" *ngIf="playlists$ | async as playlists">
   <li *ngFor="let playlist of playlists.items">
     <as-nav-link [playlist]="playlist" />
   </li>

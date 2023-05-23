@@ -115,9 +115,7 @@
       "@angular-spotify/web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"],
       "@angular-spotify/web/shell/ui/main-view": ["libs/web/shell/ui/main-view/src/index.ts"],
       "@angular-spotify/web/shell/ui/nav-bar": ["libs/web/shell/ui/nav-bar/src/index.ts"],
-      "@angular-spotify/web/shell/ui/nav-bar-playlist": [
-        "libs/web/shell/ui/nav-bar-playlist/src/index.ts"
-      ],
+      "@angular-spotify/web/shell/ui/nav-links": ["libs/web/shell/ui/nav-links/src/index.ts"],
       "@angular-spotify/web/shell/ui/now-playing-bar": [
         "libs/web/shell/ui/now-playing-bar/src/index.ts"
       ],

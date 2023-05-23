@@ -1,0 +1,10 @@
+:host {
+  @apply pt-4 flex flex-col min-h-0;
+}
+
+.separator {
+  background-color: #282828;
+  border: none;
+  height: 1px;
+  min-height: 1px;
+}

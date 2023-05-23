@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'web-shell-ui-nav-bar-playlist',
+  displayName: 'web-shell-ui-nav-links',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -10,7 +10,7 @@ export default {
       tsconfig: '<rootDir>/tsconfig.spec.json'
     }
   },
-  coverageDirectory: '../../../../../coverage/libs/web/shell/ui/nav-bar-playlist',
+  coverageDirectory: '../../../../../coverage/libs/web/shell/ui/nav-links',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
