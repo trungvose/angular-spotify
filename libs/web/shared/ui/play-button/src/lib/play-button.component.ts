@@ -26,7 +26,7 @@ export class PlayButtonComponent {
     if (this.flatIcon) {
       return ['flex'];
     }
-    const baseClass = 'flex play-icon control-button';
+    const baseClass = 'flex play-button control-button';
     const sizeClass = this.large ? 'large' : '';
     return [baseClass, sizeClass, this.primary ? 'text-white bg-primary' : 'text-black bg-white'];
   }

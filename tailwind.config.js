@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        navBar: '232px'
+        navBar: '280px'
       },
       height: {
         topBar: '60px',
