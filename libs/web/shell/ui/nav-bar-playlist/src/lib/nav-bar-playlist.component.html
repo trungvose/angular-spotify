@@ -1,7 +1,7 @@
 <div class="mx-6 separator"></div>
 <ul class="playlists" *ngIf="playlists$ | async as playlists">
   <li *ngFor="let playlist of playlists.items">
-    <as-nav-links [playlist]="playlist" />
+    <as-nav-link [playlist]="playlist" />
   </li>
 </ul>
 <as-spinner *ngIf="isPlaylistsLoading$ | async" [size]="'lg'"> </as-spinner>

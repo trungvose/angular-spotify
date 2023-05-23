@@ -6,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LetModule, PushModule } from '@ngrx/component';
 import { NavBarPlaylistComponent } from './nav-bar-playlist.component';
-import { NavLinksComponent } from './nav-links/nav-links.component';
+import { NavLinkComponent } from './nav-link/nav-link.component';
 @NgModule({
   imports: [CommonModule, RouterModule, PlayButtonModule, LetModule, PushModule, SpinnerModule, MediaCoverModule],
-  declarations: [NavBarPlaylistComponent, NavLinksComponent],
+  declarations: [NavBarPlaylistComponent, NavLinkComponent],
   exports: [NavBarPlaylistComponent]
 })
 export class NavBarLinksModule {}
