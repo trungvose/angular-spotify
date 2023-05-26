@@ -9,7 +9,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
 import { PlaylistComponent } from './playlist.component';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { LetModule, PushModule } from '@ngrx/component';
-import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loading';
+import { TracksLoadingComponent } from '@angular-spotify/web/shared/ui/tracks-loading';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { TracksLoadingModule } from '@angular-spotify/web/shared/ui/tracks-loadi
     PlaylistTrackModule,
     SvgIconsModule,
     LetModule, PushModule,
-    TracksLoadingModule,
+    TracksLoadingComponent,
     RouterModule.forChild([
       {
         path: `:${RouterUtil.Configuration.PlaylistId}`,

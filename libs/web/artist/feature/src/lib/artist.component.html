@@ -9,7 +9,7 @@
     </as-media-summary>
 
     <div class="px-8 mb-5" *ngIf="isArtistLoading$ | async">
-      <as-tracks-loading [avatar]="true" [title]="true" [rows]="2"> </as-tracks-loading>
+      <as-tracks-loading [avatar]="true"> </as-tracks-loading>
     </div>
 
     <as-artist-top-tracks></as-artist-top-tracks>

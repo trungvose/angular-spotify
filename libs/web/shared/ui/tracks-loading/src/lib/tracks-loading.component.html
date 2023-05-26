@@ -1,8 +1,12 @@
-<nz-skeleton
-  class="tracks-container"
-  [nzParagraph]="{ rows: rows, width: '100%' }"
-  [nzAvatar]="avatar"
-  [nzTitle]="title"
-  [nzActive]="true"
->
-</nz-skeleton>
+<div *ngIf="avatar" class="flex gap-8">
+  <as-skeleton class="w-32 h-32 flex-shrink-0"></as-skeleton>
+  <div class="flex flex-col flex-1 gap-4">
+    <as-skeleton class="w-full h-6"></as-skeleton>
+    <as-skeleton class="w-full h-10"></as-skeleton>
+    <as-skeleton class="w-full h-6"></as-skeleton>
+  </div>
+</div>
+
+<div *ngIf="!avatar" class="flex flex-col gap-4">
+  <as-skeleton class="w-full h-6" *ngFor="let row of skeletonRows"></as-skeleton>
+</div>

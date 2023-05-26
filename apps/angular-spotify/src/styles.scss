@@ -5,7 +5,6 @@
 
 @use 'ng-zorro-antd/style/index.min.css' as *;
 @use 'ng-zorro-antd/slider/style/index.min.css' as slide;
-@use 'ng-zorro-antd/skeleton/style/index.min.css' as skeleton;
 @use 'ng-zorro-antd/switch/style/index.min.css' as switch;
 @use 'ng-zorro-antd/modal/style/index.min.css' as modal;
 @use 'ng-zorro-antd/button/style/index.min.css' as button;
@@ -23,10 +22,6 @@ body {
   line-height: 20px;
   letter-spacing: 0.015em;
   @apply h-full w-full absolute overflow-hidden flex flex-col bg-black text-white/70;
-}
-
-.tracks-container .ant-skeleton-paragraph>li {
-  height: 24px !important;
 }
 
 a, button {

@@ -1,1 +1,1 @@
-export * from './lib/tracks-loading.module';
+export * from './lib/tracks-loading.component';

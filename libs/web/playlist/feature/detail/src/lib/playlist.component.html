@@ -34,7 +34,7 @@
   <div class="mb-8" *ngIf="tracks$ | async as tracks">
     <ng-container *ngFor="let item of tracks.items; let idx = index">
       <as-playlist-track
-        *ngIf="item.track"      
+        *ngIf="item.track"
         [item]="item"
         [index]="idx"
         [contextUri]="getPlaylistContextUri(playlistId$ | async)"
@@ -45,8 +45,8 @@
   </div>
 </div>
 
-<div class="px-8 mb-5 playlist-loading" *ngIf="isCurrentPlaylistLoading$ | async">
-  <as-tracks-loading [avatar]="true" [title]="true"> </as-tracks-loading>
+<div class="px-8 mb-5" *ngIf="isCurrentPlaylistLoading$ | async">
+  <as-tracks-loading [avatar]="true"> </as-tracks-loading>
 </div>
 
 <div class="px-8" *ngIf="isPlaylistTracksLoading$ | async">

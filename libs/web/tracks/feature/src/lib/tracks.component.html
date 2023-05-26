@@ -1,9 +1,11 @@
 <div class="content-spacing">
   <ng-container *ngIf="vm$ | async as vm">
-    <as-media-summary type="Playlist"
-                      [imageUrl]="'https://data.whicdn.com/images/315873335/original.jpg'"
-                      [title]="'Liked Songs'"
-                      [trackCount]="vm.data?.total">
+    <as-media-summary
+      type="Playlist"
+      [imageUrl]="'https://data.whicdn.com/images/315873335/original.jpg'"
+      [title]="'Liked Songs'"
+      [trackCount]="vm.data?.total"
+    >
     </as-media-summary>
 
     <as-media-table-header>
@@ -12,30 +14,26 @@
         <div class="text-xs uppercase ellipsis-one-line">Title</div>
         <div class="text-xs uppercase ellipsis-one-line">Album</div>
         <div class="text-xs uppercase ellipsis-one-line">Date added</div>
-        <svg-icon [key]="'clock'"
-                  title="duration">
-        </svg-icon>
+        <svg-icon [key]="'clock'" title="duration"> </svg-icon>
       </div>
     </as-media-table-header>
 
-
     <div class="mb-8">
       <ng-container *ngFor="let item of vm.data?.items; let idx = index">
-        <as-playlist-track *ngIf="item.track"
-                           type='LIKE_SONGS'
-                           [item]="$any(item)"
-                           [index]="idx"
-                           [contextUri]="item.track.album.uri"
-                           (dblclick)="playTrack(item.track)">
+        <as-playlist-track
+          *ngIf="item.track"
+          type="LIKE_SONGS"
+          [item]="$any(item)"
+          [index]="idx"
+          [contextUri]="item.track.album.uri"
+          (dblclick)="playTrack(item.track)"
+        >
         </as-playlist-track>
       </ng-container>
     </div>
 
-    <div class="px-8 mb-5 album-loading"
-         *ngIf="vm.isLoading">
-      <as-tracks-loading [avatar]="true"
-                         [title]="true">
-      </as-tracks-loading>
+    <div class="px-8 mb-5 album-loading" *ngIf="vm.isLoading">
+      <as-tracks-loading [avatar]="true"> </as-tracks-loading>
     </div>
   </ng-container>
 </div>

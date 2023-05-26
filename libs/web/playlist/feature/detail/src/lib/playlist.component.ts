@@ -5,7 +5,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'as-playlist',
   templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.scss'],
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `
+  ],
   providers: [PlaylistStore],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -17,9 +23,7 @@ export class PlaylistComponent {
   tracks$ = this.store.tracks$;
   isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
 
-  constructor(private store: PlaylistStore) {
-
-  }
+  constructor(private store: PlaylistStore) {}
 
   togglePlaylist(isPlaying: boolean) {
     this.store.togglePlaylist({

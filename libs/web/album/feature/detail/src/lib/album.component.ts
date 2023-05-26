@@ -4,7 +4,13 @@ import { AlbumStore } from '@angular-spotify/web/album/data-access';
 @Component({
   selector: 'as-album',
   templateUrl: './album.component.html',
-  styleUrls: ['./album.component.scss'],
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `
+  ],
   providers: [AlbumStore],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
