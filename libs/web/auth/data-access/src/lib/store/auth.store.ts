@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
+import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
 
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
@@ -24,7 +25,7 @@ export class AuthStore extends ComponentStore<AuthState> {
     private router: Router,
     private route: ActivatedRoute,
     private spotify: SpotifyApiService,
-    private store: Store,  
+    private store: Store
   ) {
     super(<AuthState>{});
   }
@@ -40,7 +41,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
   );
   readonly getUserId = () => this.get().id;
-  readonly getToken = () => this.get().accessToken;  
+  readonly getToken = () => this.get().accessToken;
 
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
     console.log(user);
@@ -60,6 +61,7 @@ export class AuthStore extends ComponentStore<AuthState> {
 
   private initAuth() {
     if (!window.location.hash) {
+      LocalStorageService.setItem('PATH', window.location.pathname);
       this.redirectToAuthorize();
     }
 
@@ -76,10 +78,8 @@ export class AuthStore extends ComponentStore<AuthState> {
         this.patchState(params);
         this.store.dispatch(AuthReady());
         console.info('[Angular Spotify] Authenticated!');
-      }),
-      tap(() => {
         this.setCurrentUser(this.spotify.getMe());
-        this.router.navigate([]);
+        this.router.navigate([LocalStorageService.initialState?.path || '/']);
       })
     );
   }

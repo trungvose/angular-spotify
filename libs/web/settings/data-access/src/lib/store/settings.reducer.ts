@@ -8,7 +8,7 @@ export interface SettingsState {
   volume: number;
 }
 
-export const initialState: SettingsState = LocalStorageService.loadInitialState()?.settings ?? {}
+export const initialState: SettingsState = LocalStorageService.initialState?.settings ?? {}
 
 export const settingsReducer = createReducer(
   initialState,

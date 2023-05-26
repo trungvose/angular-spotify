@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { Injectable } from '@angular/core';
-
 const APP_PREFIX = 'AS-';
 
-@Injectable({ providedIn: 'root' })
 export class LocalStorageService {
   /**
    * Returns all initial variables
@@ -13,7 +9,7 @@ export class LocalStorageService {
    * @static
    * @return {any}
    */
-  public static loadInitialState(): any {
+  public static get initialState(): any {
     return Object.keys(localStorage).reduce((state: any, storageKey) => {
       if (storageKey.startsWith(APP_PREFIX)) {
         const stateKeys = storageKey
@@ -50,7 +46,7 @@ export class LocalStorageService {
    * @param {string} key
    * @param {*} value
    */
-  public setItem(key: string, value: any) {
+  public static setItem(key: string, value: any) {
     try {
       localStorage.setItem(`${APP_PREFIX}${key}`, JSON.stringify(value));
     } catch (e) {
@@ -64,7 +60,7 @@ export class LocalStorageService {
    * @param {string} key
    * @return {*}  {*}
    */
-  public getItem(key: string): any {
+  public static getItem(key: string): any {
     const value = localStorage.getItem(`${APP_PREFIX}${key}`);
     try {
       return JSON.parse(value as any);
@@ -78,7 +74,7 @@ export class LocalStorageService {
    *
    * @param {string} key
    */
-  public removeItem(key: string) {
+  public static removeItem(key: string) {
     localStorage.removeItem(`${APP_PREFIX}${key}`);
   }
 }
