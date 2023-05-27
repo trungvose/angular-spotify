@@ -7,16 +7,12 @@
 
 .user-dropdown {
   border-radius: 23px;
-  border: 0;
-  cursor: pointer;
-  padding: 2px;
-  @apply bg-highlight text-white bg-opacity-70 hover:bg-opacity-100 flex items-center justify-center h-8 min-w-[32px];
+  @apply bg-highlight text-white bg-opacity-70 hover:bg-opacity-100 flex items-center justify-center h-8 min-w-[32px] cursor-pointer p-[2px] border-0;
 
   figure {
     margin: 0;
   }
 }
-
 
 .rounded-img {
   border-radius: 50%;
@@ -26,13 +22,13 @@
 }
 
 .dropdown-container {
-  @apply bg-highlight bg-opacity-70 text-lg;
+  @apply bg-highlight text-lg;
 
   .dropdown-item {
-    @apply py-3 hover:bg-highlight hover:bg-opacity-90;
+    @apply py-3 hover:bg-baseline hover:bg-opacity-70;
 
     a {
-      @apply text-white text-opacity-80 group-hover:text-red-700;
+      @apply text-white text-opacity-80;
     }
 
     &:hover {
