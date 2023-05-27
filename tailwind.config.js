@@ -18,9 +18,9 @@ module.exports = {
         primary: '#1db954',
         sliderRail: '#535353',
         sliderTrack: '#b3b3b3',
-        baseline: 'rgb(var(--background-base) / <alpha-value>)',
-        white: 'rgb(var(--text-base) / <alpha-value>)',
-        highlight: 'hsla(0,0%,100%,.1)',
+        baseline: 'rgb(var(--background-baseline) / <alpha-value>)',
+        white: 'rgb(var(--text-baseline) / <alpha-value>)',
+        highlight: 'rgb(var(--background-highlight) / <alpha-value>)',
       }
     }
   },

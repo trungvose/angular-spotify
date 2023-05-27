@@ -45,6 +45,7 @@
       "@angular-spotify/web/browse/ui/category-cover": [
         "libs/web/browse/ui/category-cover/src/index.ts"
       ],
+      "@angular-spotify/web/container-queries": ["libs/web/container-queries/src/index.ts"],
       "@angular-spotify/web/home/data-access": ["libs/web/home/data-access/src/index.ts"],
       "@angular-spotify/web/home/feature": ["libs/web/home/feature/src/index.ts"],
       "@angular-spotify/web/home/ui/featured-playlists": [
