@@ -3,21 +3,21 @@
   "items": [
     {
       "album": {
-        "name": "Red",
+        "name": "Red (Deluxe Edition)",
         "images": [
           {
             "height": 640,
-            "url": "https://i.scdn.co/image/ab67616d0000b2737d2f918a1b23f98ceb7510fa",
+            "url": "https://i.scdn.co/image/ab67616d0000b273254c8a09649551438b20f4c0",
             "width": 640
           },
           {
             "height": 300,
-            "url": "https://i.scdn.co/image/ab67616d00001e027d2f918a1b23f98ceb7510fa",
+            "url": "https://i.scdn.co/image/ab67616d00001e02254c8a09649551438b20f4c0",
             "width": 300
           },
           {
             "height": 64,
-            "url": "https://i.scdn.co/image/ab67616d000048517d2f918a1b23f98ceb7510fa",
+            "url": "https://i.scdn.co/image/ab67616d00004851254c8a09649551438b20f4c0",
             "width": 64
           }
         ],
@@ -33,27 +33,63 @@
             "uri": "spotify:artist:06HL4z0CvFAxyc27GXpf02"
           }
         ],
-        "uri": "spotify:album:5FerdPFXSHSnCVq4OBy4Ey",
-        "id": "5FerdPFXSHSnCVq4OBy4Ey"
+        "uri": "spotify:album:1KVKqWeRuXsJDLTW0VuD29",
+        "id": "1KVKqWeRuXsJDLTW0VuD29"
       }
     },
     {
       "album": {
-        "name": "x (Deluxe Edition)",
+        "name": "Ghost Stories",
         "images": [
           {
             "height": 640,
-            "url": "https://i.scdn.co/image/ab67616d0000b27313b3e37318a0c247b550bccd",
+            "url": "https://i.scdn.co/image/ab67616d0000b273f864bcdcc245f06831d17ae0",
             "width": 640
           },
           {
             "height": 300,
-            "url": "https://i.scdn.co/image/ab67616d00001e0213b3e37318a0c247b550bccd",
+            "url": "https://i.scdn.co/image/ab67616d00001e02f864bcdcc245f06831d17ae0",
             "width": 300
           },
           {
             "height": 64,
-            "url": "https://i.scdn.co/image/ab67616d0000485113b3e37318a0c247b550bccd",
+            "url": "https://i.scdn.co/image/ab67616d00004851f864bcdcc245f06831d17ae0",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU"
+            },
+            "href": "https://api.spotify.com/v1/artists/4gzpq5DPGxSnKTe4SA8HAU",
+            "id": "4gzpq5DPGxSnKTe4SA8HAU",
+            "name": "Coldplay",
+            "type": "artist",
+            "uri": "spotify:artist:4gzpq5DPGxSnKTe4SA8HAU"
+          }
+        ],
+        "uri": "spotify:album:2G4AUqfwxcV1UdQjm2ouYr",
+        "id": "2G4AUqfwxcV1UdQjm2ouYr"
+      }
+    },
+    {
+      "album": {
+        "name": "÷ (Deluxe)",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851ba5db46f4b838ef6027e6f96",
             "width": 64
           }
         ],
@@ -69,8 +105,8 @@
             "uri": "spotify:artist:6eUKZXaKkcviH0Ku9w2n3V"
           }
         ],
-        "uri": "spotify:album:1xn54DMo2qIqBuMqHtUsFd",
-        "id": "1xn54DMo2qIqBuMqHtUsFd"
+        "uri": "spotify:album:3T4tUhGYeRNVUGevb0wThu",
+        "id": "3T4tUhGYeRNVUGevb0wThu"
       }
     },
     {
@@ -684,47 +720,11 @@
         "uri": "spotify:album:0Vumehia107DXCobOe3OrJ",
         "id": "0Vumehia107DXCobOe3OrJ"
       }
-    },
-    {
-      "album": {
-        "name": "Takk...",
-        "images": [
-          {
-            "height": 640,
-            "url": "https://i.scdn.co/image/ab67616d0000b273b3429487131bb2cf40fa2c50",
-            "width": 640
-          },
-          {
-            "height": 300,
-            "url": "https://i.scdn.co/image/ab67616d00001e02b3429487131bb2cf40fa2c50",
-            "width": 300
-          },
-          {
-            "height": 64,
-            "url": "https://i.scdn.co/image/ab67616d00004851b3429487131bb2cf40fa2c50",
-            "width": 64
-          }
-        ],
-        "artists": [
-          {
-            "external_urls": {
-              "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
-            },
-            "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
-            "id": "6UUrUCIZtQeOf8tC0WuzRy",
-            "name": "Sigur Rós",
-            "type": "artist",
-            "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
-          }
-        ],
-        "uri": "spotify:album:3sE83l3A58DipFp3EzNLiE",
-        "id": "3sE83l3A58DipFp3EzNLiE"
-      }
     }
   ],
   "limit": 20,
   "next": "https://api.spotify.com/v1/me/albums?offset=20&limit=20&locale=en",
   "offset": 0,
   "previous": null,
-  "total": 120
+  "total": 117
 }

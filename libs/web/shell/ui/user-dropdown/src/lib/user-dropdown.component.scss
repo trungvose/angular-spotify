@@ -25,10 +25,10 @@
   @apply bg-highlight text-lg;
 
   .dropdown-item {
-    @apply py-3 hover:bg-baseline hover:bg-opacity-70;
+    @apply p-0 hover:bg-baseline hover:bg-opacity-70;
 
     a {
-      @apply text-white text-opacity-80;
+      @apply py-3 px-4 text-white text-opacity-80;
     }
 
     &:hover {

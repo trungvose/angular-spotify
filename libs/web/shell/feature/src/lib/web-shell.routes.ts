@@ -45,7 +45,7 @@ export const webShellRoutes: Route[] = [
       },
       {
         path: 'container-queries',
-        loadComponent: async () => (await import('@angular-spotify/web/container-queries')).ContainerQueriesComponent
+        loadChildren: async () => (await import('@angular-spotify/web/container-queries')).containerQueriesRoutes
       },
       {
         path: RouterUtil.Configuration.Visualizer,

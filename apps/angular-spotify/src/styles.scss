@@ -21,9 +21,10 @@
 
 body {
   min-width: 600px;
-  line-height: 20px;
+  line-height: normal;
+  font-size: 16px;
   letter-spacing: 0.015em;
-  @apply h-full w-full absolute overflow-hidden flex flex-col bg-black text-white/70 text-base;
+  @apply h-full w-full absolute overflow-hidden flex flex-col bg-black text-white/70;
 }
 
 a, button {

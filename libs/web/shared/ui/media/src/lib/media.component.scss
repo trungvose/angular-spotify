@@ -1,7 +1,10 @@
 :host {
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  @apply flex flex-col p-4 bg-highlight bg-opacity-70;
+  display: flex;
+  flex-direction: column;
+
+  @apply bg-highlight bg-opacity-70;
 
   &:hover {
     @apply bg-highlight;
@@ -12,6 +15,8 @@
       transform: translateY(0);
     }
   }
+
+  container: media / inline-size;
 }
 
 .play-button-overlay {
@@ -33,5 +38,64 @@
       visibility: visible;
       transform: translateY(0);
     }
+  }
+}
+
+// WDC 2023
+// Media Layout and Container Queries
+.media {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@container media (min-width: 282px) {
+  .media {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .media-title {
+    --size: clamp(16px, 8cqw, 32px);
+    font-size: var(--size);
+    word-break: break-word;
+  }
+
+  .media-description {
+    --size: clamp(14px, 5cqw, 26px);
+    font-size: var(--size);
+    word-break: break-word;
+    line-height: normal;
+  }
+
+  .media-cover {
+    flex: 0 0 64px;
+  }
+}
+
+@container media (min-width: 350px) {
+  .media-cover {
+    flex: 0 0 112px;
+  }
+}
+
+@container media (min-width: 450px) {
+  .media {
+    min-height: 450px;
+    align-items: flex-start;
+  }
+
+  .media-meta {
+    z-index: 2;
+  }
+
+  .media-cover {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
   }
 }

@@ -1,4 +1,4 @@
-<a class="flex flex-col flex-1 gap-4"
+<a class="media"
    [routerLink]="routerUrl">
   <div class="media-cover"
        [class.is-playing]="isPlaying"
@@ -14,11 +14,11 @@
                     asClickStopPropagation>
     </as-play-button>
   </div>
-  <div class="media-description">
-    <div class="font-bold text-white ellipsis-one-line hover:text-white">
+  <div class="media-meta">
+    <div class="media-title font-bold text-white ellipsis-one-line">
       {{ title }}
     </div>
-    <div class="text-description">
+    <div class="media-description text-description">
       {{ description }}
     </div>
   </div>
