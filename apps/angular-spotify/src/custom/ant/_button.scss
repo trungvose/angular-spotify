@@ -1,26 +1,13 @@
 .ant-btn {
-  @apply bg-sliderRail;
   &.btn-with-icon {
-    @apply text-white text-opacity-70;
+    @apply text-white text-opacity-70 bg-highlight bg-opacity-70 hover:text-white hover:bg-opacity-100 focus-visible:text-white focus-visible:bg-opacity-100;
     padding: 4px 15px !important;
     border: none;
     display: flex;
     align-items: center;
   }
-
-  &:hover,
-  &:focus {
-    border-color: #d9d9d9;
-    @apply bg-sliderTrack bg-opacity-70 text-white;
-  }
 }
 
 .ant-btn-primary {
-  background: $primary;
-  border: lighten($primary, 3%);
-
-  &:hover {
-    background: lighten($primary, 3%);
-    border: lighten($primary, 3%);
-  }
+  @apply bg-primary border-primary border-opacity-80 hover:bg-opacity-90 hover:border-opacity-90;
 }

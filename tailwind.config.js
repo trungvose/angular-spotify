@@ -15,7 +15,7 @@ module.exports = {
         nowPlayingBar: '72px'
       },
       colors: {
-        primary: '#1db954',
+        primary: 'rgb(var(--text-primary) / <alpha-value>)',
         sliderRail: '#535353',
         sliderTrack: '#b3b3b3',
         baseline: 'rgb(var(--background-baseline) / <alpha-value>)',

@@ -1,5 +1,5 @@
 .nav-link {
-  @apply relative px-6 py-2 text-sm grid grid-cols-[40px_1fr] gap-4 items-center hover:bg-highlight transition-all;
+  @apply relative px-6 py-2 grid grid-cols-[40px_1fr] gap-4 items-center hover:bg-highlight transition-all;
 
   &.active {
     @apply text-white bg-highlight;

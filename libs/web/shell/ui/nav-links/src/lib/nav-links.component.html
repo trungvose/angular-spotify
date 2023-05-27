@@ -1,4 +1,4 @@
-<div class="mx-6 separator"></div>
+<div class="mx-6 bg-highlight border-none h-[1px] min-h-[1px]"></div>
 <ul class="pt-2 pb-1 px-0 overflow-auto" *ngIf="playlists$ | async as playlists">
   <li *ngFor="let playlist of playlists.items">
     <as-nav-link [playlist]="playlist" />

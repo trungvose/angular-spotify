@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/container-queries/src",
   "prefix": "angular-spotify",
-  "tags": [],
+  "tags": ["scope:web", "type:feature"],
   "projectType": "library",
   "targets": {
     "test": {

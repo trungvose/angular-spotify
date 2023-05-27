@@ -1,12 +1,14 @@
 <div class="user-info">
   <ng-container *ngIf="userProduct$ | async as userProduct">
-    <button type="button"
-            class="btn-upgrade"
-            (click)="openLocation()"
-            aria-roledescription="upgrade-button"
-            *ngIf="userProduct !== 'premium'">
+    <a
+      class="btn-upgrade"
+      href="https://www.spotify.com/us/premium/"
+      target="_blank"
+      aria-roledescription="upgrade-button"
+      *ngIf="userProduct !== 'premium'"
+    >
       Upgrade
-    </button>
+    </a>
   </ng-container>
 
   <div class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
@@ -19,6 +21,9 @@
 
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <ul nz-menu class="dropdown-container">
+      <li nz-menu-item class="dropdown-item">
+        <a class="text-description" routerLink="/container-queries"> ⭐️ WDC 2023 </a>
+      </li>
       <li nz-menu-item class="dropdown-item">
         <a class="text-description" href="https://www.spotify.com/account/" target="_blank">
           Profile

@@ -17,6 +17,6 @@ $size: 32px;
   position: relative;
   cursor: pointer;
 
-  @apply bg-sliderRail hover:bg-sliderTrack text-white/70;
+  @apply bg-highlight bg-opacity-70 hover:bg-highlight text-white/70;
   transition: all 0.3s;
 }

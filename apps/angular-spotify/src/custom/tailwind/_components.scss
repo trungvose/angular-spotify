@@ -6,14 +6,14 @@
   .text-heading {
     @apply text-2xl text-white;
   }
-  
+
   .text-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     user-select: none;
-    @apply overflow-hidden whitespace-normal text-sm text-white text-opacity-50;
+    @apply overflow-hidden whitespace-normal text-sm text-white text-opacity-70;
   }
 
   .ellipsis-one-line {
@@ -59,12 +59,12 @@
       .track-order {
         display: none;
       }
-  
+
       .track-play-button {
         display: block;
       }
     }
-  }  
+  }
 
   .common-grid {
     gap: 24px;

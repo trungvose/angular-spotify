@@ -13,15 +13,17 @@
 @use './custom/ant';
 
 :root {
-  --background-base: 18 18 18;
-  --text-base: 255 255 255;
+  --background-baseline: 18 18 18;
+  --background-highlight: 68 68 68;
+  --text-baseline: 255 255 255;
+  --text-primary: 29 185 84;
 }
 
 body {
   min-width: 600px;
   line-height: 20px;
   letter-spacing: 0.015em;
-  @apply h-full w-full absolute overflow-hidden flex flex-col bg-black text-white/70;
+  @apply h-full w-full absolute overflow-hidden flex flex-col bg-black text-white/70 text-base;
 }
 
 a, button {

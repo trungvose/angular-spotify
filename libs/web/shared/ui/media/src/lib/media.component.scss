@@ -1,13 +1,10 @@
-$bg: #282828;
-
 :host {
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  background-color: $bg;
-  @apply flex flex-col p-4;
+  @apply flex flex-col p-4 bg-highlight bg-opacity-70;
 
   &:hover {
-    background-color: lighten($bg, 10%);
+    @apply bg-highlight;
 
     .play-button-overlay {
       opacity: 1;
