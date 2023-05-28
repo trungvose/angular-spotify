@@ -80,6 +80,9 @@
       "@angular-spotify/web/shared/directives/click-stop-propagation": [
         "libs/web/shared/directives/click-stop-propagation/src/index.ts"
       ],
+      "@angular-spotify/web/shared/directives/data-size-observer": [
+        "libs/web/shared/directives/data-size-observer/src/index.ts"
+      ],
       "@angular-spotify/web/shared/pipes/duration-pipe": [
         "libs/web/shared/pipes/duration-pipe/src/index.ts"
       ],

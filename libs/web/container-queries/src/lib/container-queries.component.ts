@@ -1,13 +1,14 @@
+import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directives/data-size-observer';
 import { MediaModule } from '@angular-spotify/web/shared/ui/media';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import * as mockAlbums from './albums.mock.json';
 
 @Component({
   selector: 'as-container-queries',
   standalone: true,
-  imports: [MediaModule, CommonModule],
+  imports: [MediaModule, CommonModule, DataSizeObserverDirective],
   template: `
     <div class="content-spacing">
       <h1 class="text-3xl text-white">Hello Melbourne 🇦🇺</h1>

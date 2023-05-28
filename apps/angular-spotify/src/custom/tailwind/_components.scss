@@ -71,4 +71,23 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     @apply grid;
   }
+
+  .data-size-observer {
+    @apply outline outline-primary;
+
+    &:before {
+      content: attr(data-size);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -0.8rem;
+      width: 6ch;
+      margin: 0 auto;
+      text-align: center;
+      display: inline-block;
+      color: white;
+      z-index: 2;
+      @apply bg-primary text-xl;
+    }
+  }
 }
