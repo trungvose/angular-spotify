@@ -2,6 +2,10 @@
   grid-area: nav-bar;
   z-index: 3;
   min-height: 0;
+  resize: horizontal;
+  overflow-x: auto;
+  min-width: 200px;
+
   @apply w-navBar flex flex-col pt-4 bg-baseline rounded-lg;
 }
 

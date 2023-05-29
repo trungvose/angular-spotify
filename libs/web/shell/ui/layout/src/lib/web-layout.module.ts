@@ -10,6 +10,7 @@ import { NowPlayingBarModule } from '@angular-spotify/web/shell/ui/now-playing-b
 import { UnauthorizedModalModule } from '@angular-spotify/web/auth/ui/unauthorized-modal';
 import { AlbumArtOverlayModule } from '@angular-spotify/web/shell/ui/album-art-overlay';
 import { WebVisualizerUiModule } from '@angular-spotify/web/visualizer/ui';
+import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directives/data-size-observer';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { WebVisualizerUiModule } from '@angular-spotify/web/visualizer/ui';
     NowPlayingBarModule,
     UnauthorizedModalModule,
     AlbumArtOverlayModule,
-    WebVisualizerUiModule
+    WebVisualizerUiModule,
+    DataSizeObserverDirective
   ],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]

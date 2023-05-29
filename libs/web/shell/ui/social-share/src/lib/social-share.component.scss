@@ -1,19 +1,30 @@
 :host {
-  container-type: inline-size;
-  @apply flex gap-2 justify-end flex-1;
-}
-.btn-with-icon {
-  @apply flex items-center flex-shrink-0 gap-2;
+  flex: 1;
 }
 
-@container (max-width: 485px) {
+.social-share-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  container-type: inline-size;
+}
+
+.btn-with-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+@container (max-width: 486px) {
   .btn-with-icon span {
-    @apply hidden;
+    display: none;
   }
 }
 
-@container (max-width: 208px) {
+@container (max-width: 207px) {
   .btn-with-icon {
-    @apply hidden;
+    display: none;
   }
 }

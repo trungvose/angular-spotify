@@ -73,7 +73,12 @@
   }
 
   .data-size-observer {
-    @apply outline outline-primary;
+    @apply relative outline outline-primary outline-2;
+
+    &.bottom::before {
+      top: unset;
+      bottom: -1.8rem;
+    }
 
     &:before {
       content: attr(data-size);
@@ -81,7 +86,7 @@
       left: 0;
       right: 0;
       top: -0.8rem;
-      width: 6ch;
+      width: 7ch;
       margin: 0 auto;
       text-align: center;
       display: inline-block;
