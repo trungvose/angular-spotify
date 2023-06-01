@@ -1,5 +1,9 @@
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { ClickStopPropagationModule } from '@angular-spotify/web/shared/directives/click-stop-propagation';
+import { MediaCoverModule } from '@angular-spotify/web/shared/ui/media-cover';
+import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -8,14 +12,26 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { combineLatest, Observable, of } from 'rxjs';
+import { RouterModule } from '@angular/router';
+import { LetModule, PushModule } from '@ngrx/component';
+import { Observable, combineLatest, of } from 'rxjs';
 @Component({
-  selector: 'as-media',
-  templateUrl: './media.component.html',
-  styleUrls: ['./media.component.scss'],
+  selector: 'as-card',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    LetModule,
+    PushModule,
+    MediaCoverModule,
+    PlayButtonModule,
+    ClickStopPropagationModule
+  ],
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MediaComponent implements OnInit {
+export class CardComponent implements OnInit {
   @Input() imageUrl: string | undefined;
   @Input() title!: string;
   @Input() description!: string | null;

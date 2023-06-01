@@ -43,7 +43,7 @@
     <div *ngIf="data?.artists?.items?.length">
       <h2 class="mt-8 mb-4 text-heading">Artists</h2>
       <div class="common-grid">
-        <as-media
+        <as-card
           *ngFor="let item of data?.artists?.items"
           [title]="item.name"
           [uri]="item.uri"
@@ -53,7 +53,7 @@
           [roundedImage]="true"
           (togglePlay)="togglePlay($event, item.uri)"
         >
-        </as-media>
+        </as-card>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
     <div *ngIf="data?.albums?.items?.length">
       <h2 class="mt-8 mb-4 text-heading">Albums</h2>
       <div class="common-grid">
-        <as-media
+        <as-card
           *ngFor="let item of data?.albums?.items"
           [title]="item.name"
           [uri]="item.uri"
@@ -70,7 +70,7 @@
           [routerUrl]="'/albums/' + item.id"
           (togglePlay)="togglePlay($event, item.uri)"
         >
-        </as-media>
+        </as-card>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
     <div *ngIf="data?.playlists?.items?.length">
       <h2 class="mt-8 mb-4 text-heading">Playlists</h2>
       <div class="common-grid">
-        <as-media
+        <as-card
           *ngFor="let item of data?.playlists?.items"
           [title]="item.name"
           [uri]="item.uri"
@@ -87,7 +87,7 @@
           [routerUrl]="'/playlist/' + item.id"
           (togglePlay)="togglePlay($event, item.uri)"
         >
-        </as-media>
+        </as-card>
       </div>
     </div>
   </ng-container>

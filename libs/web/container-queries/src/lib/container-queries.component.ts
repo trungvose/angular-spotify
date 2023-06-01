@@ -1,6 +1,6 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directives/data-size-observer';
-import { MediaModule } from '@angular-spotify/web/shared/ui/media';
+import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import * as mockAlbums from './albums.mock.json';
@@ -8,42 +8,54 @@ import * as mockAlbums from './albums.mock.json';
 @Component({
   selector: 'as-container-queries',
   standalone: true,
-  imports: [MediaModule, CommonModule, DataSizeObserverDirective],
+  imports: [CardComponent, CommonModule, DataSizeObserverDirective],
+  styles: [
+    `
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+    `
+  ],
   template: `
     <div class="content-spacing">
       <h1 class="text-3xl text-white">Hello Melbourne 🇦🇺</h1>
       <div class="grid gap-6">
-        <section class="grid grid-cols-3 gap-6">
-          <as-media
-            *ngFor="let item of featureAlbums"
-            [title]="item.album.name"
-            [uri]="item.album.uri"
-            [description]="item.album.artists[0].name"
-            [imageUrl]="item.album.images[0]?.url"
-            [routerUrl]="item.album.id"
-            (togglePlay)="togglePlay($event, item.album.uri)"
-          >
-          </as-media>
+        <section class="featured-grid gap-6">
+          <ng-container
+            *ngTemplateOutlet="cards; context: { albums: featureAlbumsTwo }"
+          ></ng-container>
         </section>
-        <section class="common-grid">
-          <as-media
-            *ngFor="let item of albums.items"
-            [title]="item.album.name"
-            [uri]="item.album.uri"
-            [description]="item.album.artists[0].name"
-            [imageUrl]="item.album.images[0]?.url"
-            [routerUrl]="item.album.id"
-            (togglePlay)="togglePlay($event, item.album.uri)"
-          >
-          </as-media>
+        <section class="featured-grid gap-6">
+          <ng-container
+            *ngTemplateOutlet="cards; context: { albums: featureAlbumsThree }"
+          ></ng-container>
+        </section>
+        <section class="common-grid gap-6">
+          <ng-container *ngTemplateOutlet="cards; context: { albums: albums }"></ng-container>
         </section>
       </div>
     </div>
+
+    <ng-template #cards let-albums="albums">
+      <as-card
+        *ngFor="let item of albums"
+        [title]="item.album.name"
+        [uri]="item.album.uri"
+        [description]="item.album.artists[0].name"
+        [imageUrl]="item.album.images[0]?.url"
+        [routerUrl]="item.album.id"
+        (togglePlay)="togglePlay($event, item.album.uri)"
+      >
+      </as-card>
+    </ng-template>
   `
 })
 export class ContainerQueriesComponent {
-  albums: SpotifyApi.UsersSavedAlbumsResponse = mockAlbums as any;
-  featureAlbums = this.albums.items.slice(0, 3);
+  response = mockAlbums as SpotifyApi.UsersSavedAlbumsResponse;
+  featureAlbumsTwo = this.response.items.slice(0, 2);
+  featureAlbumsThree = this.response.items.slice(2, 5);
+  albums = this.response.items.slice(6);
   playerApi = inject(PlayerApiService);
 
   togglePlay(isPlaying: boolean, contextUri: string) {

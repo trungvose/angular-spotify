@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { InputModule } from '@angular-spotify/web/shared/ui/input';
 import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
-import { MediaModule } from '@angular-spotify/web/shared/ui/media';
+import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
 import { SearchComponent } from './search.component';
@@ -15,7 +15,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     CommonModule,
     InputModule,
     SpinnerModule,
-    MediaModule,
+    CardComponent,
     MediaTableModule,
     SvgIconsModule,
     AlbumTrackModule,
