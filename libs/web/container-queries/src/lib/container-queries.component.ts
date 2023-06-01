@@ -35,6 +35,12 @@ import * as mockAlbums from './albums.mock.json';
           <ng-container *ngTemplateOutlet="cards; context: { albums: albums }"></ng-container>
         </section>
       </div>
+      <h2 class="text-3xl text-white my-8">Card Playground 🇦🇺</h2>
+      <div class="grid place-items-center min-h-[600px]">
+        <div class="min-w-[180px] resize-x overflow-auto">
+          <ng-container *ngTemplateOutlet="cards; context: { albums: singleAlbum }"></ng-container>
+        </div>
+      </div>
     </div>
 
     <ng-template #cards let-albums="albums">
@@ -53,6 +59,7 @@ import * as mockAlbums from './albums.mock.json';
 })
 export class ContainerQueriesComponent {
   response = mockAlbums as SpotifyApi.UsersSavedAlbumsResponse;
+  singleAlbum = [this.response.items[1]];
   featureAlbumsTwo = this.response.items.slice(0, 2);
   featureAlbumsThree = this.response.items.slice(2, 5);
   albums = this.response.items.slice(6);
