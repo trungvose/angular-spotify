@@ -51,6 +51,11 @@
 }
 
 @container card (min-width: 282px) {
+  .play-button-overlay {
+    right: 9px;
+    bottom: 17px;
+  }
+
   .card {
     flex-direction: row;
     align-items: center;
