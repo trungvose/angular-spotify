@@ -12,7 +12,7 @@
     .play-button-overlay {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(10px);
     }
   }
 
@@ -25,7 +25,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
-  transform: translateY(10px);
+  transform: translateY(0);
   @apply absolute;
 }
 
@@ -36,7 +36,7 @@
     .play-button-overlay {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(10px);
     }
   }
 }
