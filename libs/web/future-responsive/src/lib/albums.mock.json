@@ -1,0 +1,730 @@
+{
+  "href": "https://api.spotify.com/v1/me/albums?offset=0&limit=20&locale=en",
+  "items": [
+    {
+      "album": {
+        "name": "Red (Deluxe Edition)",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273254c8a09649551438b20f4c0",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02254c8a09649551438b20f4c0",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851254c8a09649551438b20f4c0",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
+            },
+            "href": "https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02",
+            "id": "06HL4z0CvFAxyc27GXpf02",
+            "name": "Taylor Swift",
+            "type": "artist",
+            "uri": "spotify:artist:06HL4z0CvFAxyc27GXpf02"
+          }
+        ],
+        "uri": "spotify:album:1KVKqWeRuXsJDLTW0VuD29",
+        "id": "1KVKqWeRuXsJDLTW0VuD29"
+      }
+    },
+    {
+      "album": {
+        "name": "Ghost Stories",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273f864bcdcc245f06831d17ae0",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02f864bcdcc245f06831d17ae0",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851f864bcdcc245f06831d17ae0",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU"
+            },
+            "href": "https://api.spotify.com/v1/artists/4gzpq5DPGxSnKTe4SA8HAU",
+            "id": "4gzpq5DPGxSnKTe4SA8HAU",
+            "name": "Coldplay",
+            "type": "artist",
+            "uri": "spotify:artist:4gzpq5DPGxSnKTe4SA8HAU"
+          }
+        ],
+        "uri": "spotify:album:2G4AUqfwxcV1UdQjm2ouYr",
+        "id": "2G4AUqfwxcV1UdQjm2ouYr"
+      }
+    },
+    {
+      "album": {
+        "name": "÷ (Deluxe)",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851ba5db46f4b838ef6027e6f96",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V"
+            },
+            "href": "https://api.spotify.com/v1/artists/6eUKZXaKkcviH0Ku9w2n3V",
+            "id": "6eUKZXaKkcviH0Ku9w2n3V",
+            "name": "Ed Sheeran",
+            "type": "artist",
+            "uri": "spotify:artist:6eUKZXaKkcviH0Ku9w2n3V"
+          }
+        ],
+        "uri": "spotify:album:3T4tUhGYeRNVUGevb0wThu",
+        "id": "3T4tUhGYeRNVUGevb0wThu"
+      }
+    },
+    {
+      "album": {
+        "name": "Millennium",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2732160c02bc56f192df0f4986b",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e022160c02bc56f192df0f4986b",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048512160c02bc56f192df0f4986b",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5rSXSAkZ67PYJSvpUpkOr7"
+            },
+            "href": "https://api.spotify.com/v1/artists/5rSXSAkZ67PYJSvpUpkOr7",
+            "id": "5rSXSAkZ67PYJSvpUpkOr7",
+            "name": "Backstreet Boys",
+            "type": "artist",
+            "uri": "spotify:artist:5rSXSAkZ67PYJSvpUpkOr7"
+          }
+        ],
+        "uri": "spotify:album:5ySxm9hxBNss01WCL7GLyQ",
+        "id": "5ySxm9hxBNss01WCL7GLyQ"
+      }
+    },
+    {
+      "album": {
+        "name": "Westlife",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27344ead2b3b8073d06a23c8580",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0244ead2b3b8073d06a23c8580",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485144ead2b3b8073d06a23c8580",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5Z1CCuBsyhEHngq3U5IraY"
+            },
+            "href": "https://api.spotify.com/v1/artists/5Z1CCuBsyhEHngq3U5IraY",
+            "id": "5Z1CCuBsyhEHngq3U5IraY",
+            "name": "Westlife",
+            "type": "artist",
+            "uri": "spotify:artist:5Z1CCuBsyhEHngq3U5IraY"
+          }
+        ],
+        "uri": "spotify:album:03zaputfmJ3wwrKh6bHcTN",
+        "id": "03zaputfmJ3wwrKh6bHcTN"
+      }
+    },
+    {
+      "album": {
+        "name": "All Is Violent, All Is Bright (2011 Remastered Edition)",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273f682220fac054e88a347a243",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02f682220fac054e88a347a243",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851f682220fac054e88a347a243",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/079svMEXkbT5nGU2kfoqO2"
+            },
+            "href": "https://api.spotify.com/v1/artists/079svMEXkbT5nGU2kfoqO2",
+            "id": "079svMEXkbT5nGU2kfoqO2",
+            "name": "God Is An Astronaut",
+            "type": "artist",
+            "uri": "spotify:artist:079svMEXkbT5nGU2kfoqO2"
+          }
+        ],
+        "uri": "spotify:album:1FNW2D6cUdpOWnV38xuGIT",
+        "id": "1FNW2D6cUdpOWnV38xuGIT"
+      }
+    },
+    {
+      "album": {
+        "name": "For Long Tomorrow",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273218f23e309df278d5b04748c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02218f23e309df278d5b04748c",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851218f23e309df278d5b04748c",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0rpKM0MniNkXM1SLSglYUZ"
+            },
+            "href": "https://api.spotify.com/v1/artists/0rpKM0MniNkXM1SLSglYUZ",
+            "id": "0rpKM0MniNkXM1SLSglYUZ",
+            "name": "toe",
+            "type": "artist",
+            "uri": "spotify:artist:0rpKM0MniNkXM1SLSglYUZ"
+          }
+        ],
+        "uri": "spotify:album:6li0rkNGD98cO8Gxf7nnSk",
+        "id": "6li0rkNGD98cO8Gxf7nnSk"
+      }
+    },
+    {
+      "album": {
+        "name": "Young Mountain",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27339522c242d7f10c0b80eb9b9",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0239522c242d7f10c0b80eb9b9",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485139522c242d7f10c0b80eb9b9",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0MG4LXIw7n4x0wjDc6WYXk"
+            },
+            "href": "https://api.spotify.com/v1/artists/0MG4LXIw7n4x0wjDc6WYXk",
+            "id": "0MG4LXIw7n4x0wjDc6WYXk",
+            "name": "This Will Destroy You",
+            "type": "artist",
+            "uri": "spotify:artist:0MG4LXIw7n4x0wjDc6WYXk"
+          }
+        ],
+        "uri": "spotify:album:4In2V4QylBdWT8HJ0dLDw5",
+        "id": "4In2V4QylBdWT8HJ0dLDw5"
+      }
+    },
+    {
+      "album": {
+        "name": "silence in everywhere",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27377f060a217c85b4bf4b05214",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0277f060a217c85b4bf4b05214",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485177f060a217c85b4bf4b05214",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/74AwyBNTnH9c1nqjkbeNIU"
+            },
+            "href": "https://api.spotify.com/v1/artists/74AwyBNTnH9c1nqjkbeNIU",
+            "id": "74AwyBNTnH9c1nqjkbeNIU",
+            "name": "Euphoria",
+            "type": "artist",
+            "uri": "spotify:artist:74AwyBNTnH9c1nqjkbeNIU"
+          }
+        ],
+        "uri": "spotify:album:42zcMh3vck6K7VueznXwjT",
+        "id": "42zcMh3vck6K7VueznXwjT"
+      }
+    },
+    {
+      "album": {
+        "name": "Living Room Songs",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/5741c5f8c54e042e4f8a6535293e564f6726467f",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/46de02335c00d14fc56b28eb10228b70430259b5",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/584b68d28583d6fa6a948aadd87ad43802664d55",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/7E3BRXV9ZbCt5lQTCXMTia"
+            },
+            "href": "https://api.spotify.com/v1/artists/7E3BRXV9ZbCt5lQTCXMTia",
+            "id": "7E3BRXV9ZbCt5lQTCXMTia",
+            "name": "Ólafur Arnalds",
+            "type": "artist",
+            "uri": "spotify:artist:7E3BRXV9ZbCt5lQTCXMTia"
+          }
+        ],
+        "uri": "spotify:album:4zj4920hZrnQHYv4jGeyjp",
+        "id": "4zj4920hZrnQHYv4jGeyjp"
+      }
+    },
+    {
+      "album": {
+        "name": "In Today Already Walks Tomorrow",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273b875183e9b9a6e4cd4f34f5e",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02b875183e9b9a6e4cd4f34f5e",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851b875183e9b9a6e4cd4f34f5e",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0EnDtiDrCgklr97QMJOSPv"
+            },
+            "href": "https://api.spotify.com/v1/artists/0EnDtiDrCgklr97QMJOSPv",
+            "id": "0EnDtiDrCgklr97QMJOSPv",
+            "name": "sleepmakeswaves",
+            "type": "artist",
+            "uri": "spotify:artist:0EnDtiDrCgklr97QMJOSPv"
+          }
+        ],
+        "uri": "spotify:album:0Z1zAw2LrGLl6Blp9AiYor",
+        "id": "0Z1zAw2LrGLl6Blp9AiYor"
+      }
+    },
+    {
+      "album": {
+        "name": "There is a Tomorrow You Don't Know",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273dc2fbf2570d6821c4d4b3f7f",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02dc2fbf2570d6821c4d4b3f7f",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851dc2fbf2570d6821c4d4b3f7f",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0jZNuKQjHZqSJolXzi8kDV"
+            },
+            "href": "https://api.spotify.com/v1/artists/0jZNuKQjHZqSJolXzi8kDV",
+            "id": "0jZNuKQjHZqSJolXzi8kDV",
+            "name": "Paint The Sky Red",
+            "type": "artist",
+            "uri": "spotify:artist:0jZNuKQjHZqSJolXzi8kDV"
+          }
+        ],
+        "uri": "spotify:album:4YitvgQn2tb7W6hWveT3m2",
+        "id": "4YitvgQn2tb7W6hWveT3m2"
+      }
+    },
+    {
+      "album": {
+        "name": "Reanimation",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27384bee8371225201e5258bc0f",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0284bee8371225201e5258bc0f",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485184bee8371225201e5258bc0f",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3ff1CmU6qfTqRAmdrq8EEG"
+            },
+            "href": "https://api.spotify.com/v1/artists/3ff1CmU6qfTqRAmdrq8EEG",
+            "id": "3ff1CmU6qfTqRAmdrq8EEG",
+            "name": "Lights & Motion",
+            "type": "artist",
+            "uri": "spotify:artist:3ff1CmU6qfTqRAmdrq8EEG"
+          }
+        ],
+        "uri": "spotify:album:6L0fhAi5G9zXbmFelO96Zy",
+        "id": "6L0fhAi5G9zXbmFelO96Zy"
+      }
+    },
+    {
+      "album": {
+        "name": "The Earth Is Not a Cold Dead Place",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273be43a3cafaca1c258ec23730",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02be43a3cafaca1c258ec23730",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851be43a3cafaca1c258ec23730",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1uQWmt1OhuHGRKmZ2ZcL6p"
+            },
+            "href": "https://api.spotify.com/v1/artists/1uQWmt1OhuHGRKmZ2ZcL6p",
+            "id": "1uQWmt1OhuHGRKmZ2ZcL6p",
+            "name": "Explosions In The Sky",
+            "type": "artist",
+            "uri": "spotify:artist:1uQWmt1OhuHGRKmZ2ZcL6p"
+          }
+        ],
+        "uri": "spotify:album:3lLwFslntPTc7cBofBXXDp",
+        "id": "3lLwFslntPTc7cBofBXXDp"
+      }
+    },
+    {
+      "album": {
+        "name": "( )",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273b86f9276199af632c42a90cc",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02b86f9276199af632c42a90cc",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851b86f9276199af632c42a90cc",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+            },
+            "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+            "id": "6UUrUCIZtQeOf8tC0WuzRy",
+            "name": "Sigur Rós",
+            "type": "artist",
+            "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+          }
+        ],
+        "uri": "spotify:album:3FR8CV7OSyZDnxneavnh8t",
+        "id": "3FR8CV7OSyZDnxneavnh8t"
+      }
+    },
+    {
+      "album": {
+        "name": "Not All Who Wonder Are Lost",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737d0f64771ec7f97c78d27041",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027d0f64771ec7f97c78d27041",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517d0f64771ec7f97c78d27041",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0jZNuKQjHZqSJolXzi8kDV"
+            },
+            "href": "https://api.spotify.com/v1/artists/0jZNuKQjHZqSJolXzi8kDV",
+            "id": "0jZNuKQjHZqSJolXzi8kDV",
+            "name": "Paint The Sky Red",
+            "type": "artist",
+            "uri": "spotify:artist:0jZNuKQjHZqSJolXzi8kDV"
+          }
+        ],
+        "uri": "spotify:album:5kgNmH2iCwRzSrsDpFuCFM",
+        "id": "5kgNmH2iCwRzSrsDpFuCFM"
+      }
+    },
+    {
+      "album": {
+        "name": "Raising Your Voice...Trying to Stop an Echo",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273459164b1f709a4d04ef28855",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02459164b1f709a4d04ef28855",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851459164b1f709a4d04ef28855",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0VOR7Ie9xUSb45fzIIVJQ1"
+            },
+            "href": "https://api.spotify.com/v1/artists/0VOR7Ie9xUSb45fzIIVJQ1",
+            "id": "0VOR7Ie9xUSb45fzIIVJQ1",
+            "name": "Hammock",
+            "type": "artist",
+            "uri": "spotify:artist:0VOR7Ie9xUSb45fzIIVJQ1"
+          }
+        ],
+        "uri": "spotify:album:1xGZ70dEsN8UyiXvcXWwHI",
+        "id": "1xGZ70dEsN8UyiXvcXWwHI"
+      }
+    },
+    {
+      "album": {
+        "name": "Mainland",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273832309e2c7de348c64aabfc8",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02832309e2c7de348c64aabfc8",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851832309e2c7de348c64aabfc8",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5Q3lzjdvj9nlwgsXWfhB1u"
+            },
+            "href": "https://api.spotify.com/v1/artists/5Q3lzjdvj9nlwgsXWfhB1u",
+            "id": "5Q3lzjdvj9nlwgsXWfhB1u",
+            "name": "Inspirative",
+            "type": "artist",
+            "uri": "spotify:artist:5Q3lzjdvj9nlwgsXWfhB1u"
+          }
+        ],
+        "uri": "spotify:album:50tMZ8jk3nABRMv7YCuW8n",
+        "id": "50tMZ8jk3nABRMv7YCuW8n"
+      }
+    },
+    {
+      "album": {
+        "name": "Waking Season",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27391b892dac10cfddf96360129",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0291b892dac10cfddf96360129",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485191b892dac10cfddf96360129",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4SXj7TVoA3bgfR8AVssACa"
+            },
+            "href": "https://api.spotify.com/v1/artists/4SXj7TVoA3bgfR8AVssACa",
+            "id": "4SXj7TVoA3bgfR8AVssACa",
+            "name": "Caspian",
+            "type": "artist",
+            "uri": "spotify:artist:4SXj7TVoA3bgfR8AVssACa"
+          }
+        ],
+        "uri": "spotify:album:6enixSg09cdRYDBllZ8axv",
+        "id": "6enixSg09cdRYDBllZ8axv"
+      }
+    },
+    {
+      "album": {
+        "name": "We Move Through Negative Spaces",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273ab9db389bdf092a0198485ac",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ab9db389bdf092a0198485ac",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851ab9db389bdf092a0198485ac",
+            "width": 64
+          }
+        ],
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/25e3YdiSF0mgqZN0jUHo8N"
+            },
+            "href": "https://api.spotify.com/v1/artists/25e3YdiSF0mgqZN0jUHo8N",
+            "id": "25e3YdiSF0mgqZN0jUHo8N",
+            "name": "Kontakte",
+            "type": "artist",
+            "uri": "spotify:artist:25e3YdiSF0mgqZN0jUHo8N"
+          }
+        ],
+        "uri": "spotify:album:0Vumehia107DXCobOe3OrJ",
+        "id": "0Vumehia107DXCobOe3OrJ"
+      }
+    }
+  ],
+  "limit": 20,
+  "next": "https://api.spotify.com/v1/me/albums?offset=20&limit=20&locale=en",
+  "offset": 0,
+  "previous": null,
+  "total": 117
+}
