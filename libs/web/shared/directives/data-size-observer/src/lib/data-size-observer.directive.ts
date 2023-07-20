@@ -7,6 +7,7 @@ import { Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit } from '@a
 export class DataSizeObserverDirective implements OnInit, OnDestroy {
   @HostBinding('class') dataSizeObserverClass = 'data-size-observer';
   @Input() @HostBinding('class.bottom') bottom = false;
+  @Input() @HostBinding('class.top') top = false;
 
   constructor(private elementRef: ElementRef) {}
   resizeObserver = new ResizeObserver((entries) => {

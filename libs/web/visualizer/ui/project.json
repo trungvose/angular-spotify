@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/web/visualizer/ui",
   "sourceRoot": "libs/web/visualizer/ui/src",
-  "prefix": "angular-spotify",
+  "prefix": "as",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

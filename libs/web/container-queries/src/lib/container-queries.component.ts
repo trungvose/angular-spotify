@@ -4,22 +4,32 @@ import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import * as mockAlbums from './albums.mock.json';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'as-container-queries',
   standalone: true,
-  imports: [CardComponent, CommonModule, DataSizeObserverDirective],
+  imports: [CardComponent, CommonModule, DataSizeObserverDirective, NzButtonModule],
   styles: [
     `
       .featured-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
     `
   ],
   template: `
     <div class="content-spacing">
       <h1 class="text-3xl text-white">Hello Melbourne 🇦🇺</h1>
+      <div class="flex pb-6">
+        <a
+          nz-button
+          class="text-xl text-primary btn-with-icon"
+          target="_blank"
+          href="https://trungk18.com/wdc23"
+          >👉 View my slide</a
+        >
+      </div>
       <div class="grid gap-6">
         <section class="featured-grid gap-6">
           <ng-container

@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'as-skeleton',
@@ -6,5 +6,6 @@ import { Component, HostBinding } from '@angular/core';
   standalone: true
 })
 export class SkeletonComponent {
-  @HostBinding('class') class = 'bg-highlight animate-pulse text-transparent rounded-sm block';
+  @Input() pulse = true;
+  @HostBinding('class') class = `bg-highlight text-transparent rounded-sm block`;
 }

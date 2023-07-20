@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/web/playlist/ui/playlist-track",
   "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
-  "prefix": "angular-spotify",
+  "prefix": "as",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

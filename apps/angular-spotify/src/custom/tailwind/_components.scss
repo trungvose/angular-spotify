@@ -68,12 +68,16 @@
 
   .common-grid {
     gap: 24px;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     @apply grid;
   }
 
   .data-size-observer {
     @apply relative outline outline-primary outline-2;
+
+    &.top::before{
+      top: 0;
+    }
 
     &.bottom::before {
       top: unset;
