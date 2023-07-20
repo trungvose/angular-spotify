@@ -75,6 +75,10 @@
   .data-size-observer {
     @apply relative outline outline-primary outline-2;
 
+    &.top::before{
+      top: 0;
+    }
+
     &.bottom::before {
       top: unset;
       bottom: -1.8rem;

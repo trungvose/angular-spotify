@@ -17,18 +17,11 @@ import { ResponsiveToContentComponent } from './content/responsive-content.compo
     ResponsiveToContentComponent,
     ResponsiveToContainerComponent
   ],
-  styles: [
-    `
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    `
-  ],
   template: `
     <div class="content-spacing pb-[250px]">
-      <!-- <h1 class="text-3xl text-white">Hello Danang 🇻🇳</h1> -->
-      <as-responsive-to-content></as-responsive-to-content>
+      <h1 class="text-3xl text-white">Hello Da Nang 🇻🇳</h1>
+      <as-responsive-to-content class="block mb-20"></as-responsive-to-content>
+      <as-responsive-to-container></as-responsive-to-container>
     </div>
   `
 })

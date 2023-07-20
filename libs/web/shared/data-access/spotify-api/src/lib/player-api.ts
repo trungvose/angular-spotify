@@ -15,7 +15,7 @@ export class PlayerApiService {
   transferUserPlayback(deviceId: string) {
     return this.http.put(this.playerUrl, {
       device_ids: [deviceId],
-      play: true
+      //play: true
     });
   }
 

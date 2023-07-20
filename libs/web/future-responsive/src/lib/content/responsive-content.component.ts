@@ -63,7 +63,7 @@ import {
       </div>
     </div>
 
-    <div class="w-[632px] mx-auto py-10 px-4 mt-10" dataSizeObserver resizable>
+    <div class="w-[632px] mx-auto py-10 px-4 mt-20" dataSizeObserver [top]="true" resizable>
       <as-flex-form  />
     </div>
 
