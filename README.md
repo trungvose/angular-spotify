@@ -1,6 +1,6 @@
 # Angular Spotify
 
-A simple Spotify client built with Angular 12, Nx workspace, ngrx, TailwindCSS and ng-zorro.
+A simple Spotify client built with Angular 15, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
 > I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
 
@@ -48,7 +48,7 @@ You know I am one of the moderators of [Angular Vietnam][angularvn]. Recently, I
 
 ![Tech logos][stack]
 
-- [Angular 12][angular]
+- [Angular 15][angular]
 - [Nx Workspace][nx]
 - [ngneat][] packages includes: `ngneat/svg-icon` and `ngneat/until-destroy`
 - [ngrx][ngrx] and [ngrx/component-store][component-store]
