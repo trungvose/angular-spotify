@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         nz-button
         class="btn-with-icon"
         target="_blank"
-        href="https://www.buymeacoffee.com/tuantrungvo"
+        href="https://www.buymeacoffee.com/trungvose"
       >
         <svg-icon [key]="'cup-straw'"></svg-icon>
         <span>Support</span>
@@ -21,7 +21,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         nz-button
         class="btn-with-icon"
         target="_blank"
-        href="https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2011,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40tuantrungvo&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript"
+        href="https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2011,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40trungvose&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript"
       >
         <svg-icon [key]="'twitter'"></svg-icon>
         <span>Tweet</span>

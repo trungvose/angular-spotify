@@ -28,11 +28,11 @@ If you like my work, feel free to:
 
 - ⭐ this repository. And we will be happy together :)
 - [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)][tweet] about Angular Spotify
-- <a title="Thanks for your support!" href="https://www.buymeacoffee.com/tuantrungvo" target="_blank"><img src="https://res.cloudinary.com/dvujyxh7e/image/upload/c_thumb,w_140,g_face/v1596378474/default-orange_uthxgz.jpg" alt="Buy Me A Coffee"></a>
+- <a title="Thanks for your support!" href="https://www.buymeacoffee.com/trungvose" target="_blank"><img src="https://res.cloudinary.com/dvujyxh7e/image/upload/c_thumb,w_140,g_face/v1596378474/default-orange_uthxgz.jpg" alt="Buy Me A Coffee"></a>
 
 Thanks a bunch for stopping by and supporting me!
 
-[tweet]: https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2012,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40tuantrungvo&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript
+[tweet]: https://twitter.com/intent/tweet?url=https://github.com/trungk18/angular-spotify&text=A%20cool%20Spotify%20client%20made%20with%20Angular%2012,%20Nx%20workspace,%20ngrx,%20TailwindCSS%20and%20ng-zorro%20%40trungvose&hashtags=angularspotify,angular,nx,ngrx,ngzorro,typescript
 
 ## Who is it for 🤷‍♀️
 
@@ -287,7 +287,7 @@ Feel free to use my code on your project. Please put a reference to this reposit
 [issues]: https://github.com/trungk18/angular-spotify/issues/new
 [pull]: https://github.com/trungk18/angular-spotify/compare
 [jira]: https://jira.trungk18.com/
-[twitter]: https://twitter.com/tuantrungvo
+[twitter]: https://twitter.com/trungvose
 [nx]: https://nx.dev/
 [angularsg]: https://twitter.com/angularsg
 [angularvn]: https://twitter.com/ngvnofficial
