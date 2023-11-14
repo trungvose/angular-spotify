@@ -65,11 +65,11 @@ import { Component } from '@angular/core';
     <form class="flex-form">
       <label for="name" class="name-field">
         Name:
-        <input id="name" type="name" class="name-field" placeholder="GDG Mien Trung" />
+        <input id="name" type="name" class="name-field" placeholder="Hello Thessaloniki" />
       </label>
       <label for="email" class="email-field">
         Email:
-        <input id="email" type="email" class="email-field" placeholder="gdgmientrung.vn@gmail.com" />
+        <input id="email" type="email" class="email-field" placeholder="example@domain.com" />
       </label>
       <button class="submit">Submit</button>
     </form>

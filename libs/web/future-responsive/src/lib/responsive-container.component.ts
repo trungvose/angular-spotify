@@ -32,7 +32,7 @@ import * as mockAlbums from './albums.mock.json';
         <ng-container *ngTemplateOutlet="cards; context: { albums: albums }"></ng-container>
       </section>
     </div>
-    <h2 class="text-3xl text-white my-8">Card Playground 🇻🇳</h2>
+    <h2 class="text-3xl text-white my-8">Card Playground</h2>
     <div class="grid place-items-center min-h-[600px]">
       <div class="min-w-[180px] resize-x overflow-auto">
         <ng-container *ngTemplateOutlet="cards; context: { albums: singleAlbum }"></ng-container>
