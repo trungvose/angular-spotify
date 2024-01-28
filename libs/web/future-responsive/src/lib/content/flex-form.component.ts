@@ -65,7 +65,7 @@ import { Component } from '@angular/core';
     <form class="flex-form">
       <label for="name" class="name-field">
         Name:
-        <input id="name" type="name" class="name-field" placeholder="Hello Thessaloniki" />
+        <input id="name" type="name" class="name-field" placeholder="Your name" />
       </label>
       <label for="email" class="email-field">
         Email:
