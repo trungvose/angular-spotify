@@ -1,11 +1,12 @@
 {
+  "name": "web-shell-ui-now-playing-bar",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shell/ui/now-playing-bar",
   "sourceRoot": "libs/web/shell/ui/now-playing-bar/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/shell/ui/now-playing-bar/src/**/*.ts",
@@ -14,6 +15,5 @@
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shell-ui-now-playing-bar"
+  "tags": ["type:ui", "scope:web"]
 }

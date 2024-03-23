@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlayButtonComponent } from './play-button.component';
 import { SvgIconsModule } from '@ngneat/svg-icon';
-import { LetModule, PushModule } from '@ngrx/component';
+import { LetDirective, PushPipe } from '@ngrx/component';
 
 @NgModule({
-  imports: [CommonModule, SvgIconsModule, LetModule, PushModule],
+  imports: [CommonModule, SvgIconsModule, LetDirective, PushPipe],
   declarations: [PlayButtonComponent],
   exports: [PlayButtonComponent]
 })

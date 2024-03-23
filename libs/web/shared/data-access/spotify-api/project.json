@@ -1,23 +1,23 @@
 {
-  "root": "libs/web/shared/data-access/spotify-api",
+  "name": "web-shared-data-access-spotify-api",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/shared/data-access/spotify-api/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shared/data-access/spotify-api"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/spotify-api"],
       "options": {
         "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"],
-  "name": "web-shared-data-access-spotify-api"
+  "tags": ["type:data-access", "scope:web"]
 }

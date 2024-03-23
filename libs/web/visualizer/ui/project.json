@@ -1,11 +1,12 @@
 {
+  "name": "web-visualizer-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/visualizer/ui",
   "sourceRoot": "libs/web/visualizer/ui/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/visualizer/ui/src/**/*.ts",
@@ -14,14 +15,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/visualizer/ui"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/ui"],
       "options": {
         "jestConfig": "libs/web/visualizer/ui/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-visualizer-ui"
+  "tags": ["type:ui", "scope:web"]
 }

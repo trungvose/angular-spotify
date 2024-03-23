@@ -1,11 +1,12 @@
 {
+  "name": "web-album-ui-album-track",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/album/ui/album-track",
   "sourceRoot": "libs/web/album/ui/album-track/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/album/ui/album-track/src/**/*.ts",
@@ -14,14 +15,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/album/ui/album-track"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/album/ui/album-track"],
       "options": {
         "jestConfig": "libs/web/album/ui/album-track/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-album-ui-album-track"
+  "tags": ["type:ui", "scope:web"]
 }

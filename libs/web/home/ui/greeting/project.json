@@ -1,11 +1,12 @@
 {
+  "name": "web-home-ui-greeting",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/home/ui/greeting",
   "sourceRoot": "libs/web/home/ui/greeting/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/home/ui/greeting/src/**/*.ts",
@@ -14,14 +15,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/home/ui/greeting"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/greeting"],
       "options": {
         "jestConfig": "libs/web/home/ui/greeting/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-home-ui-greeting"
+  "tags": ["type:ui", "scope:web"]
 }

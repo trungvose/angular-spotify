@@ -1,6 +1,7 @@
 {
+  "name": "angular-spotify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/angular-spotify",
   "sourceRoot": "apps/angular-spotify/src",
   "prefix": "angular-spotify",
   "targets": {
@@ -97,7 +98,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/angular-spotify/src/**/*.ts",
@@ -106,14 +107,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/angular-spotify"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/angular-spotify"],
       "options": {
         "jestConfig": "apps/angular-spotify/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:app", "scope:angular-spotify"],
-  "name": "angular-spotify"
+  "tags": ["type:app", "scope:angular-spotify"]
 }

@@ -1,11 +1,12 @@
 {
+  "name": "web-shared-ui-spinner",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/spinner",
   "sourceRoot": "libs/web/shared/ui/spinner/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/shared/ui/spinner/src/**/*.ts",
@@ -14,14 +15,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shared/ui/spinner"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/spinner"],
       "options": {
         "jestConfig": "libs/web/shared/ui/spinner/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-spinner"
+  "tags": ["type:ui", "scope:web"]
 }

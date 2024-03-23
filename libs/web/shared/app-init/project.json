@@ -6,7 +6,7 @@
   "prefix": "angular-spotify",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-init"],
       "options": {
         "jestConfig": "libs/web/shared/app-init/jest.config.ts",
@@ -14,7 +14,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/shared/app-init/src/**/*.ts",

@@ -4,7 +4,7 @@ import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LetModule, PushModule } from '@ngrx/component';
+import { LetDirective, PushPipe } from '@ngrx/component';
 import { NavLinksComponent } from './nav-links.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
 @NgModule({
@@ -12,8 +12,8 @@ import { NavLinkComponent } from './nav-link/nav-link.component';
     CommonModule,
     RouterModule,
     PlayButtonModule,
-    LetModule,
-    PushModule,
+    LetDirective,
+    PushPipe,
     SpinnerModule,
     MediaCoverModule
   ],

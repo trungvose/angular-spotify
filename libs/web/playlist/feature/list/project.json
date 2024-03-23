@@ -1,11 +1,12 @@
 {
+  "name": "web-playlist-feature-list",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/playlist/feature/list",
   "sourceRoot": "libs/web/playlist/feature/list/src",
   "prefix": "angular-spotify",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/playlist/feature/list/src/**/*.ts",
@@ -14,6 +15,5 @@
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-playlist-feature-list"
+  "tags": ["type:feature", "scope:web"]
 }

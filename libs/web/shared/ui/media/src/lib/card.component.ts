@@ -13,7 +13,7 @@ import {
   Output
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LetModule, PushModule } from '@ngrx/component';
+import { LetDirective, PushPipe } from '@ngrx/component';
 import { Observable, combineLatest, of } from 'rxjs';
 @Component({
   selector: 'as-card',
@@ -21,8 +21,8 @@ import { Observable, combineLatest, of } from 'rxjs';
   imports: [
     CommonModule,
     RouterModule,
-    LetModule,
-    PushModule,
+    LetDirective,
+    PushPipe,
     MediaCoverModule,
     PlayButtonModule,
     ClickStopPropagationModule

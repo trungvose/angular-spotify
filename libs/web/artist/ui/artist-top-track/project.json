@@ -1,11 +1,12 @@
 {
+  "name": "web-artist-ui-artist-top-track",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/artist/ui/artist-top-track",
   "sourceRoot": "libs/web/artist/ui/artist-top-track/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/artist/ui/artist-top-track/src/**/*.ts",
@@ -14,14 +15,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/artist/ui/artist-top-track"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-track"],
       "options": {
         "jestConfig": "libs/web/artist/ui/artist-top-track/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-artist-ui-artist-top-track"
+  "tags": ["type:ui", "scope:web"]
 }

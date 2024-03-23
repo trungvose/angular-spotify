@@ -1,11 +1,12 @@
 {
+  "name": "web-shared-ui-media-cover",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/media-cover",
   "sourceRoot": "libs/web/shared/ui/media-cover/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/web/shared/ui/media-cover/src/**/*.ts",
@@ -14,6 +15,5 @@
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-media-cover"
+  "tags": ["type:ui", "scope:web"]
 }
