@@ -1,27 +1,20 @@
 {
+  "name": "web-visualizer-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/visualizer/feature",
   "sourceRoot": "libs/web/visualizer/feature/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/visualizer/feature/src/**/*.ts",
-          "libs/web/visualizer/feature/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/visualizer/feature"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/visualizer/feature"],
       "options": {
-        "jestConfig": "libs/web/visualizer/feature/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/visualizer/feature/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-visualizer-feature"
+  "tags": ["type:feature", "scope:web"]
 }

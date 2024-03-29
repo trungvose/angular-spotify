@@ -1,19 +1,13 @@
 {
+  "name": "web-playlist-feature-detail",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/playlist/feature/detail",
   "sourceRoot": "libs/web/playlist/feature/detail/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/playlist/feature/detail/src/**/*.ts",
-          "libs/web/playlist/feature/detail/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-playlist-feature-detail"
+  "tags": ["type:feature", "scope:web"]
 }

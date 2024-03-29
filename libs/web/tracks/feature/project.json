@@ -1,27 +1,20 @@
 {
+  "name": "web-tracks-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/tracks/feature",
   "sourceRoot": "libs/web/tracks/feature/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/tracks/feature/src/**/*.ts",
-          "libs/web/tracks/feature/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/tracks/feature"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/feature"],
       "options": {
-        "jestConfig": "libs/web/tracks/feature/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/tracks/feature/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-tracks-feature"
+  "tags": ["type:feature", "scope:web"]
 }

@@ -1,27 +1,20 @@
 {
+  "name": "web-album-feature-shell",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/album/feature/shell",
   "sourceRoot": "libs/web/album/feature/shell/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/album/feature/shell/src/**/*.ts",
-          "libs/web/album/feature/shell/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/album/feature/shell"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/shell"],
       "options": {
-        "jestConfig": "libs/web/album/feature/shell/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/album/feature/shell/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-album-feature-shell"
+  "tags": ["type:feature", "scope:web"]
 }

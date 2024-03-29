@@ -1,23 +1,19 @@
 {
-  "root": "libs/web/shared/data-access/store",
+  "name": "web-shared-data-access-store",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/shared/data-access/store/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/shared/data-access/store/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shared/data-access/store"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/store"],
       "options": {
-        "jestConfig": "libs/web/shared/data-access/store/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/data-access/store/jest.config.js"
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"],
-  "name": "web-shared-data-access-store"
+  "tags": ["type:data-access", "scope:web"]
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SvgIconsModule } from '@ngneat/svg-icon';
-import { LetModule, PushModule } from '@ngrx/component';
+import { SvgIconComponent } from '@ngneat/svg-icon';
+import { LetDirective, PushPipe } from '@ngrx/component';
 import { WebVisualizerUiComponent } from './web-visualizer-ui.component';
 
 @NgModule({
-  imports: [CommonModule, SvgIconsModule, LetModule, PushModule],
+  imports: [CommonModule, SvgIconComponent, LetDirective, PushPipe],
   declarations: [WebVisualizerUiComponent],
   exports: [WebVisualizerUiComponent]
 })

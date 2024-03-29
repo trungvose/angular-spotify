@@ -1,19 +1,13 @@
 {
+  "name": "web-shared-ui-media",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/media",
   "sourceRoot": "libs/web/shared/ui/media/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/media/src/**/*.ts",
-          "libs/web/shared/ui/media/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-media"
+  "tags": ["type:ui", "scope:web"]
 }

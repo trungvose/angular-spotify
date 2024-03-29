@@ -6,20 +6,13 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shell/ui/nav-links/src/**/*.ts",
-          "libs/web/shell/ui/nav-links/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shell/ui/nav-links"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/nav-links"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/nav-links/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shell/ui/nav-links/jest.config.js"
       }
     }
   },

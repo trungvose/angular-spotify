@@ -22,7 +22,7 @@ const initialState: PlaylistsState = {
 
 export const playlistsReducer = createReducer(
   initialState,
-  on(loadPlaylists, (state) => ({ ...state, status: 'loading' })),
+  on(loadPlaylists, (state) => ({ ...state, status: 'loading' as const })),
   on(loadPlaylistsSuccess, (state, { playlists }) => {
     const { items } = playlists;
     const map = new Map<string, SpotifyApi.PlaylistObjectSimplified>();
@@ -31,14 +31,14 @@ export const playlistsReducer = createReducer(
       ...state,
       map: map,
       data: playlists,
-      status: 'success',
+      status: 'success' as const,
       error: null
     };
   }),
   on(loadPlaylistsError, (state, { error }) => ({
     ...state,
     error,
-    status: 'error'
+    status: 'error' as const
   })),
   on(loadPlaylistSuccess, (state, { playlist }) => {
     state.map?.set(playlist.id, playlist);

@@ -1,27 +1,20 @@
 {
+  "name": "web-settings-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/settings/feature",
   "sourceRoot": "libs/web/settings/feature/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/settings/feature/src/**/*.ts",
-          "libs/web/settings/feature/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/settings/feature"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/settings/feature"],
       "options": {
-        "jestConfig": "libs/web/settings/feature/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/settings/feature/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-settings-feature"
+  "tags": ["type:feature", "scope:web"]
 }

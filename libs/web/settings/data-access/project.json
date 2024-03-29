@@ -1,23 +1,19 @@
 {
-  "root": "libs/web/settings/data-access",
+  "name": "web-settings-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/settings/data-access/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/settings/data-access/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/settings/data-access"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/settings/data-access"],
       "options": {
-        "jestConfig": "libs/web/settings/data-access/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/settings/data-access/jest.config.js"
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"],
-  "name": "web-settings-data-access"
+  "tags": ["type:data-access", "scope:web"]
 }

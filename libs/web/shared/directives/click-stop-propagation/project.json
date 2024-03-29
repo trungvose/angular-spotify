@@ -1,19 +1,13 @@
 {
+  "name": "web-shared-directives-click-stop-propagation",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/directives/click-stop-propagation",
   "sourceRoot": "libs/web/shared/directives/click-stop-propagation/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
-          "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["type:util", "scope:web"],
-  "name": "web-shared-directives-click-stop-propagation"
+  "tags": ["type:util", "scope:web"]
 }

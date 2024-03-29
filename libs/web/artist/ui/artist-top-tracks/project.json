@@ -1,27 +1,20 @@
 {
+  "name": "web-artist-ui-artist-top-tracks",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/artist/ui/artist-top-tracks",
   "sourceRoot": "libs/web/artist/ui/artist-top-tracks/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/artist/ui/artist-top-tracks/src/**/*.ts",
-          "libs/web/artist/ui/artist-top-tracks/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/artist/ui/artist-top-tracks"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/artist/ui/artist-top-tracks"],
       "options": {
-        "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/artist/ui/artist-top-tracks/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-artist-ui-artist-top-tracks"
+  "tags": ["type:ui", "scope:web"]
 }

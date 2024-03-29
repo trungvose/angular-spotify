@@ -1,27 +1,20 @@
 {
+  "name": "web-shared-ui-icon",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/icon",
   "sourceRoot": "libs/web/shared/ui/icon/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/icon/src/**/*.ts",
-          "libs/web/shared/ui/icon/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shared/ui/icon"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/icon"],
       "options": {
-        "jestConfig": "libs/web/shared/ui/icon/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/ui/icon/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-icon"
+  "tags": ["type:ui", "scope:web"]
 }

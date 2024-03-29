@@ -1,27 +1,20 @@
 {
+  "name": "web-browse-ui-category-cover",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/browse/ui/category-cover",
   "sourceRoot": "libs/web/browse/ui/category-cover/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/browse/ui/category-cover/src/**/*.ts",
-          "libs/web/browse/ui/category-cover/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/browse/ui/category-cover"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/browse/ui/category-cover"],
       "options": {
-        "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/browse/ui/category-cover/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-browse-ui-category-cover"
+  "tags": ["type:ui", "scope:web"]
 }

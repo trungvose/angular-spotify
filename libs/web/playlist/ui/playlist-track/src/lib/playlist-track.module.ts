@@ -5,7 +5,7 @@ import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
 import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-info';
 import { MediaOrderModule } from '@angular-spotify/web/shared/ui/media-order';
-import { LetModule, PushModule } from '@ngrx/component';
+import { LetDirective, PushPipe } from '@ngrx/component';
 import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
     DurationPipeModule,
     TrackMainInfoModule,
     MediaOrderModule,
-    LetModule, PushModule
+    LetDirective, PushPipe
   ],
   declarations: [PlaylistTrackComponent],
   exports: [PlaylistTrackComponent]

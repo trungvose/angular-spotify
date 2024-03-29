@@ -1,19 +1,13 @@
 {
+  "name": "web-shared-ui-media-summary",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/media-summary",
   "sourceRoot": "libs/web/shared/ui/media-summary/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/media-summary/src/**/*.ts",
-          "libs/web/shared/ui/media-summary/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-media-summary"
+  "tags": ["type:ui", "scope:web"]
 }

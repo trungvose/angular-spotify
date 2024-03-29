@@ -1,23 +1,19 @@
 {
-  "root": "libs/web/shared/utils",
+  "name": "web-shared-utils",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/shared/utils/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/shared/utils/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shared/utils"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/utils"],
       "options": {
-        "jestConfig": "libs/web/shared/utils/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/utils/jest.config.js"
       }
     }
   },
-  "tags": ["type:util", "scope:web"],
-  "name": "web-shared-utils"
+  "tags": ["type:util", "scope:web"]
 }

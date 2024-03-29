@@ -1,27 +1,20 @@
 {
+  "name": "web-browse-feature-shell",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/browse/feature/shell",
   "sourceRoot": "libs/web/browse/feature/shell/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/browse/feature/shell/src/**/*.ts",
-          "libs/web/browse/feature/shell/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/browse/feature/shell"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/shell"],
       "options": {
-        "jestConfig": "libs/web/browse/feature/shell/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/browse/feature/shell/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-browse-feature-shell"
+  "tags": ["type:feature", "scope:web"]
 }

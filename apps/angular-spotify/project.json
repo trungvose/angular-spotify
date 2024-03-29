@@ -1,6 +1,7 @@
 {
+  "name": "angular-spotify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/angular-spotify",
   "sourceRoot": "apps/angular-spotify/src",
   "prefix": "angular-spotify",
   "targets": {
@@ -81,39 +82,31 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "browserTarget": "angular-spotify:build",
-        "hmr": true
+        "hmr": true,
+        "buildTarget": "angular-spotify:build"
       },
       "configurations": {
         "production": {
-          "browserTarget": "angular-spotify:build:production"
+          "buildTarget": "angular-spotify:build:production"
         }
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "angular-spotify:build"
+        "buildTarget": "angular-spotify:build"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "apps/angular-spotify/src/**/*.ts",
-          "apps/angular-spotify/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/angular-spotify"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/angular-spotify"],
       "options": {
-        "jestConfig": "apps/angular-spotify/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "apps/angular-spotify/jest.config.js"
       }
     }
   },
-  "tags": ["type:app", "scope:angular-spotify"],
-  "name": "angular-spotify"
+  "tags": ["type:app", "scope:angular-spotify"]
 }

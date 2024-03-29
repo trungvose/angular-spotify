@@ -17,18 +17,18 @@ export const albumsReducer = createReducer(
   initialState,
   on(loadAlbums, (state) => ({
     ...state,
-    status: 'loading',
+    status: 'loading' as const,
     error: null
   })),
   on(loadAlbumsSuccess, (state, { albums }) => ({
     ...state,
     data: albums,
-    status: 'success',
+    status: 'success' as const,
     error: null
   })),
   on(loadAlbumsError, (state, { error }) => ({
     ...state,
-    status: 'error',
+    status: 'error' as const,
     error
   }))
 );

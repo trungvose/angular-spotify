@@ -1,27 +1,20 @@
 {
+  "name": "web-auth-ui-unauthorized-modal",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/auth/ui/unauthorized-modal",
   "sourceRoot": "libs/web/auth/ui/unauthorized-modal/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/auth/ui/unauthorized-modal/src/**/*.ts",
-          "libs/web/auth/ui/unauthorized-modal/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/auth/ui/unauthorized-modal"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/auth/ui/unauthorized-modal"],
       "options": {
-        "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/auth/ui/unauthorized-modal/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-auth-ui-unauthorized-modal"
+  "tags": ["type:ui", "scope:web"]
 }

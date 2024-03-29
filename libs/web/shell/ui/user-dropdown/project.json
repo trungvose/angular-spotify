@@ -1,27 +1,20 @@
 {
+  "name": "web-shell-ui-user-dropdown",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shell/ui/user-dropdown",
   "sourceRoot": "libs/web/shell/ui/user-dropdown/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shell/ui/user-dropdown/src/**/*.ts",
-          "libs/web/shell/ui/user-dropdown/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shell/ui/user-dropdown"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/user-dropdown"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shell/ui/user-dropdown/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shell-ui-user-dropdown"
+  "tags": ["type:ui", "scope:web"]
 }

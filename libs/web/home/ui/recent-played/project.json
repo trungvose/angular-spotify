@@ -1,27 +1,20 @@
 {
+  "name": "web-home-ui-recent-played",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/home/ui/recent-played",
   "sourceRoot": "libs/web/home/ui/recent-played/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/home/ui/recent-played/src/**/*.ts",
-          "libs/web/home/ui/recent-played/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/home/ui/recent-played"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/home/ui/recent-played"],
       "options": {
-        "jestConfig": "libs/web/home/ui/recent-played/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/home/ui/recent-played/jest.config.js"
       }
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-home-ui-recent-played"
+  "tags": ["type:ui", "scope:web"]
 }

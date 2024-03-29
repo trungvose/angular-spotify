@@ -1,19 +1,13 @@
 {
+  "name": "web-shared-ui-track-main-info",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/shared/ui/track-main-info",
   "sourceRoot": "libs/web/shared/ui/track-main-info/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/track-main-info/src/**/*.ts",
-          "libs/web/shared/ui/track-main-info/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["type:ui", "scope:web"],
-  "name": "web-shared-ui-track-main-info"
+  "tags": ["type:ui", "scope:web"]
 }

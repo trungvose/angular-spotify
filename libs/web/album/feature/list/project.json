@@ -1,27 +1,20 @@
 {
+  "name": "web-album-feature-list",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/album/feature/list",
   "sourceRoot": "libs/web/album/feature/list/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/album/feature/list/src/**/*.ts",
-          "libs/web/album/feature/list/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/album/feature/list"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/album/feature/list"],
       "options": {
-        "jestConfig": "libs/web/album/feature/list/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/album/feature/list/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-album-feature-list"
+  "tags": ["type:feature", "scope:web"]
 }

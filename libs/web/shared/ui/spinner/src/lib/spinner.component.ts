@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { SVG_CONFIG } from '@ngneat/svg-icon/lib/types';
+import {  } from '@ngneat/svg-icon';
 
 @Component({
   selector: 'as-spinner',
@@ -8,5 +8,5 @@ import { SVG_CONFIG } from '@ngneat/svg-icon/lib/types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpinnerComponent {
-  @Input() size: keyof SVG_CONFIG['sizes'] = 'xl';
+  @Input() size = "xl";
 }

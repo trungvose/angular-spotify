@@ -1,23 +1,19 @@
 {
-  "root": "libs/web/auth/util",
+  "name": "web-auth-util",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/auth/util/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/auth/util/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/auth/util"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/auth/util"],
       "options": {
-        "jestConfig": "libs/web/auth/util/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/auth/util/jest.config.js"
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"],
-  "name": "web-auth-util"
+  "tags": ["type:data-access", "scope:web"]
 }

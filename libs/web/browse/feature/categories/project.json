@@ -1,27 +1,20 @@
 {
+  "name": "web-browse-feature-categories",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/web/browse/feature/categories",
   "sourceRoot": "libs/web/browse/feature/categories/src",
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/browse/feature/categories/src/**/*.ts",
-          "libs/web/browse/feature/categories/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/browse/feature/categories"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/browse/feature/categories"],
       "options": {
-        "jestConfig": "libs/web/browse/feature/categories/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/browse/feature/categories/jest.config.js"
       }
     }
   },
-  "tags": ["type:feature", "scope:web"],
-  "name": "web-browse-feature-categories"
+  "tags": ["type:feature", "scope:web"]
 }

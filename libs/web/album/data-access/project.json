@@ -1,23 +1,19 @@
 {
-  "root": "libs/web/album/data-access",
+  "name": "web-album-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/album/data-access/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/album/data-access/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/album/data-access"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/web/album/data-access"],
       "options": {
-        "jestConfig": "libs/web/album/data-access/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/album/data-access/jest.config.js"
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"],
-  "name": "web-album-data-access"
+  "tags": ["type:data-access", "scope:web"]
 }
