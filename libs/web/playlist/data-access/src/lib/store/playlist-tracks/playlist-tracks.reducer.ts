@@ -18,12 +18,16 @@ const initialState: PlaylistTracksState = {
 
 export const playlistTracksReducer = createReducer(
   initialState,
-  on(loadPlaylistTracks, (state) => ({ ...state, status: 'loading' })),
+  on(loadPlaylistTracks, (state) => ({ ...state, status: 'loading' as const })),
   on(loadPlaylistTracksSuccess, (state, { playlistId, playlistTracks }) => {
     const { data: map } = state;
     map?.set(playlistId, playlistTracks);
-    return { ...state, data: map, status: 'success' };
+    return { ...state, data: map, status: 'success' as const };
   }),
-  on(loadPlaylistTracksError, (state, { error }) => ({ ...state, error, status: 'error' })),
+  on(loadPlaylistTracksError, (state, { error }) => ({
+    ...state,
+    error,
+    status: 'error' as const
+  })),
   on(setPlaylistTracksStateStatus, (state, { status }) => ({ ...state, status }))
 );

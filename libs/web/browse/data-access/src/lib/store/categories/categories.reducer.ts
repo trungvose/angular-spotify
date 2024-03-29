@@ -17,7 +17,7 @@ const initialState: CategoriesState = {
 
 export const categoriesReducer = createReducer(
   initialState,
-  on(loadCategories, (state) => ({ ...state, status: 'loading' })),
+  on(loadCategories, (state) => ({ ...state, status: 'loading' as const })),
   on(loadCategoriesSuccess, (state, { categories }) => {
     const { map } = state;
     categories.items.forEach((category) => {
@@ -25,7 +25,7 @@ export const categoriesReducer = createReducer(
     });
     return {
       ...state,
-      status: 'success',
+      status: 'success' as const,
       data: categories,
       map: new Map(map)
     };

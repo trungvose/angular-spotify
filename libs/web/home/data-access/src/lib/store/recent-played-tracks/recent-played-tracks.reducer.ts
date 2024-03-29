@@ -14,16 +14,16 @@ export const recentFeatureTracksFeatureKey = 'recentTracks';
 
 export const recentPlayedTracksReducer = createReducer(
   initialState,
-  on(loadRecentTracks, (state) => ({ ...state, status: 'loading' })),
+  on(loadRecentTracks, (state) => ({ ...state, status: 'loading' as const })),
   on(loadRecentTracksSuccess, (state, { response }) => ({
     ...state,
     data: response,
-    status: 'success',
+    status: 'success' as const,
     error: null
   })),
   on(loadRecentTracksError, (state, { error }) => ({
     ...state,
     error,
-    status: 'error'
+    status: 'error' as const
   }))
 );

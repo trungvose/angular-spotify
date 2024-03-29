@@ -22,7 +22,7 @@ export const categoryPlaylistsReducer = createReducer(
   initialState,
   on(loadCategoryPlaylists, (state) => ({
     ...state,
-    status: 'loading'
+    status: 'loading' as const
   })),
   on(loadCategoryPlaylistsSuccess, (state, { categoryId, playlists }) => {
     const { data: map } = state;
@@ -30,7 +30,7 @@ export const categoryPlaylistsReducer = createReducer(
     return {
       ...state,
       data: new Map(map!),
-      status: 'success'
+      status: 'success' as const
     };
   }),
   on(setCategoryPlaylistsState, (state, { status }) => ({ ...state, status }))

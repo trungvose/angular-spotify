@@ -6,7 +6,7 @@ import { TracksLoadingComponent } from '@angular-spotify/web/shared/ui/tracks-lo
 import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
 import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
     MediaSummaryModule,
     PlayButtonModule,
     MediaTableModule,
-    SvgIconsModule,
+    SvgIconComponent,
     AlbumTrackModule,
     RouterModule.forChild([
       {

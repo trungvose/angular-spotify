@@ -18,16 +18,16 @@ export const featuredPlaylistsFeatureKey = 'feature-playlists';
 
 export const featuredPlaylistsReducer = createReducer(
   initialState,
-  on(loadFeaturedPlaylists, (state) => ({ ...state, status: 'loading' })),
+  on(loadFeaturedPlaylists, (state) => ({ ...state, status: 'loading' as const })),
   on(loadFeaturedPlaylistsSuccess, (state, { response }) => ({
     ...state,
     data: response,
-    status: 'success',
+    status: 'success' as const,
     error: null
   })),
   on(loadFeaturedPlaylistsError, (state, { error }) => ({
     ...state,
     error,
-    status: 'error'
+    status: 'error' as const
   }))
 );
