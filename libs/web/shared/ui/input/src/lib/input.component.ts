@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-const IconSizesInPx: { [key in IconSize]: number } = {
+export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export const IconSizesInPx: { [key in IconSize]: number } = {
   xs: 8, // 0.5rem
   sm: 12, // 0.75rem
   md: 16, // 1rem

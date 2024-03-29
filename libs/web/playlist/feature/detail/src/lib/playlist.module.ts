@@ -5,7 +5,7 @@ import { PlaylistTrackModule } from '@angular-spotify/web/playlist/ui/playlist-t
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 import { PlaylistComponent } from './playlist.component';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { LetDirective, PushPipe } from '@ngrx/component';
@@ -17,7 +17,7 @@ import { TracksLoadingComponent } from '@angular-spotify/web/shared/ui/tracks-lo
     PlayButtonModule,
     MediaTableModule,
     PlaylistTrackModule,
-    SvgIconsModule,
+    SvgIconComponent,
     LetDirective, PushPipe,
     TracksLoadingComponent,
     RouterModule.forChild([

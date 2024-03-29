@@ -5,7 +5,7 @@ import { VisualizationToggleComponent } from './visualization-toggle.component';
 import { FormsModule } from '@angular/forms';
 import { LetDirective, PushPipe } from '@ngrx/component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,7 +13,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     NzToolTipModule,
     FormsModule,
     LetDirective, PushPipe,
-    SvgIconsModule
+    SvgIconComponent
   ],
   declarations: [VisualizationToggleComponent],
   exports: [VisualizationToggleComponent]

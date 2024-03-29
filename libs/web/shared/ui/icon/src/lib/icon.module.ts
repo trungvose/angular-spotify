@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SvgIconComponent, provideSvgIcons } from '@ngneat/svg-icon';
 import { asAudioAnimatedIcon } from './svg/audio-animated';
 import { asCaretDownFillIcon } from './svg/caret-down-fill';
 import { asClockIcon } from './svg/clock';
@@ -35,45 +35,43 @@ import { asVolumeMediumIcon } from './svg/volume-medium';
 import { asVolumeMuteIcon } from './svg/volume-mute';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SvgIconsModule.forRoot({
-      icons: [
-        asAudioAnimatedIcon,
-        asCaretDownFillIcon,
-        asClockIcon,
-        asCompassFillIcon,
-        asCompassIcon,
-        asCupFillIcon,
-        asCupIcon,
-        asCupStrawIcon,
-        asEmojiHeartEyesIcon,
-        asExpandIcon,
-        asGithubIcon,
-        asHeartFillIcon,
-        asHeartIcon,
-        asHomeIcon,
-        asHouseDoorFillIcon,
-        asHouseDoorIcon,
-        asJournalIcon,
-        asMusicNoteBeamedIcon,
-        asMusicNoteListIcon,
-        asPauseIcon,
-        asPlayIcon,
-        asQuestionCircleIcon,
-        asSearchHeartIcon,
-        asSearchIcon,
-        asShrinkIcon,
-        asStepBackwardIcon,
-        asStepForwardIcon,
-        asTimesIcon,
-        asTwitterIcon,
-        asVolumeHighIcon,
-        asVolumeMediumIcon,
-        asVolumeMuteIcon
-      ]
-    })
+  imports: [CommonModule, SvgIconComponent],
+  providers: [
+    provideSvgIcons([
+      asAudioAnimatedIcon,
+      asCaretDownFillIcon,
+      asClockIcon,
+      asCompassFillIcon,
+      asCompassIcon,
+      asCupFillIcon,
+      asCupIcon,
+      asCupStrawIcon,
+      asEmojiHeartEyesIcon,
+      asExpandIcon,
+      asGithubIcon,
+      asHeartFillIcon,
+      asHeartIcon,
+      asHomeIcon,
+      asHouseDoorFillIcon,
+      asHouseDoorIcon,
+      asJournalIcon,
+      asMusicNoteBeamedIcon,
+      asMusicNoteListIcon,
+      asPauseIcon,
+      asPlayIcon,
+      asQuestionCircleIcon,
+      asSearchHeartIcon,
+      asSearchIcon,
+      asShrinkIcon,
+      asStepBackwardIcon,
+      asStepForwardIcon,
+      asTimesIcon,
+      asTwitterIcon,
+      asVolumeHighIcon,
+      asVolumeMediumIcon,
+      asVolumeMuteIcon
+    ])
   ],
-  exports: [SvgIconsModule]
+  exports: [SvgIconComponent]
 })
 export class IconModule {}

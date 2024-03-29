@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner.component';
-import {SvgIconsModule} from '@ngneat/svg-icon';
+import {SvgIconComponent} from '@ngneat/svg-icon';
 
 @NgModule({
-  imports: [CommonModule, SvgIconsModule],
+  imports: [CommonModule, SvgIconComponent],
   declarations: [SpinnerComponent],
   exports: [SpinnerComponent]
 })

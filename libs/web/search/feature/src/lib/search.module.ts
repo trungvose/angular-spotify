@@ -8,7 +8,7 @@ import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { AlbumTrackModule } from '@angular-spotify/web/album/ui/album-track';
 import { SearchComponent } from './search.component';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
     SpinnerModule,
     CardComponent,
     MediaTableModule,
-    SvgIconsModule,
+    SvgIconComponent,
     AlbumTrackModule,
     RouterModule.forChild([
       {
