@@ -5,10 +5,7 @@
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/shared/data-access/models/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["type:data-access", "scope:web"]

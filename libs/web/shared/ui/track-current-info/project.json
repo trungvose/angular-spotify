@@ -6,13 +6,7 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/track-current-info/src/**/*.ts",
-          "libs/web/shared/ui/track-current-info/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["type:ui", "scope:web"]

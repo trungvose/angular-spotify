@@ -6,20 +6,13 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/media-order/src/**/*.ts",
-          "libs/web/shared/ui/media-order/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/media-order"],
       "options": {
-        "jestConfig": "libs/web/shared/ui/media-order/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/ui/media-order/jest.config.js"
       }
     }
   },

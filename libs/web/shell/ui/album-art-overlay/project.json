@@ -6,20 +6,13 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shell/ui/album-art-overlay/src/**/*.ts",
-          "libs/web/shell/ui/album-art-overlay/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/album-art-overlay"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shell/ui/album-art-overlay/jest.config.js"
       }
     }
   },

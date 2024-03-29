@@ -6,13 +6,7 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/ui/play-button/src/**/*.ts",
-          "libs/web/shared/ui/play-button/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["type:ui", "scope:web"]

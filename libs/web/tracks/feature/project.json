@@ -6,20 +6,13 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/tracks/feature/src/**/*.ts",
-          "libs/web/tracks/feature/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/feature"],
       "options": {
-        "jestConfig": "libs/web/tracks/feature/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/tracks/feature/jest.config.js"
       }
     }
   },

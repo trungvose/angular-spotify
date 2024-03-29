@@ -1,8 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
+import { SwUpdate, VersionEvent } from '@angular/service-worker';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +10,14 @@ import { tap } from 'rxjs/operators';
 export class PromptUpdateService {
   constructor(private updates: SwUpdate, @Inject(DOCUMENT) private readonly document: Document) {}
 
-  forceUpdate(): Observable<UpdateAvailableEvent | null> {
+  forceUpdate(): Observable<VersionEvent | null> {
     if (!this.updates.isEnabled) {
       return of(null);
     }
-    return this.updates.available.pipe(
-      tap((version) => {
+    return this.updates.versionUpdates.pipe(
+      filter((evt) => evt.type === 'VERSION_READY'),
+      tap(() => {
         this.updates.activateUpdate().then(() => {
-          console.log(
-            `[Angular Spotify] PWA is updating from ${version.current.hash} to ${version.available.hash}...`
-          );
           if (
             confirm(
               `There is a new version of Angular Spotify available! Would you like to upgrade now?`

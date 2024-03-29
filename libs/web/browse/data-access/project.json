@@ -5,17 +5,13 @@
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/browse/data-access/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/browse/data-access"],
       "options": {
-        "jestConfig": "libs/web/browse/data-access/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/browse/data-access/jest.config.js"
       }
     }
   },

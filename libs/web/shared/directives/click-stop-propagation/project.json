@@ -6,13 +6,7 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/directives/click-stop-propagation/src/**/*.ts",
-          "libs/web/shared/directives/click-stop-propagation/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": ["type:util", "scope:web"]

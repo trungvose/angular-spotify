@@ -9,18 +9,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shared/app-init"],
       "options": {
-        "jestConfig": "libs/web/shared/app-init/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/app-init/jest.config.ts"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shared/app-init/src/**/*.ts",
-          "libs/web/shared/app-init/src/**/*.html"
-        ]
-      },
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
     }
   },

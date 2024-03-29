@@ -5,17 +5,13 @@
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/web/shared/data-access/spotify-api/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shared/data-access/spotify-api"],
       "options": {
-        "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shared/data-access/spotify-api/jest.config.js"
       }
     }
   },

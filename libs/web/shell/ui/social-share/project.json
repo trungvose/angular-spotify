@@ -6,20 +6,13 @@
   "prefix": "as",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/web/shell/ui/social-share/src/**/*.ts",
-          "libs/web/shell/ui/social-share/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/shell/ui/social-share"],
       "options": {
-        "jestConfig": "libs/web/shell/ui/social-share/jest.config.js",
-        "passWithNoTests": true
+        "jestConfig": "libs/web/shell/ui/social-share/jest.config.js"
       }
     }
   },
