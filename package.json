@@ -9,7 +9,7 @@
   },
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && husky install",
+    "postinstall": "husky install",
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
