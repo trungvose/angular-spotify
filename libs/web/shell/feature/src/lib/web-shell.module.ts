@@ -24,7 +24,7 @@ import {
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { extModules } from './build-specifics';
-import { onViewTransitionCreated } from './current-transition.service';
+import { onViewTransitionCreated } from '@angular-spotify/shared/view-transition';
 registerLocaleData(en);
 
 const rootReducers = {

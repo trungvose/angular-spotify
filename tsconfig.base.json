@@ -148,7 +148,8 @@
         "libs/web/visualizer/data-access/src/index.ts"
       ],
       "@angular-spotify/web/visualizer/feature": ["libs/web/visualizer/feature/src/index.ts"],
-      "@angular-spotify/web/visualizer/ui": ["libs/web/visualizer/ui/src/index.ts"]
+      "@angular-spotify/web/visualizer/ui": ["libs/web/visualizer/ui/src/index.ts"],
+      "@angular-spotify/shared/view-transition": ["libs/shared/view-transition/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"],
