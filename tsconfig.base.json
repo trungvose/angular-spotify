@@ -12,7 +12,7 @@
     "target": "es2015",
     "module": "esnext",
     "noUnusedLocals": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["ES2018", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
