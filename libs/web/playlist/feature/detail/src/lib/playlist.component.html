@@ -1,5 +1,6 @@
 <div class="content-spacing" *ngIf="playlist$ | async as playlist">
   <as-media-summary
+    class="with-view-transition"
     type="Playlist"
     [title]="playlist.name"
     [imageUrl]="playlist.images[0]?.url"
