@@ -11,6 +11,7 @@
 @use 'ng-zorro-antd/tooltip/style/index.min.css' as tooltip;
 @use 'ng-zorro-antd/dropdown/style/index.min.css' as dropdown;
 @use './custom/ant';
+@use './custom/view-transitions';
 
 :root {
   --background-baseline: 18 18 18;

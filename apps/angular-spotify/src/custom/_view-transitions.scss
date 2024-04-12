@@ -1,0 +1,23 @@
+.with-view-transition as-media-cover {
+  view-transition-name: media-cover;
+}
+
+// @keyframes slide-from-right {
+//   from {
+//     transform: translateX(300px);
+//   }
+// }
+
+// @keyframes slide-to-left {
+//   to {
+//     transform: translateX(-300px);
+//   }
+// }
+
+// ::view-transition-old(root) {
+//   animation: slide-to-left 2s ease;
+// }
+
+// ::view-transition-new(root) {
+//   animation: slide-from-right 2s ease;
+// }
