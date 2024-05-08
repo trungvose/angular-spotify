@@ -3,7 +3,7 @@ import { ClickStopPropagationModule } from '@angular-spotify/web/shared/directiv
 import { MediaCoverModule } from '@angular-spotify/web/shared/ui/media-cover';
 import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,14 +19,13 @@ import { Observable, combineLatest, of } from 'rxjs';
   selector: 'as-card',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     LetDirective,
     PushPipe,
     MediaCoverModule,
     PlayButtonModule,
     ClickStopPropagationModule
-  ],
+],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

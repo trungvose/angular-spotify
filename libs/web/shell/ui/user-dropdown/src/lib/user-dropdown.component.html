@@ -1,15 +1,16 @@
 <div class="user-info">
-  <ng-container *ngIf="userProduct$ | async as userProduct">
-    <a
-      class="btn-upgrade"
-      href="https://www.spotify.com/us/premium/"
-      target="_blank"
-      aria-roledescription="upgrade-button"
-      *ngIf="userProduct !== 'premium'"
-    >
-      Upgrade
-    </a>
-  </ng-container>
+  @if (userProduct$ | async; as userProduct) {
+    @if (userProduct !== 'premium') {
+      <a
+        class="btn-upgrade"
+        href="https://www.spotify.com/us/premium/"
+        target="_blank"
+        aria-roledescription="upgrade-button"
+        >
+        Upgrade
+      </a>
+    }
+  }
 
   <div class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
     <figure class="w-7 h-7" [title]="userName$ | async">

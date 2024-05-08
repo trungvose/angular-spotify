@@ -1,15 +1,21 @@
 <div class="content-spacing">
-  <div class="common-grid"
-       *ngIf="albums$ | async as albums">
-    <as-card *ngFor="let item of albums.items"
-              [title]="item.album.name"
-              [uri]="item.album.uri"
-              [description]="item.album.artists[0].name"
-              [imageUrl]="item.album.images[0]?.url"
-              [routerUrl]="item.album.id"
-              (togglePlay)="togglePlay($event, item.album.uri)">
-    </as-card>
-  </div>
-  <as-spinner *ngIf="isLoading$ | async">
-  </as-spinner>
+  @if (albums$ | async; as albums) {
+    <div class="common-grid"
+      >
+      @for (item of albums.items; track item) {
+        <as-card
+          [title]="item.album.name"
+          [uri]="item.album.uri"
+          [description]="item.album.artists[0].name"
+          [imageUrl]="item.album.images[0]?.url"
+          [routerUrl]="item.album.id"
+          (togglePlay)="togglePlay($event, item.album.uri)">
+        </as-card>
+      }
+    </div>
+  }
+  @if (isLoading$ | async) {
+    <as-spinner>
+    </as-spinner>
+  }
 </div>

@@ -1,24 +1,26 @@
-<div class="content-spacing" *ngIf="playlist$ | async as playlist">
-  <as-media-summary
-    type="Playlist"
-    [title]="playlist.name"
-    [imageUrl]="playlist.images[0]?.url"
-    [description]="playlist.description"
-    [artist]="playlist.owner.display_name"
-    [trackCount]="playlist.tracks.total"
-    [likesCount]="$any(playlist)?.followers?.total"
-  >
-  </as-media-summary>
-  <div class="pt-0 pb-6 playlist-action">
-    <as-play-button
-      [large]="true"
-      [primary]="true"
-      [isPlaying]="isPlaylistPlaying$ | async"
-      (togglePlay)="togglePlaylist($event)"
-    >
-    </as-play-button>
+@if (playlist$ | async; as playlist) {
+  <div class="content-spacing">
+    <as-media-summary
+      type="Playlist"
+      [title]="playlist.name"
+      [imageUrl]="playlist.images[0]?.url"
+      [description]="playlist.description"
+      [artist]="playlist.owner.display_name"
+      [trackCount]="playlist.tracks.total"
+      [likesCount]="$any(playlist)?.followers?.total"
+      >
+    </as-media-summary>
+    <div class="pt-0 pb-6 playlist-action">
+      <as-play-button
+        [large]="true"
+        [primary]="true"
+        [isPlaying]="isPlaylistPlaying$ | async"
+        (togglePlay)="togglePlaylist($event)"
+        >
+      </as-play-button>
+    </div>
   </div>
-</div>
+}
 
 <div class="px-8">
   <as-media-table-header>
@@ -31,24 +33,31 @@
     </div>
   </as-media-table-header>
 
-  <div class="mb-8" *ngIf="tracks$ | async as tracks">
-    <ng-container *ngFor="let item of tracks.items; let idx = index">
-      <as-playlist-track
-        *ngIf="item.track"
-        [item]="item"
-        [index]="idx"
-        [contextUri]="getPlaylistContextUri(playlistId$ | async)"
-        (dblclick)="playTrack(idx)"
-      >
-      </as-playlist-track>
-    </ng-container>
+  @if (tracks$ | async; as tracks) {
+    <div class="mb-8">
+      @for (item of tracks.items; track item; let idx = $index) {
+        @if (item.track) {
+          <as-playlist-track
+            [item]="item"
+            [index]="idx"
+            [contextUri]="getPlaylistContextUri(playlistId$ | async)"
+            (dblclick)="playTrack(idx)"
+            >
+          </as-playlist-track>
+        }
+      }
+    </div>
+  }
+</div>
+
+@if (isCurrentPlaylistLoading$ | async) {
+  <div class="px-8 mb-5">
+    <as-tracks-loading [avatar]="true"> </as-tracks-loading>
   </div>
-</div>
+}
 
-<div class="px-8 mb-5" *ngIf="isCurrentPlaylistLoading$ | async">
-  <as-tracks-loading [avatar]="true"> </as-tracks-loading>
-</div>
-
-<div class="px-8" *ngIf="isPlaylistTracksLoading$ | async">
-  <as-tracks-loading [rows]="10"></as-tracks-loading>
-</div>
+@if (isPlaylistTracksLoading$ | async) {
+  <div class="px-8">
+    <as-tracks-loading [rows]="10"></as-tracks-loading>
+  </div>
+}

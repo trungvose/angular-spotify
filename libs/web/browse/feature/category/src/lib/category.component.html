@@ -1,10 +1,12 @@
 <div class="content-spacing">
-  <h2 class="mb-4 text-heading"
-      *ngIf="category$ | async as category">{{ category.name }}
-  </h2>
+  @if (category$ | async; as category) {
+    <h2 class="mb-4 text-heading"
+      >{{ category.name }}
+    </h2>
+  }
   <ng-container *ngrxLet="playlists$ as playlists">
     <as-playlist-list [isLoading]="!playlists"
-                      [playlists]="$any(playlists)">
+      [playlists]="$any(playlists)">
     </as-playlist-list>
   </ng-container>
 </div>

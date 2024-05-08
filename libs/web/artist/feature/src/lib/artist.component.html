@@ -1,17 +1,17 @@
-<ng-container *ngIf="artist$ | async as artist">
+@if (artist$ | async; as artist) {
   <div class="content-spacing">
     <as-media-summary
       [type]="'Artist'"
       [title]="artist.name"
       [imageUrl]="artist.images[0]?.url"
       [followerCount]="artist.followers.total"
-    >
+      >
     </as-media-summary>
-
-    <div class="px-8 mb-5" *ngIf="isArtistLoading$ | async">
-      <as-tracks-loading [avatar]="true"> </as-tracks-loading>
-    </div>
-
+    @if (isArtistLoading$ | async) {
+      <div class="px-8 mb-5">
+        <as-tracks-loading [avatar]="true"> </as-tracks-loading>
+      </div>
+    }
     <as-artist-top-tracks></as-artist-top-tracks>
   </div>
-</ng-container>
+}

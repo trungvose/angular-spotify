@@ -2,10 +2,12 @@
   [ngClass]="['input-container', containerClassName]"
   [style.height.px]="inputContainerHeight"
   [style.border-radius]="rounded ? '500px' : '8px'"
->
-  <div *ngIf="icon" class="input-icon-container" [style.width.px]="iconContainerWidth">
-    <svg-icon [key]="icon" [size]="iconSize" color="black"> </svg-icon>
-  </div>
+  >
+  @if (icon) {
+    <div class="input-icon-container" [style.width.px]="iconContainerWidth">
+      <svg-icon [key]="icon" [size]="iconSize" color="black"> </svg-icon>
+    </div>
+  }
 
   <input
     #input
@@ -13,13 +15,14 @@
     [placeholder]="placeholder"
     [style.padding-left.px]="icon ? iconContainerWidth : 4"
     [style.padding-right.px]="showClearButton ? iconContainerWidth : 4"
-  />
+    />
 
-  <div
-    *ngIf="showClearButton"
-    class="input-icon-container right"
-    [style.width.px]="iconContainerWidth"
-  >
-    <svg-icon [key]="'times'" [size]="iconSize" color="black" (click)="clear()"> </svg-icon>
-  </div>
+  @if (showClearButton) {
+    <div
+      class="input-icon-container right"
+      [style.width.px]="iconContainerWidth"
+      >
+      <svg-icon [key]="'times'" [size]="iconSize" color="black" (click)="clear()"> </svg-icon>
+    </div>
+  }
 </div>
