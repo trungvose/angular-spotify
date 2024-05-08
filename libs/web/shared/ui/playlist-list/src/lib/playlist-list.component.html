@@ -1,6 +1,7 @@
 <div class="common-grid"
      *ngIf="playlists">
   <as-card *ngFor="let playlist of playlists.items"
+            [ngClass]="viewTransitionName(playlist)"
             [title]="playlist.name"
             [uri]="playlist.uri"
             [description]="playlist.description"

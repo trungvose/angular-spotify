@@ -1,6 +1,7 @@
 <div class="content-spacing">
   <ng-container *ngIf="album$ | async as album">
     <as-media-summary type="Album"
+                      class="with-view-transition"
                       [title]="album.name"
                       [imageUrl]="album.images[0]?.url"
                       [artist]="album.artists[0]?.name"

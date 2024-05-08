@@ -5,7 +5,7 @@ import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import { provideRouter, RouterModule, withViewTransitions } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import * as Sentry from '@sentry/angular';
@@ -24,6 +24,7 @@ import {
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { extModules } from './build-specifics';
+import { onViewTransitionCreated } from '@angular-spotify/shared/view-transition';
 registerLocaleData(en);
 
 const rootReducers = {
@@ -37,9 +38,6 @@ const rootReducers = {
     WebLayoutModule,
     IconModule,
     NoopAnimationsModule,
-    RouterModule.forRoot(webShellRoutes, {
-      scrollPositionRestoration: 'top'
-    }),
     StoreModule.forRoot(rootReducers),
     EffectsModule.forRoot([ApplicationEffects, PlaylistsEffect, PlaylistTracksEffect]),
     SettingsModule,
@@ -60,8 +58,14 @@ const rootReducers = {
         store.dispatch(AppInit());
       },
       multi: true,
-      deps: [Store],
-    }
+      deps: [Store]
+    },
+    provideRouter(
+      webShellRoutes,
+      withViewTransitions({
+        onViewTransitionCreated
+      })
+    )
   ],
   declarations: []
 })
