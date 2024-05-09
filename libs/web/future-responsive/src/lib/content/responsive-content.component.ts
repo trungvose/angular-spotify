@@ -62,24 +62,25 @@ import {
         </section>
       </div>
     </div>
-
+    
     <div class="w-[632px] mx-auto py-10 px-4 mt-20" dataSizeObserver [top]="true" resizable>
       <as-flex-form  />
     </div>
-
+    
     <ng-template #cards let-albums="albums">
-      <as-card
-        *ngFor="let item of albums"
-        [title]="item.album.name"
-        [uri]="item.album.uri"
-        [description]="item.album.artists[0].name"
-        [imageUrl]="item.album.images[0]?.url"
-        [routerUrl]="item.album.id"
-        (togglePlay)="togglePlay($event, item.album.uri)"
-      >
-      </as-card>
+      @for (item of albums; track item) {
+        <as-card
+          [title]="item.album.name"
+          [uri]="item.album.uri"
+          [description]="item.album.artists[0].name"
+          [imageUrl]="item.album.images[0]?.url"
+          [routerUrl]="item.album.id"
+          (togglePlay)="togglePlay($event, item.album.uri)"
+          >
+        </as-card>
+      }
     </ng-template>
-  `
+    `
 })
 export class ResponsiveToContentComponent {
   response = mockAlbums as SpotifyApi.UsersSavedAlbumsResponse;

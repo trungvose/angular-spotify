@@ -1,12 +1,18 @@
-<div *ngIf="avatar" class="flex gap-8">
-  <as-skeleton class="w-32 h-32 flex-shrink-0"></as-skeleton>
-  <div class="flex flex-col flex-1 gap-4">
-    <as-skeleton class="w-full h-8"></as-skeleton>
-    <as-skeleton class="w-full h-12"></as-skeleton>
-    <as-skeleton class="w-full h-8"></as-skeleton>
+@if (avatar) {
+  <div class="flex gap-8">
+    <as-skeleton class="w-32 h-32 flex-shrink-0"></as-skeleton>
+    <div class="flex flex-col flex-1 gap-4">
+      <as-skeleton class="w-full h-8"></as-skeleton>
+      <as-skeleton class="w-full h-12"></as-skeleton>
+      <as-skeleton class="w-full h-8"></as-skeleton>
+    </div>
   </div>
-</div>
+}
 
-<div *ngIf="!avatar" class="flex flex-col gap-4">
-  <as-skeleton class="w-full h-8" *ngFor="let row of skeletonRows"></as-skeleton>
-</div>
+@if (!avatar) {
+  <div class="flex flex-col gap-4">
+    @for (row of skeletonRows; track row) {
+      <as-skeleton class="w-full h-8"></as-skeleton>
+    }
+  </div>
+}

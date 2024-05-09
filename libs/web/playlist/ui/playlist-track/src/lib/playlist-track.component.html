@@ -1,16 +1,18 @@
-<as-media-table-row *ngIf="item" class="playlist-tracks-grid track-row">
-  <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
-    <as-media-order [index]="index + 1" [isPlaying]="isPlaying!" (togglePlay)="togglePlayTrack($event)">
-    </as-media-order>
-    <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"></as-track-main-info>
-  </ng-container>
-  <a class="text-description link-subtle hover:underline" [routerLink]="albumRouteUrl">
-    {{ item.track.album?.name }}
-  </a>
-  <div class="text-description" [title]="item.added_at | date: 'medium'">
-    {{ item.added_at | date }}
-  </div>
-  <div class="text-description">
-    {{ item.track.duration_ms | duration }}
-  </div>
-</as-media-table-row>
+@if (item) {
+  <as-media-table-row class="playlist-tracks-grid track-row">
+    <ng-container *ngrxLet="isTrackPlaying$ as isPlaying">
+      <as-media-order [index]="index + 1" [isPlaying]="isPlaying!" (togglePlay)="togglePlayTrack($event)">
+      </as-media-order>
+      <as-track-main-info [track]="item.track" [isPlaying]="isPlaying"></as-track-main-info>
+    </ng-container>
+    <a class="text-description link-subtle hover:underline" [routerLink]="albumRouteUrl">
+      {{ item.track.album?.name }}
+    </a>
+    <div class="text-description" [title]="item.added_at | date: 'medium'">
+      {{ item.added_at | date }}
+    </div>
+    <div class="text-description">
+      {{ item.track.duration_ms | duration }}
+    </div>
+  </as-media-table-row>
+}

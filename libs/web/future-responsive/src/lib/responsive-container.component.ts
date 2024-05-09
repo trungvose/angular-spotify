@@ -38,20 +38,21 @@ import * as mockAlbums from './albums.mock.json';
         <ng-container *ngTemplateOutlet="cards; context: { albums: singleAlbum }"></ng-container>
       </div>
     </div>
-
+    
     <ng-template #cards let-albums="albums">
-      <as-card
-        *ngFor="let item of albums"
-        [title]="item.album.name"
-        [uri]="item.album.uri"
-        [description]="item.album.artists[0].name"
-        [imageUrl]="item.album.images[0]?.url"
-        [routerUrl]="item.album.id"
-        (togglePlay)="togglePlay($event, item.album.uri)"
-      >
-      </as-card>
+      @for (item of albums; track item) {
+        <as-card
+          [title]="item.album.name"
+          [uri]="item.album.uri"
+          [description]="item.album.artists[0].name"
+          [imageUrl]="item.album.images[0]?.url"
+          [routerUrl]="item.album.id"
+          (togglePlay)="togglePlay($event, item.album.uri)"
+          >
+        </as-card>
+      }
     </ng-template>
-  `
+    `
 })
 export class ResponsiveToContainerComponent {
   response = mockAlbums as SpotifyApi.UsersSavedAlbumsResponse;

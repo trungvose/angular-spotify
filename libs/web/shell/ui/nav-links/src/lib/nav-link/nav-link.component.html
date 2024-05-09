@@ -4,18 +4,19 @@
   routerLinkActive="active"
   [title]="playlistWithRoute.name"
   [ngClass]="{ 'nav-link link-subtle': true, '!text-primary': isPlaying }"
->
+  >
   <as-media-cover [imageUrl]="playlistWithRoute.images[0]?.url" />
   <span [class]="{ 'ellipsis-one-line': true, 'pr-6': isPlaying }">
     {{ playlistWithRoute.name }}
   </span>
-  <as-play-button
-    *ngIf="isPlaying"
-    class="absolute right-2"
-    [flatIcon]="true"
-    [isShowVolumeIcon]="true"
-    [isPlaying]="isPlaying"
-    (togglePlay)="togglePlaylist($event)"
-  >
-  </as-play-button>
+  @if (isPlaying) {
+    <as-play-button
+      class="absolute right-2"
+      [flatIcon]="true"
+      [isShowVolumeIcon]="true"
+      [isPlaying]="isPlaying"
+      (togglePlay)="togglePlaylist($event)"
+      >
+    </as-play-button>
+  }
 </a>

@@ -1,7 +1,13 @@
 <div class="mx-6 bg-highlight border-none h-[1px] min-h-[1px]"></div>
-<ul class="pt-2 pb-1 px-0 overflow-auto" *ngIf="playlists$ | async as playlists">
-  <li *ngFor="let playlist of playlists.items">
-    <as-nav-link [playlist]="playlist" />
-  </li>
-</ul>
-<as-spinner *ngIf="isPlaylistsLoading$ | async" [size]="'lg'"> </as-spinner>
+@if (playlists$ | async; as playlists) {
+  <ul class="pt-2 pb-1 px-0 overflow-auto">
+    @for (playlist of playlists.items; track playlist) {
+      <li>
+        <as-nav-link [playlist]="playlist" />
+      </li>
+    }
+  </ul>
+}
+@if (isPlaylistsLoading$ | async) {
+  <as-spinner [size]="'lg'"> </as-spinner>
+}

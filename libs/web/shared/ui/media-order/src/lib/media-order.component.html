@@ -1,18 +1,19 @@
 <div class="flex group">
   <div class="flex group-hover:hidden track-order">
-    <img *ngIf="isPlaying; else indexTmpl"
-         class="animated-equalizer"
-         src="/assets/images/equaliser-animated-green.gif"
-         alt="Playing" />
+    @if (isPlaying) {
+      <img
+        class="animated-equalizer"
+        src="/assets/images/equaliser-animated-green.gif"
+        alt="Playing" />
+    } @else {
+      <span class="text-description">{{ index }}</span>
+    }
   </div>
 
 
   <as-play-button class="hidden pt-1 group-hover:block track-play-button"
-                  [flatIcon]="true"
-                  [isPlaying]="isPlaying"
-                  (togglePlay)="togglePlay.emit($event)">
+    [flatIcon]="true"
+    [isPlaying]="isPlaying"
+    (togglePlay)="togglePlay.emit($event)">
   </as-play-button>
 </div>
-<ng-template #indexTmpl>
-  <span class="text-description">{{ index }}</span>
-</ng-template>
