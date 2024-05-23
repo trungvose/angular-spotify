@@ -1,13 +1,12 @@
 <div class="content-spacing">
-  <ng-container *ngIf="vm$ | async as vm">
+  @if (vm$ | async; as vm) {
     <as-media-summary
       type="Playlist"
       [imageUrl]="'/assets/images/totoro.jpg'"
       [title]="'Liked Songs'"
       [trackCount]="vm.data?.total"
-    >
+      >
     </as-media-summary>
-
     <as-media-table-header>
       <div class="playlist-tracks-grid">
         <div>#</div>
@@ -17,23 +16,24 @@
         <svg-icon [key]="'clock'" title="duration"> </svg-icon>
       </div>
     </as-media-table-header>
-
     <div class="mb-8">
-      <ng-container *ngFor="let item of vm.data?.items; let idx = index">
-        <as-playlist-track
-          *ngIf="item.track"
-          type="LIKE_SONGS"
-          [item]="$any(item)"
-          [index]="idx"
-          [contextUri]="item.track.album.uri"
-          (dblclick)="playTrack(item.track)"
-        >
-        </as-playlist-track>
-      </ng-container>
+      @for (item of vm.data?.items; track item; let idx = $index) {
+        @if (item.track) {
+          <as-playlist-track
+            type="LIKE_SONGS"
+            [item]="$any(item)"
+            [index]="idx"
+            [contextUri]="item.track.album.uri"
+            (dblclick)="playTrack(item.track)"
+            >
+          </as-playlist-track>
+        }
+      }
     </div>
-
-    <div class="px-8 mb-5 album-loading" *ngIf="vm.isLoading">
-      <as-tracks-loading [avatar]="true"> </as-tracks-loading>
-    </div>
-  </ng-container>
+    @if (vm.isLoading) {
+      <div class="px-8 mb-5 album-loading">
+        <as-tracks-loading [avatar]="true"> </as-tracks-loading>
+      </div>
+    }
+  }
 </div>

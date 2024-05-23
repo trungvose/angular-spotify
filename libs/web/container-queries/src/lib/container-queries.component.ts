@@ -28,44 +28,45 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
           target="_blank"
           href="https://trungk18.com/wdc23"
           >👉 View my slide</a
-        >
-      </div>
-      <div class="grid gap-6">
-        <section class="featured-grid gap-6">
-          <ng-container
-            *ngTemplateOutlet="cards; context: { albums: featureAlbumsTwo }"
-          ></ng-container>
-        </section>
-        <section class="featured-grid gap-6">
-          <ng-container
-            *ngTemplateOutlet="cards; context: { albums: featureAlbumsThree }"
-          ></ng-container>
-        </section>
-        <section class="common-grid gap-6">
-          <ng-container *ngTemplateOutlet="cards; context: { albums: albums }"></ng-container>
-        </section>
-      </div>
-      <h2 class="text-3xl text-white my-8">Card Playground 🇦🇺</h2>
-      <div class="grid place-items-center min-h-[600px]">
-        <div class="min-w-[180px] resize-x overflow-auto">
-          <ng-container *ngTemplateOutlet="cards; context: { albums: singleAlbum }"></ng-container>
+          >
+        </div>
+        <div class="grid gap-6">
+          <section class="featured-grid gap-6">
+            <ng-container
+              *ngTemplateOutlet="cards; context: { albums: featureAlbumsTwo }"
+            ></ng-container>
+          </section>
+          <section class="featured-grid gap-6">
+            <ng-container
+              *ngTemplateOutlet="cards; context: { albums: featureAlbumsThree }"
+            ></ng-container>
+          </section>
+          <section class="common-grid gap-6">
+            <ng-container *ngTemplateOutlet="cards; context: { albums: albums }"></ng-container>
+          </section>
+        </div>
+        <h2 class="text-3xl text-white my-8">Card Playground 🇦🇺</h2>
+        <div class="grid place-items-center min-h-[600px]">
+          <div class="min-w-[180px] resize-x overflow-auto">
+            <ng-container *ngTemplateOutlet="cards; context: { albums: singleAlbum }"></ng-container>
+          </div>
         </div>
       </div>
-    </div>
-
-    <ng-template #cards let-albums="albums">
-      <as-card
-        *ngFor="let item of albums"
-        [title]="item.album.name"
-        [uri]="item.album.uri"
-        [description]="item.album.artists[0].name"
-        [imageUrl]="item.album.images[0]?.url"
-        [routerUrl]="item.album.id"
-        (togglePlay)="togglePlay($event, item.album.uri)"
-      >
-      </as-card>
-    </ng-template>
-  `
+    
+      <ng-template #cards let-albums="albums">
+        @for (item of albums; track item) {
+          <as-card
+            [title]="item.album.name"
+            [uri]="item.album.uri"
+            [description]="item.album.artists[0].name"
+            [imageUrl]="item.album.images[0]?.url"
+            [routerUrl]="item.album.id"
+            (togglePlay)="togglePlay($event, item.album.uri)"
+            >
+          </as-card>
+        }
+      </ng-template>
+    `
 })
 export class ContainerQueriesComponent {
   response = mockAlbums as SpotifyApi.UsersSavedAlbumsResponse;

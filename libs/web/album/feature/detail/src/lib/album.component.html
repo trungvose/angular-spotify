@@ -1,21 +1,20 @@
 <div class="content-spacing">
-  <ng-container *ngIf="album$ | async as album">
+  @if (album$ | async; as album) {
     <as-media-summary type="Album"
-                      class="with-view-transition"
-                      [title]="album.name"
-                      [imageUrl]="album.images[0]?.url"
-                      [artist]="album.artists[0]?.name"
-                      [trackCount]="album.tracks.total"
-                      [releaseDate]="album.release_date">
+      class="with-view-transition"
+      [title]="album.name"
+      [imageUrl]="album.images[0]?.url"
+      [artist]="album.artists[0]?.name"
+      [trackCount]="album.tracks.total"
+      [releaseDate]="album.release_date">
     </as-media-summary>
     <div class="pt-0 pb-6">
       <as-play-button [large]="true"
-                      [primary]="true"
-                      [isPlaying]="isAlbumPlaying$ | async"
-                      (togglePlay)="toggleAlbum($event, album?.uri!)">
+        [primary]="true"
+        [isPlaying]="isAlbumPlaying$ | async"
+        (togglePlay)="toggleAlbum($event, album?.uri!)">
       </as-play-button>
     </div>
-
     <as-media-table-header>
       <div class="album-tracks-grid">
         <div>#</div>
@@ -23,18 +22,21 @@
         <svg-icon [key]="'clock'" title="duration"></svg-icon>
       </div>
     </as-media-table-header>
-
     <div class="mb-8">
-      <as-album-track *ngFor="let track of album.tracks.items"
-                      [contextUri]="album.uri"
-                      [track]="track">
-      </as-album-track>
+      @for (track of album.tracks.items; track track) {
+        <as-album-track
+          [contextUri]="album.uri"
+          [track]="track">
+        </as-album-track>
+      }
     </div>
-  </ng-container>
+  }
 
-  <div class="px-8 mb-5 album-loading"
-       *ngIf="isAlbumLoading$ | async">
-    <as-tracks-loading [avatar]="true">
-    </as-tracks-loading>
-  </div>
+  @if (isAlbumLoading$ | async) {
+    <div class="px-8 mb-5 album-loading"
+      >
+      <as-tracks-loading [avatar]="true">
+      </as-tracks-loading>
+    </div>
+  }
 </div>

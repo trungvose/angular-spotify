@@ -3,23 +3,25 @@
 </a>
 
 <ul class="m-0">
-  <li *ngFor="let item of navItems$ | async" class="nav-link-container">
-    <a
-      #link="routerLinkActive"
-      [routerLink]="item.path"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: item.exact! }"
-      class="flex gap-4 items-center px-6 nav-link link-subtle transition-all"
-    >
-      <svg-icon
-        class="transition-all"
-        [size]="'lg'"
-        [key]="link.isActive && item.iconSelected ? item.iconSelected : item.icon!"
-        title="duration"
-      ></svg-icon>
-      {{ item.label }}
-    </a>
-  </li>
+  @for (item of navItems$ | async; track item) {
+    <li class="nav-link-container">
+      <a
+        #link="routerLinkActive"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.exact! }"
+        class="flex gap-4 items-center px-6 nav-link link-subtle transition-all"
+        >
+        <svg-icon
+          class="transition-all"
+          [size]="'lg'"
+          [key]="link.isActive && item.iconSelected ? item.iconSelected : item.icon!"
+          title="duration"
+        ></svg-icon>
+        {{ item.label }}
+      </a>
+    </li>
+  }
 </ul>
 
 <as-nav-links />

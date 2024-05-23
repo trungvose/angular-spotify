@@ -3,12 +3,13 @@
   [nzTooltipTitle]="titleTmpl"
   *ngrxLet="isVisualizationOn$ as isOn"
   class="flex items-center gap-2"
->
-  <svg-icon
-    *ngIf="isPlaying$ | async"
-    class="text-primary"
-    [key]="'audio-animated'"
-  ></svg-icon>
+  >
+  @if (isPlaying$ | async) {
+    <svg-icon
+      class="text-primary"
+      [key]="'audio-animated'"
+    ></svg-icon>
+  }
   <nz-switch [ngModel]="isOn" (ngModelChange)="toggle($event)"> </nz-switch>
   <ng-template #titleTmpl> Turn {{ isOn ? 'off' : 'on' }} the cool visualizer! </ng-template>
 </div>
