@@ -2,22 +2,15 @@
   view-transition-name: media-cover;
 }
 
-// @keyframes slide-from-right {
-//   from {
-//     transform: translateX(300px);
-//   }
-// }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-// @keyframes slide-to-left {
-//   to {
-//     transform: translateX(-300px);
-//   }
-// }
-
-// ::view-transition-old(root) {
-//   animation: slide-to-left 2s ease;
-// }
-
-// ::view-transition-new(root) {
-//   animation: slide-from-right 2s ease;
+// ::view-transition-new(media-cover) {
+//   animation: spin 500ms;
 // }

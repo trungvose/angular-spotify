@@ -4,7 +4,7 @@
   "sourceRoot": "libs/shared/view-transition/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:web", "type:data-access"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
