@@ -1,11 +1,18 @@
-.with-view-transition as-media-cover {
-  view-transition-name: media-cover;
+.with-view-transition {
+  as-media-cover {
+    view-transition-name: media-cover;
+  }
+
+  h2 {
+    view-transition-name: media-title;
+  }
 }
 
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
