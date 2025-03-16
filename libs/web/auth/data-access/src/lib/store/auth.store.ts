@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { filter, map, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
 import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
@@ -74,7 +74,6 @@ export class AuthStore extends ComponentStore<AuthState> {
       console.info('Authorize has not been found, redirecting to authorize');
       LocalStorageService.setItem('PATH', window.location.pathname);
       this.redirectToAuthorize();
-      return of(void 0);
     }
 
     return this.route.fragment.pipe(
