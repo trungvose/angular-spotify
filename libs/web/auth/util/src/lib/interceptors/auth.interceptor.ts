@@ -15,6 +15,13 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authStore: AuthStore) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const excludedUrls = ['https://accounts.spotify.com/api/token'];
+
+    // Verificar si la URL de la solicitud está en la lista de exclusión
+    if (excludedUrls.includes(req.url)) {
+      return next.handle(req); // No añadir Authorization header
+    }
+
     return this.authStore.token$.pipe(
       take(1),
       switchMap((token) => {
