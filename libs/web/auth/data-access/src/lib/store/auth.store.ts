@@ -91,16 +91,6 @@ export class AuthStore extends ComponentStore<AuthState> {
     );
   }
 
-  private mapAuthenticationResponse() {
-    return (params: URLSearchParams) => ({
-      accessToken: params.get('access_token'),
-      tokenType: params.get('token_type'),
-      expiresIn: Number(params.get('expires_in')),
-      state: params.get('state'),
-      expiresAt: Math.floor(Date.now() / 1000) + Number(params.get('expires_in'))
-    });
-  }
-
   private handleAuthentication(sessionState: SessionState) {
     return (
       authenticationData:
@@ -113,10 +103,20 @@ export class AuthStore extends ComponentStore<AuthState> {
       sessionStorage.setItem('SESSION', JSON.stringify(authenticationData));
       console.info('[Angular Spotify] Authenticated!');
       this.getUserInfo();
-      if (sessionState === SessionState.ExistingSession) {
+      if (sessionState === SessionState.NewSession) {
         this.router.navigate([LocalStorageService.initialState?.path || '/']);
       }
     };
+  }
+
+  private mapAuthenticationResponse() {
+    return (params: URLSearchParams) => ({
+      accessToken: params.get('access_token'),
+      tokenType: params.get('token_type'),
+      expiresIn: Number(params.get('expires_in')),
+      state: params.get('state'),
+      expiresAt: Math.floor(Date.now() / 1000) + Number(params.get('expires_in'))
+    });
   }
 
   private getUserInfo() {
