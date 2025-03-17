@@ -39,7 +39,8 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly userProduct$ = this.select((s) => s.product);
   readonly userAvatar$ = this.select(
     (s) =>
-      (s.images && s.images[0]?.url) || 'https://avatars.githubusercontent.com/u/66833983?s=200&v=4'
+      (s.images && s.images[0]?.url) ||
+      'https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0='
   );
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => ({
     ...state,
@@ -48,64 +49,105 @@ export class AuthStore extends ComponentStore<AuthState> {
 
   readonly init = this.effect((params$) => params$.pipe(switchMapTo(this.initAuth())));
 
+  redirectToAuthorize() {
+    const spotifyAuthorize = new SpotifyAuthorize();
+    window.location.href = spotifyAuthorize.createAuthorizeURL();
+  }
+
   private initAuth() {
-    const storedSession = sessionStorage.getItem('SESSION');
+    const storedSession = <string>sessionStorage.getItem('SESSION');
 
     if (storedSession) {
-      LocalStorageService.setItem('PATH', window.location.pathname);
-      console.debug("[Angular Spotify] Existing session, retrieving information");
+      const sessionData = JSON.parse(storedSession);
+      this.savePath();
+      console.info('[Angular Spotify] Existing session, retrieving information');
+
+      if (this.isTokenExpired(sessionData.expiresAt)) {
+        console.info('[Angular Spotify] Cleaning expired session!');
+        this.clearSessionAndRedirectToAuthorize();
+      }
+
       return this.route.fragment.pipe(
-        map(() =>  JSON.parse(<string>sessionStorage.getItem('SESSION'))),
-        tap((sessionData) => {
-
-          this.patchState(sessionData);
-          this.store.dispatch(AuthReady());
-          console.info('[Angular Spotify] Authenticated from Session!');
-
-          // Get user info
-          this.spotify.getMe().subscribe((user) => {
-            this.setCurrentUser(user);
-          });
-        })
+        map(() => sessionData),
+        tap(this.handleAuthenticationFromExistingSession())
       );
     }
 
     if (!window.location.hash) {
-      console.info('Authorize has not been found, redirecting to authorize');
-      LocalStorageService.setItem('PATH', window.location.pathname);
+      this.savePath();
       this.redirectToAuthorize();
     }
 
     return this.route.fragment.pipe(
       filter((fragment) => !!fragment),
       map((fragment) => new URLSearchParams(fragment as string)),
-      map((params) => ({
-        accessToken: params.get('access_token'),
-        tokenType: params.get('token_type'),
-        expiresIn: Number(params.get('expires_in')),
-        state: params.get('state'),
-        expiresAt: Number(params.get('expires_in'))
-      })),
-      tap((params) => {
-        this.patchState(params);
-        this.store.dispatch(AuthReady());
-        console.info('[Angular Spotify] Authenticated!');
-
-        sessionStorage.setItem('SESSION', JSON.stringify(params));
-
-        // Get user info
-        this.spotify.getMe().subscribe((user) => {
-          this.setCurrentUser(user);
-        });
-
-        this.router.navigate([LocalStorageService.initialState?.path || '/']);
-      })
+      map(this.mapAuthenticationResponse()),
+      tap(this.handleAuthentication())
     );
   }
 
+  private mapAuthenticationResponse() {
+    return (params: URLSearchParams) => ({
+      accessToken: params.get('access_token'),
+      tokenType: params.get('token_type'),
+      expiresIn: Number(params.get('expires_in')),
+      state: params.get('state'),
+      expiresAt: Math.floor(Date.now() / 1000) + Number(params.get('expires_in'))
+    });
+  }
 
-  redirectToAuthorize() {
-    const spotifyAuthorize = new SpotifyAuthorize();
-    window.location.href = spotifyAuthorize.createAuthorizeURL();
+  private handleAuthentication() {
+    return (
+      authenticationData:
+        | Partial<AuthState>
+        | Observable<Partial<AuthState>>
+        | ((state: AuthState) => Partial<AuthState>)
+    ) => {
+      this.patchState(authenticationData);
+      this.store.dispatch(AuthReady());
+      sessionStorage.setItem('SESSION', JSON.stringify(authenticationData));
+      console.info('[Angular Spotify] Authenticated!');
+      this.getUserInfo();
+      this.router.navigate([LocalStorageService.initialState?.path || '/']);
+    };
+  }
+
+  private handleAuthenticationFromExistingSession() {
+    return (
+      sessionData:
+        | Partial<AuthState>
+        | Observable<Partial<AuthState>>
+        | ((state: AuthState) => Partial<AuthState>)
+    ) => {
+      this.patchState(sessionData);
+      this.store.dispatch(AuthReady());
+      console.info('[Angular Spotify] Authenticated from Session!');
+      this.getUserInfo();
+    };
+  }
+
+  private getUserInfo() {
+    this.spotify.getMe().subscribe((user) => {
+      this.setCurrentUser(user);
+    });
+  }
+
+  private clearSessionAndRedirectToAuthorize() {
+    console.warn('[Angular Spotify] Clearing session and redirecting to authorize');
+    sessionStorage.removeItem('SESSION');
+    sessionStorage.removeItem('USER-DATA');
+    LocalStorageService.removeItem('PATH');
+    this.setState(<AuthState>{});
+    this.redirectToAuthorize();
+  }
+
+  private savePath() {
+    console.log('Saving Path', window.location.pathname);
+    LocalStorageService.setItem('PATH', window.location.pathname);
+  }
+
+  private isTokenExpired(expiresAt: number): boolean {
+    const now = Math.floor(Date.now() / 1000);
+    return now >= expiresAt;
   }
 }
