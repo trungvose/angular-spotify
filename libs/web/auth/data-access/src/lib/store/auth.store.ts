@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { filter, map, switchMapTo, tap } from 'rxjs/operators';
+import { filter, finalize, last, map, switchMap, switchMapTo, tap } from 'rxjs/operators';
 import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
@@ -58,12 +58,10 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly init = this.effect((params$) => params$.pipe(switchMapTo(this.initAuth())));
 
   private initAuth() {
-
-    this.savePath();
-
     const storedSession = <string>sessionStorage.getItem('SESSION');
 
     if (storedSession) {
+
       const sessionData = JSON.parse(storedSession);
       this.savePath();
       console.info('[Angular Spotify] Existing session, retrieving information');
@@ -85,6 +83,8 @@ export class AuthStore extends ComponentStore<AuthState> {
           console.info('[Angular Spotify] Authenticated!');
         })
       );
+    } else {
+      console.log("No Auth Store Found");
     }
 
     const queryParams = this.route.snapshot.queryParams;
@@ -98,28 +98,63 @@ export class AuthStore extends ComponentStore<AuthState> {
     console.info('[Angular Spotify] Creating new session');
 
     return this.route.queryParamMap.pipe(
-      tap((params) => console.log("[Angular Spotify] Raw Query Params", params)),// Filter out empty query params
-      map((params) => ({
+      tap((params) => console.log("[Angular Spotify] Raw Query Params", params)),
+      map(() => ({
         authorizationCode: new URLSearchParams(window.location.search).get('code'),
       })),
-      tap((authResponse) => {
+      switchMap((authResponse) => {
         console.log("[Angular Spotify] Query params!", authResponse);
         const authorizationCode = authResponse.authorizationCode ?? 'No authorization code';
 
-        this.getAccessToken(authorizationCode);
+        return new Observable((observer) => {
+          this.getAccessToken(authorizationCode)!.subscribe({
+            next: (authData) => {
+              console.info("[Angular Spotify] Retrieved Token Info", JSON.stringify(authData));
 
-        const storedSession = <string>sessionStorage.getItem('SESSION');
-        const authenticationData = JSON.parse(storedSession);
+              const sessionData = {
+                expiresIn: authData.expires_in,
+                expiresAt: Date.now() + authData.expires_in * 1000,
+                accessToken: authData.access_token,
+                refreshToken: authData.refresh_token,
+                scope: authData.scope,
+              };
+
+              console.info("[Angular Spotify] Storing Token Info", JSON.stringify(sessionData));
+              sessionStorage.setItem("SESSION", JSON.stringify(sessionData));
+              console.info("[Angular Spotify] Token Info Stored Successfully", JSON.stringify(sessionData));
+
+              const storedSession = <string>sessionStorage.getItem("SESSION");
+              const authenticationData = JSON.parse(storedSession);
+
+              this.patchState(authenticationData);
+              this.store.dispatch(AuthReady());
+
+              console.info("[Angular Spotify] Token Info Stored Sessions Succesfully", JSON.stringify(storedSession));
+
+              console.log("[Angular Spotify] Auth Finished!", authResponse);
+
+              this.getUserInfo();
+
+              this.router.navigate([LocalStorageService.initialState?.path || '/']);
+
+              observer.next(authData);
+              observer.complete();
 
 
-        this.patchState(authenticationData);
-        this.store.dispatch(AuthReady());
-
-        console.log("[Angular Spotify] Auth Finished!", authResponse);
-
-        this.router.navigate([LocalStorageService.initialState?.path || '/']);
+            },
+            error: (err) => {
+              console.error(err);
+              observer.error(err);
+            },
+          });
+        });
+      }),
+      last(),
+      finalize(() => {
+        console.log("Finalize action")
       })
     );
+
   }
 
   async redirectToAuthorize() {
@@ -130,7 +165,7 @@ export class AuthStore extends ComponentStore<AuthState> {
     window.location.href = this.spotifyAuthorize.createAuthorizeURL(codeChallenge);
   }
 
-  private getAccessToken(authCode: string): void {
+  private getAccessToken(authCode: string) {
     console.info('[Angular Spotify] Retrieving Generated Code Verifier');
 
     const codeVerifier = sessionStorage.getItem('CODE-VERIFIER');
@@ -143,31 +178,7 @@ export class AuthStore extends ComponentStore<AuthState> {
     console.info('[Angular Spotify] Auth Code value', authCode);
     console.info('[Angular Spotify] Code Verifier value', codeVerifier);
 
-    this.spotifyAuthorize.getAccessToken(authCode, codeVerifier).pipe(
-      tap((authData) => {
-        console.info('[Angular Spotify] Retrieved Token Info', JSON.stringify(authData));
-
-        const sessionData = {
-          expiresIn: authData.expires_in,
-          expiresAt: Date.now() + authData.expires_in * 1000,
-          accessToken: authData.access_token,
-          refreshToken: authData.refresh_token,
-          scope: authData.scope,
-        };
-
-        console.info('[Angular Spotify] Storing Token Info', JSON.stringify(sessionData));
-        sessionStorage.setItem('SESSION', JSON.stringify(sessionData));
-        console.info('[Angular Spotify] Token Info Stored Successfully', JSON.stringify(sessionData));
-      }),
-    ).subscribe(
-      () => {
-        console.log('[Angular Spotify] Access Token retrieved and session stored.');
-      },
-      (err) => {
-        console.error(err);
-        this.clearSessionAndRedirectToAuthorize();
-      }
-    );
+    return this.spotifyAuthorize.getAccessToken(authCode, codeVerifier);
   }
 
   private getUserInfo() {
