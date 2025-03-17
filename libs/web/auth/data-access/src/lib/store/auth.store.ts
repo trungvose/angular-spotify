@@ -20,6 +20,11 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   expiresAt?: number;
 }
 
+enum SessionState {
+  NewSession,
+  ExistingSession,
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthStore extends ComponentStore<AuthState> {
   constructor(
@@ -63,13 +68,13 @@ export class AuthStore extends ComponentStore<AuthState> {
       console.info('[Angular Spotify] Existing session, retrieving information');
 
       if (this.isTokenExpired(sessionData.expiresAt)) {
-        console.info('[Angular Spotify] Cleaning expired session!');
+        console.info('[Angular Spotify] Existing session has expired! Cleaning and authenticating again');
         this.clearSessionAndRedirectToAuthorize();
       }
 
       return this.route.fragment.pipe(
         map(() => sessionData),
-        tap(this.handleAuthenticationFromExistingSession())
+        tap(this.handleAuthentication(SessionState.ExistingSession))
       );
     }
 
@@ -82,7 +87,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       filter((fragment) => !!fragment),
       map((fragment) => new URLSearchParams(fragment as string)),
       map(this.mapAuthenticationResponse()),
-      tap(this.handleAuthentication())
+      tap(this.handleAuthentication(SessionState.NewSession))
     );
   }
 
@@ -96,7 +101,7 @@ export class AuthStore extends ComponentStore<AuthState> {
     });
   }
 
-  private handleAuthentication() {
+  private handleAuthentication(sessionState: SessionState) {
     return (
       authenticationData:
         | Partial<AuthState>
@@ -108,21 +113,9 @@ export class AuthStore extends ComponentStore<AuthState> {
       sessionStorage.setItem('SESSION', JSON.stringify(authenticationData));
       console.info('[Angular Spotify] Authenticated!');
       this.getUserInfo();
-      this.router.navigate([LocalStorageService.initialState?.path || '/']);
-    };
-  }
-
-  private handleAuthenticationFromExistingSession() {
-    return (
-      sessionData:
-        | Partial<AuthState>
-        | Observable<Partial<AuthState>>
-        | ((state: AuthState) => Partial<AuthState>)
-    ) => {
-      this.patchState(sessionData);
-      this.store.dispatch(AuthReady());
-      console.info('[Angular Spotify] Authenticated from Session!');
-      this.getUserInfo();
+      if (sessionState === SessionState.ExistingSession) {
+        this.router.navigate([LocalStorageService.initialState?.path || '/']);
+      }
     };
   }
 
@@ -135,7 +128,6 @@ export class AuthStore extends ComponentStore<AuthState> {
   private clearSessionAndRedirectToAuthorize() {
     console.warn('[Angular Spotify] Clearing session and redirecting to authorize');
     sessionStorage.removeItem('SESSION');
-    sessionStorage.removeItem('USER-DATA');
     LocalStorageService.removeItem('PATH');
     this.setState(<AuthState>{});
     this.redirectToAuthorize();
