@@ -57,6 +57,7 @@
     "@sentry/tracing": "6.8.0",
     "lodash-es": "4.17.21",
     "ng-zorro-antd": "15.1.0",
+    "ngx-cookie-service": "^19.1.2",
     "rxjs": "6.6.6",
     "sketch-js": "1.1.3",
     "tslib": "2.3.0",

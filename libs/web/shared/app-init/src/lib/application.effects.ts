@@ -6,7 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { combineLatest, throwError } from 'rxjs';
 import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { AppInit, AuthSessionReady, AuthCodeReady } from './app-init.action';
+import { AppInit, AuthSessionReady, AuthCodeReady, AuthExistingSession } from './app-init.action';
 import { GoogleAnalyticsService } from './google-analytics.service';
 import { PromptUpdateService } from './promp-update.service';
 
@@ -46,6 +46,21 @@ export class ApplicationEffects {
             return throwError(() => new Error('Missing authCode or codeVerifier'));
           }
           return this.authStore.initRetrieveAccessToken(authCode, codeVerifier);
+        })
+      ),
+    { dispatch: false }
+  );
+
+  initRetrieveRefreshToken$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(AuthExistingSession),
+        withLatestFrom(combineLatest([this.authStore.refreshToken$])),
+        switchMap(([_, [refreshToken]]) => {
+          if (!refreshToken) {
+            console.error('[Angular Spotify] Missing Refresh Token');
+            return throwError(() => new Error('Missing Refresh Token'));
+          }
+          return this.authStore.initRetrieveRefreshToken(refreshToken);
         })
       ),
     { dispatch: false }

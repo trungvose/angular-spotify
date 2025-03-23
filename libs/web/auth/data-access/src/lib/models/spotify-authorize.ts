@@ -2,6 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface AccessTokenResponse {
+  accessToken: string;
+  expiresIn: number;
+  expiresAt: number;
+  refreshToken: string;
+  scope: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class SpotifyAuthorize {
   private readonly SPOTIFY_AUTHORIZE_URL = 'https://accounts.spotify.com/authorize';
@@ -48,7 +56,19 @@ export class SpotifyAuthorize {
       .set('redirect_uri', this.REDIRECT_URI)
       .set('code_verifier', codeVerifier);
 
-    console.info("Making call to retrieve access token");
+    return this.http.post<{ access_token: string; token_type: string; expires_in: number, refresh_token: string,  scope: string }>(
+      this.SPOTIFY_TOKEN_URL,
+      body,
+      { headers }
+    );
+  }
+
+  getRefreshToken(refreshToken: string): Observable<{ access_token: string; token_type: string; expires_in: number, refresh_token: string,  scope: string }> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    const body = new HttpParams()
+      .set('client_id', this.CLIENT_ID)
+      .set('grant_type', 'refresh_token')
+      .set('refresh_token', refreshToken);
 
     return this.http.post<{ access_token: string; token_type: string; expires_in: number, refresh_token: string,  scope: string }>(
       this.SPOTIFY_TOKEN_URL,
@@ -58,21 +78,23 @@ export class SpotifyAuthorize {
   }
 
   async generateCodeChallenge(codeVerifier: string): Promise<string> {
-    const encoder = new TextEncoder()
-    const data = encoder.encode(codeVerifier)
-    const encrypt = await window.crypto.subtle.digest('SHA-256', data);
-    return btoa(String.fromCharCode(...new Uint8Array(encrypt)))
-      .replace(/=/g, '')
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_');
-
+    const encoder = new TextEncoder();
+    const data = encoder.encode(codeVerifier);
+    const digest = await crypto.subtle.digest('SHA-256', data);
+    return this.base64UrlEncode(new Uint8Array(digest));
   }
 
   generateCodeVerifier(): string {
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const values = crypto.getRandomValues(new Uint8Array(64));
-    return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+    const array = new Uint8Array(32); // PKCE recommends at least 32 bytes
+    crypto.getRandomValues(array);
+    return this.base64UrlEncode(array);
   }
 
+  private base64UrlEncode(buffer: Uint8Array): string {
+    return btoa(String.fromCharCode(...buffer))
+      .replace(/=/g, '')  // Remove padding
+      .replace(/\+/g, '-') // URL-safe
+      .replace(/\//g, '_');
+  }
 
 }
