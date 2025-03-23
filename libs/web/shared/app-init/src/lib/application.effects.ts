@@ -6,7 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { combineLatest, throwError } from 'rxjs';
 import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { AppInit, AuthAccessTokenReady, AuthCodeReady } from './app-init.action';
+import { AppInit, AuthSessionReady, AuthCodeReady } from './app-init.action';
 import { GoogleAnalyticsService } from './google-analytics.service';
 import { PromptUpdateService } from './promp-update.service';
 
@@ -28,7 +28,7 @@ export class ApplicationEffects {
       this.actions$.pipe(
         ofType(AppInit),
         tap(() => {
-          this.authStore.initAuthCode();
+          this.authStore.initAuthentication();
         })
       ),
     {
@@ -45,7 +45,7 @@ export class ApplicationEffects {
             console.error('[Angular Spotify] Missing authCode or codeVerifier');
             return throwError(() => new Error('Missing authCode or codeVerifier'));
           }
-          return this.authStore.initAccessToken(authCode, codeVerifier);
+          return this.authStore.initRetrieveAccessToken(authCode, codeVerifier);
         })
       ),
     { dispatch: false }
@@ -54,7 +54,7 @@ export class ApplicationEffects {
   initPlaybackSDK$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(AuthAccessTokenReady),
+        ofType(AuthSessionReady),
         withLatestFrom(combineLatest([this.authStore.token$, this.settingsFacade.volume$])),
         tap(([_, [token, volume]]) => {
           this.playbackService.initPlaybackSDK(token, volume);

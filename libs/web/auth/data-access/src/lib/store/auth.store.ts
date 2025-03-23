@@ -1,21 +1,16 @@
 // MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
 /// <reference types="spotify-api" />
 
-import { AuthAccessTokenReady, AuthCodeReady } from '@angular-spotify/web/shared/app-init';
+import { AuthSessionReady, AuthCodeReady } from '@angular-spotify/web/shared/app-init';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { Observable, throwError } from 'rxjs';
-import { catchError, filter, map, shareReplay, switchMapTo, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { filter, map, switchMapTo, take, tap } from 'rxjs/operators';
 import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-
-export interface AuthorizationResponse {
-  authorizationCode: string | null;
-  state: string | null;
-}
 
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   codeVerifier: string | null;
@@ -32,7 +27,6 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
 export class AuthStore extends ComponentStore<AuthState> {
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private store: Store,
     private spotifyAuthorize: SpotifyAuthorize,
     private spotify: SpotifyApiService
@@ -65,174 +59,105 @@ export class AuthStore extends ComponentStore<AuthState> {
     ...user
   }));
 
-  readonly initAuthCode = this.effect((params$) =>
-    params$.pipe(switchMapTo(this.initAuthenticationCode()))
+  readonly initAuthentication = this.effect((params$) =>
+    params$.pipe(switchMapTo(this.initAuthenticationFlow()))
   );
 
-  private initAuthenticationCode() {
+  private initAuthenticationFlow() {
+    console.log('Starting Authentication Flow');
     const storedSession = <string>sessionStorage.getItem('SESSION');
-
     if (storedSession) {
-      const sessionData = JSON.parse(storedSession);
-      this.savePath();
-
-      console.info('[Angular Spotify] Existing session, retrieving information');
-
-      if (this.isTokenExpired(sessionData.expiresAt)) {
-        console.info(
-          '[Angular Spotify] Existing session has expired! Cleaning and authenticating again'
-        );
-        console.info('[Angular Spotify] Clearing session');
-        this.clearSessionAndRedirectToAuthorize();
-      }
-
-      return this.route.fragment.pipe(
-        map(() => sessionData),
-        tap((sessionData) => {
-          this.getUserInfo();
-          console.log('Session Data', sessionData);
-          this.patchState(sessionData);
-          this.store.dispatch(AuthAccessTokenReady());
-          console.info('[Angular Spotify] Current State', this.get());
-          console.info('[Angular Spotify] Authenticated from session!');
-          this.router.navigate(['/']);
-        })
-      );
-    } else {
-      console.log('No Auth Store Found');
+      return this.handleExistingSession(storedSession);
     }
+    return this.handleNewAuthenticationFlow();
+  }
 
-    const queryParams = new URLSearchParams(window.location.search);
-    console.info('[Angular Spotify] Query Params Code', queryParams.get('code'));
-
-
-    if (!queryParams.get('code')) {
-      const currentUrl = window.location.href;
-      console.log('Current URL with query parameters:', currentUrl);
-      console.info('[Angular Spotify] Clearing session as there is no params');
+  private handleExistingSession(storedSession: string) {
+    const sessionData = JSON.parse(storedSession);
+    console.info('[Angular Spotify] Existing session, retrieving information');
+    if (this.isTokenExpired(sessionData.expiresAt)) {
+      console.info(
+        '[Angular Spotify] Existing session has expired! Cleaning and authenticating again'
+      );
       this.clearSessionAndRedirectToAuthorize();
-      return this.route.fragment.pipe(
-        tap(() => { console.log('[Angular Spotify] No code in url', this.get()); }),
-      );
+      return of(); // Immediately clear session and exit
     }
-
-    return this.route.fragment.pipe(
-      tap((params) => console.log('[Angular Spotify] Raw Query Params', params)),
-      map(() => new URLSearchParams(window.location.search)),
-      map((params) => ({
-        accessToken: null,
-        tokenType: null,
-        expiresIn: null,
-        state: null,
-        code: params.get('code'),
-        codeVerifier: sessionStorage.getItem('CODE_VERIFIER'),
-      })),
-      tap((params) => {
-        console.log('[Angular Spotify] Response from auth code', params);
-
-        // Get the current state and merge with the new params
-        const currentState = this.get();
-
-        console.log("Before Updating state", currentState);
-        console.log("Params from auth state", currentState);
-        this.patchState(params);
-        console.log("Updated state", this.get());
-
-        console.log("Dispatching AuthCodeReady action");
-        this.store.dispatch(AuthCodeReady());
-        console.info('[Angular Spotify] Retrieved auth Code successfully!');
+    return of(sessionData).pipe(
+      tap((sessionData) => {
+        this.patchState(sessionData);
+        this.store.dispatch(AuthSessionReady());
+        console.info('[Angular Spotify] Authenticated from Existing Session!');
+        this.setCurrentUser(this.spotify.getMe());
       })
     );
   }
 
-  initAccessToken(
-    code: string,
-    codeVerifier: string
-  ): Observable<{
-    access_token: string;
-    token_type: string;
-    expires_in: number;
-    refresh_token: string;
-    scope: string;
-  }> {
-
+  private handleNewAuthenticationFlow() {
+    const queryParams = new URLSearchParams(window.location.search);
+    const code = queryParams.get('code');
     if (!code) {
-      console.error('[Angular Spotify] No authorization code found');
-      return throwError(() => new Error('No authorization code found'));
+      LocalStorageService.setItem('PATH', window.location.pathname);
+      this.clearSessionAndRedirectToAuthorize();
+      return of().pipe(
+        tap(() => {
+          console.log('[Angular Spotify] No code in URL, redirecting to authorize');
+        })
+      );
     }
-
-    return this.getAccessToken(code, codeVerifier).pipe(
-      shareReplay(1),
-      tap((authData) => {
-        console.log('Authorization Data', authData);
-        const sessionData = {
-          expiresIn: authData.expires_in,
-          expiresAt: Date.now() + authData.expires_in * 1000,
-          accessToken: authData.access_token,
-          refreshToken: authData.refresh_token,
-          scope: authData.scope
-        };
-        sessionStorage.setItem('SESSION', JSON.stringify(sessionData));
-        this.patchState(sessionData);
-        this.store.dispatch(AuthAccessTokenReady());
-        this.getUserInfo();
-        this.router.navigate(['/']);
+    return of(window.location.search).pipe(
+      take(1),
+      map((searchParams) => new URLSearchParams(searchParams)),
+      map((params) => ({
+        code: params.get('code'),
+        codeVerifier: sessionStorage.getItem('CODE_VERIFIER')
+      })),
+      tap((params) => {
+        this.patchState(params);
+        this.store.dispatch(AuthCodeReady());
+        console.log('[Angular Spotify] Authentication Code successfully retrieved');
       })
     );
+  }
+
+  initRetrieveAccessToken(
+    authCode: string,
+    codeVerifier: string
+  ) {
+    return this.spotifyAuthorize.getAccessToken(authCode, codeVerifier).pipe(
+      map((getAccessTokenResponse) => {
+        return {
+          accessToken: getAccessTokenResponse.access_token,
+          expiresIn: getAccessTokenResponse.expires_in,
+          expiresAt: Date.now() + getAccessTokenResponse.expires_in * 1000,
+          refreshToken: getAccessTokenResponse.refresh_token,
+          scope: getAccessTokenResponse.scope
+        };
+      }),
+      tap((accessTokenResponse) => {
+        sessionStorage.setItem('SESSION', JSON.stringify(accessTokenResponse));
+        sessionStorage.removeItem('CODE_VERIFIER'); // Remove after use
+        this.patchState(accessTokenResponse);
+        this.store.dispatch(AuthSessionReady());
+        console.info('[Angular Spotify] Authenticated from New Session!');
+        this.setCurrentUser(this.spotify.getMe());
+        this.router.navigate([LocalStorageService.initialState?.path || '/']);
+      })
+    );
+  }
+
+  private clearSessionAndRedirectToAuthorize() {
+    console.warn('[Angular Spotify] Clearing session and redirecting to authorize');
+    sessionStorage.removeItem('SESSION');
+    sessionStorage.removeItem('CODE-VERIFIER');
+    this.setState(<AuthState>{});
+    this.redirectToAuthorize();
   }
 
   async redirectToAuthorize() {
     const codeVerifier = this.spotifyAuthorize.generateCodeVerifier();
     const codeChallenge = await this.spotifyAuthorize.generateCodeChallenge(codeVerifier);
-    console.log("Generated Code Verifier", codeVerifier);
     sessionStorage.setItem('CODE_VERIFIER', codeVerifier);
     window.location.href = this.spotifyAuthorize.createAuthorizeURL(codeChallenge);
-  }
-
-  private getAccessToken(
-    authCode: string,
-    codeVerifier: string
-  ): Observable<{
-    access_token: string;
-    token_type: string;
-    expires_in: number;
-    refresh_token: string;
-    scope: string;
-  }> {
-    if (!codeVerifier) {
-      console.error('Error getting code verifier');
-      return throwError(() => new Error('No authorization code verifier found'));
-    }
-
-    console.info('[Angular Spotify] Auth Code:', authCode);
-    console.info('[Angular Spotify] Code Verifier:', codeVerifier);
-
-    return this.spotifyAuthorize.getAccessToken(authCode, codeVerifier).pipe(
-      catchError((err) => {
-        console.error('Error retrieving access token:', err);
-        return throwError(() => new Error('Failed to retrieve access token'));
-      })
-    );
-  }
-
-  private getUserInfo() {
-    this.spotify.getMe().subscribe((user) => {
-      console.info('Making call to retrieve user ');
-      this.setCurrentUser(user);
-    });
-  }
-
-  private clearSessionAndRedirectToAuthorize() {
-    console.warn('[Angular Spotify] Clearing session and redirecting to authorize');
-    sessionStorage.removeItem('CODE-VERIFIER');
-    LocalStorageService.removeItem('PATH');
-    this.setState(<AuthState>{});
-    this.redirectToAuthorize();
-  }
-
-  private savePath() {
-    console.log('Saving Path', window.location.pathname);
-    LocalStorageService.setItem('PATH', window.location.pathname);
   }
 
   private isTokenExpired(expiresAt: number): boolean {
