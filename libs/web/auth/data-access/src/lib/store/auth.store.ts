@@ -172,7 +172,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       this.cookieService.set(SESSION_COOKIE_NAME, JSON.stringify(accessTokenResponse), {
         secure: true,
         sameSite: 'Strict',
-        expires: 1 // set expiration to 1 day or any other time suitable
+        expires: 30 // set expiration to 1 day or any other time suitable
       });
       sessionStorage.removeItem(CODE_VERIFIER_COOKIE_NAME); // Remove after use
       this.patchState(accessTokenResponse);
