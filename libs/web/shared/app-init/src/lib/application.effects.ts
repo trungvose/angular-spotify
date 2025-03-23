@@ -4,9 +4,9 @@ import { PlaybackService } from '@angular-spotify/web/shared/data-access/store';
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { combineLatest } from 'rxjs';
+import { combineLatest, throwError } from 'rxjs';
 import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { AppInit, AuthReady } from './app-init.action';
+import { AppInit, AuthAccessTokenReady, AuthCodeReady } from './app-init.action';
 import { GoogleAnalyticsService } from './google-analytics.service';
 import { PromptUpdateService } from './promp-update.service';
 
@@ -22,12 +22,13 @@ export class ApplicationEffects {
     private promptUpdate: PromptUpdateService
   ) {}
 
+
   initAuth$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(AppInit),
         tap(() => {
-          this.authStore.init();
+          this.authStore.initAuthCode();
         })
       ),
     {
@@ -35,10 +36,25 @@ export class ApplicationEffects {
     }
   );
 
+  initRetrieveAccessToken$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(AuthCodeReady),
+        withLatestFrom(combineLatest([this.authStore.authCode$, this.authStore.codeVerifier$])),
+        switchMap(([_, [authCode, codeVerifier]]) => {
+          if (!authCode || !codeVerifier) {
+            console.error('[Angular Spotify] Missing authCode or codeVerifier');
+            return throwError(() => new Error('Missing authCode or codeVerifier'));
+          }
+          return this.authStore.initAccessToken(authCode, codeVerifier);
+        })
+      ),
+    { dispatch: false }
+  );
+
   initPlaybackSDK$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(AuthReady),
+        ofType(AuthAccessTokenReady),
         withLatestFrom(combineLatest([this.authStore.token$, this.settingsFacade.volume$])),
         tap(([_, [token, volume]]) => {
           this.playbackService.initPlaybackSDK(token, volume);
