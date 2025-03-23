@@ -112,9 +112,15 @@ export class AuthStore extends ComponentStore<AuthState> {
         codeVerifier: sessionStorage.getItem('CODE_VERIFIER')
       })),
       tap((params) => {
+
+        if (!params.code || !params.codeVerifier) {
+          this.clearSessionAndRedirectToAuthorize();
+          return;
+        }
+
         this.patchState(params);
         this.store.dispatch(AuthCodeReady());
-        console.log('[Angular Spotify] Authentication Code successfully retrieved');
+        console.log('[Angular Spotify] Authentication Code successfully retrieved!');
       })
     );
   }
@@ -141,7 +147,7 @@ export class AuthStore extends ComponentStore<AuthState> {
         console.info('[Angular Spotify] Authenticated from New Session!');
         this.setCurrentUser(this.spotify.getMe());
         this.router.navigate([LocalStorageService.initialState?.path || '/']);
-      })
+      }),
     );
   }
 
