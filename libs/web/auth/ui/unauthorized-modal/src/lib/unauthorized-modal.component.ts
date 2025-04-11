@@ -5,7 +5,9 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
 @Component({
   templateUrl: './unauthorized-modal.component.html',
   styleUrls: ['./unauthorized-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
+
 })
 export class UnauthorizedModalComponent {
   confirmModal?: NzModalRef;

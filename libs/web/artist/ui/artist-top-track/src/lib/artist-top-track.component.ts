@@ -3,12 +3,29 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 import { combineLatest, Observable, of } from 'rxjs';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { CommonModule } from '@angular/common';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
+import { MediaOrderComponent } from '@angular-spotify/web/shared/ui/media-order';
+import { TrackMainInfoComponent } from '@angular-spotify/web/shared/ui/track-main-info';
+import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
+import { RouterModule } from '@angular/router';
+import { LetDirective, PushPipe } from '@ngrx/component';
+
 
 @Component({
   selector: 'as-artist-top-track',
   templateUrl: './artist-top-track.component.html',
   styleUrls: ['./artist-top-track.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+      CommonModule,
+      MediaTableModule,
+      MediaOrderComponent,
+      TrackMainInfoComponent,
+      DurationPipeModule,
+      LetDirective, PushPipe,
+      RouterModule
+    ],
 })
 export class ArtistTopTrackComponent implements OnInit {
   albumRouteUrl!: string;

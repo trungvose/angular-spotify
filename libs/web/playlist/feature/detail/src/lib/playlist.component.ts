@@ -13,7 +13,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `
   ],
   providers: [PlaylistStore],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class PlaylistComponent {
   playlistId$ = this.store.playlistId$;

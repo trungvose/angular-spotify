@@ -5,7 +5,8 @@ import { UIStore } from '@angular-spotify/web/shared/data-access/store';
   selector: 'as-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class NavBarComponent {
   readonly navItems$ = this.uiStore.navItems$;

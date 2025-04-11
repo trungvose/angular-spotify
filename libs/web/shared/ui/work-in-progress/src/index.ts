@@ -1,1 +1,1 @@
-export * from './lib/work-in-progress.module';
+export * from './lib/work-in-progress.component';

@@ -14,7 +14,8 @@ import { ArtistTopTracksStore } from '@angular-spotify/web/artist/data-access';
       }
     }
     `,
-  providers: [ArtistTopTracksStore]
+  providers: [ArtistTopTracksStore],
+  standalone: false
 })
 export class ArtistTopTracksComponent {
   readonly vm$ = this.store.vm$;

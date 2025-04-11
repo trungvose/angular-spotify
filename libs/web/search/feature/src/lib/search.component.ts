@@ -7,6 +7,13 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
 import { SearchStore } from '@angular-spotify/web/search/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { AlbumTrackComponent } from '@angular-spotify/web/album/ui/album-track';
+import { InputComponent } from '@angular-spotify/web/shared/ui/input';
+import { CardComponent } from '@angular-spotify/web/shared/ui/media';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
+import { SpinnerComponent } from '@angular-spotify/web/shared/ui/spinner';
+import { CommonModule } from '@angular/common';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @UntilDestroy()
 @Component({
@@ -14,7 +21,17 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   providers: [SearchStore],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+      CommonModule,
+      InputComponent,
+      SpinnerComponent,
+      CardComponent,
+      MediaTableModule,
+      SvgIconComponent,
+      AlbumTrackComponent,
+      // Removed RouterModule.forChild as it is not valid in standalone component imports
+    ],
 })
 export class SearchComponent implements OnInit {
   searchControl: FormControl = new FormControl('');

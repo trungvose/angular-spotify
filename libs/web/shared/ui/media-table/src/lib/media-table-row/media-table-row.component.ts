@@ -4,7 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'as-media-table-row',
   templateUrl: './media-table-row.component.html',
   styleUrls: ['./media-table-row.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class MediaTableRowComponent {
 

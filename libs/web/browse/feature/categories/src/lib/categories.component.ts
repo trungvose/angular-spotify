@@ -6,7 +6,8 @@ import { getCategories, getCategoriesLoading, loadCategories } from '@angular-sp
   selector: 'as-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class CategoriesComponent {
   isLoading$ = this.store.pipe(select(getCategoriesLoading))

@@ -3,12 +3,26 @@ import { combineLatest, Observable, of } from 'rxjs';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
+import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
+import { CommonModule } from '@angular/common';
+import { LetDirective, PushPipe } from '@ngrx/component';
+import { MediaOrderComponent } from '@angular-spotify/web/shared/ui/media-order';
+import { TrackMainInfoComponent } from '@angular-spotify/web/shared/ui/track-main-info';
 
 @Component({
   selector: 'as-album-track',
   templateUrl: './album-track.component.html',
   styleUrls: ['./album-track.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    MediaTableModule,
+    MediaOrderComponent,
+    TrackMainInfoComponent,
+    DurationPipeModule,
+    LetDirective, PushPipe,
+  ],
 })
 export class AlbumTrackComponent implements OnInit {
   @Input() track!: SpotifyApi.TrackObjectSimplified;
