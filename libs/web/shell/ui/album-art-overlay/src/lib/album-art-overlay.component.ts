@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,7 +12,8 @@ import {
   selector: 'as-album-art-overlay',
   templateUrl: './album-art-overlay.component.html',
   styleUrls: ['./album-art-overlay.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule]
 })
 export class AlbumArtOverlayComponent {
   @Input() set imageUrl(url: string) {

@@ -2644,6 +2644,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@ngrx/signals@^19.1.0":
+  version "19.1.0"
+  resolved "https://registry.npmjs.org/@ngrx/signals/-/signals-19.1.0.tgz"
+  integrity sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngrx/store-devtools@19.0.0":
   version "19.0.0"
   resolved "https://registry.npmjs.org/@ngrx/store-devtools/-/store-devtools-19.0.0.tgz"

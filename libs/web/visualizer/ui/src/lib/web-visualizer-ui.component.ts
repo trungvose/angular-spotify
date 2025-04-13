@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { LetDirective, PushPipe } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { mean } from 'lodash-es';
 import { timer } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
@@ -30,7 +30,7 @@ const INTERVAL = 100;
   templateUrl: './web-visualizer-ui.component.html',
   styleUrls: ['./web-visualizer-ui.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, SvgIconComponent, LetDirective, PushPipe],
+  imports: [CommonModule, SvgIconComponent, LetDirective],
 })
 export class WebVisualizerUiComponent implements OnInit, OnDestroy {
   isFullscreen = false;

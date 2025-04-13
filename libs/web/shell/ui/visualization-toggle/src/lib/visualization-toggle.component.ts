@@ -4,7 +4,7 @@ import { VisualizerStore } from '@angular-spotify/web/visualizer/data-access';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SvgIconComponent } from '@ngneat/svg-icon';
-import { LetDirective, PushPipe } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
@@ -18,7 +18,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
       NzSwitchModule,
       NzToolTipModule,
       FormsModule,
-      LetDirective, PushPipe,
+      LetDirective,
       SvgIconComponent
     ],
 })

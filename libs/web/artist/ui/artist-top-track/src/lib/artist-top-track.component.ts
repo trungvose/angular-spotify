@@ -9,7 +9,7 @@ import { MediaOrderComponent } from '@angular-spotify/web/shared/ui/media-order'
 import { TrackMainInfoComponent } from '@angular-spotify/web/shared/ui/track-main-info';
 import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
 import { RouterModule } from '@angular/router';
-import { LetDirective, PushPipe } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 
 
 @Component({
@@ -23,7 +23,7 @@ import { LetDirective, PushPipe } from '@ngrx/component';
       MediaOrderComponent,
       TrackMainInfoComponent,
       DurationPipeModule,
-      LetDirective, PushPipe,
+      LetDirective,
       RouterModule
     ],
 })

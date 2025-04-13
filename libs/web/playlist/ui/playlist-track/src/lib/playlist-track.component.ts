@@ -11,7 +11,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LetDirective, PushPipe } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { combineLatest, Observable, of } from 'rxjs';
 import { TrackMainInfoComponent } from '@angular-spotify/web/shared/ui/track-main-info';
 import { MediaOrderComponent } from '@angular-spotify/web/shared/ui/media-order';
@@ -28,7 +28,7 @@ import { MediaOrderComponent } from '@angular-spotify/web/shared/ui/media-order'
       DurationPipeModule,
       TrackMainInfoComponent,
       MediaOrderComponent,
-      LetDirective, PushPipe
+      LetDirective,
     ],
 })
 export class PlaylistTrackComponent implements OnInit {

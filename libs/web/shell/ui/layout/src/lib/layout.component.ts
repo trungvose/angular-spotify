@@ -10,11 +10,9 @@ import { Store, StoreModule } from '@ngrx/store';
 import { filter, map } from 'rxjs/operators';
 import { MainViewComponent } from '../../../main-view/src/lib/main-view.component';
 import { NowPlayingBarComponent } from '@angular-spotify/web/shell/ui/now-playing-bar';
-import { UnauthorizedModalComponent } from '@angular-spotify/web/auth/ui/unauthorized-modal';
 import { AlbumArtOverlayComponent } from '../../../album-art-overlay/src/lib/album-art-overlay.component';
 import { WebVisualizerUiComponent } from '@angular-spotify/web/visualizer/ui';
-import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directives/data-size-observer';
-
+import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'as-layout',
   templateUrl: './layout.component.html',
@@ -28,19 +26,18 @@ import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directive
       TopBarComponent,
       MainViewComponent,
       NowPlayingBarComponent,
-      UnauthorizedModalComponent,
       AlbumArtOverlayComponent,
-      WebVisualizerUiComponent,
-      DataSizeObserverDirective
+      WebVisualizerUiComponent
     ],
 
 })
 export class LayoutComponent implements OnInit {
-  showPiPVisualizer$ = this.visualizerStore.showPiPVisualizer$;
+  showPiPVisualizer = toSignal(this.visualizerStore.showPiPVisualizer$, { initialValue: false });
   currentAlbumCoverUrl$ = this.playbackStore.currentTrack$.pipe(
     map((track) => track?.album?.images[0]?.url),
     filter((imageUrl) => !!imageUrl)
   );
+  currentAlbumCoverUrl = toSignal(this.currentAlbumCoverUrl$, { initialValue: '' });
 
   constructor(
     private playbackStore: PlaybackStore,

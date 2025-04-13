@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { CommonModule } from '@angular/common';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'as-nav-bar',
@@ -18,7 +19,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   ]
 })
 export class NavBarComponent {
-  readonly navItems$ = this.uiStore.navItems$;
+  readonly navItems = toSignal(this.uiStore.navItems$, { initialValue: [] });
 
   constructor(private readonly uiStore: UIStore) {}
 }

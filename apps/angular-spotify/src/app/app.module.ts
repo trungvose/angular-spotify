@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -29,7 +29,8 @@ import { NzModalService } from 'ng-zorro-antd/modal';
     getAppConfigProvider(environment),
     authInterceptorProvider,
     unauthorizedInterceptorProvider,
-    NzModalService
+    NzModalService,
+    provideExperimentalZonelessChangeDetection()
   ]
 })
 export class AppModule {

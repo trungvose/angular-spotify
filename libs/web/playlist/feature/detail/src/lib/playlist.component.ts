@@ -1,6 +1,7 @@
 import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'as-playlist',
@@ -13,15 +14,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `
   ],
   providers: [PlaylistStore],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false
 })
 export class PlaylistComponent {
   playlistId$ = this.store.playlistId$;
-  playlist$ = this.store.playlist$;
+  playlist = toSignal(this.store.playlist$, { initialValue: null });
   isPlaylistPlaying$ = this.store.isPlaylistPlaying$;
   isCurrentPlaylistLoading$ = this.store.isCurrentPlaylistLoading$;
-  tracks$ = this.store.tracks$;
+  tracks = toSignal(this.store.tracks$, { initialValue: null  });
   isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
 
   constructor(private store: PlaylistStore) {}
