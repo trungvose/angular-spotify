@@ -4,7 +4,7 @@ import {
   initVisualizer,
   VisualizerStore
 } from '@angular-spotify/web/visualizer/data-access';
-import { DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -14,7 +14,9 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { LetDirective, PushPipe } from '@ngrx/component';
 import { mean } from 'lodash-es';
 import { timer } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
@@ -27,7 +29,8 @@ const INTERVAL = 100;
   selector: 'as-web-visualizer-ui',
   templateUrl: './web-visualizer-ui.component.html',
   styleUrls: ['./web-visualizer-ui.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, SvgIconComponent, LetDirective, PushPipe],
 })
 export class WebVisualizerUiComponent implements OnInit, OnDestroy {
   isFullscreen = false;

@@ -1,1 +1,1 @@
-export * from './lib/nav-links.module';
+export * from './lib/nav-links.component';

@@ -12,7 +12,8 @@ import { AlbumStore } from '@angular-spotify/web/album/data-access';
     `
   ],
   providers: [AlbumStore],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class AlbumComponent {
   album$ = this.store.album$;

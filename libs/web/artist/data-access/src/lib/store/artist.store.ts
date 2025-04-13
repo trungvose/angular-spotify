@@ -3,7 +3,8 @@ import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotif
 import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { Observable } from 'rxjs';
 import { filter, pluck, switchMap, tap } from 'rxjs/operators';
 

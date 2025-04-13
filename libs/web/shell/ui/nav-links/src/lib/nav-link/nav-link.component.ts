@@ -1,14 +1,19 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { MediaCoverComponent } from '@angular-spotify/web/shared/ui/media-cover';
+import { PlayButtonComponent } from '@angular-spotify/web/shared/ui/play-button';
 import { RouteUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { combineLatest, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'as-nav-link',
   templateUrl: './nav-link.component.html',
   styleUrls: ['./nav-link.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterModule, CommonModule, MediaCoverComponent, PlayButtonComponent],
 })
 export class NavLinkComponent implements OnInit {
   @Input()

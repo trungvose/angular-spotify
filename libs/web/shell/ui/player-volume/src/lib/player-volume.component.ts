@@ -4,9 +4,12 @@ import {
   VolumeMuteIcon
 } from '@angular-spotify/web/shared/data-access/models';
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { NzSliderValue } from 'ng-zorro-antd/slider';
+import { NzSliderModule, NzSliderValue } from 'ng-zorro-antd/slider';
 import { Subject } from 'rxjs';
 import { debounceTime, map, switchMap, tap } from 'rxjs/operators';
 
@@ -15,7 +18,8 @@ import { debounceTime, map, switchMap, tap } from 'rxjs/operators';
   selector: 'as-player-volume',
   templateUrl: 'player-volume.component.html',
   styleUrls: ['player-volume.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, FormsModule, NzSliderModule, SvgIconComponent],
 })
 export class PlayerVolumeComponent {
   private _volume!: number;

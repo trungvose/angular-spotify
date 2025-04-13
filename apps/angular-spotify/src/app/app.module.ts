@@ -11,6 +11,7 @@ import {
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @NgModule({
   imports: [
@@ -27,7 +28,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   providers: [
     getAppConfigProvider(environment),
     authInterceptorProvider,
-    unauthorizedInterceptorProvider
+    unauthorizedInterceptorProvider,
+    NzModalService
   ]
 })
-export class AppModule {}
+export class AppModule {
+  static injector: any;
+}

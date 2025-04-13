@@ -1,1 +1,1 @@
-export * from './lib/social-share.module';
+export * from './lib/social-share.component';

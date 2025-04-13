@@ -1,1 +1,1 @@
-export * from './lib/category-cover.module';
+export * from './lib/category-cover.component';

@@ -15,7 +15,8 @@ import { filter, map, switchMap, tap } from 'rxjs/operators';
   selector: 'as-category-detail',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class CategoryComponent {
   categoryParams$: Observable<string> = this.route.params.pipe(

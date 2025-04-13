@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ArtistTopTracksStore } from '@angular-spotify/web/artist/data-access';
+import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
+import { CommonModule } from '@angular/common';
+import { ArtistTopTrackComponent } from '@angular-spotify/web/artist/ui/artist-top-track';
 
 @Component({
   selector: 'as-artist-top-tracks',
@@ -15,7 +18,7 @@ import { ArtistTopTracksStore } from '@angular-spotify/web/artist/data-access';
     }
     `,
   providers: [ArtistTopTracksStore],
-  standalone: false
+  imports: [CommonModule, DurationPipeModule, ArtistTopTrackComponent],
 })
 export class ArtistTopTracksComponent {
   readonly vm$ = this.store.vm$;
