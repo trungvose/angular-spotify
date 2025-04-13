@@ -1,5 +1,5 @@
 <div class="content-spacing">
-  @if (album$ | async; as album) {
+  @if (album(); as album) {
     <as-media-summary type="Album"
       class="with-view-transition"
       [title]="album.name"

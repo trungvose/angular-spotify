@@ -1,1 +1,1 @@
-export * from './lib/play-button.module';
+export * from './lib/play-button.component';

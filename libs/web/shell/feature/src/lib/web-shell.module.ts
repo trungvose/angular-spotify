@@ -1,7 +1,7 @@
 import { SettingsModule } from '@angular-spotify/web/settings/feature';
 import { AppInit, ApplicationEffects } from '@angular-spotify/web/shared/app-init';
 import { IconModule } from '@angular-spotify/web/shared/ui/icon';
-import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
+import { LayoutComponent } from '@angular-spotify/web/shell/ui/layout';
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,7 +35,7 @@ const rootReducers = {
 @NgModule({
   imports: [
     CommonModule,
-    WebLayoutModule,
+    LayoutComponent,
     IconModule,
     NoopAnimationsModule,
     StoreModule.forRoot(rootReducers),

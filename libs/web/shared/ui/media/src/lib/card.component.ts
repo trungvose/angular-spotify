@@ -1,7 +1,7 @@
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { ClickStopPropagationModule } from '@angular-spotify/web/shared/directives/click-stop-propagation';
-import { MediaCoverModule } from '@angular-spotify/web/shared/ui/media-cover';
-import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
+import { MediaCoverComponent  } from '@angular-spotify/web/shared/ui/media-cover';
+import { PlayButtonComponent } from '@angular-spotify/web/shared/ui/play-button';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 
 import {
@@ -13,7 +13,7 @@ import {
   Output
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LetDirective, PushPipe } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { Observable, combineLatest, of } from 'rxjs';
 @Component({
   selector: 'as-card',
@@ -21,9 +21,8 @@ import { Observable, combineLatest, of } from 'rxjs';
   imports: [
     RouterModule,
     LetDirective,
-    PushPipe,
-    MediaCoverModule,
-    PlayButtonModule,
+    MediaCoverComponent,
+    PlayButtonComponent,
     ClickStopPropagationModule
 ],
   templateUrl: './card.component.html',

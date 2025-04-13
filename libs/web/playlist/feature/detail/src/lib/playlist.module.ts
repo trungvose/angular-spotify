@@ -1,7 +1,7 @@
-import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
+import { MediaSummaryComponent } from '@angular-spotify/web/shared/ui/media-summary';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
-import { PlayButtonModule } from '@angular-spotify/web/shared/ui/play-button';
-import { PlaylistTrackModule } from '@angular-spotify/web/playlist/ui/playlist-track';
+import { PlayButtonComponent } from '@angular-spotify/web/shared/ui/play-button';
+import { PlaylistTrackComponent } from '@angular-spotify/web/playlist/ui/playlist-track';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,10 +13,10 @@ import { TracksLoadingComponent } from '@angular-spotify/web/shared/ui/tracks-lo
 @NgModule({
   imports: [
     CommonModule,
-    MediaSummaryModule,
-    PlayButtonModule,
+    MediaSummaryComponent,
+    PlayButtonComponent,
     MediaTableModule,
-    PlaylistTrackModule,
+    PlaylistTrackComponent,
     SvgIconComponent,
     LetDirective, PushPipe,
     TracksLoadingComponent,

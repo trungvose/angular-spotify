@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { IconModule } from '@angular-spotify/web/shared/ui/icon';
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export const IconSizesInPx: { [key in IconSize]: number } = {
   xs: 8, // 0.5rem
@@ -14,7 +15,8 @@ export const IconSizesInPx: { [key in IconSize]: number } = {
 @Component({
   selector: 'as-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  styleUrls: ['./input.component.scss'],
+  imports: [CommonModule, ReactiveFormsModule, IconModule]
 })
 export class InputComponent implements AfterViewInit {
   @Input() control = new FormControl('');

@@ -1,1 +1,1 @@
-export * from './lib/now-playing-bar.module';
+export * from './lib/now-playing-bar.component';

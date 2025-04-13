@@ -2,13 +2,17 @@ import { CurrentViewTransitionService, getViewTransitionParamValue } from '@angu
 import { PlaylistsResponseWithRoute } from '@angular-spotify/web/shared/data-access/models';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { RouterUtil } from '@angular-spotify/web/shared/utils';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { SpinnerComponent } from '@angular-spotify/web/shared/ui/spinner';
+import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 
 @Component({
   selector: 'as-playlist-list',
   templateUrl: './playlist-list.component.html',
   styleUrls: ['./playlist-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, CardComponent, SpinnerComponent],
 })
 export class PlaylistListComponent {
   @Input() playlists!: PlaylistsResponseWithRoute | null;

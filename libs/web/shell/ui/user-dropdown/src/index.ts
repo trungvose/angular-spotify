@@ -1,1 +1,1 @@
-export * from './lib/user-dropdown.module';
+export * from './lib/user-dropdown.component';

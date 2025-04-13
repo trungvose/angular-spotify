@@ -1,1 +1,1 @@
-export * from './lib/web-visualizer-ui.module';
+export * from './lib/web-visualizer-ui.component';

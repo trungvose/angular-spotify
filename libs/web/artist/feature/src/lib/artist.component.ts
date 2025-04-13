@@ -6,7 +6,8 @@ import { ArtistStore } from '@angular-spotify/web/artist/data-access';
   templateUrl: './artist.component.html',
   styleUrls: ['./artist.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ArtistStore]
+  providers: [ArtistStore],
+  standalone: false
 })
 export class ArtistComponent {
   artist$ = this.artistStore.artist$;

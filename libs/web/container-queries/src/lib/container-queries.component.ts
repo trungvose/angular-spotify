@@ -1,5 +1,4 @@
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
-import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directives/data-size-observer';
 import { CardComponent } from '@angular-spotify/web/shared/ui/media';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
@@ -9,7 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 @Component({
   selector: 'as-container-queries',
   standalone: true,
-  imports: [CardComponent, CommonModule, DataSizeObserverDirective, NzButtonModule],
+  imports: [CardComponent, CommonModule, NzButtonModule],
   styles: [
     `
       .featured-grid {

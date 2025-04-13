@@ -14,7 +14,8 @@ import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotif
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   providers: [SearchStore],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SearchComponent implements OnInit {
   searchControl: FormControl = new FormControl('');

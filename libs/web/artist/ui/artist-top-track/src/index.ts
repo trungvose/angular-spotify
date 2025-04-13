@@ -1,1 +1,1 @@
-export * from './lib/artist-top-track.module';
+export * from './lib/artist-top-track.component';

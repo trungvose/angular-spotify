@@ -1,1 +1,1 @@
-export * from './lib/visualization-toggle.module';
+export * from './lib/visualization-toggle.component';
