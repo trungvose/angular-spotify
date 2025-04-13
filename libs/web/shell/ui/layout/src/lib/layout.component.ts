@@ -1,6 +1,6 @@
 import { loadPlaylists } from '@angular-spotify/web/playlist/data-access';
 import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
-// import { NavBarComponent } from '@angular-spotify/web/shell/ui/nav-bar';
+import { NavBarComponent } from '@angular-spotify/web/shell/ui/nav-bar';
 import { TopBarComponent } from '@angular-spotify/web/shell/ui/top-bar';
 import { VisualizerStore } from '@angular-spotify/web/visualizer/data-access';
 import { CommonModule } from '@angular/common';
@@ -24,7 +24,7 @@ import { DataSizeObserverDirective } from '@angular-spotify/web/shared/directive
       CommonModule,
       StoreModule,
       RouterModule,
-      // NavBarComponent,
+      NavBarComponent,
       TopBarComponent,
       MainViewComponent,
       NowPlayingBarComponent,

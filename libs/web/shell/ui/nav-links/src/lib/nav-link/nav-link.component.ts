@@ -7,13 +7,14 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { combineLatest, Observable, of } from 'rxjs';
+import { LetDirective } from '@ngrx/component';
 
 @Component({
   selector: 'as-nav-link',
   templateUrl: './nav-link.component.html',
   styleUrls: ['./nav-link.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule, CommonModule, MediaCoverComponent, PlayButtonComponent],
+  imports: [RouterModule, CommonModule, MediaCoverComponent, PlayButtonComponent, LetDirective],
 })
 export class NavLinkComponent implements OnInit {
   @Input()

@@ -4,7 +4,7 @@ import { NavLinksComponent } from '@angular-spotify/web/shell/ui/nav-links';
 import { RouterModule } from '@angular/router';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { CommonModule } from '@angular/common';
-import { NzModalService } from 'ng-zorro-antd/modal/public-api';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'as-nav-bar',
