@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SvgIconComponent } from '@ngneat/svg-icon';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'as-social-share',
@@ -38,6 +41,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </div>
   `,
   styleUrls: ['./social-share.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, SvgIconComponent, NzButtonModule]
 })
 export class SocialShareComponent {}

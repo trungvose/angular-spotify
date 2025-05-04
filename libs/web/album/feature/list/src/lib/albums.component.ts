@@ -12,7 +12,8 @@ import {
   selector: 'as-albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class AlbumsComponent implements OnInit {
   albums$ = this.store.pipe(select(getAlbums));

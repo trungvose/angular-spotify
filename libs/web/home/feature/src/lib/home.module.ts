@@ -12,9 +12,9 @@ import {
   featuredPlaylistsReducer
 } from '@angular-spotify/web/home/data-access';
 import { EffectsModule } from '@ngrx/effects';
-import { GreetingModule } from '@angular-spotify/web/home/ui/greeting';
-import { FeaturedPlaylistsModule } from '@angular-spotify/web/home/ui/featured-playlists';
-import { RecentPlayedModule } from '@angular-spotify/web/home/ui/recent-played';
+import { RecentPlayedComponent } from '@angular-spotify/web/home/ui/recent-played';
+import { GreetingComponent } from 'libs/web/home/ui/greeting/src/lib/greeting.component';
+import { FeaturedPlaylistsComponent } from 'libs/web/home/ui/featured-playlists/src/lib/featured-playlists.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -27,9 +27,9 @@ import { RecentPlayedModule } from '@angular-spotify/web/home/ui/recent-played';
     StoreModule.forFeature(recentFeatureTracksFeatureKey, recentPlayedTracksReducer),
     StoreModule.forFeature(featuredPlaylistsFeatureKey, featuredPlaylistsReducer),
     EffectsModule.forFeature([RecentPlayedTracksEffect, FeaturePlaylistsEffect]),
-    GreetingModule,
-    RecentPlayedModule,
-    FeaturedPlaylistsModule
+    GreetingComponent,
+    RecentPlayedComponent,
+    FeaturedPlaylistsComponent
   ],
   declarations: [HomeComponent],
   exports: [HomeComponent]

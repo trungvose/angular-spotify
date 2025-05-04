@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { TimeUtil } from '@angular-spotify/web/shared/utils';
 @Pipe({
-  name: 'duration'
+  name: 'duration',
+  standalone: false
 })
 export class DurationPipe implements PipeTransform {
   transform(durationInMs: number | null): string {

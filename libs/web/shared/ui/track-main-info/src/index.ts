@@ -1,1 +1,1 @@
-export * from './lib/track-main-info.module';
+export * from './lib/track-main-info.component';

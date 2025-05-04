@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import {
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @NgModule({
   imports: [
@@ -27,7 +28,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   providers: [
     getAppConfigProvider(environment),
     authInterceptorProvider,
-    unauthorizedInterceptorProvider
+    unauthorizedInterceptorProvider,
+    NzModalService,
+    provideExperimentalZonelessChangeDetection()
   ]
 })
-export class AppModule {}
+export class AppModule {
+  static injector: any;
+}

@@ -1,1 +1,1 @@
-export * from './lib/media-cover.module';
+export * from './lib/media-cover.component';

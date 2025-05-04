@@ -1,1 +1,1 @@
-export * from './lib/featured-playlists.module';
+export * from './lib/featured-playlists.component';

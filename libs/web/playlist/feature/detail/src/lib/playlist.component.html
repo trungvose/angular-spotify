@@ -1,4 +1,4 @@
-@if (playlist$ | async; as playlist) {
+@if (playlist() ; as playlist) {
   <div class="content-spacing">
     <as-media-summary
       class="with-view-transition"
@@ -34,7 +34,7 @@
     </div>
   </as-media-table-header>
 
-  @if (tracks$ | async; as tracks) {
+  @if (tracks(); as tracks) {
     <div class="mb-8">
       @for (item of tracks.items; track item; let idx = $index) {
         @if (item.track) {

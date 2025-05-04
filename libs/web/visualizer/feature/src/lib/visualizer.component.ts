@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'as-visualizer',
   templateUrl: './visualizer.component.html',
   styleUrls: ['./visualizer.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class VisualizerComponent {}
