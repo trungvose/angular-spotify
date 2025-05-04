@@ -1,5 +1,7 @@
 # Angular Spotify
 
+[<img src="https://devin.ai/assets/deepwiki-badge.png" alt="Ask DeepWiki.com" height="20"/>](https://deepwiki.com/trungvose/angular-spotify)
+
 A simple Spotify client built with Angular 15, Nx workspace, ngrx, TailwindCSS and ng-zorro.
 
 > I have recently shared about #angularspotify at [AngularAir](https://angularair.com), you can watch the session here 👉 [youtu.be/uPB0KHKlrU8][02-air]
