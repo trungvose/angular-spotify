@@ -26,7 +26,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
           nz-button
           class="text-xl text-primary btn-with-icon"
           target="_blank"
-          href="https://trungk18.com/wdc23"
+          href="https://trungvose.com/talks/2023-06-08-web-directions-code/"
           >👉 View my slide</a
           >
         </div>
@@ -52,7 +52,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
           </div>
         </div>
       </div>
-    
+
       <ng-template #cards let-albums="albums">
         @for (item of albums; track item) {
           <as-card
