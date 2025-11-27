@@ -3,12 +3,13 @@
 
 import { AuthReady } from '@angular-spotify/web/shared/app-init';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { filter, map, switchMapTo, tap } from 'rxjs/operators';
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError, filter, switchMap, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
 import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
 
@@ -19,17 +20,23 @@ export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   state: string | null;
 }
 
+export interface SpotifyTokenResponse {
+  access_token: string;
+  refresh_token: string;
+  token_type: string;
+  expires_in: number;
+}
 @Injectable({ providedIn: 'root' })
 export class AuthStore extends ComponentStore<AuthState> {
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private spotify: SpotifyApiService,
-    private store: Store
+    private store: Store,
+    private http: HttpClient
   ) {
     super(<AuthState>{});
   }
-
+  spotifyAuthorize = new SpotifyAuthorize();
   readonly token$ = this.select((s) => s.accessToken).pipe(
     filter((token) => !!token)
   ) as Observable<string>;
@@ -44,7 +51,6 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly getToken = () => this.get().accessToken;
 
   readonly setCurrentUser = this.updater((state, user: SpotifyApi.CurrentUsersProfileResponse) => {
-    console.log(user);
     return {
       ...state,
       ...user
@@ -54,33 +60,70 @@ export class AuthStore extends ComponentStore<AuthState> {
   readonly init = this.effect((params$) => params$.pipe(switchMapTo(this.initAuth())));
 
   redirectToAuthorize() {
-    const spotifyAuthorize = new SpotifyAuthorize();
-    const url = spotifyAuthorize.createAuthorizeURL();
-    window.location.href = url;
+    this.spotifyAuthorize.createAuthorizeURL().then(({ url, codeVerifier }) => {
+      LocalStorageService.setItem('code_verifier', codeVerifier);
+      window.location.href = url.toString();
+    });
   }
 
   private initAuth() {
-    if (!window.location.hash) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const state = urlParams.get('state');
+
+    if (!code) {
       LocalStorageService.setItem('PATH', window.location.pathname);
       this.redirectToAuthorize();
+      return EMPTY;
     }
 
-    return this.route.fragment.pipe(
-      filter((fragment) => !!fragment),
-      map((fragment) => new URLSearchParams(fragment as string)),
-      map((params) => ({
-        accessToken: params.get('access_token'),
-        tokenType: params.get('token_type'),
-        expiresIn: Number(params.get('expires_in')),
-        state: params.get('state')
-      })),
-      tap((params) => {
-        this.patchState(params);
+    return this.exchangeCodeForToken(code).pipe(
+      tap((tokenResponse) => {
+        this.patchState({
+          accessToken: tokenResponse.access_token,
+          tokenType: tokenResponse.token_type,
+          expiresIn: tokenResponse.expires_in,
+          state: state
+        });
+        LocalStorageService.setItem('access_token', tokenResponse.access_token);
+        LocalStorageService.setItem('token_type', tokenResponse.token_type);
         this.store.dispatch(AuthReady());
-        console.info('[Angular Spotify] Authenticated!');
-        this.setCurrentUser(this.spotify.getMe());
-        this.router.navigate([LocalStorageService.initialState?.path || '/']);
+      }),
+      switchMap(() => this.spotify.getMe()),
+      tap((user) => {
+        this.setCurrentUser(user);
+        this.router.navigate([LocalStorageService.initialState?.path || '/'], {
+          replaceUrl: true
+        });
       })
     );
+  }
+
+  private exchangeCodeForToken(code: string): Observable<SpotifyTokenResponse> {
+    const codeVerifier = LocalStorageService.getItem('code_verifier');
+    if (!codeVerifier) {
+      return throwError(() => new Error('Code verifier not found in localStorage'));
+    }
+
+    const redirectUri = `${window.location.origin}/`;
+    const body = new URLSearchParams({
+      client_id: this.spotifyAuthorize.CLIENT_ID,
+      grant_type: 'authorization_code',
+      code,
+      redirect_uri: redirectUri,
+      code_verifier: codeVerifier
+    });
+
+    return this.http
+      .post<SpotifyTokenResponse>(this.spotifyAuthorize.TOKEN_URL, body.toString(), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
   }
 }
