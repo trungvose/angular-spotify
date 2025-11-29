@@ -12,7 +12,14 @@ export class PlaybackService {
     private playerApi: PlayerApiService,
     private titleService: Title,
     private settingsFacade: SettingsFacade
-  ) {}
+  ) {
+    // Initialize the callback early to prevent errors if SDK loads before initPlaybackSDK is called
+    if (typeof window !== 'undefined' && !window.onSpotifyWebPlaybackSDKReady) {
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        // No-op initially, will be set up properly in waitForSpotifyWebPlaybackSDKToLoad
+      };
+    }
+  }
 
   play() {
     this.playbackStore.player()?.togglePlay();

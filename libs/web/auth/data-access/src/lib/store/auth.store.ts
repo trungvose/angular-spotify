@@ -101,7 +101,7 @@ export class AuthStore extends ComponentStore<AuthState> {
         const expiresAt = Date.now() + tokenResponse.expires_in * 1000;
         this.saveTokensToStorage(tokenResponse, expiresAt);
         this.updateStateWithTokens(tokenResponse, expiresAt, state);
-        this.store.dispatch(AuthReady());
+        this.dispatchAuthReady();
       }),
       switchMap(() => this.loadUserProfile(true))
     );
@@ -130,7 +130,7 @@ export class AuthStore extends ComponentStore<AuthState> {
         const newExpiresAt = Date.now() + tokenResponse.expires_in * 1000;
         this.saveTokensToStorage(tokenResponse, newExpiresAt);
         this.updateStateWithTokens(tokenResponse, newExpiresAt);
-        this.store.dispatch(AuthReady());
+        this.dispatchAuthReady();
       }),
       switchMap(() => this.loadUserProfile(false))
     );
@@ -143,7 +143,7 @@ export class AuthStore extends ComponentStore<AuthState> {
       tokenType: tokenType,
       expiresAt: expiresAt
     });
-    this.store.dispatch(AuthReady());
+    this.dispatchAuthReady();
     return this.loadUserProfile(false);
   }
 
@@ -191,6 +191,17 @@ export class AuthStore extends ComponentStore<AuthState> {
   private redirectToAuthorizeIfNeeded(): void {
     LocalStorageService.setItem(LOCALSTORAGE_KEYS.PATH, window.location.pathname);
     this.redirectToAuthorize();
+  }
+
+  /**
+   * Dispatches AuthReady action asynchronously to ensure effects are subscribed.
+   * This is necessary because AuthReady may be dispatched during the execution
+   * of initAuth$ effect, before initPlaybackSDK$ effect is subscribed.
+   */
+  private dispatchAuthReady(): void {
+    setTimeout(() => {
+      this.store.dispatch(AuthReady());
+    }, 0);
   }
 
   private exchangeCodeForToken(code: string): Observable<SpotifyTokenResponse> {
