@@ -1,1 +1,1 @@
-export * from './lib/album-art-overlay.module';
+export * from './lib/album-art-overlay.component';

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AlbumStore } from '@angular-spotify/web/album/data-access';
-
+import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'as-album',
   templateUrl: './album.component.html',
@@ -12,10 +12,12 @@ import { AlbumStore } from '@angular-spotify/web/album/data-access';
     `
   ],
   providers: [AlbumStore],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class AlbumComponent {
-  album$ = this.store.album$;
+  album = toSignal(this.store.album$,{ initialValue: null });
+
   isAlbumLoading$ = this.store.isCurrentAlbumLoading$;
   isAlbumPlaying$ = this.store.isAlbumPlaying$;
 

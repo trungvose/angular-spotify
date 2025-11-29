@@ -6,7 +6,8 @@ import { Store } from '@ngrx/store';
   selector: 'as-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class HomeComponent implements OnInit {
   constructor(private store: Store) {}

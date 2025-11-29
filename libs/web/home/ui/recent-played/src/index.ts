@@ -1,1 +1,1 @@
-export * from './lib/recent-played.module';
+export * from './lib/recent-played.component';

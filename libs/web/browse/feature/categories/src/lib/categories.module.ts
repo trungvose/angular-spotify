@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CategoriesComponent } from './categories.component';
-import { CategoryCoverModule } from '@angular-spotify/web/browse/ui/category-cover';
-import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
+import { SpinnerComponent } from '@angular-spotify/web/shared/ui/spinner';
+import { CategoryCoverComponent } from 'libs/web/browse/ui/category-cover/src/lib/category-cover.component';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
         component: CategoriesComponent
       }
     ]),
-    CategoryCoverModule,
-    SpinnerModule
+    CategoryCoverComponent,
+    SpinnerComponent
   ],
   declarations: [CategoriesComponent],
   exports: [CategoriesComponent]

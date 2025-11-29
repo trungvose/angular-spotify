@@ -1,1 +1,1 @@
-export * from './lib/player-volume.module';
+export * from './lib/player-volume.component';

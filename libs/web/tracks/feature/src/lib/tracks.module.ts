@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TracksComponent } from './tracks.component';
-import { WorkInProgressModule } from '@angular-spotify/web/shared/ui/work-in-progress';
 import { TracksLoadingComponent } from '@angular-spotify/web/shared/ui/tracks-loading';
-import { MediaSummaryModule } from '@angular-spotify/web/shared/ui/media-summary';
 import { MediaTableModule } from '@angular-spotify/web/shared/ui/media-table';
 import { SvgIconComponent } from '@ngneat/svg-icon';
-import { PlaylistTrackModule } from '@angular-spotify/web/playlist/ui/playlist-track';
+import { PlaylistTrackComponent } from '@angular-spotify/web/playlist/ui/playlist-track';
+import { WorkInProgressComponent } from '@angular-spotify/web/shared/ui/work-in-progress';
+import { MediaSummaryComponent } from '@angular-spotify/web/shared/ui/media-summary';
 @NgModule({
   imports: [
     CommonModule,
-    WorkInProgressModule,
+    WorkInProgressComponent,
     RouterModule.forChild([
       {
         path: '',
@@ -19,10 +19,10 @@ import { PlaylistTrackModule } from '@angular-spotify/web/playlist/ui/playlist-t
       }
     ]),
     TracksLoadingComponent,
-    MediaSummaryModule,
+    MediaSummaryComponent,
     MediaTableModule,
     SvgIconComponent,
-    PlaylistTrackModule,
+    PlaylistTrackComponent,
   ],
   declarations: [TracksComponent],
   exports: [TracksComponent]

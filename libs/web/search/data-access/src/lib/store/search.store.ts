@@ -2,8 +2,9 @@ import { GenericState } from '@angular-spotify/web/shared/data-access/models';
 import { SearchApiService, SearchResponse } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
 import { filter, switchMap, tap } from 'rxjs/operators';
+import { tapResponse } from '@ngrx/operators';
 
 type SearchState = GenericState<SearchResponse>;
 

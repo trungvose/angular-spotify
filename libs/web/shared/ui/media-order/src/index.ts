@@ -1,1 +1,1 @@
-export * from './lib/media-order.module';
+export * from './lib/media-order.component';

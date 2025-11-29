@@ -3,7 +3,7 @@
 </a>
 
 <ul class="m-0">
-  @for (item of navItems$ | async; track item) {
+  @for (item of navItems(); track item) {
     <li class="nav-link-container">
       <a
         #link="routerLinkActive"

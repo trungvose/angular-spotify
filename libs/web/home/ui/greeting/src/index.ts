@@ -1,1 +1,1 @@
-export * from './lib/greeting.module';
+export * from './lib/greeting.component';

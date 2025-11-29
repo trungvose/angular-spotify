@@ -1,13 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SkeletonComponent } from './skeleton.component';
-import { NgClass } from '@angular/common';
-
 @Component({
   selector: 'as-tracks-loading',
   templateUrl: './tracks-loading.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [SkeletonComponent, NgClass]
+  imports: [SkeletonComponent]
 })
 export class TracksLoadingComponent {
   skeletonRows: number[] = Array.from({ length: 5 });

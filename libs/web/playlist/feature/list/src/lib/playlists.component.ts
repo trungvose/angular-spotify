@@ -9,7 +9,8 @@ import { select, Store } from '@ngrx/store';
   selector: 'as-playlists',
   templateUrl: './playlists.component.html',
   styleUrls: ['./playlists.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class PlaylistsComponent {
   playlists$ = this.store.pipe(select(getPlaylistsWithRouteUrl));

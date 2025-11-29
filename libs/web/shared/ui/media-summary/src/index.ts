@@ -1,1 +1,1 @@
-export * from './lib/media-summary.module';
+export * from './lib/media-summary.component';

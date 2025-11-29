@@ -6,12 +6,15 @@ import {
   Input,
   Output
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({
   selector: 'as-play-button',
   templateUrl: './play-button.component.html',
   styleUrls: ['./play-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, SvgIconComponent]
 })
 export class PlayButtonComponent {
   isPause: boolean | undefined;

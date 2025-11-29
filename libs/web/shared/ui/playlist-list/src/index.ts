@@ -1,1 +1,1 @@
-export * from './lib/playlist-list.module';
+export * from './lib/playlist-list.component';

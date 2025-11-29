@@ -1,6 +1,7 @@
 import { GenericState } from '@angular-spotify/web/shared/data-access/models';
 import { Injectable } from '@angular/core';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { filter, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { ArtistApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { AuthStore } from '@angular-spotify/web/auth/data-access';

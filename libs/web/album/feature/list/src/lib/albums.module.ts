@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AlbumsComponent } from './albums.component';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from '@angular-spotify/web/shared/ui/media';
-import { SpinnerModule } from '@angular-spotify/web/shared/ui/spinner';
+import { SpinnerComponent } from '@angular-spotify/web/shared/ui/spinner';
 @NgModule({
   imports: [
     CommonModule,
     CardComponent,
-    SpinnerModule,
+    SpinnerComponent,
     RouterModule.forChild([
       {
         path: '',

@@ -4,7 +4,8 @@ import { PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouterUtil, SelectorUtil } from '@angular-spotify/web/shared/utils';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, map, pluck, switchMap, tap } from 'rxjs/operators';
 

@@ -5,7 +5,8 @@ import { TracksStore } from '@angular-spotify/web/tracks/data-access';
   templateUrl: './tracks.component.html',
   styleUrls: ['./tracks.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [TracksStore]
+  providers: [TracksStore],
+  standalone: false
 })
 export class TracksComponent implements OnInit {
   vm$ = this.store.vm$;

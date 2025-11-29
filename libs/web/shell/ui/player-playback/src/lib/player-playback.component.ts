@@ -1,13 +1,17 @@
 import { PlaybackService, PlaybackStore } from '@angular-spotify/web/shared/data-access/store';
+import { DurationPipeModule } from '@angular-spotify/web/shared/pipes/duration-pipe';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NzSliderValue } from 'ng-zorro-antd/slider';
+import { FormsModule } from '@angular/forms';
+import { NzSliderModule, NzSliderValue } from 'ng-zorro-antd/slider';
 import { BehaviorSubject, combineLatest, of, timer } from 'rxjs';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'as-player-playback',
   templateUrl: './player-playback.component.html',
   styleUrls: ['./player-playback.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, NzSliderModule, FormsModule, DurationPipeModule],
 })
 export class PlayerPlaybackComponent {
   isSliderMoving$ = new BehaviorSubject<boolean>(false);
