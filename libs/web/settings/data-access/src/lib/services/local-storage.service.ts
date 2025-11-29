@@ -9,8 +9,8 @@ export class LocalStorageService {
    * @static
    * @return {any}
    */
-  public static get initialState(): any {
-    return Object.keys(localStorage).reduce((state: any, storageKey) => {
+  public static get initialState(): Record<string, any> {
+    return Object.keys(localStorage).reduce((state: Record<string, any>, storageKey) => {
       if (storageKey.startsWith(APP_PREFIX)) {
         const stateKeys = storageKey
           .replace(APP_PREFIX, '')

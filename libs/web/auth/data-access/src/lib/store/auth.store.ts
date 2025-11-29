@@ -13,19 +13,35 @@ import { catchError, filter, switchMap, switchMapTo, tap } from 'rxjs/operators'
 import { SpotifyAuthorize } from '../models/spotify-authorize';
 import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
 
+const LOCALSTORAGE_KEYS = {
+  CODE_VERIFIER: 'code_verifier',
+  ACCESS_TOKEN: 'access_token',
+  TOKEN_TYPE: 'token_type',
+  REFRESH_TOKEN: 'refresh_token',
+  EXPIRES_AT: 'expires_at',
+  PATH: 'path'
+} as const;
+
+const HEADERS = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
 export interface AuthState extends SpotifyApi.CurrentUsersProfileResponse {
   accessToken: string | null;
-  tokenType: string | null;
+  expiresAt: number | null;
   expiresIn: number;
   state: string | null;
+  tokenType: string | null;
 }
 
 export interface SpotifyTokenResponse {
   access_token: string;
-  refresh_token: string;
-  token_type: string;
   expires_in: number;
+  refresh_token: string;
+  scope: string;
+  token_type: string;
 }
+
 @Injectable({ providedIn: 'root' })
 export class AuthStore extends ComponentStore<AuthState> {
   constructor(
@@ -61,46 +77,124 @@ export class AuthStore extends ComponentStore<AuthState> {
 
   redirectToAuthorize() {
     this.spotifyAuthorize.createAuthorizeURL().then(({ url, codeVerifier }) => {
-      LocalStorageService.setItem('code_verifier', codeVerifier);
+      LocalStorageService.setItem(LOCALSTORAGE_KEYS.CODE_VERIFIER, codeVerifier);
       window.location.href = url.toString();
     });
   }
 
+  // https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
   private initAuth() {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     const state = urlParams.get('state');
 
-    if (!code) {
-      LocalStorageService.setItem('PATH', window.location.pathname);
-      this.redirectToAuthorize();
+    if (code) {
+      return this.handleFirstLogin(code, state);
+    }
+
+    return this.handleExistingTokens();
+  }
+
+  private handleFirstLogin(code: string, state: string | null): Observable<SpotifyApi.CurrentUsersProfileResponse> {
+    return this.exchangeCodeForToken(code).pipe(
+      tap((tokenResponse) => {
+        const expiresAt = Date.now() + tokenResponse.expires_in * 1000;
+        this.saveTokensToStorage(tokenResponse, expiresAt);
+        this.updateStateWithTokens(tokenResponse, expiresAt, state);
+        this.store.dispatch(AuthReady());
+      }),
+      switchMap(() => this.loadUserProfile(true))
+    );
+  }
+
+  private handleExistingTokens(): Observable<SpotifyApi.CurrentUsersProfileResponse | never> {
+    const accessToken = LocalStorageService.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN);
+    const expiresAt = LocalStorageService.getItem(LOCALSTORAGE_KEYS.EXPIRES_AT);
+    const refreshToken = LocalStorageService.getItem(LOCALSTORAGE_KEYS.REFRESH_TOKEN);
+
+    if (!accessToken || !refreshToken) {
+      this.redirectToAuthorizeIfNeeded();
       return EMPTY;
     }
 
-    return this.exchangeCodeForToken(code).pipe(
+    if (this.isTokenExpired(expiresAt)) {
+      return this.handleTokenRefresh(refreshToken);
+    }
+
+    return this.handleValidToken(accessToken, expiresAt);
+  }
+
+  private handleTokenRefresh(refreshToken: string): Observable<SpotifyApi.CurrentUsersProfileResponse> {
+    return this.refreshAccessToken(refreshToken).pipe(
       tap((tokenResponse) => {
-        this.patchState({
-          accessToken: tokenResponse.access_token,
-          tokenType: tokenResponse.token_type,
-          expiresIn: tokenResponse.expires_in,
-          state: state
-        });
-        LocalStorageService.setItem('access_token', tokenResponse.access_token);
-        LocalStorageService.setItem('token_type', tokenResponse.token_type);
+        const newExpiresAt = Date.now() + tokenResponse.expires_in * 1000;
+        this.saveTokensToStorage(tokenResponse, newExpiresAt);
+        this.updateStateWithTokens(tokenResponse, newExpiresAt);
         this.store.dispatch(AuthReady());
       }),
-      switchMap(() => this.spotify.getMe()),
+      switchMap(() => this.loadUserProfile(false))
+    );
+  }
+
+  private handleValidToken(accessToken: string, expiresAt: number): Observable<SpotifyApi.CurrentUsersProfileResponse> {
+    const tokenType = LocalStorageService.getItem(LOCALSTORAGE_KEYS.TOKEN_TYPE) || 'Bearer';
+    this.patchState({
+      accessToken: accessToken,
+      tokenType: tokenType,
+      expiresAt: expiresAt
+    });
+    this.store.dispatch(AuthReady());
+    return this.loadUserProfile(false);
+  }
+
+  private saveTokensToStorage(tokenResponse: SpotifyTokenResponse, expiresAt: number): void {
+    LocalStorageService.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, tokenResponse.access_token);
+    LocalStorageService.setItem(LOCALSTORAGE_KEYS.TOKEN_TYPE, tokenResponse.token_type);
+    LocalStorageService.setItem(LOCALSTORAGE_KEYS.EXPIRES_AT, expiresAt);
+
+    if (tokenResponse.refresh_token) {
+      LocalStorageService.setItem(LOCALSTORAGE_KEYS.REFRESH_TOKEN, tokenResponse.refresh_token);
+    }
+  }
+
+  private updateStateWithTokens(
+    tokenResponse: SpotifyTokenResponse,
+    expiresAt: number,
+    state?: string | null
+  ): void {
+    this.patchState({
+      accessToken: tokenResponse.access_token,
+      tokenType: tokenResponse.token_type,
+      expiresIn: tokenResponse.expires_in,
+      expiresAt: expiresAt,
+      ...(state && { state })
+    });
+  }
+
+  private loadUserProfile(shouldNavigate: boolean): Observable<SpotifyApi.CurrentUsersProfileResponse> {
+    return this.spotify.getMe().pipe(
       tap((user) => {
         this.setCurrentUser(user);
-        this.router.navigate([LocalStorageService.initialState?.path || '/'], {
-          replaceUrl: true
-        });
+        if (shouldNavigate) {
+          this.router.navigate([LocalStorageService.initialState?.path || '/'], {
+            replaceUrl: true
+          });
+        }
       })
     );
   }
 
+  private isTokenExpired(expiresAt: number | null): boolean {
+    return !expiresAt || Date.now() >= expiresAt;
+  }
+
+  private redirectToAuthorizeIfNeeded(): void {
+    LocalStorageService.setItem(LOCALSTORAGE_KEYS.PATH, window.location.pathname);
+    this.redirectToAuthorize();
+  }
+
   private exchangeCodeForToken(code: string): Observable<SpotifyTokenResponse> {
-    const codeVerifier = LocalStorageService.getItem('code_verifier');
+    const codeVerifier = LocalStorageService.getItem(LOCALSTORAGE_KEYS.CODE_VERIFIER);
     if (!codeVerifier) {
       return throwError(() => new Error('Code verifier not found in localStorage'));
     }
@@ -117,7 +211,27 @@ export class AuthStore extends ComponentStore<AuthState> {
     return this.http
       .post<SpotifyTokenResponse>(this.spotifyAuthorize.TOKEN_URL, body.toString(), {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          ...HEADERS
+        }
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  private refreshAccessToken(refreshToken: string): Observable<SpotifyTokenResponse> {
+    const body = new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: refreshToken,
+      client_id: this.spotifyAuthorize.CLIENT_ID
+    });
+
+    return this.http
+      .post<SpotifyTokenResponse>(this.spotifyAuthorize.TOKEN_URL, body.toString(), {
+        headers: {
+          ...HEADERS
         }
       })
       .pipe(
