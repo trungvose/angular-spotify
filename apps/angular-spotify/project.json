@@ -83,7 +83,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
         "hmr": true,
-        "buildTarget": "angular-spotify:build"
+        "buildTarget": "angular-spotify:build",
+        "host": "0.0.0.0",
+        "port": 4200,
+        "allowedHosts": ["spotify.local", "localhost"]
       },
       "configurations": {
         "production": {

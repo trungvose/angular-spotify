@@ -6,9 +6,8 @@
   @apply grid gap-2 pt-2 px-2;
   grid-template-rows: 1fr auto;
   grid-template-columns: auto 1fr;
-  grid-template-areas:
-    'nav-bar         main-view      '
-    'now-playing-bar now-playing-bar';
+  grid-template-areas: 'nav main'
+                       'bar bar';
 }
 
 #pip-visualizer {

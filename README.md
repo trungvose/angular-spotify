@@ -127,13 +127,58 @@ I followed the structure recommended by my friend [@nartc][nartc]. Below is the 
 
 ### Authentication Flow
 
-I follow `Implicit Grant Flow` that Spotify recommended for client-side only applications and did not involve secret keys. The issued access tokens are short-lived, and there are no refresh tokens to extend them when they expire.
+> **⚠️ Migration Notice:** This application previously used the `Implicit Grant Flow`, which [will be sunset on November 27, 2025](https://developer.spotify.com/documentation/web-api/tutorials/implicit-flow). The application has been migrated to use **Authorization Code with PKCE** flow, which is the recommended approach for client-side only applications that don't involve secret keys.
 
-View the [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
+I follow the **Authorization Code with PKCE** flow that Spotify recommends for client-side only applications. This flow provides better security than the deprecated Implicit Grant Flow and includes refresh tokens to extend access when tokens expire.
+
+View the [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/) and [Authorization Code PKCE Tutorial](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
 
 - Upon opening Angular Spotify, It will redirect you to Spotify to get access to your data. Angular Spotify only uses the data purely for displaying on the UI. We won't store your information anywhere else.
-- Angular Spotify only keeps the access token in the browser memory without even storing it into browser local storage. If you do a hard refresh on the browser, It will ask for a new access token from Spotify. One access token is only valid for **one hour**.
+- Angular Spotify stores the access token and refresh token in browser local storage. Access tokens are valid for **one hour** and are automatically refreshed using the refresh token when they expire.
 - After having the token, I'll try to connect to the Web Playback SDK with a new player - `Angular Spotify Web Player`
+
+#### Authorization Code with PKCE Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App as Angular App
+    participant AuthStore as AuthStore
+    participant Spotify as Spotify Accounts
+    participant API as Spotify Web API
+
+    User->>App: Opens Application
+    App->>AuthStore: initAuth()
+    AuthStore->>AuthStore: Check URL for authorization code
+    
+    alt First Login: Authorization Code Present
+        AuthStore->>AuthStore: handleFirstLogin(code)
+        AuthStore->>API: POST /api/token<br/>(code + code_verifier)
+        API->>AuthStore: Return access_token & refresh_token
+        AuthStore->>AuthStore: Save tokens to localStorage
+        AuthStore->>App: Dispatch AuthReady
+    else No Code: Check Existing Tokens
+        alt No Tokens Found
+            AuthStore->>AuthStore: Generate code_verifier (128 chars)
+            AuthStore->>AuthStore: Generate code_challenge (SHA256)
+            AuthStore->>AuthStore: Store code_verifier
+            AuthStore->>Spotify: Redirect to /authorize<br/>(with code_challenge)
+            Spotify->>User: Authorization Dialog
+            User->>Spotify: Approve Access
+            Spotify->>App: Redirect with code
+            Note over App: Loop back to "First Login"
+        else Token Expired
+            AuthStore->>AuthStore: handleTokenRefresh()
+            AuthStore->>API: POST /api/token<br/>(refresh_token grant)
+            API->>AuthStore: Return new tokens
+            AuthStore->>AuthStore: Save tokens to localStorage
+            AuthStore->>App: Dispatch AuthReady
+        else Token Valid
+            AuthStore->>AuthStore: handleValidToken()
+            AuthStore->>App: Dispatch AuthReady
+        end
+    end
+```
 
 ![Angular Spotify Web Playback SDK flow][sdk-flow]
 
