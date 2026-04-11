@@ -12,16 +12,7 @@ import { Store } from '@ngrx/store';
 import { EMPTY, Observable, throwError } from 'rxjs';
 import { catchError, filter, map, switchMap, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
-import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
-
-const LOCALSTORAGE_KEYS = {
-  CODE_VERIFIER: 'code_verifier',
-  ACCESS_TOKEN: 'access_token',
-  TOKEN_TYPE: 'token_type',
-  REFRESH_TOKEN: 'refresh_token',
-  EXPIRES_AT: 'expires_at',
-  PATH: 'path'
-} as const;
+import { LocalStorageService, LOCALSTORAGE_KEYS } from '@angular-spotify/web/settings/data-access';
 
 const HEADERS = {
   'Content-Type': 'application/x-www-form-urlencoded'

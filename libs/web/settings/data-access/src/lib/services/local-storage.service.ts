@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const APP_PREFIX = 'AS-';
 
+export const LOCALSTORAGE_KEYS = {
+  CODE_VERIFIER: 'code_verifier',
+  ACCESS_TOKEN: 'access_token',
+  TOKEN_TYPE: 'token_type',
+  REFRESH_TOKEN: 'refresh_token',
+  EXPIRES_AT: 'expires_at',
+  PATH: 'path'
+} as const;
+
 export class LocalStorageService {
   /**
    * Returns all initial variables

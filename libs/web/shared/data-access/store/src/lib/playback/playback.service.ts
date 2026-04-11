@@ -1,4 +1,4 @@
-import { LocalStorageService, SettingsFacade } from '@angular-spotify/web/settings/data-access';
+import { LocalStorageService, LOCALSTORAGE_KEYS, SettingsFacade } from '@angular-spotify/web/settings/data-access';
 import { PlayerApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -50,7 +50,7 @@ export class PlaybackService {
     const player = new Player({
       name: 'Angular Spotify Web Player',
       getOAuthToken: (cb) => {
-        cb(LocalStorageService.getItem('access_token') || token);
+        cb(LocalStorageService.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN) || token);
       },
       volume
     });
