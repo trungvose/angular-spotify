@@ -21,7 +21,10 @@ export class PlayerApiService {
   }
 
   play(request: SpotifyPlayRequestApi) {
-    return this.http.put(`${this.playerUrl}/play`, request);
+    const { device_id, ...body } = request;
+    return device_id
+      ? this.http.put(`${this.playerUrl}/play`, body, { params: { device_id } })
+      : this.http.put(`${this.playerUrl}/play`, body);
   }
 
   pause() {
