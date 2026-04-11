@@ -60,7 +60,9 @@ export class PlaybackService {
     });
 
     player.addListener('authentication_error', ({ message }) => {
-      console.error(message);
+      console.error('[Angular Spotify] Authentication error, reconnecting...', message);
+      player.disconnect();
+      player.connect();
     });
 
     player.addListener('account_error', ({ message }) => {
