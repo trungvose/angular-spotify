@@ -11,12 +11,8 @@ if (environment.production) {
 
 Sentry.init({
   dsn: 'https://678ecbef83174cfb881d81a1e74aa0ff@o495789.ingest.sentry.io/5691023',
-  integrations: [
-    new Sentry.BrowserTracing({
-      tracingOrigins: ['https://spotify.trungk18.com/'],
-      routingInstrumentation: Sentry.routingInstrumentation
-    })
-  ],
+  integrations: [Sentry.browserTracingIntegration()],
+  tracePropagationTargets: ['https://spotify.trungk18.com/'],
   tracesSampleRate: 1.0
 });
 

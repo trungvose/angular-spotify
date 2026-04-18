@@ -5,7 +5,7 @@ import { WebLayoutModule } from '@angular-spotify/web/shell/ui/layout';
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { provideRouter, RouterModule, withViewTransitions } from '@angular/router';
+import { provideRouter, Router, RouterModule, withViewTransitions } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import * as Sentry from '@sentry/angular';
@@ -51,6 +51,16 @@ const rootReducers = {
       useValue: Sentry.createErrorHandler({
         showDialog: true
       })
+    },
+    {
+      provide: Sentry.TraceService,
+      deps: [Router]
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => (): void => undefined,
+      deps: [Sentry.TraceService],
+      multi: true
     },
     {
       provide: APP_INITIALIZER,
