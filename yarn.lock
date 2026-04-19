@@ -9620,7 +9620,7 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-zorro-antd@^17:
+ng-zorro-antd@17.4.1:
   version "17.4.1"
   resolved "https://registry.yarnpkg.com/ng-zorro-antd/-/ng-zorro-antd-17.4.1.tgz#af7b35dae00c8de6dcc3eacc6cc6c338236a6ec5"
   integrity sha512-KsMYFlRBFPK5FPPoaYIS/uzQ4400WFMLcA9/1LmYZcSgmeINlCvgfiitNcOVLsRyQYlpdIQyOo9z5Ue2SS9ypg==
