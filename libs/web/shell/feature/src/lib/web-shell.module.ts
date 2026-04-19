@@ -52,6 +52,10 @@ const rootReducers = {
         showDialog: true
       })
     },
+    // Sentry router tracing. TraceService subscribes to Router events to open a
+    // transaction per navigation; the no-op APP_INITIALIZER forces Angular DI to
+    // instantiate it at bootstrap (nothing else injects it). See @sentry/angular:
+    // https://github.com/getsentry/sentry-javascript/blob/8.55.1/packages/angular/README.md#tracing
     {
       provide: Sentry.TraceService,
       deps: [Router]
