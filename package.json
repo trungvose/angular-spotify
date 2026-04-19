@@ -46,6 +46,7 @@
     "@angular/router": "17.3.2",
     "@angular/service-worker": "17.3.2",
     "@ant-design/icons-angular": "^17",
+    "@ctrl/tinycolor": "^3.6.0",
     "@ngneat/svg-icon": "^7.1.0",
     "@ngneat/until-destroy": "^8.0.4",
     "@ngrx/component": "17.0.1",
