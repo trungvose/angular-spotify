@@ -25,8 +25,15 @@ export class LyricsViewComponent implements OnChanges {
   @Output() seekTo = new EventEmitter<number>();
   @ViewChildren('lyricLine') lyricLines!: QueryList<ElementRef>;
 
+  userControlling = false;
+
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['activeLine'] && this.isSynced && this.activeLine >= 0) {
+    if (
+      changes['activeLine'] &&
+      this.isSynced &&
+      this.activeLine >= 0 &&
+      !this.userControlling
+    ) {
       this.scrollToActiveLine();
     }
   }
@@ -35,6 +42,11 @@ export class LyricsViewComponent implements OnChanges {
     if (this.isSynced && line.time !== null) {
       this.seekTo.emit(line.time);
     }
+  }
+
+  onSync(): void {
+    this.userControlling = false;
+    this.scrollToActiveLine();
   }
 
   private scrollToActiveLine(): void {
