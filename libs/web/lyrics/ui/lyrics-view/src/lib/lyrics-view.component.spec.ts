@@ -143,6 +143,17 @@ describe('LyricsViewComponent', () => {
   const querySyncPill = (): HTMLButtonElement | null =>
     fixture.nativeElement.querySelector('.sync-pill');
 
+  it('hides the Sync pill when isSynced is false even if userControlling is true', () => {
+    component.lyrics = LYRICS;
+    component.isSynced = false;
+    component.userControlling = true;
+    fixture.detectChanges();
+    fixture.debugElement.injector.get(ChangeDetectorRef).markForCheck();
+    fixture.detectChanges();
+
+    expect(querySyncPill()).toBeNull();
+  });
+
   it('shows the Sync pill only while controlling', () => {
     renderSynced();
     expect(querySyncPill()).toBeNull();
@@ -160,7 +171,9 @@ describe('LyricsViewComponent', () => {
     fixture.detectChanges();
     const spy = jest.spyOn(component, 'onSync');
 
-    querySyncPill()!.click();
+    const pill = querySyncPill();
+    expect(pill).not.toBeNull();
+    pill?.click();
 
     expect(spy).toHaveBeenCalled();
   });
