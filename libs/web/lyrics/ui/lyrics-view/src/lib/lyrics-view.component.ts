@@ -28,6 +28,10 @@ export class LyricsViewComponent implements OnChanges {
   userControlling = false;
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes['lyrics'] && !changes['lyrics'].firstChange) {
+      this.userControlling = false;
+    }
+
     if (
       changes['activeLine'] &&
       this.isSynced &&

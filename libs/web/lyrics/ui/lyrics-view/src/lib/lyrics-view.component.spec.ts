@@ -75,4 +75,29 @@ describe('LyricsViewComponent', () => {
     expect(component.userControlling).toBe(false);
     expect(Element.prototype.scrollIntoView).toHaveBeenCalledTimes(1);
   }));
+
+  it('resets control when a new lyrics array is bound (track change)', () => {
+    component.lyrics = LYRICS;
+    component.isSynced = true;
+    component.userControlling = true;
+
+    const next: LyricLine[] = [{ text: 'new song', time: 0 }];
+    component.lyrics = next;
+    component.ngOnChanges({
+      lyrics: new SimpleChange(LYRICS, next, false)
+    });
+
+    expect(component.userControlling).toBe(false);
+  });
+
+  it('does NOT reset control on the first lyrics bind', () => {
+    component.userControlling = true;
+
+    component.lyrics = LYRICS;
+    component.ngOnChanges({
+      lyrics: new SimpleChange(undefined, LYRICS, true)
+    });
+
+    expect(component.userControlling).toBe(true);
+  });
 });
