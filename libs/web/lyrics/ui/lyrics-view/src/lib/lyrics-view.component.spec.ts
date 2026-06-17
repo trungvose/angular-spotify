@@ -38,6 +38,13 @@ describe('LyricsViewComponent', () => {
     });
   };
 
+  const fireScroll = () => {
+    component.lyricsContainer.nativeElement.dispatchEvent(new Event('scroll'));
+  };
+
+  const querySyncPill = (): HTMLButtonElement | null =>
+    fixture.nativeElement.querySelector('.sync-pill');
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -103,10 +110,6 @@ describe('LyricsViewComponent', () => {
     expect(component.userControlling).toBe(true);
   });
 
-  const fireScroll = () => {
-    component.lyricsContainer.nativeElement.dispatchEvent(new Event('scroll'));
-  };
-
   it('marks the user as controlling on a genuine scroll', () => {
     renderSynced();
     expect(component.userControlling).toBe(false);
@@ -140,14 +143,18 @@ describe('LyricsViewComponent', () => {
     expect(component.userControlling).toBe(true);
   }));
 
-  const querySyncPill = (): HTMLButtonElement | null =>
-    fixture.nativeElement.querySelector('.sync-pill');
+  it('stops reacting to scroll after destroy', () => {
+    renderSynced();
+    const el = component.lyricsContainer.nativeElement;
+    fixture.destroy();
+    el.dispatchEvent(new Event('scroll'));
+    expect(component.userControlling).toBe(false);
+  });
 
   it('hides the Sync pill when isSynced is false even if userControlling is true', () => {
     component.lyrics = LYRICS;
     component.isSynced = false;
     component.userControlling = true;
-    fixture.detectChanges();
     fixture.debugElement.injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
