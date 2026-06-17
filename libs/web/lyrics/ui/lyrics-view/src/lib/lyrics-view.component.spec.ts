@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { SimpleChange } from '@angular/core';
+import { ChangeDetectorRef, SimpleChange } from '@angular/core';
 import { LyricLine } from '@angular-spotify/web/lyrics/data-access';
 import { LyricsViewComponent } from './lyrics-view.component';
 
@@ -139,4 +139,29 @@ describe('LyricsViewComponent', () => {
 
     expect(component.userControlling).toBe(true);
   }));
+
+  const querySyncPill = (): HTMLButtonElement | null =>
+    fixture.nativeElement.querySelector('.sync-pill');
+
+  it('shows the Sync pill only while controlling', () => {
+    renderSynced();
+    expect(querySyncPill()).toBeNull();
+
+    component.userControlling = true;
+    fixture.debugElement.injector.get(ChangeDetectorRef).markForCheck();
+    fixture.detectChanges();
+    expect(querySyncPill()).not.toBeNull();
+  });
+
+  it('clicking the Sync pill calls onSync()', () => {
+    renderSynced();
+    component.userControlling = true;
+    fixture.debugElement.injector.get(ChangeDetectorRef).markForCheck();
+    fixture.detectChanges();
+    const spy = jest.spyOn(component, 'onSync');
+
+    querySyncPill()!.click();
+
+    expect(spy).toHaveBeenCalled();
+  });
 });

@@ -5,7 +5,7 @@
 }
 
 .lyrics-container {
-  @apply w-full h-full overflow-y-auto px-8 py-12;
+  @apply w-full h-full overflow-y-auto px-8 py-12 relative;
   background: rgb(var(--background-baseline));
 }
 
@@ -43,5 +43,24 @@
   p {
     @apply text-2xl;
     color: rgba(var(--text-baseline), 0.5);
+  }
+}
+
+.sync-pill {
+  @apply sticky flex items-center gap-2 px-4 py-2 mx-auto rounded-full text-sm font-semibold;
+  bottom: 1.5rem;
+  width: fit-content;
+  color: rgb(var(--background-baseline));
+  background: rgb(var(--text-baseline));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &__icon {
+    display: block;
   }
 }
