@@ -50,6 +50,7 @@ describe('LyricsViewComponent', () => {
     tick();
 
     expect(Element.prototype.scrollIntoView).toHaveBeenCalledTimes(1);
+    tick(600); // drain the programmatic scroll fallback timer
   }));
 
   it('does NOT auto-scroll while the user is controlling', fakeAsync(() => {
@@ -74,6 +75,7 @@ describe('LyricsViewComponent', () => {
 
     expect(component.userControlling).toBe(false);
     expect(Element.prototype.scrollIntoView).toHaveBeenCalledTimes(1);
+    tick(600); // drain the programmatic scroll fallback timer
   }));
 
   it('resets control when a new lyrics array is bound (track change)', () => {
@@ -100,4 +102,41 @@ describe('LyricsViewComponent', () => {
 
     expect(component.userControlling).toBe(true);
   });
+
+  const fireScroll = () => {
+    component.lyricsContainer.nativeElement.dispatchEvent(new Event('scroll'));
+  };
+
+  it('marks the user as controlling on a genuine scroll', () => {
+    renderSynced();
+    expect(component.userControlling).toBe(false);
+
+    fireScroll();
+
+    expect(component.userControlling).toBe(true);
+  });
+
+  it('ignores scroll events emitted by programmatic scrolling', fakeAsync(() => {
+    renderSynced();
+    component.activeLine = 1;
+
+    // Begin a programmatic scroll; its scroll events must not flip the flag.
+    component.onSync();
+    tick(); // runs the deferred scrollToActiveLine -> sets the guard
+    fireScroll();
+
+    expect(component.userControlling).toBe(false);
+    tick(600); // let the settle/fallback timer clear the guard
+  }));
+
+  it('clears the programmatic guard after the fallback timeout', fakeAsync(() => {
+    renderSynced();
+    component.onSync();
+    tick(); // guard set
+    tick(600); // past PROGRAMMATIC_SCROLL_FALLBACK_MS
+
+    fireScroll();
+
+    expect(component.userControlling).toBe(true);
+  }));
 });

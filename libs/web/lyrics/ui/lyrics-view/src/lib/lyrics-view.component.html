@@ -1,4 +1,4 @@
-<div class="lyrics-container">
+<div class="lyrics-container" #lyricsContainer>
   @if (lyrics && lyrics.length > 0) {
     <div class="lyrics-scroll">
       @for (line of lyrics; track line.text; let i = $index) {
