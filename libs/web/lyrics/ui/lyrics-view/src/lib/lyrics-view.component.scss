@@ -47,7 +47,7 @@
 }
 
 .sync-pill {
-  @apply sticky flex items-center gap-2 px-4 py-2 mx-auto rounded-full text-sm font-semibold;
+  @apply sticky px-4 py-2 mx-auto rounded-full text-sm font-semibold;
   bottom: 1.5rem;
   width: fit-content;
   color: rgb(var(--background-baseline));
@@ -58,9 +58,5 @@
 
   &:hover {
     transform: translateY(-1px);
-  }
-
-  &__icon {
-    display: block;
   }
 }
