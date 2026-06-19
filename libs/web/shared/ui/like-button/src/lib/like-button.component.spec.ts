@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
-import { take } from 'rxjs/operators';
 import { SavedTracksStore } from '@angular-spotify/web/shared/data-access/store';
 import { LikeButtonComponent } from './like-button.component';
 import { LikeButtonModule } from './like-button.module';
@@ -30,21 +29,17 @@ describe('LikeButtonComponent', () => {
   });
 
   it('renders the outline heart when not saved', () => {
-    const icon = fixture.nativeElement.querySelector('svg-icon');
-    expect(icon.getAttribute('ng-reflect-key')).toBe('heart');
+    const button = fixture.nativeElement.querySelector('button');
+    expect(button.classList.contains('is-saved')).toBe(false);
+    expect(button.getAttribute('title')).toBe('Save to your Liked Songs');
   });
 
-  it('renders the filled heart when saved', (done) => {
-    // ng-reflect-key does not update on BehaviorSubject emissions in JSDOM
-    // after the initial render cycle for OnPush + ngrxLet. We assert on the
-    // component's isSaved$ stream value instead, which is the source of truth
-    // driving the [key] binding.
+  it('renders the saved state when the track is saved', () => {
     saved$.next(true);
     fixture.detectChanges();
-    component.isSaved$.pipe(take(1)).subscribe((isSaved) => {
-      expect(isSaved).toBe(true);
-      done();
-    });
+    const button = fixture.nativeElement.querySelector('button');
+    expect(button.classList.contains('is-saved')).toBe(true);
+    expect(button.getAttribute('title')).toBe('Remove from your Liked Songs');
   });
 
   it('toggles and stops propagation on click', () => {
