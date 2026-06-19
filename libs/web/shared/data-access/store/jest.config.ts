@@ -2,12 +2,21 @@
 export default {
   displayName: 'web-shared-data-access-store',
   preset: '../../../../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
-    'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' }
+    'ts-jest': {
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      tsconfig: '<rootDir>/tsconfig.spec.json'
+    }
   },
+  coverageDirectory: '../../../../../coverage/libs/web/shared/data-access/store',
+  snapshotSerializers: [
+    'jest-preset-angular/build/serializers/no-ng-attributes',
+    'jest-preset-angular/build/serializers/ng-snapshot',
+    'jest-preset-angular/build/serializers/html-comment'
+  ],
   transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
+    '^.+.(ts|mjs|js|html)$': 'jest-preset-angular'
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../../coverage/libs/web/shared/data-access/store'
+  transformIgnorePatterns: ['node_modules/(?!.*.mjs$)']
 };

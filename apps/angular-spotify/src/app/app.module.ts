@@ -11,11 +11,13 @@ import {
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    NzMessageModule,
     WebShellModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
