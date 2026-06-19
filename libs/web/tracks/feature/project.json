@@ -12,7 +12,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/tracks/feature"],
       "options": {
-        "jestConfig": "libs/web/tracks/feature/jest.config.js"
+        "jestConfig": "libs/web/tracks/feature/jest.config.ts"
       }
     }
   },
