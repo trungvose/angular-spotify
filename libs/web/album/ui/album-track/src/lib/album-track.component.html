@@ -9,7 +9,8 @@
                         [isPlaying]="isPlaying">
     </as-track-main-info>
   </ng-container>
-  <div class="text-description">
-    {{ track.duration_ms | duration }}
+  <div class="text-description flex items-center justify-end gap-4">
+    <as-like-button [trackId]="track.id"></as-like-button>
+    <span>{{ track.duration_ms | duration }}</span>
   </div>
 </as-media-table-row>
