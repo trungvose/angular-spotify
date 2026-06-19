@@ -12,7 +12,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/ui/playlist-track"],
       "options": {
-        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.js"
+        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.ts"
       }
     }
   },
