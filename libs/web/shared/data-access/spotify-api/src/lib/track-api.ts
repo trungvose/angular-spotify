@@ -32,4 +32,25 @@ export class TrackApiService {
       }
     );
   }
+
+  saveTracks(ids: string[]) {
+    return this.http.put<void>(`${this.appConfig.baseURL}/me/tracks`, null, {
+      params: { ids: ids.join(',') }
+    });
+  }
+
+  removeTracks(ids: string[]) {
+    return this.http.delete<void>(`${this.appConfig.baseURL}/me/tracks`, {
+      params: { ids: ids.join(',') }
+    });
+  }
+
+  checkSavedTracks(ids: string[]) {
+    return this.http.get<boolean[]>(
+      `${this.appConfig.baseURL}/me/tracks/contains`,
+      {
+        params: { ids: ids.join(',') }
+      }
+    );
+  }
 }
