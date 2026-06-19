@@ -51,6 +51,17 @@ describe('SavedTracksStore', () => {
     expect(trackApi.checkSavedTracks).not.toHaveBeenCalled();
   });
 
+  it('checkSaved chunks >50 ids into batches of at most 50', () => {
+    const ids = Array.from({ length: 51 }, (_, i) => 'id' + i);
+    trackApi.checkSavedTracks.mockImplementation((chunk: string[]) =>
+      of(new Array(chunk.length).fill(false))
+    );
+    store.checkSaved(ids);
+    expect(trackApi.checkSavedTracks).toHaveBeenCalledTimes(2);
+    expect(trackApi.checkSavedTracks.mock.calls[0][0]).toHaveLength(50);
+    expect(trackApi.checkSavedTracks.mock.calls[1][0]).toHaveLength(1);
+  });
+
   it('toggleSave optimistically saves and calls saveTracks', () => {
     store.toggleSave({ id: 'a', currentlySaved: false });
     expect(currentSaved('a')).toBe(true);

@@ -9,3 +9,9 @@
   grid-template-columns: minmax(180px, 3fr) minmax(200px, 4fr) minmax(240px, 3fr);
   @apply px-4 items-center h-nowPlayingBar;
 }
+
+.now-playing-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
