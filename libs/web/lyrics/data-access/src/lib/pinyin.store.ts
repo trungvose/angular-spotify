@@ -56,11 +56,7 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   }
 
   setVisibleRange(range: { start: number; end: number } | null): void {
-    if (range === null) {
-      this.patchState({ visibleRange: null });
-    } else {
-      this.patchState({ visibleRange: range });
-    }
+    this.patchState({ visibleRange: range });
     this.enqueue();
   }
 
