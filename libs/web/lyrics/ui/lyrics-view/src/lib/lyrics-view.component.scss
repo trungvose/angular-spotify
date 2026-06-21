@@ -47,7 +47,7 @@
 }
 
 .sync-pill {
-  @apply sticky px-4 py-2 mx-auto rounded-full text-sm font-semibold;
+  @apply sticky block px-4 py-2 mx-auto rounded-full text-sm font-semibold;
   bottom: 1.5rem;
   width: fit-content;
   color: rgb(var(--background-baseline));
