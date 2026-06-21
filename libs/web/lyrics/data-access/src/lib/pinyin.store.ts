@@ -74,11 +74,14 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   }
 
   private async detectAndSeed(lines: LyricLine[]): Promise<void> {
+    const gen = this.generation;
     const sample = lines
       .slice(0, DETECT_SAMPLE_LINES)
       .map((l) => l.text)
       .join('\n');
     const detection = await this.ai.detectLanguage(sample);
+    // Guard: if reset() was called while we awaited detection, bail out.
+    if (gen !== this.generation) return;
     const isChinese =
       !!detection && detection.lang.startsWith('zh') && detection.confidence >= MIN_CONFIDENCE;
     if (!isChinese) {
@@ -141,6 +144,9 @@ export class PinyinStore extends ComponentStore<PinyinState> {
         if (!this.get().enabled) break;
         const batch = this.nextBatch();
         if (batch.length === 0) break;
+        // Guard: if reset() fired since we entered this loop iteration, bail out
+        // before writing loading state into the new track's map.
+        if (gen !== this.generation) break;
         const patch: Record<number, PinyinLineState> = {};
         for (const idx of batch) {
           patch[idx] = { ...this.get().pinyinByIndex[idx], status: 'loading' };

@@ -278,6 +278,33 @@ describe('PinyinStore — track change', () => {
     expect(map[0].text).toBe('b0汉');
   });
 
+  it('does not stamp new track state with old track lines when detectLanguage resolves after track change', async () => {
+    // Slow detectLanguage for trackA — resolves only when we manually tick
+    let resolveDetect!: (v: { lang: string; confidence: number }) => void;
+    const slowDetect = new Promise<{ lang: string; confidence: number }>((res) => { resolveDetect = res; });
+    ai.detectLanguage.mockImplementationOnce(() => slowDetect);
+
+    // Start init for trackA (detection is pending)
+    lyrics$.next(lines(3, 'a'));
+    // trackA's detectLanguage is now awaited but not resolved
+
+    // Track changes to trackB BEFORE trackA's detection resolves
+    ai.detectLanguage.mockResolvedValueOnce({ lang: 'zh', confidence: 0.95 });
+    lyrics$.next(lines(3, 'b'));
+    await flush(); // reset() + trackB's detectAndSeed completes synchronously
+
+    // Now resolve trackA's stale detection
+    resolveDetect({ lang: 'zh', confidence: 0.95 });
+    await flush();
+    await flush();
+
+    // pinyinByIndex must only contain 'b' lines — trackA must NOT have overwritten
+    const map = read<Record<number, any>>(store.pinyinByIndex$);
+    const entries = Object.values(map) as Array<{ text: string }>;
+    expect(entries.length).toBeGreaterThan(0);
+    expect(entries.every((e) => e.text.startsWith('b'))).toBe(true);
+  });
+
   it('does not write stale results into new track state when drain resolves after track change', async () => {
     // Slow first batch — resolves only when we manually tick
     let resolveSlow!: (v: string[]) => void;
