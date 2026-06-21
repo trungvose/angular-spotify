@@ -7,6 +7,7 @@ import { PlayerPlaybackModule } from '@angular-spotify/web/shell/ui/player-playb
 import { PlayerVolumeModule } from '@angular-spotify/web/shell/ui/player-volume';
 import { VisualizationToggleModule } from '@angular-spotify/web/shell/ui/visualization-toggle';
 import { LyricsToggleModule } from '@angular-spotify/web/lyrics/ui/lyrics-toggle';
+import { PinyinToggleModule } from '@angular-spotify/web/lyrics/ui/pinyin-toggle';
 import { LikeButtonModule } from '@angular-spotify/web/shared/ui/like-button';
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { LikeButtonModule } from '@angular-spotify/web/shared/ui/like-button';
     PlayerVolumeModule,
     VisualizationToggleModule,
     LyricsToggleModule,
+    PinyinToggleModule,
     LikeButtonModule
   ],
   declarations: [NowPlayingBarComponent],

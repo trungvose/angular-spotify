@@ -12,7 +12,9 @@
       [lyrics]="lyrics$ | async"
       [activeLine]="(activeLine$ | async) ?? -1"
       [isSynced]="(isSynced$ | async) ?? false"
+      [pinyinByIndex]="(pinyinByIndex$ | async) ?? {}"
       (seekTo)="onSeekTo($event)"
+      (visibleRangeChange)="onVisibleRangeChange($event)"
     ></as-lyrics-view>
   }
 }
