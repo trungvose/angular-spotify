@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { BuiltInAiService, PinyinSession } from '@angular-spotify/web/shared/data-access/built-in-ai';
 import { combineLatest, Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { LyricsStore } from './lyrics.store';
 import { LyricLine } from './lyrics.models';
 import { containsHan } from './han-util';
@@ -43,8 +44,35 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   readonly downloadState$ = this.select((s) => s.downloadState);
   readonly pinyinByIndex$ = this.select((s) => s.pinyinByIndex);
   readonly visibleRange$ = this.select((s) => s.visibleRange);
+
+  /** True once at least one line has rendered pinyin. */
+  readonly hasRenderedPinyin$: Observable<boolean> = this.select((s) =>
+    Object.values(s.pinyinByIndex).some((line) => line.status === 'done')
+  );
+
+  /**
+   * Only surface the toggle once pinyin actually starts rendering — before that
+   * there is nothing to show/hide, and the page-level status conveys progress.
+   */
   readonly showToggle$: Observable<boolean> = this.select(
-    (s) => s.isChinese && s.support === 'supported'
+    (s) =>
+      s.isChinese &&
+      s.support === 'supported' &&
+      Object.values(s.pinyinByIndex).some((line) => line.status === 'done')
+  );
+
+  /**
+   * In-progress status to surface on the lyrics page (e.g. bottom-right) for a
+   * Chinese song before any pinyin appears. Null once pinyin is rendering (the
+   * pinyin itself is then the feedback) or when the feature doesn't apply.
+   */
+  readonly pinyinPageStatus$: Observable<'downloading' | 'preparing' | null> = this.select(
+    (s): 'downloading' | 'preparing' | null => {
+      if (!s.isChinese || s.support !== 'supported') return null;
+      const hasPinyin = Object.values(s.pinyinByIndex).some((line) => line.status === 'done');
+      if (hasPinyin) return null;
+      return s.downloadState === 'downloading' ? 'downloading' : 'preparing';
+    }
   );
 
   setEnabled(enabled: boolean): void {
@@ -95,6 +123,14 @@ export class PinyinStore extends ComponentStore<PinyinState> {
       }
     });
     this.patchState({ isChinese: true, pinyinByIndex });
+    // A paused song doesn't advance activeLine$, and detection may resolve after
+    // the last activeLine emission — so the active-line driver would never open a
+    // window and pinyin would never generate. Seed one now around the current
+    // active line so visible pinyin appears immediately. (Unsynced lyrics report
+    // activeLine -1 and are driven by the viewport observer instead.)
+    this.lyricsStore.activeLine$.pipe(take(1)).subscribe((activeLine) => {
+      if (activeLine >= 0) this.setActiveLine(activeLine);
+    });
   }
 
   private get focus(): number {

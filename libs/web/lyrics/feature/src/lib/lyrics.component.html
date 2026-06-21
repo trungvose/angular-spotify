@@ -8,14 +8,26 @@
       <p class="text-2xl text-gray-400">No lyrics available for this track.</p>
     </div>
   } @else {
-    <as-lyrics-view
-      [lyrics]="lyrics$ | async"
-      [activeLine]="(activeLine$ | async) ?? -1"
-      [isSynced]="(isSynced$ | async) ?? false"
-      [pinyinByIndex]="(pinyinByIndex$ | async) ?? {}"
-      [pinyinEnabled]="(enabled$ | async) ?? false"
-      (seekTo)="onSeekTo($event)"
-      (visibleRangeChange)="onVisibleRangeChange($event)"
-    ></as-lyrics-view>
+    <div class="lyrics-loaded">
+      <as-lyrics-view
+        [lyrics]="lyrics$ | async"
+        [activeLine]="(activeLine$ | async) ?? -1"
+        [isSynced]="(isSynced$ | async) ?? false"
+        [pinyinByIndex]="(pinyinByIndex$ | async) ?? {}"
+        [pinyinEnabled]="(enabled$ | async) ?? false"
+        (seekTo)="onSeekTo($event)"
+        (visibleRangeChange)="onVisibleRangeChange($event)"
+      ></as-lyrics-view>
+      @if (pinyinStatus$ | async; as pinyinStatus) {
+        <div class="pinyin-status" role="status" aria-live="polite">
+          <span class="pinyin-status__dot"></span>
+          <span>{{
+            pinyinStatus === 'downloading'
+              ? 'Downloading language model…'
+              : 'Preparing pinyin…'
+          }}</span>
+        </div>
+      }
+    </div>
   }
 }

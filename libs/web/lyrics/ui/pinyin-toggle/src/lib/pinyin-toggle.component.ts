@@ -10,7 +10,6 @@ import { PinyinStore } from '@angular-spotify/web/lyrics/data-access';
 export class PinyinToggleComponent {
   showToggle$ = this.pinyinStore.showToggle$;
   isEnabled$ = this.pinyinStore.enabled$;
-  downloadState$ = this.pinyinStore.downloadState$;
   private isEnabled = true;
 
   constructor(private pinyinStore: PinyinStore) {

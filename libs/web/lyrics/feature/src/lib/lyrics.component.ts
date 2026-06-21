@@ -15,6 +15,7 @@ export class LyricsComponent {
   status$ = this.lyricsStore.status$;
   pinyinByIndex$ = this.pinyinStore.pinyinByIndex$;
   enabled$ = this.pinyinStore.enabled$;
+  pinyinStatus$ = this.pinyinStore.pinyinPageStatus$;
 
   constructor(
     private lyricsStore: LyricsStore,

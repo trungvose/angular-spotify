@@ -39,9 +39,31 @@
 
 .pinyin-line {
   display: block;
+  overflow: hidden;
   font-size: 0.75em;
   color: var(--text-subdued, #b3b3b3);
   line-height: 1.2;
+  animation: pinyin-in 0.22s ease-out;
+}
+
+@keyframes pinyin-in {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    max-height: 2em;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pinyin-line {
+    animation: none;
+  }
 }
 
 .hanzi-line {

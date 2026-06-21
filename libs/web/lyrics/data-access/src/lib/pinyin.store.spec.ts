@@ -52,14 +52,15 @@ describe('PinyinStore — detection gating', () => {
     expect(ai.detectLanguage).not.toHaveBeenCalled();
   });
 
-  it('shows the toggle and seeds pending entries only for Han lines when Chinese', async () => {
+  it('seeds pending entries only for Han lines when Chinese (toggle still hidden)', async () => {
     store.init([
       { time: 0, text: '你好' },
       { time: 1, text: 'instrumental break' },
       { time: 2, text: '再见' }
     ]);
     await flush();
-    expect(read<boolean>(store.showToggle$)).toBe(true);
+    // Toggle stays hidden until pinyin actually renders, even though Chinese is detected.
+    expect(read<boolean>(store.showToggle$)).toBe(false);
     const map = read<Record<number, any>>(store.pinyinByIndex$);
     expect(Object.keys(map)).toEqual(['0', '2']);
     expect(map[0]).toEqual({ text: '你好', pinyin: null, status: 'pending' });
@@ -364,5 +365,103 @@ describe('PinyinStore — track change', () => {
     expect(entries.every((e) => e.text.startsWith('b'))).toBe(true);
     // No phantom 'done' entries carrying stale pinyin
     expect(entries.every((e) => e.pinyin !== 'stale-py')).toBe(true);
+  });
+});
+
+describe('PinyinStore — toggle visibility and page status', () => {
+  let store: PinyinStore;
+  let ai: {
+    isPromptApiAvailable: jest.Mock;
+    isDetectorAvailable: jest.Mock;
+    detectLanguage: jest.Mock;
+    createPinyinSession: jest.Mock;
+    promptPinyinBatch: jest.Mock;
+  };
+  let lyrics$: BehaviorSubject<LyricLine[] | null>;
+  let isSynced$: BehaviorSubject<boolean>;
+  let activeLine$: BehaviorSubject<number>;
+
+  const read = <T>(obs: { pipe: any }): T => {
+    let v!: T;
+    (obs as any).pipe(take(1)).subscribe((x: T) => (v = x));
+    return v;
+  };
+
+  const LINES: LyricLine[] = Array.from({ length: 5 }, (_, i) => ({ time: i, text: `行${i}` }));
+
+  const configure = () => {
+    TestBed.configureTestingModule({
+      providers: [
+        PinyinStore,
+        { provide: BuiltInAiService, useValue: ai },
+        { provide: LyricsStore, useValue: { lyrics$, isSynced$, activeLine$ } }
+      ]
+    });
+    store = TestBed.inject(PinyinStore);
+  };
+
+  beforeEach(() => {
+    lyrics$ = new BehaviorSubject<LyricLine[] | null>(null);
+    isSynced$ = new BehaviorSubject<boolean>(true);
+    activeLine$ = new BehaviorSubject<number>(-1);
+    ai = {
+      isPromptApiAvailable: jest.fn().mockReturnValue(true),
+      isDetectorAvailable: jest.fn().mockReturnValue(true),
+      detectLanguage: jest.fn().mockResolvedValue({ lang: 'zh', confidence: 0.95 }),
+      createPinyinSession: jest.fn().mockResolvedValue({ prompt: jest.fn(), destroy: jest.fn() }),
+      promptPinyinBatch: jest.fn().mockResolvedValue(Array(8).fill('pīn yīn'))
+    };
+  });
+
+  it('hides the toggle and reports "preparing" before any pinyin renders', async () => {
+    configure();
+    store.init(LINES);
+    await flush();
+    expect(read<boolean>(store.showToggle$)).toBe(false);
+    expect(read<string | null>(store.pinyinPageStatus$)).toBe('preparing');
+  });
+
+  it('shows the toggle and clears page status once a line renders pinyin', async () => {
+    configure();
+    store.init(LINES);
+    await flush();
+    store.setActiveLine(0);
+    await flush();
+    await flush();
+    expect(read<boolean>(store.hasRenderedPinyin$)).toBe(true);
+    expect(read<boolean>(store.showToggle$)).toBe(true);
+    expect(read<string | null>(store.pinyinPageStatus$)).toBeNull();
+  });
+
+  it('reports no page status for a non-Chinese song', async () => {
+    ai.detectLanguage.mockResolvedValue({ lang: 'en', confidence: 0.99 });
+    configure();
+    store.init([{ time: 0, text: 'hello' }]);
+    await flush();
+    expect(read<string | null>(store.pinyinPageStatus$)).toBeNull();
+    expect(read<boolean>(store.showToggle$)).toBe(false);
+  });
+
+  it('reports "downloading" while the model is being fetched', async () => {
+    // Hold session creation open so downloadState stays "downloading".
+    ai.createPinyinSession.mockReturnValue(new Promise(() => undefined));
+    configure();
+    store.init(LINES);
+    await flush();
+    store.setActiveLine(0);
+    await flush();
+    expect(read<string | null>(store.pinyinPageStatus$)).toBe('downloading');
+    expect(read<boolean>(store.showToggle$)).toBe(false);
+  });
+
+  it('seeds an initial window around the active line even while paused (no manual drive)', async () => {
+    activeLine$.next(2); // paused mid-song with line 2 active
+    configure();
+    store.init(LINES);
+    await flush(); // detection resolves
+    await flush(); // session + drain
+    await flush();
+    expect(read<boolean>(store.hasRenderedPinyin$)).toBe(true);
+    expect(read<boolean>(store.showToggle$)).toBe(true);
   });
 });
