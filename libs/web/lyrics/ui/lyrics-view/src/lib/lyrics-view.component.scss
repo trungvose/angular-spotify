@@ -37,6 +37,17 @@
   }
 }
 
+.pinyin-line {
+  display: block;
+  font-size: 0.75em;
+  color: var(--text-subdued, #b3b3b3);
+  line-height: 1.2;
+}
+
+.hanzi-line {
+  display: block;
+}
+
 .no-lyrics {
   @apply flex items-center justify-center h-full;
 

@@ -10,7 +10,10 @@
           [class.synced]="isSynced"
           (click)="onLineClick(line)"
         >
-          {{ line.text }}
+          @if (pinyinFor(i)) {
+            <span class="pinyin-line">{{ pinyinFor(i) }}</span>
+          }
+          <span class="hanzi-line">{{ line.text }}</span>
         </p>
       }
     </div>
