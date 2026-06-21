@@ -150,8 +150,8 @@ export class LyricsStore extends ComponentStore<LyricsState> {
       tap(({ isVisible }) => {
         this.patchState({ isVisible, isShownAsPiP: false, isFirstTime: !isVisible });
       }),
-      map(() => this.get()),
-      tap((state) => this.handleStateChange(state))
+      map(() => this.get() as LyricsState),
+      tap((state: LyricsState) => this.handleStateChange(state))
     )
   );
 
