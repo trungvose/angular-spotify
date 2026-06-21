@@ -1,4 +1,5 @@
 import { BuiltInAiService } from './built-in-ai.service';
+import { PinyinSession } from './built-in-ai.types';
 
 describe('BuiltInAiService — detection', () => {
   let service: BuiltInAiService;
@@ -46,5 +47,51 @@ describe('BuiltInAiService — detection', () => {
       create: jest.fn().mockRejectedValue(new Error('boom'))
     };
     expect(await service.detectLanguage('你好')).toBeNull();
+  });
+});
+
+describe('BuiltInAiService — pinyin', () => {
+  let service: BuiltInAiService;
+  afterEach(() => { (globalThis as any).LanguageModel = undefined; });
+  beforeEach(() => { service = new BuiltInAiService(); });
+
+  const fakeSession = (output: string): PinyinSession => ({
+    prompt: jest.fn().mockResolvedValue(output),
+    destroy: jest.fn()
+  });
+
+  it('createPinyinSession passes the system prompt and reports download progress', async () => {
+    const create = jest.fn().mockImplementation((opts) => {
+      opts.monitor?.({ addEventListener: (_t: string, cb: (e: { loaded: number }) => void) => cb({ loaded: 0.5 }) });
+      return Promise.resolve(fakeSession('[]'));
+    });
+    (globalThis as any).LanguageModel = { create };
+    const onDownloadProgress = jest.fn();
+    await service.createPinyinSession({ onDownloadProgress });
+    const passed = create.mock.calls[0][0];
+    expect(passed.initialPrompts[0]).toEqual({ role: 'system', content: expect.stringContaining('Pinyin') });
+    expect(onDownloadProgress).toHaveBeenCalledWith(0.5);
+  });
+
+  it('promptPinyinBatch parses a clean JSON array', async () => {
+    const session = fakeSession('["nǐ hǎo", "zài jiàn"]');
+    const result = await service.promptPinyinBatch(session, ['你好', '再见']);
+    expect(result).toEqual(['nǐ hǎo', 'zài jiàn']);
+  });
+
+  it('promptPinyinBatch extracts a JSON array embedded in prose (regex fallback)', async () => {
+    const session = fakeSession('Sure! Here you go:\n["nǐ hǎo", "zài jiàn"]\nHope that helps.');
+    const result = await service.promptPinyinBatch(session, ['你好', '再见']);
+    expect(result).toEqual(['nǐ hǎo', 'zài jiàn']);
+  });
+
+  it('promptPinyinBatch throws when the parsed length does not match the input', async () => {
+    const session = fakeSession('["nǐ hǎo"]');
+    await expect(service.promptPinyinBatch(session, ['你好', '再见'])).rejects.toThrow();
+  });
+
+  it('promptPinyinBatch throws when no array can be parsed', async () => {
+    const session = fakeSession('I cannot do that.');
+    await expect(service.promptPinyinBatch(session, ['你好'])).rejects.toThrow();
   });
 });
