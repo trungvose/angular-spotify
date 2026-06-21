@@ -112,6 +112,8 @@ export class PinyinStore extends ComponentStore<PinyinState> {
         }
       }
     }
+    // Intentionally replace queue while draining may be active; shared reference ensures
+    // the running drainQueue loop picks up new content on its next while iteration.
     this.queue = indices;
     void this.drainQueue();
   }
