@@ -229,3 +229,83 @@ describe('PinyinStore — windowing, queue, cache', () => {
     expect(ai.promptPinyinBatch).toHaveBeenCalled();
   });
 });
+
+describe('PinyinStore — track change', () => {
+  let store: PinyinStore;
+  let ai: any;
+  let lyrics$: BehaviorSubject<LyricLine[] | null>;
+  const lines = (n: number, tag: string): LyricLine[] =>
+    Array.from({ length: n }, (_, i) => ({ time: i, text: `${tag}${i}汉` }));
+  const read = <T>(obs: any): T => {
+    let v!: T;
+    obs.pipe(take(1)).subscribe((x: T) => (v = x));
+    return v;
+  };
+
+  beforeEach(() => {
+    lyrics$ = new BehaviorSubject<LyricLine[] | null>(null);
+    const destroy = jest.fn();
+    ai = {
+      isPromptApiAvailable: jest.fn().mockReturnValue(true),
+      isDetectorAvailable: jest.fn().mockReturnValue(true),
+      detectLanguage: jest.fn().mockResolvedValue({ lang: 'zh', confidence: 0.95 }),
+      createPinyinSession: jest.fn().mockResolvedValue({ prompt: jest.fn(), destroy }),
+      promptPinyinBatch: jest.fn((_s: any, b: string[]) => Promise.resolve(b.map((t) => 'py-' + t))),
+      _destroy: destroy
+    };
+    TestBed.configureTestingModule({
+      providers: [
+        PinyinStore,
+        { provide: BuiltInAiService, useValue: ai },
+        { provide: LyricsStore, useValue: { lyrics$, isSynced$: of(true), activeLine$: of(-1) } }
+      ]
+    });
+    store = TestBed.inject(PinyinStore);
+  });
+
+  it('resets state and destroys the session when the track changes', async () => {
+    lyrics$.next(lines(10, 'a'));
+    await flush();
+    store.setActiveLine(0);
+    await flush(); await flush();
+    expect(read<Record<number, any>>(store.pinyinByIndex$)[0].status).toBe('done');
+
+    lyrics$.next(lines(10, 'b'));
+    await flush();
+    expect(ai._destroy).toHaveBeenCalled();
+    const map = read<Record<number, any>>(store.pinyinByIndex$);
+    expect(map[0].status).toBe('pending'); // fresh seed for new track
+    expect(map[0].text).toBe('b0汉');
+  });
+
+  it('does not write stale results into new track state when drain resolves after track change', async () => {
+    // Slow first batch — resolves only when we manually tick
+    let resolveSlow!: (v: string[]) => void;
+    const slowBatch = new Promise<string[]>((res) => { resolveSlow = res; });
+    ai.promptPinyinBatch.mockImplementationOnce(() => slowBatch);
+
+    lyrics$.next(lines(5, 'a'));
+    await flush(); // detectAndSeed completes
+    store.setActiveLine(0); // starts drainQueue, awaits the slow batch
+    await flush(); // drainQueue is now suspended inside the slow await
+
+    // Track changes BEFORE the slow batch resolves
+    lyrics$.next(lines(5, 'b'));
+    await flush(); // reset() is called; old session is destroyed; new detectAndSeed seeds 'b' lines
+
+    // Now resolve the old slow batch (simulates AI returning late)
+    resolveSlow(Array(5).fill('stale-py'));
+    await flush();
+    await flush();
+
+    // The old session's destroy must have been called
+    expect(ai._destroy).toHaveBeenCalled();
+
+    // New track's pinyinByIndex must only contain 'b' lines — no stale 'a' data
+    const map = read<Record<number, any>>(store.pinyinByIndex$);
+    const entries = Object.values(map) as Array<{ text: string; status: string; pinyin: string | null }>;
+    expect(entries.every((e) => e.text.startsWith('b'))).toBe(true);
+    // No phantom 'done' entries carrying stale pinyin
+    expect(entries.every((e) => e.pinyin !== 'stale-py')).toBe(true);
+  });
+});

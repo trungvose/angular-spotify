@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { BuiltInAiService, PinyinSession } from '@angular-spotify/web/shared/data-access/built-in-ai';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { LyricsStore } from './lyrics.store';
 import { LyricLine } from './lyrics.models';
 import { containsHan } from './han-util';
@@ -30,10 +30,13 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   private session: PinyinSession | null = null;
   private draining = false;
   private queue: number[] = [];
+  /** Incremented on every reset(); drainQueue frames check this to detect stale runs. */
+  private generation = 0;
 
   constructor(private ai: BuiltInAiService, private lyricsStore: LyricsStore) {
     super(initialState);
     this.watchLyrics();
+    this.watchActiveLine();
   }
 
   readonly enabled$ = this.select((s) => s.enabled);
@@ -127,9 +130,12 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   private async drainQueue(): Promise<void> {
     if (this.draining || !this.get().enabled) return;
     this.draining = true;
+    const gen = this.generation;
     try {
       if (!this.session) {
         this.session = await this.ai.createPinyinSession();
+        // Guard: if reset() was called while we awaited session creation, bail out.
+        if (gen !== this.generation) return;
       }
       while (this.queue.length > 0) {
         if (!this.get().enabled) break;
@@ -143,12 +149,16 @@ export class PinyinStore extends ComponentStore<PinyinState> {
         try {
           const texts = batch.map((i) => this.get().pinyinByIndex[i].text);
           const results = await this.ai.promptPinyinBatch(this.session, texts);
+          // Generation guard: discard stale results from a previous track.
+          if (gen !== this.generation) return;
           const donePatch: Record<number, PinyinLineState> = {};
           batch.forEach((idx, i) => {
             donePatch[idx] = { ...this.get().pinyinByIndex[idx], pinyin: results[i], status: 'done' };
           });
           this.patchMany(donePatch);
         } catch {
+          // Generation guard: don't write error state for a previous track either.
+          if (gen !== this.generation) return;
           const errPatch: Record<number, PinyinLineState> = {};
           for (const idx of batch) {
             errPatch[idx] = { ...this.get().pinyinByIndex[idx], status: 'error' };
@@ -157,7 +167,10 @@ export class PinyinStore extends ComponentStore<PinyinState> {
         }
       }
     } finally {
-      this.draining = false;
+      // Only clear the draining flag if we still own this generation.
+      if (gen === this.generation) {
+        this.draining = false;
+      }
     }
   }
 
@@ -168,7 +181,9 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   }
 
   private reset(): void {
+    this.session?.destroy();
     this.session = null;
+    this.generation++;
     this.draining = false;
     this.queue = [];
     this.patchState({
@@ -179,6 +194,16 @@ export class PinyinStore extends ComponentStore<PinyinState> {
       windowEnd: -1,
       visibleRange: null
     });
+  }
+
+  private watchActiveLine(): void {
+    combineLatest([this.lyricsStore.isSynced$, this.lyricsStore.activeLine$]).subscribe(
+      ([isSynced, activeLine]) => {
+        if (isSynced && this.get().isChinese && this.get().enabled && activeLine >= 0) {
+          this.setActiveLine(activeLine);
+        }
+      }
+    );
   }
 
   private watchLyrics(): void {
