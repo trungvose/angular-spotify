@@ -228,6 +228,36 @@ describe('PinyinStore — windowing, queue, cache', () => {
     await flush();
     expect(ai.promptPinyinBatch).toHaveBeenCalled();
   });
+
+  it('downloadState$ becomes ready after a successful drain that creates the session', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    store.setActiveLine(0);
+    await flush();
+    await flush();
+    let state!: string;
+    store.downloadState$.pipe(take(1)).subscribe((s) => (state = s));
+    expect(state).toBe('ready');
+  });
+
+  it('passes onDownloadProgress to createPinyinSession and progress callback flips downloadState to downloading', async () => {
+    let capturedOpts: { onDownloadProgress?: () => void } | undefined;
+    ai.createPinyinSession.mockImplementationOnce((opts: { onDownloadProgress?: () => void }) => {
+      capturedOpts = opts;
+      return Promise.resolve({ prompt: jest.fn(), destroy: jest.fn() });
+    });
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    store.setActiveLine(0);
+    await flush();
+    await flush();
+    expect(capturedOpts).toBeDefined();
+    expect(typeof capturedOpts?.onDownloadProgress).toBe('function');
+    // After drain completes, downloadState is 'ready'.
+    // Invoking the progress callback should flip it back to 'downloading'.
+    capturedOpts?.onDownloadProgress?.();
+    let state!: string;
+    store.downloadState$.pipe(take(1)).subscribe((s) => (state = s));
+    expect(state).toBe('downloading');
+  });
 });
 
 describe('PinyinStore — track change', () => {

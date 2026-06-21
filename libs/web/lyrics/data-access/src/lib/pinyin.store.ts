@@ -136,9 +136,13 @@ export class PinyinStore extends ComponentStore<PinyinState> {
     const gen = this.generation;
     try {
       if (!this.session) {
-        this.session = await this.ai.createPinyinSession();
+        this.patchState({ downloadState: 'downloading' });
+        this.session = await this.ai.createPinyinSession({
+          onDownloadProgress: () => this.patchState({ downloadState: 'downloading' })
+        });
         // Guard: if reset() was called while we awaited session creation, bail out.
         if (gen !== this.generation) return;
+        this.patchState({ downloadState: 'ready' });
       }
       while (this.queue.length > 0) {
         if (!this.get().enabled) break;

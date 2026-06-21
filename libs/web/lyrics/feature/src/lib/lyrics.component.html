@@ -13,6 +13,7 @@
       [activeLine]="(activeLine$ | async) ?? -1"
       [isSynced]="(isSynced$ | async) ?? false"
       [pinyinByIndex]="(pinyinByIndex$ | async) ?? {}"
+      [pinyinEnabled]="(enabled$ | async) ?? false"
       (seekTo)="onSeekTo($event)"
       (visibleRangeChange)="onVisibleRangeChange($event)"
     ></as-lyrics-view>

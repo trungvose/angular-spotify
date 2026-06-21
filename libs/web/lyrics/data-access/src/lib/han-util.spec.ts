@@ -15,4 +15,8 @@ describe('containsHan', () => {
   it('returns true for mixed lines containing any Han', () => {
     expect(containsHan('La la 月亮')).toBe(true);
   });
+
+  it('returns false for Hangul (Korean) characters', () => {
+    expect(containsHan('한국어')).toBe(false);
+  });
 });

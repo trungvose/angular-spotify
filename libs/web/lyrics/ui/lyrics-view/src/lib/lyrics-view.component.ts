@@ -12,6 +12,7 @@ import {
   SimpleChanges,
   ViewChildren
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LyricLine, PinyinLineState } from '@angular-spotify/web/lyrics/data-access';
 
 @Component({
@@ -25,12 +26,14 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
   @Input() activeLine = -1;
   @Input() isSynced = false;
   @Input() pinyinByIndex: Record<number, PinyinLineState> = {};
+  @Input() pinyinEnabled = true;
   @Output() seekTo = new EventEmitter<number>();
   @Output() visibleRangeChange = new EventEmitter<{ start: number; end: number }>();
   @ViewChildren('lyricLine') lyricLines!: QueryList<ElementRef>;
 
   private observer: IntersectionObserver | null = null;
   private visible = new Set<number>();
+  private lineChangesSub: Subscription | null = null;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['activeLine'] && this.isSynced && this.activeLine >= 0) {
@@ -45,6 +48,7 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
   }
 
   pinyinFor(index: number): string | null {
+    if (!this.pinyinEnabled) return null;
     const entry = this.pinyinByIndex[index];
     return entry && entry.status === 'done' ? entry.pinyin : null;
   }
@@ -53,7 +57,7 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
     if (this.isSynced || typeof IntersectionObserver === 'undefined') {
       return;
     }
-    this.observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       for (const e of entries) {
         const idx = Number((e.target as HTMLElement).dataset['index']);
         if (e.isIntersecting) {
@@ -67,14 +71,24 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
         this.visibleRangeChange.emit({ start: sorted[0], end: sorted[sorted.length - 1] });
       }
     });
-    this.lyricLines.forEach((ref, i) => {
-      (ref.nativeElement as HTMLElement).dataset['index'] = String(i);
-      this.observer!.observe(ref.nativeElement);
-    });
+    this.observer = observer;
+
+    const attachObserver = () => {
+      observer.disconnect();
+      this.visible.clear();
+      this.lyricLines.forEach((ref, i) => {
+        (ref.nativeElement as HTMLElement).dataset['index'] = String(i);
+        observer.observe(ref.nativeElement);
+      });
+    };
+
+    attachObserver();
+    this.lineChangesSub = this.lyricLines.changes.subscribe(() => attachObserver());
   }
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    this.lineChangesSub?.unsubscribe();
   }
 
   private scrollToActiveLine(): void {
