@@ -66,6 +66,9 @@
         "libs/web/lyrics/ui/lyrics-toggle/src/index.ts"
       ],
       "@angular-spotify/web/lyrics/ui/lyrics-view": ["libs/web/lyrics/ui/lyrics-view/src/index.ts"],
+      "@angular-spotify/web/lyrics/ui/pinyin-toggle": [
+        "libs/web/lyrics/ui/pinyin-toggle/src/index.ts"
+      ],
       "@angular-spotify/web/playlist/data-access": ["libs/web/playlist/data-access/src/index.ts"],
       "@angular-spotify/web/playlist/feature/detail": [
         "libs/web/playlist/feature/detail/src/index.ts"

@@ -1,0 +1,10 @@
+<button
+  *ngIf="showToggle$ | async"
+  nz-tooltip
+  nzTooltipTitle="Toggle pinyin"
+  class="pinyin-toggle-btn"
+  [class.active]="isEnabled$ | async"
+  (click)="toggle()"
+>
+  <svg-icon [key]="'pinyin'" [fontSize]="'18px'"></svg-icon>
+</button>
