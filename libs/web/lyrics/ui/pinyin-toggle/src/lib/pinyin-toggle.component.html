@@ -1,7 +1,7 @@
 <button
   *ngIf="showToggle$ | async"
   nz-tooltip
-  nzTooltipTitle="Toggle pinyin"
+  [nzTooltipTitle]="(downloadState$ | async) === 'downloading' ? 'Preparing pinyin…' : 'Show pinyin'"
   class="pinyin-toggle-btn"
   [class.active]="isEnabled$ | async"
   (click)="toggle()"

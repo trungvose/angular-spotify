@@ -11,11 +11,13 @@ describe('PinyinToggleComponent', () => {
 
   const showToggle$ = new BehaviorSubject<boolean>(true);
   const enabled$ = new BehaviorSubject<boolean>(true);
+  const downloadState$ = new BehaviorSubject<'idle' | 'downloading' | 'ready'>('idle');
   const setEnabledSpy = jest.fn();
 
   const storeMock = {
     showToggle$: showToggle$.asObservable(),
     enabled$: enabled$.asObservable(),
+    downloadState$: downloadState$.asObservable(),
     setEnabled: setEnabledSpy
   };
 
@@ -23,6 +25,7 @@ describe('PinyinToggleComponent', () => {
     jest.clearAllMocks();
     showToggle$.next(true);
     enabled$.next(true);
+    downloadState$.next('idle');
 
     await TestBed.configureTestingModule({
       declarations: [PinyinToggleComponent],
@@ -88,5 +91,34 @@ describe('PinyinToggleComponent', () => {
     const btn = fixture.debugElement.query(By.css('button'));
     btn.triggerEventHandler('click', null);
     expect(setEnabledSpy).toHaveBeenCalledWith(true);
+  });
+
+  describe('tooltip text via downloadState$', () => {
+    it('should resolve to "Preparing pinyin…" when downloadState$ is "downloading"', (done) => {
+      downloadState$.next('downloading');
+      component.downloadState$.subscribe((state) => {
+        const tooltipTitle = state === 'downloading' ? 'Preparing pinyin…' : 'Show pinyin';
+        expect(tooltipTitle).toBe('Preparing pinyin…');
+        done();
+      });
+    });
+
+    it('should resolve to "Show pinyin" when downloadState$ is "ready"', (done) => {
+      downloadState$.next('ready');
+      component.downloadState$.subscribe((state) => {
+        const tooltipTitle = state === 'downloading' ? 'Preparing pinyin…' : 'Show pinyin';
+        expect(tooltipTitle).toBe('Show pinyin');
+        done();
+      });
+    });
+
+    it('should resolve to "Show pinyin" when downloadState$ is "idle"', (done) => {
+      downloadState$.next('idle');
+      component.downloadState$.subscribe((state) => {
+        const tooltipTitle = state === 'downloading' ? 'Preparing pinyin…' : 'Show pinyin';
+        expect(tooltipTitle).toBe('Show pinyin');
+        done();
+      });
+    });
   });
 });
