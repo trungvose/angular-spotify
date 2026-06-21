@@ -28,12 +28,8 @@ const initialState: PinyinState = {
 export class PinyinStore extends ComponentStore<PinyinState> {
   /** Shared session for all batch calls within a song; recreated on init. */
   private session: PinyinSession | null = null;
-
-  /**
-   * Serial queue: a promise chain that ensures batches run one at a time.
-   * Each call to enqueueBatch() appends to this chain.
-   */
-  private batchQueue: Promise<void> = Promise.resolve();
+  private draining = false;
+  private queue: number[] = [];
 
   constructor(private ai: BuiltInAiService, private lyricsStore: LyricsStore) {
     super(initialState);
@@ -50,15 +46,22 @@ export class PinyinStore extends ComponentStore<PinyinState> {
 
   setEnabled(enabled: boolean): void {
     this.patchState({ enabled });
+    if (enabled) this.enqueue();
   }
 
-  /**
-   * Called by the view layer to report the currently visible lyric line range.
-   * Updates state, then schedules pinyin fetches for [start .. end + LOOKAHEAD].
-   */
-  setVisibleRange(start: number, end: number): void {
-    this.patchState({ visibleRange: { start, end } });
-    void this.scheduleWindowFetch(start, end);
+  setActiveLine(line: number): void {
+    const windowEnd = line + LOOKAHEAD;
+    this.patchState({ windowEnd });
+    this.enqueue();
+  }
+
+  setVisibleRange(range: { start: number; end: number } | null): void {
+    if (range === null) {
+      this.patchState({ visibleRange: null });
+    } else {
+      this.patchState({ visibleRange: range });
+    }
+    this.enqueue();
   }
 
   init(lines: LyricLine[]): void {
@@ -92,85 +95,84 @@ export class PinyinStore extends ComponentStore<PinyinState> {
     this.patchState({ isChinese: true, pinyinByIndex });
   }
 
-  /**
-   * Determines which pending lines fall within [start .. end + LOOKAHEAD],
-   * splits them into BATCH_SIZE chunks, and enqueues each chunk onto the
-   * serial batchQueue.
-   */
-  private async scheduleWindowFetch(start: number, end: number): Promise<void> {
-    const windowEnd = end + LOOKAHEAD;
-
-    // Collect pending indices within the window, skipping already-done lines (index cache).
-    const state = this.get();
-    const pendingIndices: number[] = [];
-    for (let i = start; i <= windowEnd; i++) {
-      const entry = state.pinyinByIndex[i];
-      if (entry && entry.status === 'pending') {
-        pendingIndices.push(i);
-      }
-    }
-
-    if (pendingIndices.length === 0) {
-      return;
-    }
-
-    // Ensure we have a session
-    if (!this.session) {
-      try {
-        this.session = await this.ai.createPinyinSession();
-      } catch {
-        return;
-      }
-    }
-
-    // Split into batches and enqueue serially
-    for (let offset = 0; offset < pendingIndices.length; offset += BATCH_SIZE) {
-      const batchIndices = pendingIndices.slice(offset, offset + BATCH_SIZE);
-      // Mark them as loading immediately so subsequent calls skip them (index cache)
-      this.markLoading(batchIndices);
-      this.batchQueue = this.batchQueue.then(() => this.runBatch(batchIndices));
-    }
+  private get focus(): number {
+    const { windowEnd, visibleRange } = this.get();
+    return windowEnd >= 0 ? windowEnd : (visibleRange ? visibleRange.start : 0);
   }
 
-  private markLoading(indices: number[]): void {
-    const current = this.get().pinyinByIndex;
-    const updated: Record<number, PinyinLineState> = { ...current };
-    for (const i of indices) {
-      if (updated[i]) {
-        updated[i] = { ...updated[i], status: 'loading' };
+  private enqueue(): void {
+    const { enabled, isChinese, support, pinyinByIndex, windowEnd, visibleRange } = this.get();
+    if (!enabled || !isChinese || support !== 'supported') return;
+    const indices: number[] = [];
+    for (const key of Object.keys(pinyinByIndex)) {
+      const index = Number(key);
+      const entry = pinyinByIndex[index];
+      if (entry.status !== 'pending') continue;
+      if (windowEnd >= 0) {
+        if (index <= windowEnd) indices.push(index);
+      } else {
+        if (visibleRange && index >= visibleRange.start && index <= visibleRange.end) {
+          indices.push(index);
+        }
       }
     }
-    this.patchState({ pinyinByIndex: updated });
+    this.queue = indices;
+    void this.drainQueue();
   }
 
-  private async runBatch(indices: number[]): Promise<void> {
-    const state = this.get();
-    const lines = indices.map((i) => state.pinyinByIndex[i]?.text ?? '');
+  private nextBatch(): number[] {
+    const f = this.focus;
+    this.queue.sort((a, b) => Math.abs(a - f) - Math.abs(b - f));
+    return this.queue.splice(0, BATCH_SIZE);
+  }
+
+  private async drainQueue(): Promise<void> {
+    if (this.draining || !this.get().enabled) return;
+    this.draining = true;
     try {
-      const results = await this.ai.promptPinyinBatch(this.session!, lines);
-      const current = this.get().pinyinByIndex;
-      const updated: Record<number, PinyinLineState> = { ...current };
-      indices.forEach((idx, pos) => {
-        if (updated[idx]) {
-          updated[idx] = { ...updated[idx], pinyin: results[pos], status: 'done' };
+      if (!this.session) {
+        this.session = await this.ai.createPinyinSession();
+      }
+      while (this.queue.length > 0) {
+        if (!this.get().enabled) break;
+        const batch = this.nextBatch();
+        if (batch.length === 0) break;
+        const patch: Record<number, PinyinLineState> = {};
+        for (const idx of batch) {
+          patch[idx] = { ...this.get().pinyinByIndex[idx], status: 'loading' };
         }
-      });
-      this.patchState({ pinyinByIndex: updated });
-    } catch {
-      const current = this.get().pinyinByIndex;
-      const updated: Record<number, PinyinLineState> = { ...current };
-      for (const i of indices) {
-        if (updated[i]) {
-          updated[i] = { ...updated[i], status: 'error' };
+        this.patchMany(patch);
+        try {
+          const texts = batch.map((i) => this.get().pinyinByIndex[i].text);
+          const results = await this.ai.promptPinyinBatch(this.session, texts);
+          const donePatch: Record<number, PinyinLineState> = {};
+          batch.forEach((idx, i) => {
+            donePatch[idx] = { ...this.get().pinyinByIndex[idx], pinyin: results[i], status: 'done' };
+          });
+          this.patchMany(donePatch);
+        } catch {
+          const errPatch: Record<number, PinyinLineState> = {};
+          for (const idx of batch) {
+            errPatch[idx] = { ...this.get().pinyinByIndex[idx], status: 'error' };
+          }
+          this.patchMany(errPatch);
         }
       }
-      this.patchState({ pinyinByIndex: updated });
+    } finally {
+      this.draining = false;
     }
+  }
+
+  private patchMany(patch: Record<number, PinyinLineState>): void {
+    this.patchState((s) => ({
+      pinyinByIndex: { ...s.pinyinByIndex, ...patch }
+    }));
   }
 
   private reset(): void {
     this.session = null;
-    this.batchQueue = Promise.resolve();
+    this.draining = false;
+    this.queue = [];
     this.patchState({
       support: 'unknown',
       downloadState: 'idle',

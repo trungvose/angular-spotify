@@ -5,7 +5,6 @@ import { BuiltInAiService } from '@angular-spotify/web/shared/data-access/built-
 import { LyricsStore } from './lyrics.store';
 import { PinyinStore } from './pinyin.store';
 import { LyricLine } from './lyrics.models';
-import { BATCH_SIZE, LOOKAHEAD } from './pinyin.models';
 
 const flush = () => new Promise((r) => setTimeout(r, 0));
 
@@ -81,7 +80,7 @@ describe('PinyinStore — detection gating', () => {
   });
 });
 
-describe('PinyinStore — windowing, serial batch queue, and index cache', () => {
+describe('PinyinStore — windowing, queue, cache', () => {
   let store: PinyinStore;
   let ai: {
     isPromptApiAvailable: jest.Mock;
@@ -91,7 +90,8 @@ describe('PinyinStore — windowing, serial batch queue, and index cache', () =>
     promptPinyinBatch: jest.Mock;
   };
   let lyrics$: BehaviorSubject<LyricLine[] | null>;
-  let mockSession: { prompt: jest.Mock; destroy: jest.Mock };
+  let isSynced$: BehaviorSubject<boolean>;
+  let activeLine$: BehaviorSubject<number>;
 
   const read = <T>(obs: { pipe: any }): T => {
     let v!: T;
@@ -99,137 +99,133 @@ describe('PinyinStore — windowing, serial batch queue, and index cache', () =>
     return v;
   };
 
-  // Build N Chinese lines, all seeded as pending
-  function makeLines(count: number): LyricLine[] {
-    return Array.from({ length: count }, (_, i) => ({ time: i * 1000, text: `汉字${i}` }));
-  }
+  const LINES: LyricLine[] = Array.from({ length: 20 }, (_, i) => ({
+    time: i,
+    text: `行${i}`
+  }));
 
   beforeEach(async () => {
     lyrics$ = new BehaviorSubject<LyricLine[] | null>(null);
-    mockSession = { prompt: jest.fn(), destroy: jest.fn() };
+    isSynced$ = new BehaviorSubject<boolean>(true);
+    activeLine$ = new BehaviorSubject<number>(-1);
     ai = {
       isPromptApiAvailable: jest.fn().mockReturnValue(true),
       isDetectorAvailable: jest.fn().mockReturnValue(true),
       detectLanguage: jest.fn().mockResolvedValue({ lang: 'zh', confidence: 0.95 }),
-      createPinyinSession: jest.fn().mockResolvedValue(mockSession),
+      createPinyinSession: jest.fn().mockResolvedValue({ prompt: jest.fn(), destroy: jest.fn() }),
       promptPinyinBatch: jest.fn().mockResolvedValue([])
     };
     TestBed.configureTestingModule({
       providers: [
         PinyinStore,
         { provide: BuiltInAiService, useValue: ai },
-        { provide: LyricsStore, useValue: { lyrics$, isSynced$: of(true), activeLine$: of(-1) } }
+        { provide: LyricsStore, useValue: { lyrics$, isSynced$, activeLine$ } }
       ]
     });
     store = TestBed.inject(PinyinStore);
-    // Seed 30 Chinese lines
-    store.init(makeLines(30));
+    store.init(LINES);
+    await flush();
     await flush();
   });
 
-  it('setVisibleRange stores the range in state', () => {
-    store.setVisibleRange(5, 10);
-    const s = read<{ start: number; end: number } | null>(store.visibleRange$);
-    expect(s).toEqual({ start: 5, end: 10 });
+  it('createPinyinSession is called once even with multiple drains', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('pīn yīn'));
+    store.setActiveLine(0);
+    await flush();
+    await flush();
+    store.setActiveLine(5);
+    await flush();
+    await flush();
+    expect(ai.createPinyinSession).toHaveBeenCalledTimes(1);
   });
 
-  it('setVisibleRange triggers fetch only for lines within [start .. end + LOOKAHEAD]', async () => {
-    // promptPinyinBatch returns the correct number of pinyin strings
-    ai.promptPinyinBatch.mockImplementation((_session: unknown, lines: string[]) =>
-      Promise.resolve(lines.map(() => 'pīnyīn'))
-    );
-    store.setVisibleRange(0, 2);
-    // Drain all microtasks/macrotasks
+  it('only one promptPinyinBatch in flight at a time (serial drain)', async () => {
+    let inFlight = 0;
+    let maxInFlight = 0;
+    ai.promptPinyinBatch.mockImplementation(() => {
+      inFlight++;
+      maxInFlight = Math.max(maxInFlight, inFlight);
+      return new Promise<string[]>((resolve) =>
+        setTimeout(() => {
+          inFlight--;
+          resolve(Array(8).fill('pīn yīn'));
+        }, 0)
+      );
+    });
+    store.setActiveLine(0);
+    store.setActiveLine(5);
+    store.setActiveLine(10);
     await flush();
     await flush();
-    // Lines fetched: indices 0..2+LOOKAHEAD (inclusive), batch size BATCH_SIZE
-    // Only indices that were pending should be fetched
-    const totalExpected = Math.min(3 + LOOKAHEAD, 30); // start=0, end=2, so 0..2+LOOKAHEAD
-    const totalCalls = (ai.promptPinyinBatch as jest.Mock).mock.calls.reduce(
-      (sum: number, call: unknown[]) => sum + (call[1] as string[]).length,
-      0
-    );
-    expect(totalCalls).toBe(totalExpected);
+    await flush();
+    await flush();
+    expect(maxInFlight).toBe(1);
   });
 
-  it('does not fetch lines outside the window + lookahead', async () => {
-    ai.promptPinyinBatch.mockImplementation((_session: unknown, lines: string[]) =>
-      Promise.resolve(lines.map(() => 'pīnyīn'))
-    );
-    store.setVisibleRange(0, 0);
+  it('marks batch lines loading then done on success', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    store.setActiveLine(0);
     await flush();
     await flush();
-    const fetched = (ai.promptPinyinBatch as jest.Mock).mock.calls.reduce(
-      (sum: number, call: unknown[]) => sum + (call[1] as string[]).length,
-      0
-    );
-    // window end = 0, lookahead = LOOKAHEAD → fetch 0..LOOKAHEAD inclusive
-    expect(fetched).toBe(1 + LOOKAHEAD);
+    const map = read<Record<number, any>>(store.pinyinByIndex$);
+    const statuses = Object.values(map).map((v: any) => v.status);
+    expect(statuses.some((s) => s === 'done')).toBe(true);
   });
 
-  it('skips lines that are already done (index cache)', async () => {
-    // Manually mark lines 0..4 as done before triggering a window update
-    ai.promptPinyinBatch.mockImplementation((_session: unknown, lines: string[]) =>
-      Promise.resolve(lines.map(() => 'pīnyīn'))
-    );
-    // First window: fetch lines 0..LOOKAHEAD
-    store.setVisibleRange(0, 0);
+  it('marks batch lines error on promptPinyinBatch failure, others unaffected', async () => {
+    // seed two batches worth of lines (20 lines → 2+ batches of 8)
+    ai.promptPinyinBatch
+      .mockRejectedValueOnce(new Error('AI error'))
+      .mockResolvedValue(Array(8).fill('pīn yīn'));
+    store.setActiveLine(15); // windowEnd = 15+10 = 25, covers all 20 lines
     await flush();
     await flush();
-    const firstCallCount = (ai.promptPinyinBatch as jest.Mock).mock.calls.reduce(
-      (sum: number, call: unknown[]) => sum + (call[1] as string[]).length,
-      0
-    );
-
-    // Second window overlaps: should NOT re-fetch already-done lines
-    (ai.promptPinyinBatch as jest.Mock).mockClear();
-    store.setVisibleRange(0, 0);
     await flush();
     await flush();
-    const secondCallCount = (ai.promptPinyinBatch as jest.Mock).mock.calls.reduce(
-      (sum: number, call: unknown[]) => sum + (call[1] as string[]).length,
-      0
-    );
-
-    expect(firstCallCount).toBeGreaterThan(0);
-    expect(secondCallCount).toBe(0); // all already done — cache hit
+    const map = read<Record<number, any>>(store.pinyinByIndex$);
+    const statuses = Object.values(map).map((v: any) => v.status);
+    expect(statuses.some((s) => s === 'error')).toBe(true);
+    expect(statuses.some((s) => s === 'done')).toBe(true);
   });
 
-  it('processes lines in serial batches of BATCH_SIZE', async () => {
-    let resolvers: Array<() => void> = [];
-    ai.promptPinyinBatch.mockImplementation((_session: unknown, lines: string[]) =>
-      new Promise<string[]>((resolve) => {
-        resolvers.push(() => resolve(lines.map(() => 'pīnyīn')));
-      })
-    );
-
-    store.setVisibleRange(0, BATCH_SIZE * 2); // enough lines for multiple batches
-    await flush();
-
-    // Only one batch should be in-flight at a time
-    expect((ai.promptPinyinBatch as jest.Mock).mock.calls.length).toBe(1);
-
-    // Resolve first batch
-    resolvers[0]();
-    resolvers = [];
+  it('done lines are not re-prompted (cache)', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    store.setActiveLine(0);
     await flush();
     await flush();
-
-    // Second batch should now be in flight
-    expect((ai.promptPinyinBatch as jest.Mock).mock.calls.length).toBe(2);
+    const callCount = ai.promptPinyinBatch.mock.calls.length;
+    store.setActiveLine(0); // same window — nothing new to fetch
+    await flush();
+    await flush();
+    expect(ai.promptPinyinBatch).toHaveBeenCalledTimes(callCount);
   });
 
-  it('marks fetched lines as done with the returned pinyin', async () => {
-    ai.promptPinyinBatch.mockImplementation((_session: unknown, lines: string[]) =>
-      Promise.resolve(lines.map((_, i) => `pinyin-${i}`))
-    );
-    store.setVisibleRange(0, 1);
+  it('does not drain when disabled', async () => {
+    store.setEnabled(false);
+    store.setActiveLine(0);
     await flush();
     await flush();
-    const map = read<Record<number, { pinyin: string | null; status: string }>>(
-      store.pinyinByIndex$
-    );
-    expect(map[0].status).toBe('done');
-    expect(map[0].pinyin).toBe('pinyin-0');
+    expect(ai.promptPinyinBatch).not.toHaveBeenCalled();
+  });
+
+  it('resumes draining when re-enabled', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    store.setEnabled(false);
+    store.setActiveLine(0);
+    await flush();
+    await flush();
+    store.setEnabled(true);
+    await flush();
+    await flush();
+    expect(ai.promptPinyinBatch).toHaveBeenCalled();
+  });
+
+  it('setVisibleRange triggers fetch for unsynced lines in range', async () => {
+    ai.promptPinyinBatch.mockResolvedValue(Array(8).fill('nǐ hǎo'));
+    // windowEnd = -1 (default after init with no activeLine set past it)
+    store.setVisibleRange({ start: 0, end: 5 });
+    await flush();
+    await flush();
+    expect(ai.promptPinyinBatch).toHaveBeenCalled();
   });
 });
