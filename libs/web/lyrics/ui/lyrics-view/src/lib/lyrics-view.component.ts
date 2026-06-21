@@ -48,7 +48,9 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
   }
 
   pinyinFor(index: number): string | null {
-    if (!this.pinyinEnabled) return null;
+    // Returns rendered pinyin regardless of the enabled flag — visibility is
+    // handled with a CSS collapse class so hiding can animate out. The element
+    // stays mounted (cache persists) so re-enabling is instant.
     const entry = this.pinyinByIndex[index];
     return entry && entry.status === 'done' ? entry.pinyin : null;
   }

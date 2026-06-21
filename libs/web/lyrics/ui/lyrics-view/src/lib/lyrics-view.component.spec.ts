@@ -35,14 +35,16 @@ describe('LyricsViewComponent — pinyin', () => {
     expect(c.pinyinFor(0)).toBeNull();
   });
 
-  it('hides pinyin lines when pinyinEnabled is false even if entry is done', () => {
+  it('collapses pinyin lines when pinyinEnabled is false (kept mounted to animate out)', () => {
     const c = fixture.componentInstance;
     c.lyrics = [{ time: 0, text: '你好' }];
     c.pinyinByIndex = { 0: { text: '你好', pinyin: 'nǐ hǎo', status: 'done' } };
     c.pinyinEnabled = false;
     fixture.detectChanges();
-    const el: HTMLElement = fixture.nativeElement;
-    expect(el.querySelector('.pinyin-line')).toBeNull();
+    const line = (fixture.nativeElement as HTMLElement).querySelector('.pinyin-line');
+    expect(line).not.toBeNull();
+    expect(line?.classList).toContain('pinyin-line--hidden');
+    expect(line?.getAttribute('aria-hidden')).toBe('true');
   });
 
   it('shows pinyin lines when pinyinEnabled is true with a done entry', () => {
@@ -55,18 +57,21 @@ describe('LyricsViewComponent — pinyin', () => {
     expect(el.querySelector('.pinyin-line')?.textContent).toContain('nǐ hǎo');
   });
 
-  it('re-shows pinyin when toggling pinyinEnabled back to true (cache persists)', () => {
+  it('collapses then re-shows pinyin when toggling pinyinEnabled (cache persists)', () => {
     const c = fixture.componentInstance;
     c.lyrics = [{ time: 0, text: '你好' }];
     c.pinyinByIndex = { 0: { text: '你好', pinyin: 'nǐ hǎo', status: 'done' } };
-    // Start with disabled — no pinyin shown
+    // Disabled — element stays mounted but collapsed (so it can animate out)
     fixture.componentRef.setInput('pinyinEnabled', false);
     fixture.detectChanges();
-    expect((fixture.nativeElement as HTMLElement).querySelector('.pinyin-line')).toBeNull();
+    const collapsed = (fixture.nativeElement as HTMLElement).querySelector('.pinyin-line');
+    expect(collapsed?.classList).toContain('pinyin-line--hidden');
     // Toggle back to enabled — pinyin re-appears, cache entry still 'done'
     fixture.componentRef.setInput('pinyinEnabled', true);
     fixture.detectChanges();
-    expect((fixture.nativeElement as HTMLElement).querySelector('.pinyin-line')?.textContent).toContain('nǐ hǎo');
+    const shown = (fixture.nativeElement as HTMLElement).querySelector('.pinyin-line');
+    expect(shown?.classList).not.toContain('pinyin-line--hidden');
+    expect(shown?.textContent).toContain('nǐ hǎo');
     expect(c.pinyinByIndex[0].status).toBe('done');
   });
 });
