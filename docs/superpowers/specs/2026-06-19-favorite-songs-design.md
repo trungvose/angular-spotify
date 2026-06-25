@@ -11,6 +11,57 @@ now-playing bar, and the Liked Songs page. State is held in a shared store so th
 track shows a consistent saved/unsaved state everywhere. Toggling is optimistic, with an
 error toast and rollback on failure.
 
+## How it works
+
+A single root `SavedTracksStore` is the source of truth for every track's saved
+state, so the heart looks consistent across all surfaces. Each view batch-checks
+its visible tracks; the reusable `as-like-button` reads per-track state and toggles
+optimistically.
+
+```mermaid
+flowchart TD
+  subgraph Views["Track views"]
+    PL[Playlist rows]
+    AL[Album rows]
+    NP[Now-playing bar]
+    LS[Liked Songs page]
+  end
+  LB["as-like-button<br/>(heart toggle)"]
+  Store["SavedTracksStore<br/>savedMap: Record&lt;id, bool&gt;"]
+  API[TrackApiService]
+  SP[(Spotify Web API)]
+
+  Views -- "checkSaved(visibleIds)" --> Store
+  Store -- "batch &le;50: GET /me/tracks/contains" --> API --> SP
+  SP -- "boolean[]" --> Store
+  Views --> LB
+  LB -- "isSaved$(id)" --> Store
+  LB -- "click: toggleSave(id, currentlySaved)" --> Store
+  Store -- "optimistic flip, then PUT/DELETE /me/tracks" --> API
+  Store -. "on error: revert + NzMessage toast" .-> LB
+```
+
+Toggle sequence (optimistic, silent on success, revert + toast on failure):
+
+```mermaid
+sequenceDiagram
+  actor U as User
+  participant LB as as-like-button
+  participant S as SavedTracksStore
+  participant API as Spotify /me/tracks
+  U->>LB: click heart
+  LB->>S: toggleSave(id, currentlySaved)
+  S->>S: flip savedMap[id] (UI updates instantly)
+  S->>API: PUT (save) or DELETE (remove)
+  alt success
+    API-->>S: 200 (silent, no toast)
+  else failure
+    API-->>S: error
+    S->>S: revert savedMap[id]
+    S-->>LB: NzMessage error toast
+  end
+```
+
 ## Spotify Web API
 
 The feature uses three Spotify Web API endpoints (all covered by the existing Bearer-token
@@ -139,3 +190,20 @@ This replaces the `alert()` pattern for this feature and provides reusable toast
 - Saving/removing multiple tracks in one user gesture (bulk select).
 - Saving albums or playlists (only individual tracks).
 - Real-time sync if the library changes in another Spotify client.
+
+## Verification (browser)
+
+Verified against a logged-in Spotify account running the dev server.
+
+**Liked Songs** — every row shows a filled heart (saved):
+
+![Liked Songs with filled hearts](../../screenshots/favorite-songs-liked-songs.png)
+
+**Playlist** — per-track `checkSaved` produces a mix of filled (saved) and outline
+(unsaved) hearts (21 outline / 30 filled on this playlist):
+
+![Playlist with mixed heart states](../../screenshots/favorite-songs-playlist.png)
+
+**Now-playing bar** — the current track shows its like toggle next to the track info:
+
+![Now-playing bar like toggle](../../screenshots/favorite-songs-now-playing-bar.png)
