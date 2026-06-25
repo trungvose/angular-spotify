@@ -1,4 +1,4 @@
-<div class="lyrics-container">
+<div class="lyrics-container" #lyricsContainer>
   @if (lyrics && lyrics.length > 0) {
     <div class="lyrics-scroll">
       @for (line of lyrics; track line.text; let i = $index) {
@@ -18,5 +18,16 @@
     <div class="no-lyrics">
       <p>No lyrics available for this track.</p>
     </div>
+  }
+
+  @if (isSynced && userControlling) {
+    <button
+      type="button"
+      class="sync-pill"
+      aria-label="Sync lyrics to current line"
+      (click)="onSync()"
+    >
+      Sync
+    </button>
   }
 </div>
