@@ -11,8 +11,9 @@
     <div class="text-description" [title]="item.added_at | date: 'medium'">
       {{ item.added_at | date }}
     </div>
-    <div class="text-description">
-      {{ item.track.duration_ms | duration }}
+    <div class="text-description flex items-center justify-end gap-4">
+      <as-like-button [trackId]="item.track.id"></as-like-button>
+      <span>{{ item.track.duration_ms | duration }}</span>
     </div>
   </as-media-table-row>
 }

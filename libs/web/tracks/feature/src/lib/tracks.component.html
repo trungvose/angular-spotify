@@ -17,7 +17,7 @@
       </div>
     </as-media-table-header>
     <div class="mb-8">
-      @for (item of vm.data; track item; let idx = $index) {
+      @for (item of (displayedTracks$ | async); track item; let idx = $index) {
         @if (item.track) {
           <as-playlist-track
             type="LIKE_SONGS"

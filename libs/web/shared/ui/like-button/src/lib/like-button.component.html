@@ -1,0 +1,11 @@
+<ng-container *ngrxLet="isSaved$ as isSaved">
+  <button
+    type="button"
+    class="like-button"
+    [class.is-saved]="isSaved"
+    [title]="isSaved ? 'Remove from your Liked Songs' : 'Save to your Liked Songs'"
+    (click)="toggle($event, isSaved)"
+  >
+    <svg-icon [key]="isSaved ? 'heart-fill' : 'heart'"></svg-icon>
+  </button>
+</ng-container>

@@ -1,0 +1,22 @@
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-subdued, #a7a7a7);
+  opacity: 0.7;
+  transition: opacity 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #fff;
+  }
+
+  &.is-saved {
+    opacity: 1;
+    color: #1db954;
+  }
+}

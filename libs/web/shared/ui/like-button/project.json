@@ -1,8 +1,8 @@
 {
-  "name": "web-playlist-ui-playlist-track",
+  "name": "web-shared-ui-like-button",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/web/playlist/ui/playlist-track/src",
+  "sourceRoot": "libs/web/shared/ui/like-button/src",
   "prefix": "as",
   "targets": {
     "lint": {
@@ -10,9 +10,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/web/playlist/ui/playlist-track"],
+      "outputs": ["{workspaceRoot}/coverage/libs/web/shared/ui/like-button"],
       "options": {
-        "jestConfig": "libs/web/playlist/ui/playlist-track/jest.config.ts"
+        "jestConfig": "libs/web/shared/ui/like-button/jest.config.ts"
       }
     }
   },

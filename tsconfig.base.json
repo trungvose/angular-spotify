@@ -103,6 +103,9 @@
         "libs/web/shared/ui/infinite-scroll/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/input": ["libs/web/shared/ui/input/src/index.ts"],
+      "@angular-spotify/web/shared/ui/like-button": [
+        "libs/web/shared/ui/like-button/src/index.ts"
+      ],
       "@angular-spotify/web/shared/ui/media": ["libs/web/shared/ui/media/src/index.ts"],
       "@angular-spotify/web/shared/ui/media-cover": ["libs/web/shared/ui/media-cover/src/index.ts"],
       "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"],

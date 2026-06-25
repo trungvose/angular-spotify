@@ -12,7 +12,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/album/ui/album-track"],
       "options": {
-        "jestConfig": "libs/web/album/ui/album-track/jest.config.js"
+        "jestConfig": "libs/web/album/ui/album-track/jest.config.ts"
       }
     }
   },

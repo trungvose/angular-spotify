@@ -7,6 +7,7 @@ import { TrackMainInfoModule } from '@angular-spotify/web/shared/ui/track-main-i
 import { MediaOrderModule } from '@angular-spotify/web/shared/ui/media-order';
 import { LetDirective, PushPipe } from '@ngrx/component';
 import { RouterModule } from '@angular/router';
+import { LikeButtonModule } from '@angular-spotify/web/shared/ui/like-button';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     DurationPipeModule,
     TrackMainInfoModule,
     MediaOrderModule,
-    LetDirective, PushPipe
+    LetDirective, PushPipe,
+    LikeButtonModule
   ],
   declarations: [PlaylistTrackComponent],
   exports: [PlaylistTrackComponent]

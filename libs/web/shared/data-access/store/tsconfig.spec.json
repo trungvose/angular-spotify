@@ -3,8 +3,9 @@
   "compilerOptions": {
     "outDir": "../../../../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["jest", "node"]
+    "types": ["jest", "node", "spotify-api"]
   },
+  "files": ["src/test-setup.ts"],
   "include": [
     "**/*.spec.ts",
     "**/*.test.ts",

@@ -1,6 +1,13 @@
 import { PlaylistStore } from '@angular-spotify/web/playlist/data-access';
+import { SavedTracksStore } from '@angular-spotify/web/shared/data-access/store';
 import { RouteUtil } from '@angular-spotify/web/shared/utils';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  OnInit
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +23,7 @@ import { take } from 'rxjs/operators';
   providers: [PlaylistStore],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlaylistComponent {
+export class PlaylistComponent implements OnInit {
   playlistId$ = this.store.playlistId$;
   playlist$ = this.store.playlist$;
   isPlaylistPlaying$ = this.store.isPlaylistPlaying$;
@@ -25,7 +32,24 @@ export class PlaylistComponent {
   isPlaylistTracksLoading$ = this.store.isPlaylistTracksLoading$;
   tracksHasMore$ = this.store.tracksHasMore$;
 
-  constructor(private store: PlaylistStore) {}
+  constructor(
+    private store: PlaylistStore,
+    private savedTracksStore: SavedTracksStore,
+    private destroyRef: DestroyRef
+  ) {}
+
+  ngOnInit(): void {
+    this.tracks$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((tracks) => {
+        const ids = (tracks ?? [])
+          .map((item) => item.track?.id)
+          .filter((id): id is string => !!id);
+        if (ids.length) {
+          this.savedTracksStore.checkSaved(ids);
+        }
+      });
+  }
 
   togglePlaylist(isPlaying: boolean) {
     this.store.togglePlaylist({

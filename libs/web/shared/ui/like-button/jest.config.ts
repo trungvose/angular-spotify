@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'web-shared-data-access-store',
+  displayName: 'web-shared-ui-like-button',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       tsconfig: '<rootDir>/tsconfig.spec.json'
     }
   },
-  coverageDirectory: '../../../../../coverage/libs/web/shared/data-access/store',
+  coverageDirectory: '../../../../../coverage/libs/web/shared/ui/like-button',
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
