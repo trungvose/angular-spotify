@@ -1,9 +1,8 @@
 <button
   nz-tooltip
-  [nzTooltipTitle]="(hasLyrics$ | async) ? 'Show lyrics' : 'No lyrics available'"
+  [nzTooltipTitle]="'Show lyrics'"
   class="lyrics-toggle-btn"
   [class.active]="isLyricsOn$ | async"
-  [disabled]="(hasLyrics$ | async) === false"
   (click)="toggle()"
 >
   <svg-icon [key]="'mic'" [fontSize]="'18px'"></svg-icon>

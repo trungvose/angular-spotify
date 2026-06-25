@@ -37,6 +37,61 @@
   }
 }
 
+.pinyin-line {
+  display: block;
+  overflow: hidden;
+  max-height: 4em;
+  font-size: 0.75em;
+  color: var(--text-subdued, #b3b3b3);
+  line-height: 1.2;
+  transition: max-height 0.22s ease, opacity 0.22s ease, transform 0.22s ease,
+    margin 0.22s ease;
+
+  // Enter animation when visible (first render and re-enable).
+  &:not(.pinyin-line--hidden) {
+    animation: pinyin-in 0.22s ease-out;
+  }
+
+  // Collapsed state — animates out when pinyin is toggled off.
+  &--hidden {
+    max-height: 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+  }
+}
+
+// Brighten the pinyin on the active line to match the highlighted hanzi.
+.lyric-line.active .pinyin-line {
+  color: rgb(var(--text-baseline));
+}
+
+@keyframes pinyin-in {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    max-height: 4em;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pinyin-line {
+    animation: none;
+    transition: none;
+  }
+}
+
+.hanzi-line {
+  display: block;
+}
+
 .no-lyrics {
   @apply flex items-center justify-center h-full;
 

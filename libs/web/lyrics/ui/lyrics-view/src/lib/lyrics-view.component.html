@@ -10,7 +10,15 @@
           [class.synced]="isSynced"
           (click)="onLineClick(line)"
         >
-          {{ line.text }}
+          @if (pinyinFor(i)) {
+            <span
+              class="pinyin-line"
+              [class.pinyin-line--hidden]="!pinyinEnabled"
+              [attr.aria-hidden]="!pinyinEnabled"
+              >{{ pinyinFor(i) }}</span
+            >
+          }
+          <span class="hanzi-line">{{ line.text }}</span>
         </p>
       }
     </div>

@@ -15,7 +15,8 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import { LyricLine } from '@angular-spotify/web/lyrics/data-access';
+import { Subscription } from 'rxjs';
+import { LyricLine, PinyinLineState } from '@angular-spotify/web/lyrics/data-access';
 
 const PROGRAMMATIC_SCROLL_FALLBACK_MS = 500;
 const PROGRAMMATIC_SCROLL_SETTLE_MS = 150;
@@ -26,13 +27,14 @@ const PROGRAMMATIC_SCROLL_SETTLE_MS = 150;
   styleUrls: ['./lyrics-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LyricsViewComponent
-  implements OnChanges, AfterViewInit, OnDestroy
-{
+export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy {
   @Input() lyrics: LyricLine[] | null = null;
   @Input() activeLine = -1;
   @Input() isSynced = false;
+  @Input() pinyinByIndex: Record<number, PinyinLineState> = {};
+  @Input() pinyinEnabled = true;
   @Output() seekTo = new EventEmitter<number>();
+  @Output() visibleRangeChange = new EventEmitter<{ start: number; end: number }>();
   @ViewChildren('lyricLine') lyricLines!: QueryList<ElementRef>;
   @ViewChild('lyricsContainer') lyricsContainer!: ElementRef<HTMLElement>;
 
@@ -43,6 +45,10 @@ export class LyricsViewComponent
   private scrollHandler?: () => void;
 
   constructor(private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
+
+  private observer: IntersectionObserver | null = null;
+  private visible = new Set<number>();
+  private lineChangesSub: Subscription | null = null;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['lyrics'] && !changes['lyrics'].firstChange) {
@@ -61,13 +67,42 @@ export class LyricsViewComponent
 
   ngAfterViewInit(): void {
     const el = this.lyricsContainer?.nativeElement;
-    if (!el) {
-      return;
+    if (el) {
+      this.scrollHandler = () => this.onContainerScroll();
+      this.ngZone.runOutsideAngular(() => {
+        el.addEventListener('scroll', this.scrollHandler!, { passive: true });
+      });
     }
-    this.scrollHandler = () => this.onContainerScroll();
-    this.ngZone.runOutsideAngular(() => {
-      el.addEventListener('scroll', this.scrollHandler!, { passive: true });
-    });
+
+    if (!this.isSynced && typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          const idx = Number((e.target as HTMLElement).dataset['index']);
+          if (e.isIntersecting) {
+            this.visible.add(idx);
+          } else {
+            this.visible.delete(idx);
+          }
+        }
+        if (this.visible.size > 0) {
+          const sorted = [...this.visible].sort((a, b) => a - b);
+          this.visibleRangeChange.emit({ start: sorted[0], end: sorted[sorted.length - 1] });
+        }
+      });
+      this.observer = observer;
+
+      const attachObserver = () => {
+        observer.disconnect();
+        this.visible.clear();
+        this.lyricLines.forEach((ref, i) => {
+          (ref.nativeElement as HTMLElement).dataset['index'] = String(i);
+          observer.observe(ref.nativeElement);
+        });
+      };
+
+      attachObserver();
+      this.lineChangesSub = this.lyricLines.changes.subscribe(() => attachObserver());
+    }
   }
 
   ngOnDestroy(): void {
@@ -78,12 +113,22 @@ export class LyricsViewComponent
     if (this.programmaticScrollTimer) {
       clearTimeout(this.programmaticScrollTimer);
     }
+    this.observer?.disconnect();
+    this.lineChangesSub?.unsubscribe();
   }
 
   onLineClick(line: LyricLine): void {
     if (this.isSynced && line.time !== null) {
       this.seekTo.emit(line.time);
     }
+  }
+
+  pinyinFor(index: number): string | null {
+    // Returns rendered pinyin regardless of the enabled flag — visibility is
+    // handled with a CSS collapse class so hiding can animate out. The element
+    // stays mounted (cache persists) so re-enabling is instant.
+    const entry = this.pinyinByIndex[index];
+    return entry && entry.status === 'done' ? entry.pinyin : null;
   }
 
   onSync(): void {

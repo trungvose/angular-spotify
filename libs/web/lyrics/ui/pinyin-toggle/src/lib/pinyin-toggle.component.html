@@ -1,0 +1,10 @@
+<button
+  *ngIf="showToggle$ | async"
+  nz-tooltip
+  [nzTooltipTitle]="(isEnabled$ | async) ? 'Hide pinyin' : 'Show pinyin'"
+  class="pinyin-toggle-btn"
+  [class.active]="isEnabled$ | async"
+  (click)="toggle()"
+>
+  <span class="pinyin-toggle-label">拼</span>
+</button>

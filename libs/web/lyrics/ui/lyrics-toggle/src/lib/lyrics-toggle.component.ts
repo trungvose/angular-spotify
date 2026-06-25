@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LyricsStore } from '@angular-spotify/web/lyrics/data-access';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'as-lyrics-toggle',
@@ -10,9 +9,6 @@ import { map } from 'rxjs/operators';
 })
 export class LyricsToggleComponent {
   isLyricsOn$ = this.lyricsStore.isVisible$;
-  hasLyrics$ = this.lyricsStore.lyrics$.pipe(
-    map((lyrics) => lyrics !== null && lyrics.length > 0)
-  );
   private isVisible = false;
 
   constructor(private lyricsStore: LyricsStore) {

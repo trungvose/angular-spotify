@@ -1,12 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'web-lyrics-data-access',
-  preset: '../../../../jest.preset.js',
+  displayName: 'web-shared-data-access-built-in-ai',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {},
-  coverageDirectory: '../../../../coverage/libs/web/lyrics/data-access',
+  coverageDirectory: '../../../../../coverage/libs/web/shared/data-access/built-in-ai',
   transform: {
-    '^.+.(ts|mjs|js|html)$': [
+    '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',

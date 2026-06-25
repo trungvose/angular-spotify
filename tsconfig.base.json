@@ -58,14 +58,17 @@
       "@angular-spotify/web/home/ui/recent-played": ["libs/web/home/ui/recent-played/src/index.ts"],
       "@angular-spotify/web/lyrics/data-access": ["libs/web/lyrics/data-access/src/index.ts"],
       "@angular-spotify/web/lyrics/feature": ["libs/web/lyrics/feature/src/index.ts"],
+      "@angular-spotify/web/lyrics/ui/lyrics-overlay": [
+        "libs/web/lyrics/ui/lyrics-overlay/src/index.ts"
+      ],
       "@angular-spotify/web/lyrics/ui/lyrics-pip": ["libs/web/lyrics/ui/lyrics-pip/src/index.ts"],
       "@angular-spotify/web/lyrics/ui/lyrics-toggle": [
         "libs/web/lyrics/ui/lyrics-toggle/src/index.ts"
       ],
-      "@angular-spotify/web/lyrics/ui/lyrics-overlay": [
-        "libs/web/lyrics/ui/lyrics-overlay/src/index.ts"
-      ],
       "@angular-spotify/web/lyrics/ui/lyrics-view": ["libs/web/lyrics/ui/lyrics-view/src/index.ts"],
+      "@angular-spotify/web/lyrics/ui/pinyin-toggle": [
+        "libs/web/lyrics/ui/pinyin-toggle/src/index.ts"
+      ],
       "@angular-spotify/web/playlist/data-access": ["libs/web/playlist/data-access/src/index.ts"],
       "@angular-spotify/web/playlist/feature/detail": [
         "libs/web/playlist/feature/detail/src/index.ts"
@@ -80,6 +83,9 @@
       "@angular-spotify/web/settings/feature": ["libs/web/settings/feature/src/index.ts"],
       "@angular-spotify/web/shared/app-config": ["libs/web/shared/app-config/src/index.ts"],
       "@angular-spotify/web/shared/app-init": ["libs/web/shared/app-init/src/index.ts"],
+      "@angular-spotify/web/shared/data-access/built-in-ai": [
+        "libs/web/shared/data-access/built-in-ai/src/index.ts"
+      ],
       "@angular-spotify/web/shared/data-access/models": [
         "libs/web/shared/data-access/models/src/index.ts"
       ],
@@ -103,9 +109,7 @@
         "libs/web/shared/ui/infinite-scroll/src/index.ts"
       ],
       "@angular-spotify/web/shared/ui/input": ["libs/web/shared/ui/input/src/index.ts"],
-      "@angular-spotify/web/shared/ui/like-button": [
-        "libs/web/shared/ui/like-button/src/index.ts"
-      ],
+      "@angular-spotify/web/shared/ui/like-button": ["libs/web/shared/ui/like-button/src/index.ts"],
       "@angular-spotify/web/shared/ui/media": ["libs/web/shared/ui/media/src/index.ts"],
       "@angular-spotify/web/shared/ui/media-cover": ["libs/web/shared/ui/media-cover/src/index.ts"],
       "@angular-spotify/web/shared/ui/media-order": ["libs/web/shared/ui/media-order/src/index.ts"],

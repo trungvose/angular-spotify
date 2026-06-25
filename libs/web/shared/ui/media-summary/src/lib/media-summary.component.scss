@@ -8,8 +8,9 @@
 }
 
 .media-title {
-  @apply font-black text-5xl text-white;
+  @apply font-black text-white;
   line-height: initial;
+  font-size: 4rem;
 }
 
 .media-info {
