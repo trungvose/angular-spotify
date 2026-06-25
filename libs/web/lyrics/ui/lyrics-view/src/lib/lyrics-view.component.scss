@@ -40,7 +40,7 @@
 .pinyin-line {
   display: block;
   overflow: hidden;
-  max-height: 2em;
+  max-height: 4em;
   font-size: 0.75em;
   color: var(--text-subdued, #b3b3b3);
   line-height: 1.2;
@@ -76,7 +76,7 @@
 
   to {
     opacity: 1;
-    max-height: 2em;
+    max-height: 4em;
     transform: translateY(0);
   }
 }

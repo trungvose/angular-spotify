@@ -20,8 +20,10 @@ export class BuiltInAiService {
       return null;
     }
     try {
+      const t0 = performance.now();
       const detector = await globalThis.LanguageDetector!.create();
       const results = await detector.detect(text);
+      console.log(`[BuiltInAI] detectLanguage: ${(performance.now() - t0).toFixed(1)}ms`);
       const top = results[0];
       return top ? { lang: top.detectedLanguage, confidence: top.confidence } : null;
     } catch {
@@ -33,12 +35,15 @@ export class BuiltInAiService {
     if (!this.isPromptApiAvailable()) {
       throw new Error('Prompt API unavailable');
     }
-    return globalThis.LanguageModel!.create({
+    const t0 = performance.now();
+    const session = await globalThis.LanguageModel!.create({
       initialPrompts: [{ role: 'system', content: PINYIN_SYSTEM_PROMPT }],
       signal: opts.signal,
       monitor: (m) =>
         m.addEventListener('downloadprogress', (e) => opts.onDownloadProgress?.(e.loaded))
     });
+    console.log(`[BuiltInAI] createPinyinSession: ${(performance.now() - t0).toFixed(1)}ms`);
+    return session;
   }
 
   async promptPinyinBatch(
@@ -50,7 +55,10 @@ export class BuiltInAiService {
       'Convert each line of this Chinese text to Hanyu Pinyin with tone marks. ' +
       'Return ONLY a JSON array of strings, one pinyin line per input line, no extra text.\n\n' +
       lines.join('\n');
+    console.log(`[BuiltInAI] promptPinyinBatch → sending ${lines.length} lines:`, lines);
+    const t0 = performance.now();
     const raw = await session.prompt(prompt, { signal });
+    console.log(`[BuiltInAI] promptPinyinBatch ← ${(performance.now() - t0).toFixed(1)}ms raw:`, raw);
     const parsed = this.parseArray(raw);
     if (!parsed || parsed.length !== lines.length) {
       throw new Error(`Pinyin parse failed: expected ${lines.length} lines`);
