@@ -21,6 +21,7 @@ const initialState: PinyinState = {
   downloadState: 'idle',
   isChinese: false,
   pinyinByIndex: {},
+  activeLine: -1,
   windowEnd: -1,
   visibleRange: null
 };
@@ -82,7 +83,7 @@ export class PinyinStore extends ComponentStore<PinyinState> {
 
   setActiveLine(line: number): void {
     const windowEnd = line + LOOKAHEAD;
-    this.patchState({ windowEnd });
+    this.patchState({ activeLine: line, windowEnd });
     this.enqueue();
   }
 
@@ -134,8 +135,8 @@ export class PinyinStore extends ComponentStore<PinyinState> {
   }
 
   private get focus(): number {
-    const { windowEnd, visibleRange } = this.get();
-    return windowEnd >= 0 ? windowEnd : (visibleRange ? visibleRange.start : 0);
+    const { activeLine, visibleRange } = this.get();
+    return activeLine >= 0 ? activeLine : (visibleRange ? visibleRange.start : 0);
   }
 
   private enqueue(): void {
@@ -237,6 +238,7 @@ export class PinyinStore extends ComponentStore<PinyinState> {
       downloadState: 'idle',
       isChinese: false,
       pinyinByIndex: {},
+      activeLine: -1,
       windowEnd: -1,
       visibleRange: null
     });
