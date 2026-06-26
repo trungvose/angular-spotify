@@ -9,11 +9,14 @@ import { SPOTIFY_DEFAULT_LIMIT } from './spotify-api.constant';
 @Injectable({ providedIn: 'root' })
 export class PlayerApiService {
   playerUrl: string;
+  private deviceId: string | null = null;
+
   constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private http: HttpClient) {
     this.playerUrl = `${this.appConfig.baseURL}/me/player`;
   }
 
   transferUserPlayback(deviceId: string) {
+    this.deviceId = deviceId;
     return this.http.put(this.playerUrl, {
       device_ids: [deviceId],
       //play: true
@@ -21,7 +24,9 @@ export class PlayerApiService {
   }
 
   play(request: SpotifyPlayRequestApi) {
-    return this.http.put(`${this.playerUrl}/play`, request);
+    return this.deviceId
+      ? this.http.put(`${this.playerUrl}/play`, request, { params: { device_id: this.deviceId } })
+      : this.http.put(`${this.playerUrl}/play`, request);
   }
 
   pause() {

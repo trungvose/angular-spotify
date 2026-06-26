@@ -1,6 +1,7 @@
 // MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
 /// <reference types="spotify-api" />
 
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { AuthReady } from '@angular-spotify/web/shared/app-init';
 import { SpotifyApiService } from '@angular-spotify/web/shared/data-access/spotify-api';
 import { HttpClient } from '@angular/common/http';
@@ -9,18 +10,9 @@ import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { EMPTY, Observable, throwError } from 'rxjs';
-import { catchError, filter, switchMap, switchMapTo, tap } from 'rxjs/operators';
+import { catchError, filter, map, switchMap, switchMapTo, tap } from 'rxjs/operators';
 import { SpotifyAuthorize } from '../models/spotify-authorize';
-import { LocalStorageService } from '@angular-spotify/web/settings/data-access';
-
-const LOCALSTORAGE_KEYS = {
-  CODE_VERIFIER: 'code_verifier',
-  ACCESS_TOKEN: 'access_token',
-  TOKEN_TYPE: 'token_type',
-  REFRESH_TOKEN: 'refresh_token',
-  EXPIRES_AT: 'expires_at',
-  PATH: 'path'
-} as const;
+import { LocalStorageService, LOCALSTORAGE_KEYS } from '@angular-spotify/web/settings/data-access';
 
 const HEADERS = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -80,6 +72,22 @@ export class AuthStore extends ComponentStore<AuthState> {
       LocalStorageService.setItem(LOCALSTORAGE_KEYS.CODE_VERIFIER, codeVerifier);
       window.location.href = url.toString();
     });
+  }
+
+  tryRefreshToken(): Observable<string> {
+    const refreshToken = LocalStorageService.getItem(LOCALSTORAGE_KEYS.REFRESH_TOKEN);
+    if (!refreshToken) {
+      return throwError(() => new Error('No refresh token available'));
+    }
+
+    return this.refreshAccessToken(refreshToken).pipe(
+      tap((tokenResponse) => {
+        const newExpiresAt = Date.now() + tokenResponse.expires_in * 1000;
+        this.saveTokensToStorage(tokenResponse, newExpiresAt);
+        this.updateStateWithTokens(tokenResponse, newExpiresAt);
+      }),
+      map((tokenResponse) => tokenResponse.access_token)
+    );
   }
 
   // https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
