@@ -15,6 +15,7 @@ export interface PinyinState {
   downloadState: PinyinDownloadState;
   isChinese: boolean;
   pinyinByIndex: Record<number, PinyinLineState>;
+  activeLine: number;
   windowEnd: number;
   visibleRange: { start: number; end: number } | null;
 }
