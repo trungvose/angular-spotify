@@ -2,13 +2,16 @@
 export default {
   displayName: 'web-auth-util',
   preset: '../../../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
-    'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' }
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$'
+    }
   },
-  testEnvironment: 'node',
+  coverageDirectory: '../../../../coverage/libs/web/auth/util',
   transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
+    '^.+.(ts|mjs|js|html)$': 'jest-preset-angular'
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/web/auth/util'
+  transformIgnorePatterns: ['node_modules/(?!.*.mjs$)']
 };

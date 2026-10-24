@@ -11,7 +11,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/web/auth/data-access"],
       "options": {
-        "jestConfig": "libs/web/auth/data-access/jest.config.js"
+        "jestConfig": "libs/web/auth/data-access/jest.config.ts"
       }
     }
   },
