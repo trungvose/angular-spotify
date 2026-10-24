@@ -1,25 +1,19 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
   Input,
-  NgZone,
   OnChanges,
   OnDestroy,
   Output,
   QueryList,
   SimpleChanges,
-  ViewChild,
   ViewChildren
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LyricLine, AnnotationLineState } from '@angular-spotify/web/lyrics/data-access';
-
-const PROGRAMMATIC_SCROLL_FALLBACK_MS = 500;
-const PROGRAMMATIC_SCROLL_SETTLE_MS = 150;
 
 @Component({
   selector: 'as-lyrics-view',
@@ -36,44 +30,18 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
   @Output() seekTo = new EventEmitter<number>();
   @Output() visibleRangeChange = new EventEmitter<{ start: number; end: number }>();
   @ViewChildren('lyricLine') lyricLines!: QueryList<ElementRef>;
-  @ViewChild('lyricsContainer') lyricsContainer!: ElementRef<HTMLElement>;
-
-  userControlling = false;
-
-  private isProgrammaticScroll = false;
-  private programmaticScrollTimer: ReturnType<typeof setTimeout> | null = null;
-  private scrollHandler?: () => void;
-
-  constructor(private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
 
   private observer: IntersectionObserver | null = null;
   private visible = new Set<number>();
   private lineChangesSub: Subscription | null = null;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['lyrics'] && !changes['lyrics'].firstChange) {
-      this.userControlling = false;
-    }
-
-    if (
-      changes['activeLine'] &&
-      this.isSynced &&
-      this.activeLine >= 0 &&
-      !this.userControlling
-    ) {
+    if (changes['activeLine'] && this.isSynced && this.activeLine >= 0) {
       this.scrollToActiveLine();
     }
   }
 
   ngAfterViewInit(): void {
-    const el = this.lyricsContainer?.nativeElement;
-    if (el) {
-      this.scrollHandler = () => this.onContainerScroll();
-      this.ngZone.runOutsideAngular(() => {
-        el.addEventListener('scroll', this.scrollHandler!, { passive: true });
-      });
-    }
-
     if (!this.isSynced && typeof IntersectionObserver !== 'undefined') {
       const observer = new IntersectionObserver((entries) => {
         for (const e of entries) {
@@ -106,13 +74,6 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
   }
 
   ngOnDestroy(): void {
-    const el = this.lyricsContainer?.nativeElement;
-    if (el && this.scrollHandler) {
-      el.removeEventListener('scroll', this.scrollHandler);
-    }
-    if (this.programmaticScrollTimer) {
-      clearTimeout(this.programmaticScrollTimer);
-    }
     this.observer?.disconnect();
     this.lineChangesSub?.unsubscribe();
   }
@@ -131,26 +92,6 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
     return entry && entry.status === 'done' ? entry.annotation : null;
   }
 
-  onSync(): void {
-    this.userControlling = false;
-    this.scrollToActiveLine();
-  }
-
-  private onContainerScroll(): void {
-    if (this.isProgrammaticScroll) {
-      // Smooth-scroll burst — let it settle, then re-enable detection.
-      this.armProgrammaticScrollSettle(PROGRAMMATIC_SCROLL_SETTLE_MS);
-      return;
-    }
-    if (!this.isSynced || this.userControlling) {
-      return;
-    }
-    this.ngZone.run(() => {
-      this.userControlling = true;
-      this.cdr.markForCheck();
-    });
-  }
-
   private scrollToActiveLine(): void {
     // Defer scroll to after Angular has updated the DOM
     setTimeout(() => {
@@ -158,26 +99,10 @@ export class LyricsViewComponent implements OnChanges, AfterViewInit, OnDestroy 
       if (!lineElements || !lineElements[this.activeLine]) {
         return;
       }
-      this.beginProgrammaticScroll();
       lineElements[this.activeLine].nativeElement.scrollIntoView({
         behavior: 'smooth',
         block: 'center'
       });
     });
-  }
-
-  private beginProgrammaticScroll(): void {
-    this.isProgrammaticScroll = true;
-    this.armProgrammaticScrollSettle(PROGRAMMATIC_SCROLL_FALLBACK_MS);
-  }
-
-  private armProgrammaticScrollSettle(delay: number): void {
-    if (this.programmaticScrollTimer) {
-      clearTimeout(this.programmaticScrollTimer);
-    }
-    this.programmaticScrollTimer = setTimeout(() => {
-      this.isProgrammaticScroll = false;
-      this.programmaticScrollTimer = null;
-    }, delay);
   }
 }
