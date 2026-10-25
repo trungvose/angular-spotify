@@ -58,7 +58,7 @@ declare global {
   // eslint-disable-next-line no-var
   var LanguageModel:
     | {
-        availability(options?: { languages: string[] }): Promise<AiAvailability>;
+        availability(): Promise<AiAvailability>;
         create(options?: {
           initialPrompts?: { role: 'system' | 'user'; content: string }[];
           monitor?: (m: {

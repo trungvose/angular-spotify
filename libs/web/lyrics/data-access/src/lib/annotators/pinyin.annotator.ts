@@ -6,7 +6,6 @@ export const PINYIN_ANNOTATOR: PromptAnnotatorConfig = {
   kind: 'prompt',
   matchesLanguage: (lang) => lang.startsWith('zh'),
   lineQualifies: containsHan,
-  expectedLanguages: ['zh', 'en'],
   systemPrompt:
     'You are a precise Chinese-to-Hanyu-Pinyin transliterator. ' +
     'Output pinyin WITH tone marks (ā á ǎ à). Do not translate meaning.',

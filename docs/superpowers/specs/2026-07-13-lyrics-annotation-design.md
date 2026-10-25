@@ -91,7 +91,6 @@ export interface AnnotatorConfig {
   kind: 'prompt';                          // union grows to | 'translator' later
   matchesLanguage(lang: string): boolean;  // BCP-47 from LanguageDetector, e.g. 'zh-Hant', 'ja'
   lineQualifies(text: string): boolean;    // which lines get annotated
-  expectedLanguages: string[];             // passed to LanguageModel.availability()
   systemPrompt: string;
   batchInstruction: string;                // per-batch instruction preceding the lines
   toggle: {
@@ -114,7 +113,7 @@ export interface AnnotatorConfig {
 ### The pinyin config (pure extraction)
 
 Current system prompt, batch instruction, `containsHan`,
-`lang.startsWith('zh')`, `expectedLanguages: ['zh','en']`, 拼 icon. **Zero
+`lang.startsWith('zh')`, 拼 icon. **Zero
 behavior change for Chinese songs.**
 
 ### The romaji config (new)
@@ -130,16 +129,16 @@ behavior change for Chinese songs.**
   meaning.
 - `batchInstruction`: same JSON-array-of-strings shape as pinyin, so
   `parseArray` and the length-mismatch guard are shared as-is.
-- `expectedLanguages`: `['ja', 'en']`.
 - `toggle`: icon あ, "Show/Hide romaji", "Preparing romaji…".
 
 ### Flow changes
 
 - **Availability check moves after detection:** today the flow checks
   `availability({languages: ['zh','en']})` before detecting. New order:
-  **detect → pick annotator from registry → check availability with that
-  config's `expectedLanguages`**. A Chrome build could support `zh` but not
-  `ja`; unsupported is silent, per pair.
+  **detect → pick annotator from registry → check availability**
+  (`LanguageModel.availability()` with no options; the Prompt API only accepts
+  `en`/`ja`/`es`/`de`/`fr` as declared languages, so declaring `zh` would
+  always report unavailable). Unsupported is silent.
 - **State shape:** `activeAnnotatorId: string | null` replaces
   `isChinese: boolean`; `annotationByIndex` replaces `pinyinByIndex`. All other
   state fields carry over.

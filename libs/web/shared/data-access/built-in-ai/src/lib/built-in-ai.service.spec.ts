@@ -211,14 +211,13 @@ describe('BuiltInAiService — generic annotation API', () => {
 
   it('checkAvailability returns unavailable when the global is missing', async () => {
     (globalThis as any).LanguageModel = undefined;
-    expect(await service.checkAvailability(['ja', 'en'])).toBe('unavailable');
+    expect(await service.checkAvailability()).toBe('unavailable');
   });
 
-  it('checkAvailability passes the languages through to LanguageModel.availability', async () => {
+  it('checkAvailability returns LanguageModel.availability', async () => {
     const availability = jest.fn().mockResolvedValue('available');
     (globalThis as any).LanguageModel = { availability, create: jest.fn() };
-    expect(await service.checkAvailability(['ja', 'en'])).toBe('available');
-    expect(availability).toHaveBeenCalledWith({ languages: ['ja', 'en'] });
+    expect(await service.checkAvailability()).toBe('available');
   });
 
   it('checkAvailability returns unavailable when availability throws', async () => {
@@ -226,7 +225,7 @@ describe('BuiltInAiService — generic annotation API', () => {
       availability: jest.fn().mockRejectedValue(new Error('boom')),
       create: jest.fn()
     };
-    expect(await service.checkAvailability(['ja', 'en'])).toBe('unavailable');
+    expect(await service.checkAvailability()).toBe('unavailable');
   });
 
   it('createSession passes the given system prompt', async () => {
