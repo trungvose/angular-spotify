@@ -6,7 +6,6 @@ export const ROMAJI_ANNOTATOR: PromptAnnotatorConfig = {
   kind: 'prompt',
   matchesLanguage: (lang) => lang.startsWith('ja'),
   lineQualifies: containsJapanese,
-  expectedLanguages: ['ja', 'en'],
   systemPrompt:
     'You are a precise Japanese-to-romaji transliterator. ' +
     'Romanize kanji, hiragana, and katakana into Hepburn romaji ' +

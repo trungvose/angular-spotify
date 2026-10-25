@@ -37,8 +37,6 @@ export interface AnnotatorConfigBase {
 /** Transliteration pair backed by the Prompt API (Gemini Nano). */
 export interface PromptAnnotatorConfig extends AnnotatorConfigBase {
   kind: 'prompt';
-  /** Passed to LanguageModel.availability() — support is checked per pair. */
-  expectedLanguages: string[];
   systemPrompt: string;
   batchInstruction: string;
 }

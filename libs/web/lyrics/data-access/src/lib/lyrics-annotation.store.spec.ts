@@ -112,12 +112,12 @@ describe('LyricsAnnotationStore — detection gating', () => {
     expect(read<string | null>(store.pageStatusText$)).toBeNull();
   });
 
-  it('checks availability with the matched annotator languages and stays silent when unavailable', async () => {
+  it('checks Prompt API availability and stays silent when unavailable', async () => {
     ai.detectLanguage.mockResolvedValue({ lang: 'ja', confidence: 0.9 });
     ai.checkAvailability.mockResolvedValue('unavailable');
     store.init([{ time: 0, text: 'ありがとう' }]);
     await flush();
-    expect(ai.checkAvailability).toHaveBeenCalledWith(['ja', 'en']);
+    expect(ai.checkAvailability).toHaveBeenCalled();
     expect(read<boolean>(store.showToggle$)).toBe(false);
     expect(read<string | null>(store.pageStatusText$)).toBeNull();
     expect(ai.getPromptEngine).not.toHaveBeenCalled();

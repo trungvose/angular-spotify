@@ -45,12 +45,12 @@ export class BuiltInAiService {
     }
   }
 
-  async checkAvailability(languages: string[]): Promise<AiAvailability> {
+  async checkAvailability(): Promise<AiAvailability> {
     if (!globalThis.LanguageModel) {
       return 'unavailable';
     }
     try {
-      return await globalThis.LanguageModel.availability({ languages });
+      return await globalThis.LanguageModel.availability();
     } catch {
       return 'unavailable';
     }

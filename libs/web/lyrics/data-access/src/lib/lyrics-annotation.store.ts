@@ -129,12 +129,11 @@ export class LyricsAnnotationStore extends ComponentStore<AnnotationState> {
       this.patchState({ activeAnnotatorId: null });
       return;
     }
-    // Support is per pair: Gemini Nano may be available for zh but not ja,
-    // and translation pairs ask the Translator API instead of the Prompt API.
+    // Translation pairs ask the Translator API instead of the Prompt API.
     const availability =
       config.kind === 'translator'
         ? await this.ai.checkTranslatorAvailability(config.sourceLanguage, config.targetLanguage)
-        : await this.ai.checkAvailability(config.expectedLanguages);
+        : await this.ai.checkAvailability();
     if (gen !== this.generation) return;
     if (availability === 'unavailable') {
       this.patchState({ support: 'unsupported', activeAnnotatorId: null });

@@ -45,7 +45,6 @@ describe('pinyin annotator config', () => {
     expect(PINYIN_ANNOTATOR.batchInstruction).toContain('JSON array');
     expect(PINYIN_ANNOTATOR.toggle.icon).toBe('拼');
     expect(PINYIN_ANNOTATOR.toggle.preparingLabel).toBe('Preparing pinyin…');
-    expect(PINYIN_ANNOTATOR.expectedLanguages).toEqual(['zh', 'en']);
   });
 });
 
@@ -63,7 +62,6 @@ describe('romaji annotator config', () => {
     expect(ROMAJI_ANNOTATOR.batchInstruction).toContain('JSON array');
     expect(ROMAJI_ANNOTATOR.toggle.icon).toBe('あ');
     expect(ROMAJI_ANNOTATOR.toggle.preparingLabel).toBe('Preparing romaji…');
-    expect(ROMAJI_ANNOTATOR.expectedLanguages).toEqual(['ja', 'en']);
   });
 });
 
