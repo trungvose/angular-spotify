@@ -7,7 +7,7 @@
       [imageUrl]="playlist.images[0]?.url"
       [description]="playlist.description"
       [artist]="playlist.owner.display_name"
-      [trackCount]="playlist.tracks.total"
+      [trackCount]="$any(playlist).items?.total ?? playlist.tracks?.total"
       [likesCount]="$any(playlist)?.followers?.total"
       >
     </as-media-summary>

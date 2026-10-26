@@ -4,7 +4,7 @@
       [type]="'Artist'"
       [title]="artist.name"
       [imageUrl]="artist.images[0]?.url"
-      [followerCount]="artist.followers.total"
+      [followerCount]="artist.followers?.total"
       >
     </as-media-summary>
     @if (isArtistLoading$ | async) {
