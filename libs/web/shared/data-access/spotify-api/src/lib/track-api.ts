@@ -4,6 +4,8 @@ import { AppConfig, APP_CONFIG } from '@angular-spotify/web/shared/app-config';
 import { SpotifyApiAudioAnalysisResponse, SpotifyApiParams } from '@angular-spotify/web/shared/data-access/models';
 import { SPOTIFY_DEFAULT_LIMIT } from './spotify-api.constant';
 
+const toTrackUris = (ids: string[]) => ids.map((id) => `spotify:track:${id}`).join(',');
+
 @Injectable({ providedIn: 'root' })
 export class TrackApiService {
   constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private http: HttpClient) {}
@@ -34,22 +36,22 @@ export class TrackApiService {
   }
 
   saveTracks(ids: string[]) {
-    return this.http.put<void>(`${this.appConfig.baseURL}/me/tracks`, null, {
-      params: { ids: ids.join(',') }
+    return this.http.put<void>(`${this.appConfig.baseURL}/me/library`, null, {
+      params: { uris: toTrackUris(ids) }
     });
   }
 
   removeTracks(ids: string[]) {
-    return this.http.delete<void>(`${this.appConfig.baseURL}/me/tracks`, {
-      params: { ids: ids.join(',') }
+    return this.http.delete<void>(`${this.appConfig.baseURL}/me/library`, {
+      params: { uris: toTrackUris(ids) }
     });
   }
 
   checkSavedTracks(ids: string[]) {
     return this.http.get<boolean[]>(
-      `${this.appConfig.baseURL}/me/tracks/contains`,
+      `${this.appConfig.baseURL}/me/library/contains`,
       {
-        params: { ids: ids.join(',') }
+        params: { uris: toTrackUris(ids) }
       }
     );
   }

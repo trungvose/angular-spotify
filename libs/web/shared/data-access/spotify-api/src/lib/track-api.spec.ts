@@ -25,29 +25,29 @@ describe('TrackApiService - saved tracks', () => {
 
   afterEach(() => httpMock.verify());
 
-  it('saveTracks issues PUT /me/tracks with ids param', () => {
+  it('saveTracks issues PUT /me/library with uris param', () => {
     service.saveTracks(['a', 'b']).subscribe();
     const req = httpMock.expectOne(
-      `${baseURL}/me/tracks?ids=a,b`
+      `${baseURL}/me/library?uris=spotify:track:a,spotify:track:b`
     );
     expect(req.request.method).toBe('PUT');
     req.flush(null);
   });
 
-  it('removeTracks issues DELETE /me/tracks with ids param', () => {
+  it('removeTracks issues DELETE /me/library with uris param', () => {
     service.removeTracks(['a', 'b']).subscribe();
     const req = httpMock.expectOne(
-      `${baseURL}/me/tracks?ids=a,b`
+      `${baseURL}/me/library?uris=spotify:track:a,spotify:track:b`
     );
     expect(req.request.method).toBe('DELETE');
     req.flush(null);
   });
 
-  it('checkSavedTracks issues GET /me/tracks/contains and returns booleans', () => {
+  it('checkSavedTracks issues GET /me/library/contains and returns booleans', () => {
     let result: boolean[] | undefined;
     service.checkSavedTracks(['a', 'b']).subscribe((r) => (result = r));
     const req = httpMock.expectOne(
-      `${baseURL}/me/tracks/contains?ids=a,b`
+      `${baseURL}/me/library/contains?uris=spotify:track:a,spotify:track:b`
     );
     expect(req.request.method).toBe('GET');
     req.flush([true, false]);
